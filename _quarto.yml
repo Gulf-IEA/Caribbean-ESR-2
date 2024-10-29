@@ -1,0 +1,86 @@
+project: 
+  type: book
+
+book: 
+  page-navigation: true
+  title: "NOAA quarto book" 
+  site-url: "https://nmfs-opensci.github.io/NOAA-quarto-book" 
+  repo-url: "https://github.com/nmfs-opensci/NOAA-quarto-book"
+  repo-actions: [edit, source, issue]
+  favicon: assets/favicon.ico
+  downloads: [pdf, docx]
+  search: true
+  author:
+    - name: Jane Doe
+      affiliations:
+        - name: NOAA Fisheres
+          department: Northwest Fisheries Science Center
+    - name: Eva Nováková
+      institute: test
+      affiliations:
+        - name: NOAA Fisheries
+          department: West Coast Regional Office
+          institute: test
+    - name: Matti Meikäläinen
+      affiliations:
+        - name: NOAA Fisheries
+          department: Southwest Fisheries Science Center
+  chapters:
+    - index.qmd
+    - content/setup.qmd
+    - content/add-content.qmd
+    - content/customizing.qmd
+    - content/rendering.qmd
+    - content/figures_and_tables.qmd
+    - content/code.qmd
+    - content/adding-refs.qmd
+    - content/references.qmd
+
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; CC-1.0"
+  
+  sidebar:
+    background: "#D9E3E4"
+    logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
+    favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://nmfs-opensci.github.io
+        text: "NMFS Open Science"
+    style: "docked"
+    search: true
+    collapse-level: 1
+
+bibliography: [content/references.bib]
+
+execute:
+  echo: false
+  code-overflow: wrap
+
+format:
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    titlepage: "plain"
+    keep-tex: true
+  docx:
+    toc: true
+    toc-depth: 2
+    reference-doc: template.docx
+    always_allow_html: true
+  html:
+    theme: [cosmo, assets/theme.scss] 
+    toc: true
+    toc-depth: 3
+
+filters:
+  - assets/include-files.lua
+  - quarto
+
+# Comment next 2 lines if the PDF is having trouble
+metadata-files:
+  - _frontmatter.yml
+ 
