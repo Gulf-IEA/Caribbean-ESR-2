@@ -17,7 +17,7 @@ book:
           department: Southeast Fisheries Science Center
   chapters:
     - index.qmd
-    - content/setup.qmd
+    - content/introduction.qmd
     - content/add-content.qmd
     - content/customizing.qmd
     - content/rendering.qmd
