@@ -40,33 +40,13 @@
     ]
   },
   {
-    "objectID": "content/add-content.html",
-    "href": "content/add-content.html",
-    "title": "2  Customize",
+    "objectID": "content/risk_indicators.html",
+    "href": "content/risk_indicators.html",
+    "title": "2  Risks to meeting fishery management objectives",
     "section": "",
-    "text": "2.1 Edit and add your pages\nEdit the qmd or md files in the content folder. qmd files can include code (R, Python, Julia) and lots of Quarto markdown bells and whistles (like call-outs, cross-references, auto-citations and much more).\nEach page should start with\nand the first header will be the 2nd level, so ##. Note, there are situations where you leave off\nand start the qmd file with a level header #, but if using the default title yaml (in the --- fence) is a good habit since it makes it easy for Quarto convert your qmd file to other formats (like into a presentation).",
+    "text": "In this section, we examine indicators…\n\n2.0.1 Coral bleaching stress\nAccumulated heat stress, which can lead to coral bleaching and death, is measured by summing degree heating weeks for the most recent 12-week period from sea surface temperature data (cite). Bleaching stress was generally below average until the mid-2000s, until a sudden bleaching event in 2005 which is now the second most severe event in history. In 2024, and unprecedented bleaching event occurred across the U.S. Caribbean and beyond (Figure 2.1).\n\n\n\n\n\n\nFigure 2.1: Number of degree heating weeks in Puerto Rico and the USVI as a measure of thermal stress to corals.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
-    ]
-  },
-  {
-    "objectID": "content/add-content.html#edit-and-add-your-pages",
-    "href": "content/add-content.html#edit-and-add-your-pages",
-    "title": "2  Customize",
-    "section": "",
-    "text": "---\ntitle: your title\n---\n\n---\ntitle: your title\n---",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
-    ]
-  },
-  {
-    "objectID": "content/add-content.html#add-your-pages-the-project",
-    "href": "content/add-content.html#add-your-pages-the-project",
-    "title": "2  Customize",
-    "section": "2.2 Add your pages the project",
-    "text": "2.2 Add your pages the project\n\nAdd the files to _quarto.yml",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customize</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Risks to meeting fishery management objectives</span>"
     ]
   },
   {
