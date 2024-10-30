@@ -19,7 +19,7 @@ book:
     - index.qmd
     - content/introduction.qmd
     - content/risk_indicators.qmd
-    - content/performance_indicators.qmd
+   # - content/performance_indicators.qmd
     - content/synthesis.qmd
     - content/recommendations.qmd
     - content/acknowledgements.qmd
