@@ -12,7 +12,7 @@ The CFMC's Science and Statistical Committee, as well as the region's Ecosystem-
 
 ![Process for selecting indicators for the U.S. Caribbean Ecosystem Status Report.](/images/process_flow_chart.png){#fig-flowchart fig-alt="A figure of a flow chart diagram" fig-align="center"}
 
-This decision matrix was composed of a list of proposed indicators compiled from the conceptual models as well as proposed indicators provided via expert input. These potential indicators were vetted and edited by expert small working groups, who then scored a decision matrix (@fig-2) of potential indicators against the following decision criteria: long term data availability, measurability, sensitivity to environmental changes, specificity, spatial and temporal scalability, relevance to specific FMP objectives, and responsiveness to management actions.
+This decision matrix was composed of a list of proposed indicators compiled from the conceptual models as well as proposed indicators provided via expert input. These potential indicators were vetted and edited by expert small working groups, who then scored a decision matrix (@fig-flowchart) of potential indicators against the following decision criteria: long term data availability, measurability, sensitivity to environmental changes, specificity, spatial and temporal scalability, relevance to specific FMP objectives, and responsiveness to management actions.
 
 ## Notes on interpreting time series figures
 
