@@ -50,9 +50,9 @@ Total landings of conch, lobster, and finfish indicate the ability of U.S. Carib
 
 The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commerical Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (@fig-perlandPR). In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (@fig-perlandSTT). Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (@fig-perlandSTX).
 
-![PR](/indicator_plots/per_landings_PR.png){#fig-perlandPR fig-alt="a plot" fig-align="center"} 
+![PR](/indicator_plots/per_landings_PR.png){#fig-perlandPR fig-alt="a plot" fig-align="center"}
 
-![STT](/indicator_plots/per_landings_STT.png){#fig-perlandSTT fig-alt="a plot" fig-align="center"} 
+![STT](/indicator_plots/per_landings_STT.png){#fig-perlandSTT fig-alt="a plot" fig-align="center"}
 
 ![STX](/indicator_plots/per_landings_STX.png){#fig-perlandSTX fig-alt="a plot" fig-align="center"}
 
@@ -60,17 +60,17 @@ The relative revenue contribution to commercial fisheries by species conveys the
 
 Commercial fishing trips are a useful socioeconomic indicator because they capture the amount and type of effort which may be driven by market factors, regulations, and costs of entering the fishery. The total number of trips, broken down by gear type, was extracted from the Caribbean Commercial Landings database by identifying unique trips based on date and vessel number and extracting the primary reported gear used for each trip. In Puerto Rico trip numbers have generally decreased over time, with marked decreases in 2017 and 2020; sudden changes in the hook and line fishing in 2012 are due to changes in reporting forms (@fig-gearPR). Effort has similarly declined in St. Thomas and St. John; marked declines after 2010 are likely due to reduced reporting (@fig-gearSTT). Similarly, in St. Croix the number of trips has declined, with the 2018-19 fishing season reporting particularly low effort (@fig-gearSTX). Given the potential for changes in reporting to impact trip numbers, it is more informative to look at the composition of gear types. In particular, diving is often a way of entry for new or part-time fishermen as it generally requires lower up-front investments. Peaks in the proportion diving trips in 2017 and 2018 could be a result of lost traps and infrastructure due to hurricanes.
 
-![](/indicator_plots/gearTypes_PR.png){#fig-gearPR fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/gearTypes_PR.png){#fig-gearPR fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/gearTypes_STT.png){#fig-gearSTT fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/gearTypes_STT.png){#fig-gearSTT fig-alt="Plot showing a time series of an indicator"}
 
 ![](/indicator_plots/gearTypes_STX.png){#fig-gearSTX fig-alt="Plot showing a time series of an indicator"}
 
 Ordination of gear types based on reporting landing sites conveys how different regions across the U.S. Caribbean depend on different methods of fishing. Ordinations were conducting using NMDS based on matrices representing the proportion of gears used by landing site; the algorithm seeks to place different sites in an X-dimensional space, such that the physical distances between each pair of sites best represents the differences in gear types employed. Thus, sites that appear more closely together in the figures are more similar in their gear usage, and the position of the gear type labels denote the relative importance of those gears in those sites. In Puerto Rico for example, hook and line and bottom long line are closely related and are particularly prevalent in the northern landing sites (in red), whereas nets and traps are more prevalent in the South (blue) (@fig-NMDSPR). In St. Thomas and St. John, there is an association of traps and hook and line fishing (@fig-NMDSSTT), whereas in St. Croix, those gears are not associated with each other but nets and spearfishing are closely associated within landing sites (@fig-NMDSSTX).
 
-![](/indicator_plots/NMDSgear_PR.png){#fig-NMDSPR fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/NMDSgear_PR.png){#fig-NMDSPR fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/NMDSgear_STT.png){#fig-NMDSSTT fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/NMDSgear_STT.png){#fig-NMDSSTT fig-alt="Plot showing a time series of an indicator"}
 
 ![](/indicator_plots/NMDSgear_STX.png){#fig-NMDSSTX fig-alt="Plot showing a time series of an indicator"}
 
@@ -104,11 +104,11 @@ Equality in the distribution of revenues across the fishery can be represented b
 
 Indicator 26
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20East.png){#fig-CSVIPRE fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20East.png){#fig-CSVIPRE fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20West.png){#fig-CSVIPRW fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20West.png){#fig-CSVIPRW fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Thomas%20&%20St.%20John.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Thomas%20&%20St.%20John.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"}
 
 ![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Croix.png){#fig-CSVISTX fig-alt="Plot showing a time series of an indicator"}
 
@@ -124,13 +124,13 @@ Recreational catch and effort is a major data gap in the U.S. Caribbean. The Mar
 
 Indicator 28
 
-![](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"} 
+![](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/USVI_comm_fishing_reliance.png){#USVIreliance fig-alt="Plot showing a time series of an indicator"}
+![](/indicator_plots/USVI_comm_fishing_reliance.png){#fig-USVIreliance fig-alt="Plot showing a time series of an indicator"}
 
 ## Bycatch reduction
 
@@ -138,11 +138,11 @@ Indicator 28
 
 Data on bycatch in the U.S. Caribbean are lacking; there are no bycatch reporting requirements in the logbook and the region has no observer programs. The selectivity of gears can be considered as some gear types are highly selective (e.g. spearfishing and diving) while other gears capture a wide range of target and non-target species (cite?). We calculated the proportion of non-selective gears (traps and nets) from the Caribbean Commercial Landings database as a proxy for bycatch in the fisheries. Overall the use of these gear types is decreasing in Puerto Rico and St. Croix while it is increasing in St. Thomas and St. John (Fig).
 
-![](/indicator_plots/gearTypes_PR.png){#fig-geartypePR fig-alt="a plot" fig-align="center"} 
+![](/indicator_plots/gearTypes_PR.png){#fig-geartypePR fig-alt="a plot" fig-align="center"}
 
-![](/indicator_plots/gearTypes_STT.png){#fig-geartypeSTT fig-alt="a plot" fig-align="center"}  
+![](/indicator_plots/gearTypes_STT.png){#fig-geartypeSTT fig-alt="a plot" fig-align="center"}
 
-![](/indicator_plots/gearTypes_STX.png){#fig-geartypeSTX fig-alt="a plot" fig-align="center"} 
+![](/indicator_plots/gearTypes_STX.png){#fig-geartypeSTX fig-alt="a plot" fig-align="center"}
 
 ![Diving trips](/indicator_plots/prop_diving_trips_plot_final.png){#fig-dive fig-alt="a plot" fig-align="center"}
 
