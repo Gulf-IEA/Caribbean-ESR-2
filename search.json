@@ -174,34 +174,104 @@
     "href": "content/risk_indicators.html#tourism-air-arrivals-and-cruise-passengers",
     "title": "2  Risks to meeting fishery management objectives",
     "section": "2.13 Tourism (air arrivals and cruise passengers)",
-    "text": "2.13 Tourism (air arrivals and cruise passengers)\nHuman activity has an impact on the marine ecosystem indirectly through its influence on coastal development and pollution, as well as directly through marine tourism, fishing and demand for seafood. Human activity is exerted by the local population as well as the extensive tourism industry that exists in the U.S. Caribbean. Total population estimates are reported by the U.S. Census (??) and tourism activity can be measured through hotel occupancy rates (cite) and the number of cruise passengers (cite). Human population in the U.S. Caribbean has been declining gradually since 2000. Tourism was relatively stable until recent years, with major decreases in 2017 and 2020.\n ## Human population\nIndicator 15\n\n\n\nPopulation plot",
+    "text": "2.13 Tourism (air arrivals and cruise passengers)\nHuman activity has an impact on the marine ecosystem indirectly through its influence on coastal development and pollution, as well as directly through marine tourism, fishing and demand for seafood. Human activity is exerted by the local population as well as the extensive tourism industry that exists in the U.S. Caribbean. Total population estimates are reported by the U.S. Census (??) and tourism activity can be measured through hotel occupancy rates (cite) and the number of cruise passengers (cite). Human population in the U.S. Caribbean has been declining gradually since 2000. Tourism was relatively stable until recent years, with major decreases in 2017 and 2020.\n ## Human population",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Risks to meeting fishery management objectives</span>"
     ]
   },
   {
-    "objectID": "content/customizing.html",
-    "href": "content/customizing.html",
-    "title": "3  Customization",
+    "objectID": "content/risk_indicators.html#human-population",
+    "href": "content/risk_indicators.html#human-population",
+    "title": "2  Risks to meeting fishery management objectives",
+    "section": "2.14 Human population",
+    "text": "2.14 Human population\nIndicator 15\n\n\n\nPopulation plot",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Risks to meeting fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html",
+    "href": "content/performance_indicators.html",
+    "title": "3  Tracking performance toward fishery management objectives",
     "section": "",
-    "text": "3.1 Quarto documentation\nQuarto allow many bells and whistles to make nice output. Read the documentation here Quarto documentation.",
+    "text": "3.1 5.1 Food production",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
     ]
   },
   {
-    "objectID": "content/customizing.html#examples",
-    "href": "content/customizing.html#examples",
-    "title": "3  Customization",
-    "section": "3.2 Examples",
-    "text": "3.2 Examples\nLooking at other people’s Quarto code is a great way to figure out how to do stuff. Most will have a link to a GitHub repo where you can see the raw code. Look for a link to edit page or see source code. This will usually be on the right. Or look for the GitHub icon somewhere.\n\nQuarto gallery\nnmfs-openscapes\nFaye lab manual\nquarto-titlepages Note the link to edit is broken. Go to repo and look in documentation directory.",
+    "objectID": "content/performance_indicators.html#food-production",
+    "href": "content/performance_indicators.html#food-production",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "",
+    "text": "3.1.1 Fishery independent surveys of economically important species\nFishery-independent surveys are conducted to understand relative abundance trends in economically important fish species. The Southeast Fisheries Science Center, in collaboration with many academic and private partners, has been conducting a visual survey of reef fish species in the U.S. Caribbean since XXX (cite). Trends description (Fig)\n\n\n\nRVC PR\n\n\n\n\n\nRVC STSJ\n\n\n\n\n\nRVC STX\n\n\nFishery-independent surveys can be used to look at changes in the overall fish community and understand processes affecting multiple suites of species. The Puerto Rico Long-Term Coral Reef Monitoring Program (PRCRMP) has conducted annual surveys of fish and benthic organisms since 1999 (cite). Similarly, the Territorial Coral Reef Monitoring Program (TCRMP) conducts annual to semi-annual surveys of coral health, fish community structure and coral health (cite). Commercial fish density is calculated by taking the average number of commercial fish per transect over time. The slope of the size spectrum is calculated by binning all observed commercial fish lengths into size categories and then fitting a linear regression through the log-transformed histogram; a more negative slope represents relatively fewer large fish and potentially increased fishing impacts. In Puerto Rico, average commercial fish density was noisy but stable over time; insufficient data were available with which to estimate the slope of the size spectra. In the USVI, commercial fish density was stable over time with a large peak in 2011; the slope of the size spectrum was also relatively stable with a sudden decrease in 2011. Together these indicators convey the sudden appearance of many small species, suggestive of a large recruitment event across multiple species.\n\n\n\nfish density\n\n\n\n\n3.1.2 Pelagic:demersal ratio\nThe ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystem (de Leiva Moreno et al. 2000); in the context of small islands in the tropical seas, it conveys the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal catch were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in Fishbase. In St. Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be due to changes in reporting (logbook to e-reporting). In St. Thomas and St. John, the ratio has gradually increased over time; the large peak in 2018 could have been a result of hurricane-induced reef habitat loss.\n\n\n\nPD ratio\n\n\n\n\n3.1.3 Maximum length and size structure\nThe average maximum length of a species in the landings has been proposed as an indicator of whether large-bodies species have been depleted and are no longer fished (Rochet and Trenkel 2003). The Lmax indicator is derived by assigning a maximum body length for each species (as reported in Fishbase) and then calculating the average body length for the landings in each year, or the proportion of landings within different Lmax classes (based on the Caribbean Commercial Landings database). The average maximum length in the landings has been relatively stable across all islands in the U.S. Caribbean with an uptick across all islands in the last five years; this is partially due to a shift to more pelagic species in the landings (Fig A). In Puerto Rico, there is an overall increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax group is driven by declining catches of mackerels, large rare parrotfishes, tunas, and some large groupers. In St. Thomas there is a notable decrease in the smallest size class (dominated by surgeonfishes and longspine squirrelfish landings) while there are increases in the larger size classes due to increasing catches of tunas and mackerels, as well as red grouper. In St. Croix… Lmax_cat == “(0,40]”) driven by redband parrotfish and princess parrotfish. also herrings and surgeonfishes Lmax_cat == “(60,100]”) mainly stoplight and queen parrotfishes. Also blackfin and silk snapper and red hind Lmax_cat == “(100,200]”) tunas (little tunny) and king mackerel\n\n\n\nPR Lmax\n\n\n\n\n\nSTT Lmax\n\n\n\n\n\nSTX Lmax\n\n\n\n\n3.1.4 Commercial landings\nTotal landings of conch, lobster, and finfish indicate the ability of U.S. Caribbean fisheries to provide food and revenues, and may driven by a combination of trends in underlying abundance, market demand, and fishing effort. Self-reported landings from the Caribbean Commercial Landings were compiled; data were originally compiled by paper logbooks, but starting in 2020 some trips in Puerto Rico were reported using electronic reporting (a telephone application). Since 2005, lobster landings have increased in Puerto Rico and decreased in the USVI, with particularly low values in 2017-18 for St. Thomas and 2018-19 for St. Croix. Conch landings have been more variable with little trend over time, though there was sudden decrease in Puerto Rico conch landings in 2020. Landings of other species have decreased significantly over time, particularly starting in 2010. This coincides with initial implementation of annual catch limits in U.S. Caribbean federal waters and may be caused by changes in reporting rather than true reductions in catch.\n\n\n\nTotal landings",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Customization</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
     ]
   },
   {
-    "objectID": "content/rendering.html",
-    "href": "content/rendering.html",
+    "objectID": "content/performance_indicators.html#socioeconomic-health",
+    "href": "content/performance_indicators.html#socioeconomic-health",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.2 5.2 Socioeconomic health",
+    "text": "3.2 5.2 Socioeconomic health\n\n3.2.1 Total, lobster and conch revenues\nThe relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commerical Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017. In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands. Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues.\n  \n\n\n3.2.2 Total, lobster and conch trips\nCommercial fishing trips are a useful socioeconomic indicator because they capture the amount and type of effort which may be driven by market factors, regulations, and costs of entering the fishery. The total number of trips, broken down by gear type, was extracted from the Caribbean Commercial Landings database by identifying unique trips based on date and vessel number and extracting the primary reported gear used for each trip. In Puerto Rico trip numbers have generally decreased over time, with marked decreases in 2017 and 2020; sudden changes in the hook and line fishing in 2012 are due to changes in reporting forms. Effort has similarly declined in St. Thomas and St. John; marked declines after 2010 are likely due to reduced reporting. Similarly, in St. Croix the number of trips has declined, with the 2018-19 fishing season reporting particularly low effort. Given the potential for changes in reporting to impact trip numbers, it is more informative to look at the composition of gear types. In particular, diving is often a way of entry for new or part-time fishermen as it generally requires lower up-front investments. Peaks in the proportion diving trips in 2017 and 2018 could be a result of lost traps and infrastructure due to hurricanes.\n  \nOrdination of gear types based on reporting landing sites conveys how different regions across the U.S. Caribbean depend on different methods of fishing. Ordinations were conducting using NMDS based on matrices representing the proportion of gears used by landing site; the algorithm seeks to place different sites in an X-dimensional space, such that the physical distances between each pair of sites best represents the differences in gear types employed. Thus, sites that appear more closely together in the figures are more similar in their gear usage, and the position of the gear type labels denote the relative importance of those gears in those sites. In Puerto Rico for example, hook and line and bottom long line are closely related and are particularly prevalent in the northern landing sites (in red), whereas nets and traps are more prevalent in the South (blue). In St. Thomas and St. John, there is an association of traps and hook and line fishing, whereas in St. Croix, those gears are not associated with each other but nets and spearfishing are closely associated within landing sites.\n  \n\n\n3.2.3 Ocean economy establishments, employment, and wages\nIndicator 22\n\n\n\nOcean economy\n\n\n\n\n3.2.4 GDP\nIndicator 23\n\n\n\nGDP\n\n\n\n\n3.2.5 Unemployment\nIndicator 24\n\n\n\nUnemployment",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html#equity",
+    "href": "content/performance_indicators.html#equity",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.3 5.3 Equity",
+    "text": "3.3 5.3 Equity\n\n3.3.1 Gini coefficient for distribution of landings and revenue\nEquality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality (all revenues going to a single individual, Gini 1936). The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits. Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St. Thomas/St. John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St. Croix. There are spikes in inequality in Puerto Rico in 2018 and in St. Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.\n\n\n\nGini coefficient\n\n\n\n\n3.3.2 Environmental justice, economic, and gentrification pressure\nIndicator 26",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html#engagement-and-participation",
+    "href": "content/performance_indicators.html#engagement-and-participation",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.4 5.4 Engagement and participation",
+    "text": "3.4 5.4 Engagement and participation\n\n3.4.1 Recreational landings\nRecreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions. In Puerto Rico and USVI, landings were reconstructed by…[need to fill in]. Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (Fig).\n\n\n\nRec catch\n\n\n\n\n3.4.2 Commercial fishing engagement and reliance\nIndicator 28",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html#bycatch-reduction",
+    "href": "content/performance_indicators.html#bycatch-reduction",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.5 5.5 Bycatch reduction",
+    "text": "3.5 5.5 Bycatch reduction\n\n3.5.1 Changes in gear type\nData on bycatch in the U.S. Caribbean are lacking; there are no bycatch reporting requirements in the logbook and the region has no observer programs. The selectivity of gears can be considered as some gear types are highly selective (e.g. spearfishing and diving) while other gears capture a wide range of target and non-target species (cite?). We calculated the proportion of non-selective gears (traps and nets) from the CaribbeanCommercial Landings database as a proxy for bycatch in the fisheries. Overall the use of these gear types is decreasing in Puerto Rico and St. Croix while it is increasing in St. Thomas and St. John (Fig).\n  \n\n\n\nDiving trips\n\n\n\n\n\nBycatch",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html#governance",
+    "href": "content/performance_indicators.html#governance",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.6 5.5 Governance",
+    "text": "3.6 5.5 Governance\n\n3.6.1 Number of new regulations\nIndicator 30\n\n\n\nRegulations\n\n\n\n\n3.6.2 Percent of species with informative catch limits\nU.S. Caribbean fisheries are highly diverse; over 300 individual species have been recorded in the landings database and there are 54 stocks or complexes within the three Island-based Fishery Management Plans. At the same time, the region is extremely data-limited, with high uncertainty in landings data and lacking reliable indices of abundance, and most annual catch limits are derived using Tier 3 control rules (based on average landings). The percentage of stocks or complexes with annual catch limits informed by stock assessments is a useful indicator for tracking progress toward more robust management advice in the region. In recent years, progress has been made and several stock assessments have been accepted for management advice.\n\n\n\nTier 3 plot\n\n\n\n\n3.6.3 Number of education and outreach events\nPrograms such as MREP (Marine Resource Education Program) and NOAA SeaGrant have made substantial gains in outreach and education in the U.S. Caribbean region. MREP is a program developed for fishermen, by fishermen, and is widely recognized as a key venue for engaging industry members and building trust. Sea Grant is a federal-academic collaboration that supports research, education and extension to support coastal resource conservation, conducting outreach in the form of workshops and meetings. The number of participants benefitting from MREP and SeaGrant programs has increased rapidly in recent year. Cumulative numbers of graduates and attendees are reported because once knowledge is gained it remains in the fishing community and is also spread by word-of-mouth.\n\n\n\nOutreach\n\n\n\n\n3.6.4 Number of enforcement actions\nIndicator 33\n\n\n\nEnforcement",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/performance_indicators.html#protection-of-ecosystems",
+    "href": "content/performance_indicators.html#protection-of-ecosystems",
+    "title": "3  Tracking performance toward fishery management objectives",
+    "section": "3.7 5.6 Protection of ecosystems",
+    "text": "3.7 5.6 Protection of ecosystems\n\n3.7.1 Percent coral cover and coral species diversity\nCoral reef ecosystem integrity is a major concern for stakeholders in the U.S. Caribbean region (Seara et al. 2024). The PRCRMP and TRCMP have measured benthic cover at fixed transects for over two decades, allowing for a comparison over time. Coral species richness was calculated based on the average number of hard coral species per transect, and percent coral cover is reported by….[need to fill in]. Trends in species richness for both Puerto Rico and the USVI fluctuate over time with no clear trend, although there has been a sudden decline in recent years. Percent coral cover has dropped significantly throughout the 25-year time period with large declines occurring in 2005 and 2019, coinciding with major bleaching events.\n\n\n\nCoral",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tracking performance toward fishery management objectives</span>"
+    ]
+  },
+  {
+    "objectID": "content/synthesis.html",
+    "href": "content/synthesis.html",
     "title": "4  Rendering",
     "section": "",
     "text": "4.1 Step 1. Make sure you have a recent RStudio\nHave you updated RStudio since about August 2022? No? Then update to a newer version of RStudio. In general, you want to keep RStudio updated and it is required to have a recent version to use Quarto.",
@@ -210,8 +280,8 @@
     ]
   },
   {
-    "objectID": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
-    "href": "content/rendering.html#step-2.-clone-and-create-rstudio-project",
+    "objectID": "content/synthesis.html#step-2.-clone-and-create-rstudio-project",
+    "href": "content/synthesis.html#step-2.-clone-and-create-rstudio-project",
     "title": "4  Rendering",
     "section": "4.2 Step 2. Clone and create RStudio project",
     "text": "4.2 Step 2. Clone and create RStudio project\nFirst, clone the repo onto your local computer. How? You can click File &gt; New Project and then select “Version Control”. Paste in the url of the repository. That will clone the repo on to your local computer. When you make changes, you will need to push those up.",
@@ -220,8 +290,8 @@
     ]
   },
   {
-    "objectID": "content/rendering.html#step-3.-render-within-rstudio",
-    "href": "content/rendering.html#step-3.-render-within-rstudio",
+    "objectID": "content/synthesis.html#step-3.-render-within-rstudio",
+    "href": "content/synthesis.html#step-3.-render-within-rstudio",
     "title": "4  Rendering",
     "section": "4.3 Step 3. Render within RStudio",
     "text": "4.3 Step 3. Render within RStudio\nRStudio will recognize that this is a Quarto project by the presence of the _quarto.yml file and will see the “Build” tab. Click the “Render website” button to render to the _site folder.\nPreviewing: You can either click index.html in the _site folder and specify “preview in browser” or set up RStudio to preview to the viewer panel. To do the latter, go to Tools &gt; Global Options &gt; R Markdown. Then select “Show output preview in: Viewer panel”.",
@@ -230,73 +300,33 @@
     ]
   },
   {
-    "objectID": "content/figures_and_tables.html",
-    "href": "content/figures_and_tables.html",
-    "title": "5  Figures and Tables",
-    "section": "",
-    "text": "5.1 Code\nYou can embed an R code chunk like this:\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
-    ]
-  },
-  {
-    "objectID": "content/figures_and_tables.html#including-plots",
-    "href": "content/figures_and_tables.html#including-plots",
-    "title": "5  Figures and Tables",
-    "section": "5.2 Including Plots",
-    "text": "5.2 Including Plots\nYou can also embed plots and reference them, like so Figure 5.1.\n\n\n\n\n\n\n\n\nFigure 5.1: Plot of pressure\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
-    ]
-  },
-  {
-    "objectID": "content/figures_and_tables.html#including-tables",
-    "href": "content/figures_and_tables.html#including-tables",
-    "title": "5  Figures and Tables",
-    "section": "5.3 Including Tables",
-    "text": "5.3 Including Tables\nYou can also embed tables and reference them with Table 5.1.\n\nlibrary(knitr)\nkable(head(iris))\n\n\n\nTable 5.1: Iris Data\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Figures and Tables</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html",
-    "href": "content/code.html",
-    "title": "6  Rendering with Code",
-    "section": "",
-    "text": "6.1 Modify the GitHub Action\nYou will need to change the GitHub Action in .github/workflows to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in code.qmd. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.\nIf getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the gh-pages branch. If you do this, make sure to delete or rename the GitHub Action to something like\nso GitHub does not keep trying to run it. Nothing bad will happen if you don’t do this, but if you are not using the action (because it keeps failing), then you don’t need GitHub to run it.",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html#modify-the-github-action",
-    "href": "content/code.html#modify-the-github-action",
-    "title": "6  Rendering with Code",
-    "section": "",
-    "text": "render-and-publish.old_yml",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "href": "content/code.html#render-locally-and-publish-to-gh-pages-branch",
-    "title": "6  Rendering with Code",
-    "section": "6.2 Render locally and publish to gh-pages branch",
-    "text": "6.2 Render locally and publish to gh-pages branch\nTo render locally and push up to the gh-pages branch, open a terminal window and then cd to the directory with the Quarto project. Type this in the terminal:\nquarto render gh-pages",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Rendering with Code</span>"
-    ]
-  },
-  {
-    "objectID": "content/adding-refs.html",
-    "href": "content/adding-refs.html",
-    "title": "7  References",
+    "objectID": "content/recommendations.html",
+    "href": "content/recommendations.html",
+    "title": "5  References",
     "section": "",
     "text": "Quarto has powerful references functionality. You can easily insert citations from Zotero libraries that you maintain in the cloud (on Zotero). This allows the whole team to update the library and you can sync up to that library. Read about this on the Quarto documentation on citations. Google youtube videos on this also to see it in action.\nAdd a .bib file in to your project or add a linked Zotero library via RStudio in Visual mode with Tools &gt; Project Options… &gt; R Markdown &gt; select custom libraries from the Zotero dropdown.\nThe you can type @ and you will see a dropdown of the references in your libraries. You can then select the ones to add. If you don’t see the one you need, you can paste in the DOI and it will be added to your references file (with all the info). The references will be added to your references section of your book automatically.\nSee the references.qmd file for how to include the references.\n\n@ansley1981 will produce Ansley and Davis (1981)\n[@ansley1981] will produce (Ansley and Davis 1981).\n\n\n\n\n\nAnsley, H. L. H., and C. D. Davis. 1981. “Migration and Standing Stock of Fishes Associated with Artificial and Natural Reefs on Georgia’s Outer Continental Shelf.” Brunswick, Georgia, USA.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>References</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>References</span>"
+    ]
+  },
+  {
+    "objectID": "content/acknowledgements.html",
+    "href": "content/acknowledgements.html",
+    "title": "6  Acknowledgments",
+    "section": "",
+    "text": "This repo and GitHub Action was based on the tutorial by Openscapes quarto-website-tutorial by Julia Lowndes and Stefanie Butland.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Acknowledgments</span>"
+    ]
+  },
+  {
+    "objectID": "content/contributors.html",
+    "href": "content/contributors.html",
+    "title": "7  Contributors",
+    "section": "",
+    "text": "Editors Mandy Karnauskas, Carissa Gervasi\nContributors Kelly Montenero, Seann Regan, Amy Freitag, Andrea Chan, Chuanmin Hu, Erica K. Towle, Laura Jay Grove, Jeremiah Blondeau, Sarah Groves, Shay Viehman, Nicole Besemer, Juan Agar, Kevin McCarthy, Manoj Shivlani, Mike Jepson, Adyan Rios, Matt McPherson, Miguel Figuerola, Nicole Angeli, Sennai Habtes, Dione Swanson, Liajay Rivera",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Contributors</span>"
     ]
   },
   {
