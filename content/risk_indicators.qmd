@@ -78,12 +78,8 @@ Alterations to typical fishing patterns can be quantified by analyzing the seaso
 
 Human activity has an impact on the marine ecosystem indirectly through its influence on coastal development and pollution, as well as directly through marine tourism, fishing and demand for seafood. Human activity is exerted by the local population as well as the extensive tourism industry that exists in the U.S. Caribbean. Total population estimates are reported by the U.S. Census (??) and tourism activity can be measured through hotel occupancy rates (cite) and the number of cruise passengers (cite). Human population in the U.S. Caribbean has been declining gradually since 2000. Tourism was relatively stable until recent years, with major decreases in 2017 and 2020.
 
-![Cruise passengers plot](/indicator_plots/cruise_plot_final.png){fig-alt="A plot" fig-align="center"}
-## Human population
+![Cruise passengers plot](/indicator_plots/cruise_plot_final.png){fig-alt="A plot" fig-align="center"} \## Human population
 
 Indicator 15
 
 ![Population plot](/indicator_plots/population_plot_final.png){fig-alt="A plot" fig-align="center"}
-
-
-
