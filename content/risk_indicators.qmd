@@ -1,0 +1,11 @@
+---
+title: Risks to meeting fishery management objectives
+---
+
+In this section, we examine indicators...
+
+### Coral bleaching stress
+
+Accumulated heat stress, which can lead to coral bleaching and death, is measured by summing degree heating weeks for the most recent 12-week period from sea surface temperature data (cite). Bleaching stress was generally below average until the mid-2000s, until a sudden bleaching event in 2005 which is now the second most severe event in history. In 2024, and unprecedented bleaching event occurred across the U.S. Caribbean and beyond (@fig-DHW).
+
+![Number of degree heating weeks in Puerto Rico and the USVI as a measure of thermal stress to corals.](/indicator_plots/DegreeHeatingWeeks_plot_final.png){#fig-DHW fig-alt="A time series plot" fig-align="center"}

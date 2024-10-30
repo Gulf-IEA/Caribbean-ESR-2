@@ -18,7 +18,7 @@ book:
   chapters:
     - index.qmd
     - content/introduction.qmd
-    - content/add-content.qmd
+    - content/risk_indicators.qmd
     - content/customizing.qmd
     - content/rendering.qmd
     - content/figures_and_tables.qmd
