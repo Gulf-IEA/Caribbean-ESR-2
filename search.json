@@ -10,23 +10,33 @@
     ]
   },
   {
-    "objectID": "content/setup.html",
-    "href": "content/setup.html",
-    "title": "1  Set-up",
+    "objectID": "content/introduction.html",
+    "href": "content/introduction.html",
+    "title": "1  Introduction",
     "section": "",
-    "text": "1.1 GitHub Set-up",
+    "text": "1.1 About this report\nThis report is for the Caribbean Fishery Management Council (CFMC). The purpose of this report is to synthesize ecosystem and socioeconomic information to help the CFMC better meet fishery management objectives. This report relied on both previously identified proposed indicators as well as expert vetting to select a suite of indicators that best address the fishery management plan (FMP) objectives for the U.S. Caribbean. Information in this report is organized into two sections: tracking performance toward fishery management objectives and potential risks to meeting fishery management objectives. The style of this report is based on the 2023 State of the Ecosystem Reports for the Northeast U.S. Shelf.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "content/setup.html#github-set-up",
-    "href": "content/setup.html#github-set-up",
-    "title": "1  Set-up",
-    "section": "",
-    "text": "Click the green “use template” button to make a repository with this content. Make sure to make your repo public (since GitHub Pages doesn’t work on private repos unless you have a paid account) and check box to include all the branches (so that you get the gh-pages branch). \nTurn on GitHub Pages under Settings &gt; Pages . You will set pages to be made from the gh-pages branch and root directory. \nTurn on GitHub Actions under Settings &gt; Actions &gt; General \nEdit the repo description and Readme to add a link to the webpage. When you edit the description, you will see the link url in the url box or you can click on the Actions tab or the Settings &gt; Pages page to find the url.",
+    "objectID": "content/introduction.html#report-structure",
+    "href": "content/introduction.html#report-structure",
+    "title": "1  Introduction",
+    "section": "1.2 Report structure",
+    "text": "1.2 Report structure\nThe CFMC’s Science and Statistical Committee, as well as the region’s Ecosystem-Based Fishery Management Technical Advisory Panel (EBFM TAP), recently completed a series of conceptual models linking key components of the ecosystem and human activities related to fishing. This report used these conceptual models as a starting list of proposed indicators and matched the indicators to answer FMP objectives when possible. For those objectives that did not have an immediate conceptual model-identified indicator, this report used a decision matrix process for expert vetting (Figure 1.1).\n\n\n\n\n\n\nFigure 1.1: Process for selecting indicators for the U.S. Caribbean Ecosystem Status Report.\n\n\n\nThis decision matrix was composed of a list of proposed indicators compiled from the conceptual models as well as proposed indicators provided via expert input. These potential indicators were vetted and edited by expert small working groups, who then scored a decision matrix (?fig-2) of potential indicators against the following decision criteria: long term data availability, measurability, sensitivity to environmental changes, specificity, spatial and temporal scalability, relevance to specific FMP objectives, and responsiveness to management actions.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Set-up</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "content/introduction.html#notes-on-interpreting-time-series-figures",
+    "href": "content/introduction.html#notes-on-interpreting-time-series-figures",
+    "title": "1  Introduction",
+    "section": "1.3 Notes on interpreting time series figures",
+    "text": "1.3 Notes on interpreting time series figures\nTime series data are plotted in a standardized format for ease of interpretation (e.g., Figure 1.2). The x-axis represents the temporal dimension, which may be monthly, yearly, or irregular time steps, and the y-axis represents the indicator value in units specified in the axis label. The dashed horizontal line represents the mean indicator value across the entire time series, and the solid horizontal lines denote the mean plus or minus one standard deviation. Red shaded areas and green shaded areas show years for which the indicator value is below or above one standard deviation from the mean, respectively. The blue vertical shaded box highlights the last five years of indicator values, over which additional metrics are calculated. Black circles to the right of each figure indicate whether the indicator values over the last five years are greater (plus sign), less than (minus sign), or within (solid circle) one standard deviation from the mean of the overall time series. Arrows to the right of each figure indicate whether the least squares linear fit through the last five years of data produces a positive or negative slope that is greater than one standard deviation (upward or downward arrows respectively), or less than one standard deviation (left-right arrow).\n\n\n\n\n\n\nFigure 1.2: Example time series plot, showing an indicator plotted with its mean and standard deviation, and trend analysis for the most recent five years of data. See text for more detailed description of specific calculations.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
