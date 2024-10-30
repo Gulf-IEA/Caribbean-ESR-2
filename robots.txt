@@ -1,1 +1,1 @@
-Sitemap: https://nmfs-opensci.github.io/NOAA-quarto-book/sitemap.xml
+Sitemap: https://gulf-iea.github.io/Caribbean-ESR-2/sitemap.xml
