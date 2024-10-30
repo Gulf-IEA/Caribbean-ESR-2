@@ -4,7 +4,7 @@ title: Tracking performance toward fishery management objectives
 
 In this section, we examine indicators related to broad, ecosystem-level fishery management objectives.
 
-## 5.1 Food production
+## Food production
 
 ### Fishery independent surveys of economically important species
 
@@ -42,7 +42,7 @@ Total landings of conch, lobster, and finfish indicate the ability of U.S. Carib
 
 ![Total landings](/indicator_plots/total_landings_plot_final.png){fig-alt="a plot" fig-align="center"}
 
-## 5.2 Socioeconomic health
+## Socioeconomic health
 
 ### Total, lobster and conch revenues
 
@@ -78,7 +78,7 @@ Indicator 24
 
 ![Unemployment](/indicator_plots/unemployment_plot_final.png){fig-alt="a plot" fig-align="center"}
 
-## 5.3 Equity
+## Equity
 
 ### Gini coefficient for distribution of landings and revenue
 
@@ -92,7 +92,7 @@ Indicator 26
 
 ![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20East.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20West.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Croix.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Thomas%20&%20St.%20John.png){fig-alt="Plot showing a time series of an indicator"}
 
-## 5.4 Engagement and participation
+## Engagement and participation
 
 ### Recreational landings
 
@@ -106,7 +106,7 @@ Indicator 28
 
 ![](/indicator_plots/PR_comm_fishing_engagement.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/PR_comm_fishing_reliance.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/USVI_comm_fishing_engagement.png){fig-alt="Plot showing a time series of an indicator"} ![](/indicator_plots/USVI_comm_fishing_reliance.png){fig-alt="Plot showing a time series of an indicator"}
 
-## 5.5 Bycatch reduction
+## Bycatch reduction
 
 ### Changes in gear type
 
@@ -118,7 +118,7 @@ Data on bycatch in the U.S. Caribbean are lacking; there are no bycatch reportin
 
 ![Bycatch](/indicator_plots/prop_trips_bycatch_plot_final.png){fig-alt="a plot" fig-align="center"}
 
-## 5.5 Governance
+## Governance
 
 ### Number of new regulations
 
@@ -144,7 +144,7 @@ Indicator 33
 
 ![Enforcement](/indicator_plots/enforcement_plot_final.png){fig-alt="a plot" fig-align="center"}
 
-## 5.6 Protection of ecosystems
+## Protection of ecosystems
 
 ### Percent coral cover and coral species diversity
 
