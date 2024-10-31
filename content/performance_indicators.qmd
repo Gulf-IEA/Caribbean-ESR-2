@@ -1,5 +1,6 @@
 ---
 title: Tracking performance toward fishery management objectives
+lightbox: TRUE
 ---
 
 In this section, we examine indicators related to broad, ecosystem-level fishery management objectives.

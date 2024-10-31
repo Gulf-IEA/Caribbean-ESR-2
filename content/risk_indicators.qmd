@@ -1,12 +1,13 @@
 ---
 title: Risks to meeting fishery management objectives
+lightbox: TRUE
 ---
 
-In this section, we examine indicators...
+In this section, we examine indicators related to risks to meeting the Fishery Management Plan objectives.
 
 ## Sea surface temperature
 
-Ocean temperatures affect species distributions and other aspects of population dynamics and have impacts on habitats such as coral reefs. Monthly mean, minimum, and maximum sea surface temperatures were calculated based on the 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis (cite). Mean temperatures in the U.S. Caribbean region have been increasing at an average rate of 0.25 degrees C per decade. In the last five years, minimum temperatures have been well above average (@fig-SST), while there has been no long-term or recent trend in maximum temperatures experienced.
+Ocean temperatures affect species distributions and other aspects of population dynamics and have impacts on habitats such as coral reefs. Monthly mean, minimum, and maximum sea surface temperatures were calculated based on the 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis (cite). Mean temperatures in the U.S. Caribbean region have been increasing at an average rate of 0.25 degrees C per decade. In the last five years, minimum temperatures have been well above average, while there has been no long-term or recent trend in maximum temperatures experienced (@fig-SST).
 
 ![SST plot](/indicator_plots/Carib_SST_plot_final.png){#fig-SST fig-alt="a plot" fig-align="center"}
 
@@ -52,7 +53,7 @@ WORKING ON THIS ONE
 
 ## Coastal development
 
-Indicator 10
+Impervious surfaces such as pavement, sidewalks, roofs and roads, as well as other forms of development, reduce the infiltration of water into the ground. Impervious surfaces often contribute to higher storm water runoff, greater sediment yields into coastal areas, and increased pollutant loads, all of which can degrade water quality (NOAA Digital Coast). This indicator influences water quality and turbidity in nearshore coastal habitat areas. The highest amount of impervious surfaces is seen in the San Juan metropolitan area (@fig-landuse).
 
 ![](/indicator_plots/Land_Use_Land_Cover_2024.jpg){#fig-landuse fig-alt="Plot showing a time series of an indicator"}
 
