@@ -75,7 +75,7 @@ library(tidyr)
 url2 <- "https://usviber.org/wp-content/uploads/2023/12/Tourism-indicator-2022-12-28-23-1.pdf"
 
 # Specify the destination file path
-destfile <- "indicator_data/Cruise-indicator-2022-12-28-23-1.pdf"
+destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2022-12-28-23-1.pdf"
 
 # Download the PDF
 download.file(url2, destfile, mode = "wb")
@@ -84,7 +84,7 @@ download.file(url2, destfile, mode = "wb")
 file.exists(destfile)
 
 # Load the PDF
-pdf_file <- "indicator_data/Cruise-indicator-2022-12-28-23-1.pdf"
+pdf_file <- "indicator_data/intermediateFiles/Tourism-indicator-2022-12-28-23-1.pdf"
 
 # Extract text from the PDF
 pdf_text <- pdf_text(pdf_file)
@@ -157,5 +157,8 @@ ind <- inddata
 plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.7, anom = "none", yposadj = 1)
 
 save(ind, file = "indicator_objects/cruise_air_visitors.RData")
+
+
+print("tourism -- SUCCESSFULLY RUN")
 
 ###############################  END  #############################
