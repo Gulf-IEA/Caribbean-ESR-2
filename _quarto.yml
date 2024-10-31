@@ -24,7 +24,7 @@ book:
     - content/recommendations.qmd
     - content/acknowledgements.qmd
     - content/contributors.qmd
-    - content/references.qmd
+   # - content/references.qmd
 
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."

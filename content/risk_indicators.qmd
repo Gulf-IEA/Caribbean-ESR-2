@@ -80,4 +80,4 @@ Human activity has an impact on the marine ecosystem indirectly through its infl
 
 ![Population plot](/indicator_plots/population_plot_final.png){#fig-pop fig-alt="A plot" fig-align="center"}
 
-![Cruise passengers plot](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"} 
+![Cruise passengers plot](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"}
