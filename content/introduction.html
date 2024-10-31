@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -226,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-flowchart" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A figure of a flow chart diagram">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flowchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/process_flow_chart.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A figure of a flow chart diagram">
+<a href="../images/process_flow_chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1.1: Process for selecting indicators for the U.S. Caribbean Ecosystem Status Report."><img src="../images/process_flow_chart.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A figure of a flow chart diagram" width="515"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flowchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.1: Process for selecting indicators for the U.S. Caribbean Ecosystem Status Report.
@@ -241,7 +244,7 @@ Figure&nbsp;1.1: Process for selecting indicators for the U.S. Caribbean Ecosyst
 <div id="fig-explot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="An example time series plot with a decription of how to interpret it.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-explot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/indicator_selection_diagram.png" class="img-fluid figure-img" alt="An example time series plot with a decription of how to interpret it.">
+<a href="../images/indicator_selection_diagram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1.2: Example time series plot, showing an indicator plotted with its mean and standard deviation, and trend analysis for the most recent five years of data. See text for more detailed description of specific calculations."><img src="../images/indicator_selection_diagram.png" class="img-fluid figure-img" alt="An example time series plot with a decription of how to interpret it."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-explot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.2: Example time series plot, showing an indicator plotted with its mean and standard deviation, and trend analysis for the most recent five years of data. See text for more detailed description of specific calculations.
@@ -699,6 +702,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
