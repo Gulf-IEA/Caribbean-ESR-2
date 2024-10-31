@@ -76,7 +76,17 @@ Ordination of gear types based on reporting landing sites conveys how different 
 
 ### Ocean economy establishments, employment, and wages
 
-Indicator 22
+Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages
+(https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of
+establishments, employees, and wages earned for each county by industry (as defined by NAICS code).
+These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to
+track contributions of the ocean economy to the overall economy, however must be taken in their raw
+form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation:
+https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has
+changed through time, with notable updates in 2007, 2011, and 2017 (citation:
+https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean
+economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in
+both Puerto Rico and the USVI are relatively stable through time.
 
 ![Ocean economy](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
 
