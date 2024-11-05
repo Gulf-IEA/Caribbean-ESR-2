@@ -36,24 +36,6 @@ dataset_0 = EPATADA::TADA_BigDataRetrieval(
 dat = dataset_0 #rename to something shorter
 
 
-####### Basic structure and overview
-
-# Display basic structure of the dataset
-str(dat)
-
-# Get summary statistics for each column
-summary(dat)
-
-# Check column names to understand what variables are present
-colnames(dat)
-
-# View the first few rows of the dataset
-head(dat)
-
-# Dimensions of the dataset (rows and columns)
-dim(dat)
-
-
 
 ###### Missing values exploration
 
@@ -73,6 +55,11 @@ dat <- dat[, colSums(is.na(dat)) <= 300000]
 dim(dat)
 
 
+# Save this file so we don't have to download it again
+
+saveRDS(dat, "indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
+
+dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
 
 #### Filter to only include enterococcus measurements
