@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -181,6 +201,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Contributors</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -262,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="fishery-independent-surveys-of-economically-important-species" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="fishery-independent-surveys-of-economically-important-species"><span class="header-section-number">3.1.1</span> Fishery independent surveys of economically important species</h3>
 <p>Fishery-independent surveys are conducted to understand relative abundance trends in economically important fish species. The Southeast Fisheries Science Center, in collaboration with many academic and private partners, has been conducting a visual survey of reef fish species in the U.S. Caribbean since XXX (cite). Trends description (<a href="#fig-RVCPR" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, <a href="#fig-RVCSTSJ" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>, <a href="#fig-RVCSTX" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>)</p>
-<div id="fig-RVCPR" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A plot showing the indicator">
+<div id="fig-RVCPR" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A plot showing the indicator" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-RVCPR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/RVC_PR_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;3.1: RVC PR"><img src="../indicator_plots/RVC_PR_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A plot showing the indicator"></a>
@@ -272,7 +298,7 @@ Figure&nbsp;3.1: RVC PR
 </figcaption>
 </figure>
 </div>
-<div id="fig-RVCSTSJ" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-RVCSTSJ" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-RVCSTSJ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/RVC_STSJ_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;3.2: RVC STSJ"><img src="../indicator_plots/RVC_STSJ_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -282,7 +308,7 @@ Figure&nbsp;3.2: RVC STSJ
 </figcaption>
 </figure>
 </div>
-<div id="fig-RVCSTX" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-RVCSTX" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-RVCSTX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/RVC_STX_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3.3: RVC STX"><img src="../indicator_plots/RVC_STX_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -293,7 +319,7 @@ Figure&nbsp;3.3: RVC STX
 </figure>
 </div>
 <p>Fishery-independent surveys can be used to look at changes in the overall fish community and understand processes affecting multiple suites of species. The Puerto Rico Long-Term Coral Reef Monitoring Program (PRCRMP) has conducted annual surveys of fish and benthic organisms since 1999 (cite). Similarly, the Territorial Coral Reef Monitoring Program (TCRMP) conducts annual to semi-annual surveys of coral health, fish community structure and coral health (cite). Commercial fish density is calculated by taking the average number of commercial fish per transect over time. The slope of the size spectrum is calculated by binning all observed commercial fish lengths into size categories and then fitting a linear regression through the log-transformed histogram; a more negative slope represents relatively fewer large fish and potentially increased fishing impacts. In Puerto Rico, average commercial fish density was noisy but stable over time; insufficient data were available with which to estimate the slope of the size spectra. In the USVI, commercial fish density was stable over time with a large peak in 2011; the slope of the size spectrum was also relatively stable with a sudden decrease in 2011. Together these indicators convey the sudden appearance of many small species, suggestive of a large recruitment event across multiple species (<a href="#fig-fishdensity" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>).</p>
-<div id="fig-fishdensity" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-fishdensity" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fishdensity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/fish_density_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3.4: fish density"><img src="../indicator_plots/fish_density_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -307,7 +333,7 @@ Figure&nbsp;3.4: fish density
 <section id="pelagicdemersal-ratio" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="pelagicdemersal-ratio"><span class="header-section-number">3.1.2</span> Pelagic:demersal ratio</h3>
 <p>The ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystem (de Leiva Moreno et al.&nbsp;2000); in the context of small islands in the tropical seas, it conveys the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal catch were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in Fishbase. In St.&nbsp;Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be due to changes in reporting (logbook to e-reporting). In St.&nbsp;Thomas and St.&nbsp;John, the ratio has gradually increased over time; the large peak in 2018 could have been a result of hurricane-induced reef habitat loss (<a href="#fig-PD" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>).</p>
-<div id="fig-PD" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-PD" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-PD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/PD_ratio_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;3.5: PD ratio"><img src="../indicator_plots/PD_ratio_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -321,7 +347,7 @@ Figure&nbsp;3.5: PD ratio
 <section id="maximum-length-and-size-structure" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="maximum-length-and-size-structure"><span class="header-section-number">3.1.3</span> Maximum length and size structure</h3>
 <p>The average maximum length of a species in the landings has been proposed as an indicator of whether large-bodies species have been depleted and are no longer fished (Rochet and Trenkel 2003). The Lmax indicator is derived by assigning a maximum body length for each species (as reported in Fishbase) and then calculating the average body length for the landings in each year, or the proportion of landings within different Lmax classes (based on the Caribbean Commercial Landings database). The average maximum length in the landings has been relatively stable across all islands in the U.S. Caribbean with an uptick across all islands in the last five years; this is partially due to a shift to more pelagic species in the landings (<a href="#fig-avgLmax" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>). In Puerto Rico, there is an overall increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax group is driven by declining catches of mackerels, large rare parrotfishes, tunas, and some large groupers (<a href="#fig-PRLmax" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>). In St.&nbsp;Thomas there is a notable decrease in the smallest size class (dominated by surgeonfishes and longspine squirrelfish landings) while there are increases in the larger size classes due to increasing catches of tunas and mackerels, as well as red grouper (<a href="#fig-STTLmax" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>). In St.&nbsp;Croix… Lmax_cat == “(0,40”) driven by redband parrotfish and princess parrotfish. also herrings and surgeonfishes Lmax_cat == “(60,100”) mainly stoplight and queen parrotfishes. Also blackfin and silk snapper and red hind Lmax_cat == “(100,200”) tunas (little tunny) and king mackerel (<a href="#fig-STXLmax" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>)</p>
-<div id="fig-avgLmax" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-avgLmax" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-avgLmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/avgLmax_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;3.6: Average Lmax"><img src="../indicator_plots/avgLmax_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -331,7 +357,7 @@ Figure&nbsp;3.6: Average Lmax
 </figcaption>
 </figure>
 </div>
-<div id="fig-PRLmax" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-PRLmax" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-PRLmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/PR_Lmax_classes_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;3.7: PR Lmax"><img src="../indicator_plots/PR_Lmax_classes_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -341,7 +367,7 @@ Figure&nbsp;3.7: PR Lmax
 </figcaption>
 </figure>
 </div>
-<div id="fig-STTLmax" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-STTLmax" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-STTLmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/STT_Lmax_classes_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;3.8: STT Lmax"><img src="../indicator_plots/STT_Lmax_classes_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -351,7 +377,7 @@ Figure&nbsp;3.8: STT Lmax
 </figcaption>
 </figure>
 </div>
-<div id="fig-STXLmax" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-STXLmax" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-STXLmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/STX_Lmax_classes_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;3.9: STX Lmax"><img src="../indicator_plots/STX_Lmax_classes_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -365,7 +391,7 @@ Figure&nbsp;3.9: STX Lmax
 <section id="commercial-landings" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="commercial-landings"><span class="header-section-number">3.1.4</span> Commercial landings</h3>
 <p>Total landings of conch, lobster, and finfish indicate the ability of U.S. Caribbean fisheries to provide food and revenues, and may driven by a combination of trends in underlying abundance, market demand, and fishing effort. Self-reported landings from the Caribbean Commercial Landings were compiled; data were originally compiled by paper logbooks, but starting in 2020 some trips in Puerto Rico were reported using electronic reporting (a telephone application). Since 2005, lobster landings have increased in Puerto Rico and decreased in the USVI, with particularly low values in 2017-18 for St.&nbsp;Thomas and 2018-19 for St.&nbsp;Croix. Conch landings have been more variable with little trend over time, though there was sudden decrease in Puerto Rico conch landings in 2020. Landings of other species have decreased significantly over time, particularly starting in 2010 (<a href="#fig-totalland" class="quarto-xref">Figure&nbsp;<span>3.10</span></a>). This coincides with initial implementation of annual catch limits in U.S. Caribbean federal waters and may be caused by changes in reporting rather than true reductions in catch.</p>
-<div id="fig-totalland" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-totalland" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-totalland-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/total_landings_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;3.10: Total landings"><img src="../indicator_plots/total_landings_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -382,7 +408,7 @@ Figure&nbsp;3.10: Total landings
 <section id="total-lobster-and-conch-revenues" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="total-lobster-and-conch-revenues"><span class="header-section-number">3.2.1</span> Total, lobster and conch revenues</h3>
 <p>The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commerical Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (<a href="#fig-perlandPR" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>). In St.&nbsp;Thomas and St.&nbsp;John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (<a href="#fig-perlandSTT" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>). Revenues in St.&nbsp;Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (<a href="#fig-perlandSTX" class="quarto-xref">Figure&nbsp;<span>3.13</span></a>).</p>
-<div id="fig-perlandPR" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-perlandPR" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-perlandPR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/per_landings_PR.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;3.11: PR"><img src="../indicator_plots/per_landings_PR.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -392,7 +418,7 @@ Figure&nbsp;3.11: PR
 </figcaption>
 </figure>
 </div>
-<div id="fig-perlandSTT" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-perlandSTT" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-perlandSTT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/per_landings_STT.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;3.12: STT"><img src="../indicator_plots/per_landings_STT.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -402,7 +428,7 @@ Figure&nbsp;3.12: STT
 </figcaption>
 </figure>
 </div>
-<div id="fig-perlandSTX" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-perlandSTX" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-perlandSTX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/per_landings_STX.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;3.13: STX"><img src="../indicator_plots/per_landings_STX.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -481,7 +507,7 @@ Figure&nbsp;3.19
 <section id="ocean-economy-establishments-employment-and-wages" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="ocean-economy-establishments-employment-and-wages"><span class="header-section-number">3.2.3</span> Ocean economy establishments, employment, and wages</h3>
 <p>Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy, however must be taken in their raw form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has changed through time, with notable updates in 2007, 2011, and 2017 (citation: https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in both Puerto Rico and the USVI are relatively stable through time.</p>
-<div id="fig-NAICS" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-NAICS" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NAICS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/oceanNAICS_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;3.20: Ocean economy"><img src="../indicator_plots/oceanNAICS_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -495,7 +521,7 @@ Figure&nbsp;3.20: Ocean economy
 <section id="gdp" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="gdp"><span class="header-section-number">3.2.4</span> GDP</h3>
 <p>Indicator 23</p>
-<div id="fig-GDP" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-GDP" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-GDP-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/GDP_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure&nbsp;3.21: GDP"><img src="../indicator_plots/GDP_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -509,7 +535,7 @@ Figure&nbsp;3.21: GDP
 <section id="unemployment" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="unemployment"><span class="header-section-number">3.2.5</span> Unemployment</h3>
 <p>Indicator 24</p>
-<div id="fig-unemp" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-unemp" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-unemp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/unemployment_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure&nbsp;3.22: Unemployment"><img src="../indicator_plots/unemployment_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -526,7 +552,7 @@ Figure&nbsp;3.22: Unemployment
 <section id="gini-coefficient-for-distribution-of-landings-and-revenue" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="gini-coefficient-for-distribution-of-landings-and-revenue"><span class="header-section-number">3.3.1</span> Gini coefficient for distribution of landings and revenue</h3>
 <p>Equality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality (all revenues going to a single individual, Gini 1936). The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits (<a href="#fig-gini" class="quarto-xref">Figure&nbsp;<span>3.23</span></a>). Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St.&nbsp;Thomas/St.&nbsp;John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St.&nbsp;Croix. There are spikes in inequality in Puerto Rico in 2018 and in St.&nbsp;Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.</p>
-<div id="fig-gini" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-gini" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/gini_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure&nbsp;3.23: Gini coefficient"><img src="../indicator_plots/gini_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -586,8 +612,8 @@ Figure&nbsp;3.27
 <h2 data-number="3.4" class="anchored" data-anchor-id="engagement-and-participation"><span class="header-section-number">3.4</span> Engagement and participation</h2>
 <section id="recreational-landings" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="recreational-landings"><span class="header-section-number">3.4.1</span> Recreational landings</h3>
-<p>Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions. In Puerto Rico and USVI, landings were reconstructed by…(need to fill in). Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (<a href="#fig-reccatch" class="quarto-xref">Figure&nbsp;<span>3.28</span></a>).</p>
-<div id="fig-reccatch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<p>Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions <span class="citation" data-cites="pauly2015">(<a href="references.html#ref-pauly2015" role="doc-biblioref">Pauly and Zeller 2015</a>)</span>. In Puerto Rico and USVI, landings were reconstructed by…(need to fill in). Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (<a href="#fig-reccatch" class="quarto-xref">Figure&nbsp;<span>3.28</span></a>).</p>
+<div id="fig-reccatch" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-reccatch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/total_rec_catch_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;3.28: Rec catch"><img src="../indicator_plots/total_rec_catch_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -648,7 +674,7 @@ Figure&nbsp;3.32
 <section id="changes-in-gear-type" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="changes-in-gear-type"><span class="header-section-number">3.5.1</span> Changes in gear type</h3>
 <p>Data on bycatch in the U.S. Caribbean are lacking; there are no bycatch reporting requirements in the logbook and the region has no observer programs. The selectivity of gears can be considered as some gear types are highly selective (e.g.&nbsp;spearfishing and diving) while other gears capture a wide range of target and non-target species (cite?). We calculated the proportion of non-selective gears (traps and nets) from the Caribbean Commercial Landings database as a proxy for bycatch in the fisheries. Overall the use of these gear types is decreasing in Puerto Rico and St.&nbsp;Croix while it is increasing in St.&nbsp;Thomas and St.&nbsp;John (Fig).</p>
-<div id="fig-geartypePR" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-geartypePR" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geartypePR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/gearTypes_PR.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="Figure&nbsp;3.33: "><img src="../indicator_plots/gearTypes_PR.png" id="fig-geartypePR" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" alt="a plot"></a>
@@ -658,7 +684,7 @@ Figure&nbsp;3.33
 </figcaption>
 </figure>
 </div>
-<div id="fig-geartypeSTT" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-geartypeSTT" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geartypeSTT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/gearTypes_STT.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="Figure&nbsp;3.34: "><img src="../indicator_plots/gearTypes_STT.png" id="fig-geartypeSTT" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" alt="a plot"></a>
@@ -668,7 +694,7 @@ Figure&nbsp;3.34
 </figcaption>
 </figure>
 </div>
-<div id="fig-geartypeSTX" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-geartypeSTX" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geartypeSTX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/gearTypes_STX.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Figure&nbsp;3.35: "><img src="../indicator_plots/gearTypes_STX.png" id="fig-geartypeSTX" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" alt="a plot"></a>
@@ -678,7 +704,7 @@ Figure&nbsp;3.35
 </figcaption>
 </figure>
 </div>
-<div id="fig-dive" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-dive" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/prop_diving_trips_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="Figure&nbsp;3.36: Diving trips"><img src="../indicator_plots/prop_diving_trips_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -688,7 +714,7 @@ Figure&nbsp;3.36: Diving trips
 </figcaption>
 </figure>
 </div>
-<div id="fig-bycatch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-bycatch" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bycatch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/prop_trips_bycatch_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="Figure&nbsp;3.37: Bycatch"><img src="../indicator_plots/prop_trips_bycatch_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -705,7 +731,7 @@ Figure&nbsp;3.37: Bycatch
 <section id="number-of-new-regulations" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="number-of-new-regulations"><span class="header-section-number">3.6.1</span> Number of new regulations</h3>
 <p>Indicator 30</p>
-<div id="fig-FR" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-FR" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-FR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/FRsection_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38" title="Figure&nbsp;3.38: Regulations"><img src="../indicator_plots/FRsection_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -719,7 +745,7 @@ Figure&nbsp;3.38: Regulations
 <section id="percent-of-species-with-informative-catch-limits" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="percent-of-species-with-informative-catch-limits"><span class="header-section-number">3.6.2</span> Percent of species with informative catch limits</h3>
 <p>U.S. Caribbean fisheries are highly diverse; over 300 individual species have been recorded in the landings database and there are 54 stocks or complexes within the three Island-based Fishery Management Plans. At the same time, the region is extremely data-limited, with high uncertainty in landings data and lacking reliable indices of abundance, and most annual catch limits are derived using Tier 3 control rules (based on average landings). The percentage of stocks or complexes with annual catch limits informed by stock assessments is a useful indicator for tracking progress toward more robust management advice in the region. In recent years, progress has been made and several stock assessments have been accepted for management advice (<a href="#fig-tier3" class="quarto-xref">Figure&nbsp;<span>3.39</span></a>).</p>
-<div id="fig-tier3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-tier3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tier3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/tier3_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39" title="Figure&nbsp;3.39: Tier 3 plot"><img src="../indicator_plots/tier3_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -733,7 +759,7 @@ Figure&nbsp;3.39: Tier 3 plot
 <section id="number-of-education-and-outreach-events" class="level3" data-number="3.6.3">
 <h3 data-number="3.6.3" class="anchored" data-anchor-id="number-of-education-and-outreach-events"><span class="header-section-number">3.6.3</span> Number of education and outreach events</h3>
 <p>Programs such as MREP (Marine Resource Education Program) and NOAA SeaGrant have made substantial gains in outreach and education in the U.S. Caribbean region. MREP is a program developed for fishermen, by fishermen, and is widely recognized as a key venue for engaging industry members and building trust. Sea Grant is a federal-academic collaboration that supports research, education and extension to support coastal resource conservation, conducting outreach in the form of workshops and meetings. The number of participants benefitting from MREP and SeaGrant programs has increased rapidly in recent year. Cumulative numbers of graduates and attendees are reported because once knowledge is gained it remains in the fishing community and is also spread by word-of-mouth (<a href="#fig-outreach" class="quarto-xref">Figure&nbsp;<span>3.40</span></a>).</p>
-<div id="fig-outreach" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-outreach" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-outreach-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/outreach_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40" title="Figure&nbsp;3.40: Outreach"><img src="../indicator_plots/outreach_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -764,7 +790,7 @@ Figure&nbsp;3.40: Outreach
 <section id="percent-coral-cover-and-coral-species-diversity" class="level3" data-number="3.7.1">
 <h3 data-number="3.7.1" class="anchored" data-anchor-id="percent-coral-cover-and-coral-species-diversity"><span class="header-section-number">3.7.1</span> Percent coral cover and coral species diversity</h3>
 <p>Coral reef ecosystem integrity is a major concern for stakeholders in the U.S. Caribbean region (Seara et al.&nbsp;2024). The PRCRMP and TRCMP have measured benthic cover at fixed transects for over two decades, allowing for a comparison over time. Coral species richness was calculated based on the average number of hard coral species per transect, and percent coral cover is reported by….(need to fill in). Trends in species richness for both Puerto Rico and the USVI fluctuate over time with no clear trend, although there has been a sudden decline in recent years. Percent coral cover has dropped significantly throughout the 25-year time period with large declines occurring in 2005 and 2019, coinciding with major bleaching events (<a href="#fig-coral" class="quarto-xref">Figure&nbsp;<span>3.41</span></a>).</p>
-<div id="fig-coral" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="a plot">
+<div id="fig-coral" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-coral-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../indicator_plots/coral_spprichness_cover_plot_final.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42" title="Figure&nbsp;3.41: Coral"><img src="../indicator_plots/coral_spprichness_cover_plot_final.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="a plot"></a>
@@ -776,6 +802,11 @@ Figure&nbsp;3.41: Coral
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-pauly2015" class="csl-entry" role="listitem">
+Pauly, D, and D Zeller. 2015. <em>Sea Around Us Concepts, Design and Data</em>. Sea Around Us, Institute for the Oceans; Fisheries, University of British Columbia, Vancouver, Canada. <a href="https://www.seaaroundus.org">www.seaaroundus.org</a>.
+</div>
+</div>
 </section>
 </section>
 
@@ -1226,7 +1257,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
