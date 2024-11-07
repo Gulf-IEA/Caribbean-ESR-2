@@ -2,6 +2,14 @@
 
 # STILL WORKING ON THIS, NOT COMPLETE
 
+
+# Questions:
+# different units, how to deal with this? Subset or convert somehow?
+# filtering to only sites with long time series... split out USVI into STT, STJ, STX? Or leave as one? Split PR at all? Subset out the inland counties for PR?
+# sites where multiple measurements were taken on the same day, how to deal with those? Remove one? Just include both in the annual average?
+# Why does PR monitoring end in 2016?
+
+
 if(!"remotes"%in%installed.packages()){
   install.packages("remotes")
 }
@@ -9,6 +17,10 @@ if(!"remotes"%in%installed.packages()){
 remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)
 
 library(EPATADA)
+library(ggplot2)
+library(dplyr)
+library(naniar)  # Package for handling missing data in visualizations
+library(tidyr)
 
 EPATADA::TADA_GetTemplate()
 
@@ -41,10 +53,6 @@ dat = dataset_0 #rename to something shorter
 
 # Count missing values in each column
 sapply(dat, function(x) sum(is.na(x)))
-
-# Visualize missing values pattern
-library(ggplot2)
-library(naniar)  # Package for handling missing data in visualizations
 
 gg_miss_var(dat)  # Shows missing values by variable
 
@@ -86,8 +94,7 @@ head(enterococcus)
 sapply(enterococcus, function(x) sum(is.na(x)))
 
 # Visualize missing values pattern
-library(ggplot2)
-library(naniar)  # Package for handling missing data in visualizations
+
 
 gg_miss_var(enterococcus)  # Shows missing values by variable
 
@@ -95,49 +102,111 @@ gg_miss_var(enterococcus)  # Shows missing values by variable
 enterococcus <- enterococcus[, colSums(is.na(enterococcus)) <= 20000]
 
 
-#Use only routine samples
-ent <- enterococcus[which(enterococcus$ActivityTypeCode=="Sample-Routine"), ] 
+## Do I need to remove non-coastal counties for PR??
 
 
-###################################################
+# filter so we use only routine samples, samples from depths < 10m, and "actual" samples
 
-#### Pick back up here
+ent = enterococcus %>% 
+  filter(ActivityTypeCode == "Sample-Routine" & 
+           TADA.ActivityDepthHeightMeasure.MeasureValue < 10 &
+           ResultValueTypeName == "Actual" 
+           )
 
 
 
-count <- read.table("C://Users/mkarnauskas/Desktop/GOM_ESR_analyses/Gulf_counties.csv", header=T, sep=",")
-co <- toupper(count$COUNTY[which(count$STATE=="Florida")])
-fl <- fl[which(fl$County %in% co), ]                         # use only Gulf side counties (W FL)
-fl <- fl[which(fl$County!="HARDEE"), ]                       # take out non-coastal counties
-fl <- fl[which(fl$County!="MARION"), ]
-dim(fl)
+# format dates and add month, year columns
 
-fl$dep_m <- fl$Activity.Depth
-fl$dep_m[which(fl$Activity.Depth.Unit=="ft")] <- fl$Activity.Depth[which(fl$Activity.Depth.Unit=="ft")]/3
-fl$dep_m[which(fl$dep_m==9999)] <- NA
-fl <- fl[which(fl$dep_m<10), ]                            # use only samples from depths <10 m
-dim(fl)
-fl <- fl[which(fl$Value.Type=="Actual"), ]                # use only 'actual' samples
-dim(fl)
-fl <- fl[which(fl$Result.Value.Status=="Final"), ]        # use only 'final' samples
-dim(fl)
+ent$date2 = ent$ActivityStartDate
 
-dates <- fl$date                                          # format dates from Excel
-dates <- as.character(dates)
-fl$dates <- as.POSIXct(dates, format = "%m/%d/%Y")
-fl$yr <- substr(fl$dates, 1, 4)                           # add month and year columns
-fl$mo <- substr(fl$dates, 6, 7)
-head(fl)
+ent = ent %>% 
+  separate(date2, c("year", "month", "day"))
 
-fl$Result.Value.as.Text <- as.vector(as.character(fl$Result.Value.as.Text))
-fl$Result.Value.as.Text[which(fl$Result.Value.as.Text=="*Non-detect")] <- NA      # put NAs in data values where not recorded
-fl$Result.Value.as.Text[which(fl$Result.Value.as.Text=="*Not Reported")] <- NA
-fl$Result.Value.as.Text <- as.numeric(fl$Result.Value.as.Text)
+ent = ent %>% 
+  mutate(ActivityStartDate = as.POSIXct(ActivityStartDate, format = "%Y-%m-%d"))
+
+head(ent)
+
+str(ent)
+
+ent$ResultMeasureValue = as.numeric(ent$ResultMeasureValue)
+
+
+#get rid of NAs in the measured value
+
+ent = ent %>% 
+  filter(ResultMeasureValue != "NA")
+
+summary(ent)
+
+table(ent$ResultMeasure.MeasureUnitCode)
+table(ent$TADA.ResultMeasure.MeasureUnitCode)
+
+
+# Problem: there are multiple units of measurement in the data. Need to convert them all to the same units
+
+table(ent$TADA.ComparableDataIdentifier, ent$TADA.ResultMeasure.MeasureUnitCode)
+
+
+table(ent$MonitoringLocationName)
+
+
+test = subset(ent, ent$MonitoringLocationName == "Buccaneer Beach")
+
+
+table(test$ActivityStartDate)
+
+
+test2 = as.data.frame(table(ent$MonitoringLocationName, ent$ActivityStartDate))
+
+test3 = subset(ent, ent$MonitoringLocationName == "Condo Row (Princess)")
+
+
+as.data.frame(table(ent$year, ent$MonitoringLocationName))
+
+
+# First remove 2001
+
+ent = ent %>% 
+  filter(year != 2001)
+
+table(ent$year)
+
+
+
+## split PR and USVI 
+
+PR_ent = ent %>% 
+  filter(StateCode == "72")
+
+VI_ent = ent %>% 
+  filter(StateCode == "78")
+
+
+
+tab <- table(PR_ent$year, PR_ent$MonitoringLocationName)            # choose only stations with 7 years of monitoring data for PR
+tab[which(tab>0)] <- 1
+sort(colSums(tab))
+lis <- names(which(colSums(tab)==7))         # list of those stations
+PR_ent2 <- PR_ent[which(PR_ent$MonitoringLocationName %in% lis), ]
+dim(PR_ent2)
+table(PR_ent2$MonitoringLocationName, PR_ent2$year)
+
+
+tab <- table(VI_ent$year, VI_ent$MonitoringLocationName)            # choose only stations with 18 years of monitoring data for USVI
+tab[which(tab>0)] <- 1
+sort(colSums(tab))
+lis <- names(which(colSums(tab)==18))         # list of those stations
+VI_ent2 <- VI_ent[which(VI_ent$MonitoringLocationName %in% lis), ]
+dim(VI_ent2)
+table(VI_ent2$MonitoringLocationName, VI_ent2$year)
+table(VI_ent2$MonitoringLocationName, VI_ent2$CountyCode)
+
+
 
 # QAQC of database
-table(fl$yr)
-table(fl$Units)
-tapply(fl$Result.Value.as.Text, fl$Units, mean, na.rm=T)
+table(ent$year)
+tapply(ent$ResultMeasureValue, ent$year, mean, na.rm=T)
 tapply(fl$Result.Value.as.Text, fl$yr, mean, na.rm=T)
 table(fl$Units, fl$Org.Name)
 

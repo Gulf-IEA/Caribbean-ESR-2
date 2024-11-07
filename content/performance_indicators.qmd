@@ -77,17 +77,7 @@ Ordination of gear types based on reporting landing sites conveys how different 
 
 ### Ocean economy establishments, employment, and wages
 
-Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages
-(https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of
-establishments, employees, and wages earned for each county by industry (as defined by NAICS code).
-These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to
-track contributions of the ocean economy to the overall economy, however must be taken in their raw
-form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation:
-https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has
-changed through time, with notable updates in 2007, 2011, and 2017 (citation:
-https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean
-economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in
-both Puerto Rico and the USVI are relatively stable through time.
+Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy, however must be taken in their raw form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has changed through time, with notable updates in 2007, 2011, and 2017 (citation: https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in both Puerto Rico and the USVI are relatively stable through time.
 
 ![Ocean economy](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
 
@@ -127,7 +117,7 @@ Indicator 26
 
 ### Recreational landings
 
-Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions. In Puerto Rico and USVI, landings were reconstructed by…(need to fill in). Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (@fig-reccatch).
+Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions [@pauly2015]. In Puerto Rico and USVI, landings were reconstructed by…(need to fill in). Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (@fig-reccatch).
 
 ![Rec catch](/indicator_plots/total_rec_catch_plot_final.png){#fig-reccatch fig-alt="a plot" fig-align="center"}
 
