@@ -135,29 +135,29 @@ dev.off()
 
 png(filename = "indicator_plots/avgLmax_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/mean_Lmax.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1.2, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
-png(filename = "indicator_plots/PR_Lmax_classes_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/PR_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/PR_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.3, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 0.7, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
-png(filename = "indicator_plots/STT_Lmax_classes_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/STT_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/STT_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.3, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 0.7, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
-png(filename = "indicator_plots/STX_Lmax_classes_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/STX_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/STX_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.3, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:5, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 0.7, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 19 - total landings
 
 png(filename = "indicator_plots/total_landings_plot_final.png", width = 9, height = 8, units = "in", res = 300)
 load("indicator_objects/total_landings.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:9, plotrownum = 3, plotcolnum = 3, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 0.9, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1.2, cex.lab = 1.4, cex.main = 1.3)
+plotIndicatorTimeSeries(ind, coltoplot = 1:9, plotrownum = 3, plotcolnum = 3, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.8, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 20 - percent revenues by species group
@@ -170,9 +170,9 @@ dev.off()
 
 ### 22 - ocean economy
 
-png(filename = "indicator_plots/oceanNAICS_plot_final.png", width = 6, height = 7, units = "in", res = 300)
+png(filename = "indicator_plots/oceanNAICS_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/oceanNAICS.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:8, plotrownum = 4, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 5, hgtadj = 1, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1.1, cex.main = 1.3)
+plotIndicatorTimeSeries(ind, coltoplot = 1:8, plotrownum = 4, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 5, hgtadj = 1, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 23 - GDP
