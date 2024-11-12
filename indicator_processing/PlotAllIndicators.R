@@ -10,16 +10,16 @@ library(plotTimeSeries)
 
 ### 1 - sea surface temperature
 
-png(filename = "indicator_plots/Carib_SST_plot_final.png", width = 6, height = 8, units = "in", res = 300)
+png(filename = "indicator_plots/Carib_SST_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/Carib_SST.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", sublabel = TRUE, widadj = 0.5, hgtadj = 0.3, anom = "stmon", yposadj = 1, cex.axis = 1.2, cex.lab = 1.5, cex.main = 1.6)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "stmon", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 2 - degree heating weeks
 
-png(filename = "indicator_plots/DegreeHeatingWeeks_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/DegreeHeatingWeeks_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/DegreeHeatingWeeks.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%Y%m", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%Y%m", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 3 - ocean acidification
@@ -45,16 +45,16 @@ dev.off()
 
 ### 6 - identified point source pollution sites
 
-png(filename = "indicator_plots/pollution_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/pollution_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/pollution.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 7 - turbidity
 
-png(filename = "indicator_plots/turbidity_plot_final.png", width = 5, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/turbidity_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/turbidity.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.3, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", sublabel = TRUE, widadj = 1.5, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 8 - water quality
@@ -76,66 +76,66 @@ dev.off()
 
 png(filename = "indicator_plots/Sargassum_plot_final.png", width = 10, height = 4, units = "in", res = 300)
 load("indicator_objects/Sargassum.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = F, widadj = 1.2, hgtadj = 0.9, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = F, widadj = 2, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 12 - market disturbances
 
-png(filename = "indicator_plots/disturbance_plot_final.png", width = 6, height = 8, units = "in", res = 300)
+png(filename = "indicator_plots/disturbance_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/disturbance.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 0.7, hgtadj = 0.5, anom = "none", yposadj = 1.2, cex.axis = 1.2, cex.lab = 1.5, cex.main = 1.6)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.8, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 13 - tourism (air travel and cruise passengers)
 
-png(filename = "indicator_plots/cruise_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/cruise_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/cruise_air_visitors.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1.2, sameYscale = FALSE, cex.axis = 1.3, cex.lab = 1.5, cex.main = 1.6)
+plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 1.2, anom = "none", yposadj = 1.2, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 14 - population
 
-png(filename = "indicator_plots/population_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/population_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/population.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 15 - abundance of economically important fish
 
-png(filename = "indicator_plots/RVC_PR_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/RVC_PR_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/RVC_PR.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1.2, cex.lab = 1.4, cex.main = 1.3)
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
-png(filename = "indicator_plots/RVC_STSJ_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/RVC_STSJ_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/RVC_STSJ.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.4, anom = "none", yposadj = 1, cex.axis = 1.2, cex.lab = 1.4, cex.main = 1.3)
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
-png(filename = "indicator_plots/RVC_STX_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/RVC_STX_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("indicator_objects/RVC_STX.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1.2, cex.lab = 1.4, cex.main = 1.3)
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 16 - abundance of commercial fish and slope of the size spectrum
 
-png(filename = "indicator_plots/fish_density_plot_final.png", width = 7, height = 8, units = "in", res = 300)
+png(filename = "indicator_plots/fish_density_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/fish_density.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 0.7, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1.2, cex.lab = 1.5, cex.main = 1.6)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.8, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 17 - pelagic:demersal ratio
 
-png(filename = "indicator_plots/PD_ratio_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/PD_ratio_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/PD_ratio.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.3, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 18 - Lmax indicator
 
-png(filename = "indicator_plots/avgLmax_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/avgLmax_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/mean_Lmax.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, sameYscale = FALSE, cex.axis = 1.2, cex.lab = 1.4, cex.main = 1.5)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 png(filename = "indicator_plots/PR_Lmax_classes_plot_final.png", width = 7, height = 6, units = "in", res = 300)
@@ -177,16 +177,16 @@ dev.off()
 
 ### 23 - GDP
 
-png(filename = "indicator_plots/GDP_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/GDP_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/GDP.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 24 - unemployment
 
-png(filename = "indicator_plots/unemployment_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/unemployment_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/unemployment.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%Y%b", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%Y%b", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 25 - Gini coefficient
@@ -202,9 +202,9 @@ dev.off()
 
 ### 27 - recreational landings
 
-png(filename = "indicator_plots/total_rec_catch_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/total_rec_catch_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/total_rec_catch.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 28 - commercial engagement and reliance
@@ -215,14 +215,14 @@ dev.off()
 
 #This includes time series but also NMDS plots and barplots
 
-png(filename = "indicator_plots/prop_diving_trips_plot_final.png", width = 7, height = 8, units = "in", res = 300)
+png(filename = "indicator_plots/prop_diving_trips_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/prop_diving_trips.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1.2, cex.axis = 1.2, cex.lab = 1.5, cex.main = 1.6, sameYscale = FALSE)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1, sameYscale = FALSE)
 dev.off()
 
-png(filename = "indicator_plots/prop_trips_bycatch_plot_final.png", width = 7, height = 8, units = "in", res = 300)
+png(filename = "indicator_plots/prop_trips_bycatch_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("indicator_objects/prop_trips_bycatch.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1.2, cex.axis = 1.2, cex.lab = 1.5, cex.main = 1.6, sameYscale = FALSE)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1, sameYscale = FALSE)
 dev.off()
 
 
@@ -235,16 +235,16 @@ dev.off()
 
 ### 31 - percent of species with informative catch limits
 
-png(filename = "indicator_plots/tier3_plot_final.png", width = 8, height = 7, units = "in", res = 300)
+png(filename = "indicator_plots/tier3_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/tier3.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.4, anom = "none", yposadj = 1.2, sameYscale = F, cex.axis = 1.3, cex.lab = 1.5, cex.main = 1.5)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.5, anom = "none", yposadj = 1, sameYscale = F, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 32 - number of education / outreach events
 
-png(filename = "indicator_plots/outreach_plot_final.png", width = 8, height = 7, units = "in", res = 300)
+png(filename = "indicator_plots/outreach_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/outreach.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.4, anom = "none", yposadj = 1.2, sameYscale = F, cex.axis = 1, cex.lab = 1.2, cex.main = 1.5)
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.5, hgtadj = 0.8, anom = "none", yposadj = 1, sameYscale = F, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
 ### 33 - number of enforcement actions
@@ -256,8 +256,8 @@ dev.off()
 
 ### 34 - percent coral cover and species diversity
 
-png(filename = "indicator_plots/coral_spprichness_cover_plot_final.png", width = 7, height = 6, units = "in", res = 300)
+png(filename = "indicator_plots/coral_spprichness_cover_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("indicator_objects/coral_spprichness_cover.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1.2, cex.main = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1.8, hgtadj = 1.2, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1)
 dev.off()
 
