@@ -31,7 +31,7 @@ Hurricane activity can be captured by the accumulated cyclone energy index which
 
 ## Number of major earthquakes
 
-Earthquakes in Puerto Rico can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar]. Seismic events are reported by the USGS in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
+Earthquakes in Puerto Rico can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar2022]. Seismic events are reported by the USGS in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
 
 ![The number of seismic events \>3.5 in the U.S. Caribbean, 1970-2023.](/indicator_plots/earthquakes_plot_final.png){#fig-quakes fig-alt="a plot" fig-align="center"}
 

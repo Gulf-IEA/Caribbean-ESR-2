@@ -2,4 +2,11 @@
 title: Acknowledgments
 ---
 
-## This repo and GitHub Action was based on the tutorial by Openscapes [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial) by Julia Lowndes and Stefanie Butland.
+## Contributions
+
+This report would like to acknowledge the efforts and contributions of: 
+The National Coral Reef Monitoring Program- NOAA Coral Reef Conservation Program, project number 743, as well as the Caribbean Fishery Management Council’s District Advisory Panels for their conceptual model work, the Caribbean Fishery Management Council Technical Advisory Panels, the Caribbean Fishery Management Council Science and Statistical Committee, the Caribbean Fishery Management Council staff, and the NOAA Southeast Fisheries Science Center Social Science team and the Caribbean Branch staff as well as the NOAA Fisheries Southeast Regional Office.
+
+## Resources
+
+This repo and GitHub Action was based on the Openscapes tutorial [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial) by Julia Lowndes and Stefanie Butland.

@@ -9,7 +9,7 @@ In this section, we examine indicators related to broad, ecosystem-level fishery
 
 ### Fishery independent surveys of economically important species
 
-Fishery-independent surveys are conducted to understand relative abundance trends in economically important fish species. The Southeast Fisheries Science Center, in collaboration with many academic and private partners, has been conducting a visual survey of reef fish species in the Florida Keys since 1978, and the survey was expanded to the U.S. Caribbean in 2001 [@smith2011]. Six target fish species (mutton snapper, yellowtail snapper, red hind, queen triggerfish, redband parrotfish, and stoplight parrotfish) were selected as key indicators for the condition of living resources in the U.S. Caribbean, due to their status as targeted species by recreational and commercial fishers. Trends in fish density for these species of interest are highly variable, but have been at or above the time series average in recent years for most species. A notable exception is stoplight parrotfish, which have gradually declined over time in all regions and density is currently below average in St. Croix (@fig-RVCPR, @fig-RVCSTSJ, @fig-RVCSTX).
+Fishery-independent surveys are conducted to understand relative abundance trends in economically important fish species. The Southeast Fisheries Science Center, in collaboration with many academic and private partners, has been conducting a visual survey of reef fish species in the Florida Keys since 1978, and the survey was expanded to the U.S. Caribbean in 2001 [@smith2011]. Six target fish species (mutton snapper, yellowtail snapper, red hind, queen triggerfish, redband parrotfish, and stoplight parrotfish) were selected as key indicators for the condition of living resources in the U.S. Caribbean, due to their status as targeted species by recreational and commercial fishers. Trends in fish density for these species of interest are highly variable, but density has been at or above the time series average in recent years for most species. A notable exception is stoplight parrotfish, which have gradually declined over time in all regions and density is currently below average in St. Croix (@fig-RVCPR, @fig-RVCSTSJ, @fig-RVCSTX).
 
 ![Average density of queen triggerfish, red hind, mutton snapper, yellowtail snapper, redband parrotfish, and stoplight parrotfish over time in Puerto Rico from the National Coral Reef Monitoring Program Reef Visual Census data. A change in sampling methodology occured in 2019, and at the time of publication the mutton snapper time series had not been calibrated, so data are only available from 2019 onward.](/indicator_plots/RVC_PR_plot_final.png){#fig-RVCPR fig-alt="A plot showing the indicator" fig-align="center"}
 
@@ -55,7 +55,7 @@ Total landings of conch, lobster, and finfish indicate the ability of U.S. Carib
 
 ### Total, lobster and conch revenues
 
-The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commerical Landings Data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (@fig-perlandPR). In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (@fig-perlandSTT). Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (@fig-perlandSTX).
+The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commercial Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (@fig-perlandPR). In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (@fig-perlandSTT). Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (@fig-perlandSTX).
 
 ![PR](/indicator_plots/per_landings_PR.png){#fig-perlandPR fig-alt="a plot" fig-align="center"}
 
@@ -85,23 +85,21 @@ Ordination of gear types based on reporting landing sites conveys how different 
 
 ![](/indicator_plots/NMDSgear_STX.png){#fig-NMDSSTX fig-alt="Plot showing a time series of an indicator"}
 
-### Ocean economy establishments, employment, and wages
+### Economic activity
 
-Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy, however must be taken in their raw form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has changed through time, with notable updates in 2007, 2011, and 2017 (citation: https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in both Puerto Rico and the USVI are relatively stable through time (@fig-NAICS).
-
-![Ocean economy](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
-
-### GDP
-
-Indicator 23
+Some high level indicators of economic activity come in the form of GDP and employment trends. Gross Domestic Product (GDP) data come from the Bureau of Economic Analysis (BEA), and indicate an overall general economic expansion in Puerto Rico. GDP in USVI declined substantially from 2007-2014, but has been increasing steadily since (@fig-GDP).
 
 ![GDP](/indicator_plots/GDP_plot_final.png){#fig-GDP fig-alt="a plot" fig-align="center"}
 
-### Unemployment
-
-Indicator 24
+GDP can sometimes underestimate the ocean-dependency of the regions’ local island economies; another indicator that is useful is employment/unemployment rate data, which come from the USVI Bureau of Economic Research.
 
 ![Unemployment](/indicator_plots/unemployment_plot_final.png){#fig-unemp fig-alt="a plot" fig-align="center"}
+
+### Ocean economy establishments, employment, and wages
+
+Due to their unique geography, culture and setting, the islands of Puerto Rico and the U.S. Virgin Islands are more reliant on the surrounding ocean and marine environments than the continental United States. Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy, however must be taken in their raw form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has changed through time, with notable updates in 2007, 2011, and 2017 (citation: https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in both Puerto Rico and the USVI are relatively stable through time (@fig-NAICS).
+
+![Ocean economy](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
 
 ## Equity
 
@@ -181,6 +179,6 @@ Indicator 33
 
 ### Percent coral cover and coral species diversity
 
-Coral reef ecosystem integrity is a major concern for stakeholders in the U.S. Caribbean region (Seara et al. 2024). The PRCRMP and TRCMP have measured benthic cover at fixed transects for over two decades, allowing for a comparison over time. Coral species richness was calculated based on the average number of hard coral species per transect, and percent coral cover is reported by….(need to fill in). Trends in species richness for both Puerto Rico and the USVI fluctuate over time with no clear trend, although there has been a sudden decline in recent years. Percent coral cover has dropped significantly throughout the 25-year time period with large declines occurring in 2005 and 2019, coinciding with major bleaching events (@fig-coral).
+Coral reef ecosystem integrity is a major concern for stakeholders in the U.S. Caribbean region [@seara2024]. The PRCRMP and TRCMP have measured benthic cover at fixed transects for over two decades, allowing for a comparison over time. Coral species richness was calculated based on the average number of hard coral species per transect, and percent coral cover is reported by….(need to fill in). Trends in species richness for both Puerto Rico and the USVI fluctuate over time with no clear trend, although there has been a sudden decline in recent years. Percent coral cover has dropped significantly throughout the 25-year time period with large declines occurring in 2005 and 2019, coinciding with major bleaching events (@fig-coral).
 
 ![Coral](/indicator_plots/coral_spprichness_cover_plot_final.png){#fig-coral fig-alt="a plot" fig-align="center"}

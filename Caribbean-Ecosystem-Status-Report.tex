@@ -75,6 +75,39 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage[default]{opensans}
 \fontseries{lc}\selectfont
@@ -264,8 +297,7 @@ Northwest Fisheries Science Center}}};
 {%
 \fontsize{20}{24.0}\selectfont
  \node[anchor=north west, align=left, rotate=0] (Date1) at %
-($(current page.south west)+(\datelocationleft,\datelocationbottom)$)  [text width = 2.5in]  {{\nohyphens{January
-2023}}};
+($(current page.south west)+(\datelocationleft,\datelocationbottom)$)  [text width = 2.5in]  {{\nohyphens{last-modified}}};
 }
 \end{scope}
 
@@ -494,7 +526,7 @@ for expert vetting (Figure~\ref{fig-flowchart}).
 
 \centering{
 
-\includegraphics{images/process_flow_chart.png}
+\includegraphics[width=5.36458in,height=\textheight]{images/process_flow_chart.png}
 
 }
 
@@ -556,7 +588,8 @@ detailed description of specific calculations.}
 \chapter{Risks to meeting fishery management
 objectives}\label{risks-to-meeting-fishery-management-objectives}
 
-In this section, we examine indicators\ldots{}
+In this section, we examine indicators related to risks to meeting the
+Fishery Management Plan objectives.
 
 \section{Sea surface temperature}\label{sea-surface-temperature}
 
@@ -564,11 +597,12 @@ Ocean temperatures affect species distributions and other aspects of
 population dynamics and have impacts on habitats such as coral reefs.
 Monthly mean, minimum, and maximum sea surface temperatures were
 calculated based on the 1/4 Degree Daily Optimum Interpolation Sea
-Surface Temperature (OISST) Analysis (cite). Mean temperatures in the
-U.S. Caribbean region have been increasing at an average rate of 0.25
-degrees C per decade. In the last five years, minimum temperatures have
-been well above average (Figure~\ref{fig-SST}), while there has been no
-long-term or recent trend in maximum temperatures experienced.
+Surface Temperature (OISST) Analysis (Reynolds et al. 2007). Mean
+temperatures in the U.S. Caribbean region have been increasing at an
+average rate of 0.25 degrees Celsius per decade. In the last five years,
+minimum temperatures have been well above average, while there has been
+no long-term or recent trend in maximum temperatures experienced
+(Figure~\ref{fig-SST}).
 
 \begin{figure}
 
@@ -578,7 +612,9 @@ long-term or recent trend in maximum temperatures experienced.
 
 }
 
-\caption{\label{fig-SST}SST plot}
+\caption{\label{fig-SST}Mean, minimum, and maximum sea surface
+temperature standardized monthly anomalies for the Puerto Rico and USVI
+regions.}
 
 \end{figure}%
 
@@ -586,11 +622,11 @@ long-term or recent trend in maximum temperatures experienced.
 
 Accumulated heat stress, which can lead to coral bleaching and death, is
 measured by summing degree heating weeks for the most recent 12-week
-period from sea surface temperature data (cite). Bleaching stress was
-generally below average until the mid-2000s, until a sudden bleaching
-event in 2005 which is now the second most severe event in history. In
-2024, and unprecedented bleaching event occurred across the U.S.
-Caribbean and beyond (Figure~\ref{fig-DHW}).
+period from sea surface temperature data (NOAA Coral Reef Watch 2019).
+Bleaching stress was generally below average until the mid-2000s, until
+a sudden bleaching event in 2005 which is now the second most severe
+event in history. In 2024, an unprecedented bleaching event occurred
+across the U.S. Caribbean and beyond (Figure~\ref{fig-DHW}).
 
 \begin{figure}
 
@@ -634,11 +670,11 @@ acceleration of this trend apparent after 2008 (Figure~\ref{fig-OA}).
 Hurricane activity can be captured by the accumulated cyclone energy
 index which is calculated as the sum of squared wind speeds for storms
 tracking through the U.S. Caribbean region, as documented by the
-International Best Track Archive for Climate Stewardship database
-(cite). The index has fluctuated throughout the past seven decades, with
-multiple notable peaks (Figure~\ref{fig-ACE}). The year 2017 hurricane
-activity was at an unprecedented high, due to two major hurricanes that
-struck the islands: Irma and Maria.
+International Best Track Archive for Climate Stewardship database (Knapp
+et al. 2010). The index has fluctuated throughout the past seven
+decades, with multiple notable peaks (Figure~\ref{fig-ACE}). The year
+2017 hurricane activity was at an unprecedented high, due to two major
+hurricanes that struck the islands: Irma and Maria.
 
 \begin{figure}
 
@@ -648,7 +684,9 @@ struck the islands: Irma and Maria.
 
 }
 
-\caption{\label{fig-ACE}Hurricane activity}
+\caption{\label{fig-ACE}Annual accumulated cyclone energy index,
+calculated as the sum of squared 6-hourly reported wind speeds for
+storms tracking through the U.S. Caribbean region.}
 
 \end{figure}%
 
@@ -656,11 +694,11 @@ struck the islands: Irma and Maria.
 
 Earthquakes in Puerto Rico can induce landslides and cause impacts to
 infrastructure including homes and the electrical grid, and can be a
-source of stress in the affected human population (Agar et al.~2022 NOAA
-Technical Memorandum NMFS-SEFSC-759). Seismic events are reported by the
-USGS in near real-time (cite). A major earthquake swarm occurred in
-Southwest Puerto Rico in early 2020; in this year there were over 400
-events of greater than 3.5 magnitude on the Richter scale
+source of stress in the affected human population (Agar et al. 2022).
+Seismic events are reported by the USGS in near real-time (Sumy, Welti,
+and Hubenthal 2020). A major earthquake swarm occurred in Southwest
+Puerto Rico in early 2020; in this year there were over 400 events of
+greater than 3.5 magnitude on the Richter scale
 (Figure~\ref{fig-quakes}).
 
 \begin{figure}
@@ -671,7 +709,8 @@ events of greater than 3.5 magnitude on the Richter scale
 
 }
 
-\caption{\label{fig-quakes}Earthquakes plot}
+\caption{\label{fig-quakes}The number of seismic events \textgreater3.5
+in the U.S. Caribbean, 1970-2023.}
 
 \end{figure}%
 
@@ -698,21 +737,25 @@ impacts of pollution.
 
 }
 
-\caption{\label{fig-pollution}Pollution plot}
+\caption{\label{fig-pollution}Annual count of identified point source
+polluters in the U.S. Caribbean: TRI sites (Toxic Release Inventory),
+Superfund sites (Superfund Enterprise Management System), National
+Compliance Database listed sites, and Brownfield sites identified in the
+U.S. Caribbean.}
 
 \end{figure}%
 
 \section{Turbidity}\label{turbidity}
 
 Coastal pollution, runoff, and water quality issues are of major concern
-to fishing-dependent communities in the U.S. Caribbean (Seara et
-al.~2024). Water clarity can be measured by the diffuse attenuation
+to fishing-dependent communities in the U.S. Caribbean (Seara et al.
+2024). Water clarity can be measured by the diffuse attenuation
 coefficient which indicates how strongly light intensity is attenuated
 within the water column; however, satellite sensors cannot differentiate
 between organic and inorganic water particles contributing to water
 clarity. NOAA's Coastwatch program provides estimates of the attenuation
-coefficient for penetration of light at 490nm (Wang et al.~2009) based
-on multiple satellite sensors. (sentence on trends)
+coefficient for penetration of light at 490nm (Wang, Son, and Harding
+Jr. 2009) based on multiple satellite sensors. (sentence on trends)
 
 \begin{figure}
 
@@ -722,7 +765,9 @@ on multiple satellite sensors. (sentence on trends)
 
 }
 
-\caption{\label{fig-turb}Turbidity plot}
+\caption{\label{fig-turb}Water turbidity as measured by the diffuse
+attenuation coefficient, via monthly Kd490 data from the VIIRS
+Coastwatch satellite.}
 
 \end{figure}%
 
@@ -732,17 +777,26 @@ WORKING ON THIS ONE
 
 \section{Coastal development}\label{coastal-development}
 
-Indicator 10
+Impervious surfaces such as pavement, sidewalks, roofs and roads, as
+well as other forms of development, reduce the infiltration of water
+into the ground. Impervious surfaces often contribute to higher storm
+water runoff, greater sediment yields into coastal areas, and increased
+pollutant loads, all of which can degrade water quality (NOAA Digital
+Coast). This indicator influences water quality and turbidity in
+nearshore coastal habitat areas. The highest amount of impervious
+surfaces is seen in the San Juan metropolitan area
+(Figure~\ref{fig-landuse}).
 
 \begin{figure}
 
 \centering{
 
-\captionsetup{labelsep=none}\includegraphics{indicator_plots/Land_Use_Land_Cover_2024.jpg}
+\includegraphics{indicator_plots/Land_Use_Land_Cover_2024.jpg}
 
 }
 
-\caption{\label{fig-landuse}}
+\caption{\label{fig-landuse}Impervious surfaces from development in the
+U.S. Caribbean.}
 
 \end{figure}%
 
@@ -754,10 +808,10 @@ ecosystem and is closely correlated with chlorophyll a concentrations.
 Average chlorophyll a concentrations are derived from the European Space
 Agency Climate Change Initiative's Ocean Colour product which provides a
 bias-corrected composite of measurements merged from multiple satellite
-sensors (cite). Concentrations are plotted as standardized monthly
-anomalies as there is a seasonal signal that could mask long-term
-trends. Estimates show a decadal cyclical pattern, with no overall or
-recent trend apparent (Figure~\ref{fig-chl}).
+sensors (Hu, Lee, and Franz 2012). Concentrations are plotted as
+standardized monthly anomalies as there is a seasonal signal that could
+mask long-term trends. Estimates show a decadal cyclical pattern, with
+no overall or recent trend apparent (Figure~\ref{fig-chl}).
 
 \begin{figure}
 
@@ -767,22 +821,24 @@ recent trend apparent (Figure~\ref{fig-chl}).
 
 }
 
-\caption{\label{fig-chl}PP plot}
+\caption{\label{fig-chl}Changes in ocean color showing monthly maximum
+chlorophyll a levels (standardized monthly anomalies) in the U.S.
+Caribbean region.}
 
 \end{figure}%
 
 \section{Sargassum innundation}\label{sargassum-innundation}
 
-Sargassum (brown macroalgae S. Fluitains and S. natans) is a designated
-essential fish habitat important for many pelagic fish and protected
-species; however, when large blooms collect in nearshore environments
-the mats can reduce oxygen, suffocate beaches and have detrimental
-impacts on marine species. Mean monthly Sargassum wet biomass is
-estimated from satellite measurements using the algorithm of Wang et
-al.~(2018). Sargassum blooms were largely absent from the U.S. Caribbean
-prior to 2011, but bloom activity has been generally increasing since
-that year (Figure~\ref{fig-sarg}). Major inundation events occurred in
-2018 and 2021.
+Sargassum (brown macroalgae \emph{S. Fluitains} and \emph{S. natans}) is
+a designated essential fish habitat important for many pelagic fish and
+protected species; however, when large blooms collect in nearshore
+environments the mats can reduce oxygen, suffocate beaches and have
+detrimental impacts on marine species. Mean monthly Sargassum wet
+biomass is estimated from satellite measurements using the algorithm of
+Wang et al. (2019). Sargassum blooms were largely absent from the U.S.
+Caribbean prior to 2011, but bloom activity has been generally
+increasing since that year (Figure~\ref{fig-sarg}). Major inundation
+events occurred in 2018 and 2021.
 
 \begin{figure}
 
@@ -792,7 +848,8 @@ that year (Figure~\ref{fig-sarg}). Major inundation events occurred in
 
 }
 
-\caption{\label{fig-sarg}Sargassum plot}
+\caption{\label{fig-sarg}Annual mean sargassum inundation in square km
+of cover in the U.S. Caribbean.}
 
 \end{figure}%
 
@@ -818,7 +875,8 @@ in 2017-18 and also 2019-20 (Figure~\ref{fig-dist}).
 
 }
 
-\caption{\label{fig-dist}Disturbance plot}
+\caption{\label{fig-dist}Disturbance level as the difference from mean
+landings of top species for the U.S. Caribbean.}
 
 \end{figure}%
 
@@ -830,11 +888,11 @@ through marine tourism, fishing and demand for seafood. Human activity
 is exerted by the local population as well as the extensive tourism
 industry that exists in the U.S. Caribbean. Total population estimates
 are reported by the U.S. Census (??) and tourism activity can be
-measured through hotel occupancy rates (cite) and the number of cruise
-passengers (cite). Human population in the U.S. Caribbean has been
-declining gradually since 2000 (Figure~\ref{fig-pop}). Tourism was
-relatively stable until recent years, with major decreases in 2017 and
-2020 (Figure~\ref{fig-tourist}).
+measured through hotel occupancy rates (cite) and the number of air and
+cruise passengers (cite). Human population in the U.S. Caribbean has
+been declining gradually since 2000 (Figure~\ref{fig-pop}). Tourism has
+fluctuated over time, with major decreases in 2017 and 2020
+(Figure~\ref{fig-tourist}).
 
 \begin{figure}
 
@@ -844,7 +902,8 @@ relatively stable until recent years, with major decreases in 2017 and
 
 }
 
-\caption{\label{fig-pop}Population plot}
+\caption{\label{fig-pop}Population change in Puerto Rico and USVI from
+2010 through 2024, via census data.}
 
 \end{figure}%
 
@@ -856,7 +915,9 @@ relatively stable until recent years, with major decreases in 2017 and
 
 }
 
-\caption{\label{fig-tourist}Cruise passengers plot}
+\caption{\label{fig-tourist}Annual tourism activity in Puerto Rico and
+USVI as indicated by the number of cruise and air passengers visiting
+the islands.}
 
 \end{figure}%
 
@@ -877,9 +938,18 @@ Fishery-independent surveys are conducted to understand relative
 abundance trends in economically important fish species. The Southeast
 Fisheries Science Center, in collaboration with many academic and
 private partners, has been conducting a visual survey of reef fish
-species in the U.S. Caribbean since XXX (cite). Trends description
-(Figure~\ref{fig-RVCPR}, Figure~\ref{fig-RVCSTSJ},
-Figure~\ref{fig-RVCSTX})
+species in the Florida Keys since 1978, and the survey was expanded to
+the U.S. Caribbean in 2001 (Smith et al. 2011). Six target fish species
+(mutton snapper, yellowtail snapper, red hind, queen triggerfish,
+redband parrotfish, and stoplight parrotfish) were selected as key
+indicators for the condition of living resources in the U.S. Caribbean,
+due to their status as targeted species by recreational and commercial
+fishers. Trends in fish density for these species of interest are highly
+variable, but density has been at or above the time series average in
+recent years for most species. A notable exception is stoplight
+parrotfish, which have gradually declined over time in all regions and
+density is currently below average in St.~Croix (Figure~\ref{fig-RVCPR},
+Figure~\ref{fig-RVCSTSJ}, Figure~\ref{fig-RVCSTX}).
 
 \begin{figure}
 
@@ -889,7 +959,13 @@ Figure~\ref{fig-RVCSTX})
 
 }
 
-\caption{\label{fig-RVCPR}RVC PR}
+\caption{\label{fig-RVCPR}Average density of queen triggerfish, red
+hind, mutton snapper, yellowtail snapper, redband parrotfish, and
+stoplight parrotfish over time in Puerto Rico from the National Coral
+Reef Monitoring Program Reef Visual Census data. A change in sampling
+methodology occured in 2019, and at the time of publication the mutton
+snapper time series had not been calibrated, so data are only available
+from 2019 onward.}
 
 \end{figure}%
 
@@ -897,11 +973,17 @@ Figure~\ref{fig-RVCSTX})
 
 \centering{
 
-\includegraphics{indicator_plots/RVC_STSJ_plot_final.png}
+\includegraphics{indicator_plots/RVC_PR_plot_final.png}
 
 }
 
-\caption{\label{fig-RVCSTSJ}RVC STSJ}
+\caption{\label{fig-RVCSTSJ}Average density of queen triggerfish, red
+hind, mutton snapper, yellowtail snapper, redband parrotfish, and
+stoplight parrotfish over time in St.~Thomas and St.~John from the
+National Coral Reef Monitoring Program Reef Visual Census data. A change
+in sampling methodology occured in 2019, and at the time of publication
+the mutton snapper time series had not been calibrated, so data are only
+available from 2019 onward.}
 
 \end{figure}%
 
@@ -909,11 +991,17 @@ Figure~\ref{fig-RVCSTX})
 
 \centering{
 
-\includegraphics{indicator_plots/RVC_STX_plot_final.png}
+\includegraphics{indicator_plots/RVC_PR_plot_final.png}
 
 }
 
-\caption{\label{fig-RVCSTX}RVC STX}
+\caption{\label{fig-RVCSTX}Average density of queen triggerfish, red
+hind, mutton snapper, yellowtail snapper, redband parrotfish, and
+stoplight parrotfish over time in St.~Croix from the National Coral Reef
+Monitoring Program Reef Visual Census data. A change in sampling
+methodology occured in 2019, and at the time of publication the mutton
+snapper time series had not been calibrated, so data are only available
+from 2019 onward.}
 
 \end{figure}%
 
@@ -921,22 +1009,22 @@ Fishery-independent surveys can be used to look at changes in the
 overall fish community and understand processes affecting multiple
 suites of species. The Puerto Rico Long-Term Coral Reef Monitoring
 Program (PRCRMP) has conducted annual surveys of fish and benthic
-organisms since 1999 (cite). Similarly, the Territorial Coral Reef
-Monitoring Program (TCRMP) conducts annual to semi-annual surveys of
-coral health, fish community structure and coral health (cite).
-Commercial fish density is calculated by taking the average number of
-commercial fish per transect over time. The slope of the size spectrum
-is calculated by binning all observed commercial fish lengths into size
-categories and then fitting a linear regression through the
-log-transformed histogram; a more negative slope represents relatively
-fewer large fish and potentially increased fishing impacts. In Puerto
-Rico, average commercial fish density was noisy but stable over time;
-insufficient data were available with which to estimate the slope of the
-size spectra. In the USVI, commercial fish density was stable over time
-with a large peak in 2011; the slope of the size spectrum was also
-relatively stable with a sudden decrease in 2011. Together these
-indicators convey the sudden appearance of many small species,
-suggestive of a large recruitment event across multiple species
+organisms since 1999 (Natural and Environmental Resources 2019).
+Similarly, the Territorial Coral Reef Monitoring Program (TCRMP)
+conducts annual to semi-annual surveys of coral health, fish community
+structure and coral health (cite). Commercial fish density is calculated
+by taking the average number of commercial fish per transect over time.
+The slope of the size spectrum is calculated by binning all observed
+commercial fish lengths into size categories and then fitting a linear
+regression through the log-transformed histogram; a more negative slope
+represents relatively fewer large fish and potentially increased fishing
+impacts. In Puerto Rico, average commercial fish density was noisy but
+stable over time; insufficient data were available with which to
+estimate the slope of the size spectra. In the USVI, commercial fish
+density was stable over time with a large peak in 2011; the slope of the
+size spectrum was also relatively stable with a sudden decrease in 2011.
+Together these indicators convey the sudden appearance of many small
+species, suggestive of a large recruitment event across multiple species
 (Figure~\ref{fig-fishdensity}).
 
 \begin{figure}
@@ -954,22 +1042,22 @@ suggestive of a large recruitment event across multiple species
 \subsection{Pelagic:demersal ratio}\label{pelagicdemersal-ratio}
 
 The ratio of pelagic to demersal species is thought to be responsive to
-nutrient inputs and the quality of benthic habitat in marine ecosystem
-(de Leiva Moreno et al.~2000); in the context of small islands in the
+nutrient inputs and the quality of benthic habitat in marine ecosystems
+(Leiva Moreno et al. 2000); in the context of small islands in the
 tropical seas, it conveys the availability and productivity of pelagic
 habitats relative to the size of the shelf and productivity of coral
 reef habitats. Ratios of pelagic to demersal catch were calculated based
 on total pounds reported in the Caribbean Commercial Landings data,
 following a classification of all species based on their reported
-ecology in Fishbase. In St.~Croix, the pelagic-demersal ratio is much
-higher than the other islands, due to the small shelf area and limited
-availability of reef habitat; interannual fluctuations for this island
-are largely influenced by landings of dolphinfish and tunas. In Puerto
-Rico, the pelagic-demersal ratio has increased in recent years; this may
-be due to changes in reporting (logbook to e-reporting). In St.~Thomas
-and St.~John, the ratio has gradually increased over time; the large
-peak in 2018 could have been a result of hurricane-induced reef habitat
-loss (Figure~\ref{fig-PD}).
+ecology in FishBase (Froese and Pauly 2024). In St.~Croix, the
+pelagic-demersal ratio is much higher than the other islands, due to the
+small shelf area and limited availability of reef habitat; interannual
+fluctuations for this island are largely influenced by landings of
+dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has
+increased in recent years; this may be due to changes in reporting
+(logbook to e-reporting). In St.~Thomas and St.~John, the ratio has
+gradually increased over time; the large peak in 2018 could have been a
+result of hurricane-induced reef habitat loss (Figure~\ref{fig-PD}).
 
 \begin{figure}
 
@@ -990,29 +1078,14 @@ The average maximum length of a species in the landings has been
 proposed as an indicator of whether large-bodies species have been
 depleted and are no longer fished (Rochet and Trenkel 2003). The Lmax
 indicator is derived by assigning a maximum body length for each species
-(as reported in Fishbase) and then calculating the average body length
+(as reported in FishBase) and then calculating the average body length
 for the landings in each year, or the proportion of landings within
 different Lmax classes (based on the Caribbean Commercial Landings
 database). The average maximum length in the landings has been
 relatively stable across all islands in the U.S. Caribbean with an
 uptick across all islands in the last five years; this is partially due
 to a shift to more pelagic species in the landings
-(Figure~\ref{fig-avgLmax}). In Puerto Rico, there is an overall
-increasing trend of ``plate-sized'' fish in the 60-100cm category which
-is driven by increased landings of deepwater snapper species, yellowtail
-snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax
-group is driven by declining catches of mackerels, large rare
-parrotfishes, tunas, and some large groupers (Figure~\ref{fig-PRLmax}).
-In St.~Thomas there is a notable decrease in the smallest size class
-(dominated by surgeonfishes and longspine squirrelfish landings) while
-there are increases in the larger size classes due to increasing catches
-of tunas and mackerels, as well as red grouper
-(Figure~\ref{fig-STTLmax}). In St.~Croix\ldots{} Lmax\_cat == ``(0,40'')
-driven by redband parrotfish and princess parrotfish. also herrings and
-surgeonfishes Lmax\_cat == ``(60,100'') mainly stoplight and queen
-parrotfishes. Also blackfin and silk snapper and red hind Lmax\_cat ==
-``(100,200'') tunas (little tunny) and king mackerel
-(Figure~\ref{fig-STXLmax})
+(Figure~\ref{fig-avgLmax}).
 
 \begin{figure}
 
@@ -1026,6 +1099,13 @@ parrotfishes. Also blackfin and silk snapper and red hind Lmax\_cat ==
 
 \end{figure}%
 
+In Puerto Rico, there is an overall increasing trend of ``plate-sized''
+fish in the 60-100cm category which is driven by increased landings of
+deepwater snapper species, yellowtail snapper, hogfish and red hind,
+while a decrease in the 100-200cm Lmax group is driven by declining
+catches of mackerels, large rare parrotfishes, tunas, and some large
+groupers (Figure~\ref{fig-PRLmax}).
+
 \begin{figure}
 
 \centering{
@@ -1038,6 +1118,12 @@ parrotfishes. Also blackfin and silk snapper and red hind Lmax\_cat ==
 
 \end{figure}%
 
+In St.~Thomas there is a notable decrease in the smallest size class
+(dominated by surgeonfishes and longspine squirrelfish landings) while
+there are increases in the larger size classes due to increasing catches
+of tunas and mackerels, as well as red grouper
+(Figure~\ref{fig-STTLmax}).
+
 \begin{figure}
 
 \centering{
@@ -1049,6 +1135,12 @@ parrotfishes. Also blackfin and silk snapper and red hind Lmax\_cat ==
 \caption{\label{fig-STTLmax}STT Lmax}
 
 \end{figure}%
+
+In St.~Croix\ldots{} Lmax\_cat == ``(0,40'') driven by redband
+parrotfish and princess parrotfish. also herrings and surgeonfishes
+Lmax\_cat == ``(60,100'') mainly stoplight and queen parrotfishes. Also
+blackfin and silk snapper and red hind Lmax\_cat == ``(100,200'') tunas
+(little tunny) and king mackerel (Figure~\ref{fig-STXLmax}).
 
 \begin{figure}
 
@@ -1065,20 +1157,20 @@ parrotfishes. Also blackfin and silk snapper and red hind Lmax\_cat ==
 \subsection{Commercial landings}\label{commercial-landings}
 
 Total landings of conch, lobster, and finfish indicate the ability of
-U.S. Caribbean fisheries to provide food and revenues, and may driven by
-a combination of trends in underlying abundance, market demand, and
+U.S. Caribbean fisheries to provide food and revenues, and may be driven
+by a combination of trends in underlying abundance, market demand, and
 fishing effort. Self-reported landings from the Caribbean Commercial
-Landings were compiled; data were originally compiled by paper logbooks,
-but starting in 2020 some trips in Puerto Rico were reported using
-electronic reporting (a telephone application). Since 2005, lobster
-landings have increased in Puerto Rico and decreased in the USVI, with
-particularly low values in 2017-18 for St.~Thomas and 2018-19 for
-St.~Croix. Conch landings have been more variable with little trend over
-time, though there was sudden decrease in Puerto Rico conch landings in
-2020. Landings of other species have decreased significantly over time,
-particularly starting in 2010 (Figure~\ref{fig-totalland}). This
-coincides with initial implementation of annual catch limits in U.S.
-Caribbean federal waters and may be caused by changes in reporting
+Landings Data were compiled; data were originally compiled by paper
+logbooks, but starting in 2020 some trips in Puerto Rico were reported
+using electronic reporting (a telephone application). Since 2005,
+lobster landings have increased in Puerto Rico and decreased in the
+USVI, with particularly low values in 2017-18 for St.~Thomas and 2018-19
+for St.~Croix. Conch landings have been more variable with little trend
+over time, though there was a sudden decrease in Puerto Rico conch
+landings in 2020. Landings of other species have decreased significantly
+over time, particularly starting in 2010 (Figure~\ref{fig-totalland}).
+This coincides with initial implementation of annual catch limits in
+U.S. Caribbean federal waters and may be caused by changes in reporting
 rather than true reductions in catch.
 
 \begin{figure}
@@ -1100,7 +1192,7 @@ revenues}\label{total-lobster-and-conch-revenues}
 
 The relative revenue contribution to commercial fisheries by species
 conveys the changing reliance on different species across the U.S.
-Caribbean. Revenues were calculated from the Caribbean Commerical
+Caribbean. Revenues were calculated from the Caribbean Commercial
 Landings data based on the weight of landings in each trip and the
 reported price; anomalously high prices and missing values were replaced
 by the overall average price for the given species group. In Puerto
@@ -1160,20 +1252,14 @@ factors, regulations, and costs of entering the fishery. The total
 number of trips, broken down by gear type, was extracted from the
 Caribbean Commercial Landings database by identifying unique trips based
 on date and vessel number and extracting the primary reported gear used
-for each trip. In Puerto Rico trip numbers have generally decreased over
-time, with marked decreases in 2017 and 2020; sudden changes in the hook
-and line fishing in 2012 are due to changes in reporting forms
+for each trip. In Puerto Rico, trip numbers have generally decreased
+over time, with marked decreases in 2017 and 2020; sudden changes in the
+hook and line fishing in 2012 are due to changes in reporting forms
 (Figure~\ref{fig-gearPR}). Effort has similarly declined in St.~Thomas
 and St.~John; marked declines after 2010 are likely due to reduced
 reporting (Figure~\ref{fig-gearSTT}). Similarly, in St.~Croix the number
 of trips has declined, with the 2018-19 fishing season reporting
-particularly low effort (Figure~\ref{fig-gearSTX}). Given the potential
-for changes in reporting to impact trip numbers, it is more informative
-to look at the composition of gear types. In particular, diving is often
-a way of entry for new or part-time fishermen as it generally requires
-lower up-front investments. Peaks in the proportion diving trips in 2017
-and 2018 could be a result of lost traps and infrastructure due to
-hurricanes.
+particularly low effort (Figure~\ref{fig-gearSTX}).
 
 \begin{figure}
 
@@ -1208,6 +1294,25 @@ hurricanes.
 }
 
 \caption{\label{fig-gearSTX}}
+
+\end{figure}%
+
+Given the potential for changes in reporting to impact trip numbers, it
+is more informative to look at the composition of gear types. In
+particular, diving is often a way of entry for new or part-time
+fishermen as it generally requires lower up-front investments. Peaks in
+the proportion diving trips in 2017 and 2018 could be a result of lost
+traps and infrastructure due to hurricanes (Figure~\ref{fig-dive}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{indicator_plots/prop_diving_trips_plot_final.png}
+
+}
+
+\caption{\label{fig-dive}Diving trips}
 
 \end{figure}%
 
@@ -1265,26 +1370,14 @@ associated within landing sites (Figure~\ref{fig-NMDSSTX}).
 
 \end{figure}%
 
-\subsection{Ocean economy establishments, employment, and
-wages}\label{ocean-economy-establishments-employment-and-wages}
+\subsection{Economic activity}\label{economic-activity}
 
-Indicator 22
-
-\begin{figure}
-
-\centering{
-
-\includegraphics{indicator_plots/oceanNAICS_plot_final.png}
-
-}
-
-\caption{\label{fig-NAICS}Ocean economy}
-
-\end{figure}%
-
-\subsection{GDP}\label{gdp}
-
-Indicator 23
+Some high level indicators of economic activity come in the form of GDP
+and employment trends. Gross Domestic Product (GDP) data come from the
+Bureau of Economic Analysis (BEA), and indicate an overall general
+economic expansion in Puerto Rico. GDP in USVI declined substantially
+from 2007-2014, but has been increasing steadily since
+(Figure~\ref{fig-GDP}).
 
 \begin{figure}
 
@@ -1298,9 +1391,10 @@ Indicator 23
 
 \end{figure}%
 
-\subsection{Unemployment}\label{unemployment}
-
-Indicator 24
+GDP can sometimes underestimate the ocean-dependency of the regions'
+local island economies; another indicator that is useful is
+employment/unemployment rate data, which come from the USVI Bureau of
+Economic Research.
 
 \begin{figure}
 
@@ -1311,6 +1405,42 @@ Indicator 24
 }
 
 \caption{\label{fig-unemp}Unemployment}
+
+\end{figure}%
+
+\subsection{Ocean economy establishments, employment, and
+wages}\label{ocean-economy-establishments-employment-and-wages}
+
+Due to their unique geography, culture and setting, the islands of
+Puerto Rico and the U.S. Virgin Islands are more reliant on the
+surrounding ocean and marine environments than the continental United
+States. Data from the Bureau of Labor Statistics Quarterly Census of
+Employment and Wages
+(https://www.bls.gov/cew/downloadable-data-files.htm) provides data on
+the number of establishments, employees, and wages earned for each
+county by industry (as defined by NAICS code). These data underpin the
+Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to
+track contributions of the ocean economy to the overall economy, however
+must be taken in their raw form for the US territories because overall
+GDP is not calculated in the territories. We used the NAICS codes
+defined by the ENOW program as contributing to the ocean economy
+(citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf).
+The NAICS classification system has changed through time, with notable
+updates in 2007, 2011, and 2017 (citation:
+https://www.bls.gov/cew/classifications/industry/home.htm) -- note the
+large increase in ocean economic activity in both areas associated with
+the 2011 update. Otherwise, employment and wages in both Puerto Rico and
+the USVI are relatively stable through time (Figure~\ref{fig-NAICS}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{indicator_plots/oceanNAICS_plot_final.png}
+
+}
+
+\caption{\label{fig-NAICS}Ocean economy}
 
 \end{figure}%
 
@@ -1410,11 +1540,11 @@ Recreational catch and effort is a major data gap in the U.S. Caribbean.
 The Marine Recreational Intercept Program collected data in Puerto Rico
 up until 2016, and in the USVI there are no regular monitoring programs.
 The Sea Around Us database esimtates reported catches based on
-imputations and assumptions. In Puerto Rico and USVI, landings were
-reconstructed by\ldots(need to fill in). Estimates suggest that
-recreational catch has been declining over the last several decades in
-Puerto Rico whereas catch has increased over the same period in the USVI
-(Figure~\ref{fig-reccatch}).
+imputations and assumptions (Pauly and Zeller 2015). In Puerto Rico and
+USVI, landings were reconstructed by\ldots(need to fill in). Estimates
+suggest that recreational catch has been declining over the last several
+decades in Puerto Rico whereas catch has increased over the same period
+in the USVI (Figure~\ref{fig-reccatch}).
 
 \begin{figure}
 
@@ -1494,55 +1624,7 @@ calculated the proportion of non-selective gears (traps and nets) from
 the Caribbean Commercial Landings database as a proxy for bycatch in the
 fisheries. Overall the use of these gear types is decreasing in Puerto
 Rico and St.~Croix while it is increasing in St.~Thomas and St.~John
-(Fig).
-
-\begin{figure}
-
-\centering{
-
-\captionsetup{labelsep=none}\includegraphics{indicator_plots/gearTypes_PR.png}
-
-}
-
-\caption{\label{fig-geartypePR}}
-
-\end{figure}%
-
-\begin{figure}
-
-\centering{
-
-\captionsetup{labelsep=none}\includegraphics{indicator_plots/gearTypes_STT.png}
-
-}
-
-\caption{\label{fig-geartypeSTT}}
-
-\end{figure}%
-
-\begin{figure}
-
-\centering{
-
-\captionsetup{labelsep=none}\includegraphics{indicator_plots/gearTypes_STX.png}
-
-}
-
-\caption{\label{fig-geartypeSTX}}
-
-\end{figure}%
-
-\begin{figure}
-
-\centering{
-
-\includegraphics{indicator_plots/prop_diving_trips_plot_final.png}
-
-}
-
-\caption{\label{fig-dive}Diving trips}
-
-\end{figure}%
+(Figure~\ref{fig-bycatch}).
 
 \begin{figure}
 
@@ -1713,6 +1795,117 @@ Erica K. Towle, Laura Jay Grove, Jeremiah Blondeau, Sarah Groves, Shay
 Viehman, Nicole Besemer, Juan Agar, Kevin McCarthy, Manoj Shivlani, Mike
 Jepson, Adyan Rios, Matt McPherson, Miguel Figuerola, Nicole Angeli,
 Sennai Habtes, Dione Swanson, Liajay Rivera
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-agar2022}
+Agar, J., B. Stoffle, M. Shivlani, D. Matos-Caraballo, A. Mastitski, and
+F. Martin. 2022. {``One-Year COVID-19 Pandemic Impacts on U.S. Caribbean
+Small-Scale Fisheries with a Note on the Puerto Rican Earthquake Swarm
+of 2020 and 2021. NOAA Technical Memorandum NMFS-SEFSC-759.''}
+\url{https://repository.library.noaa.gov/view/noaa/47711}.
+
+\bibitem[\citeproctext]{ref-froese2024}
+Froese, R, and D Pauly. 2024. {``FishBase.''}
+\href{https://www.fishbase.org}{www.fishbase.org}.
+
+\bibitem[\citeproctext]{ref-hu2012}
+Hu, Chuanmin, Zhongping Lee, and Bryan Franz. 2012. {``Chlorophyll
+Aalgorithms for Oligotrophic Oceans: A Novel Approach Based on
+Three-Band Reflectance Difference.''} \emph{Journal of Geophysical
+Research: Oceans} 117 (C1). \url{https://doi.org/10.1029/2011JC007395}.
+
+\bibitem[\citeproctext]{ref-knapp2010}
+Knapp, Kenneth R., Michael C. Kruk, David H. Levinson, Howard J.
+Diamond, and Charles J. Neumann. 2010. {``The International Best Track
+Archive for Climate Stewardship (IBTrACS),''} March.
+\url{https://doi.org/10.1175/2009BAMS2755.1}.
+
+\bibitem[\citeproctext]{ref-deleivamoreno2000}
+Leiva Moreno, J. I. de, V. N. Agostini, J. F. Caddy, and F. Carocci.
+2000. {``Is the Pelagic-Demersal Ratio from Fishery Landings a Useful
+Proxy for Nutrient Availability? A Preliminary Data Exploration for the
+Semi-Enclosed Seas Around Europe.''} \emph{ICES Journal of Marine
+Science} 57 (4): 1091--1102.
+\url{https://doi.org/10.1006/jmsc.2000.0705}.
+
+\bibitem[\citeproctext]{ref-puertoricodepartmentofnaturalandenvironmentalresources2019}
+Natural, Puerto Rico Department of, and Environmental Resources. 2019.
+{``Puerto Rico Long-Term Coral Reef Monitoring Program Database
+Compilation: Substrate Cover Percent, Octocoral Colony Counts, Macro
+Invertebrate Densities, Fish Densities, and Fish Biomass from 1999 to
+2023 (NCEI Accession 0204647). NOAA National Centers for Environmental
+Information. Dataset.
+Https://Www.ncei.noaa.gov/Archive/Accession/0204647. Accessed
+2/6/2024.''}
+
+\bibitem[\citeproctext]{ref-noaacoralreefwatch2019}
+NOAA Coral Reef Watch. 2019. \emph{NOAA Coral Reef Watch 5km Regional
+Virtual Stations Degree Heating Weeks V3.1 Jan 1, 1985 - Dec 31, 2023.
+Silver Spring, MD. USA: NOAA Coral Reef Watch. Data Set Accessed
+2024-10-31 at Https://Coralreefwatch.noaa.gov/Product/Vs/Data.php}.
+
+\bibitem[\citeproctext]{ref-pauly2015}
+Pauly, D, and D Zeller. 2015. \emph{Sea Around Us Concepts, Design and
+Data}. Sea Around Us, Institute for the Oceans; Fisheries, University of
+British Columbia, Vancouver, Canada.
+\href{https://www.seaaroundus.org}{www.seaaroundus.org}.
+
+\bibitem[\citeproctext]{ref-reynolds2007}
+Reynolds, Richard W., Thomas M. Smith, Chunying Liu, Dudley B. Chelton,
+Kenneth S. Casey, and Michael G. Schlax. 2007. {``Daily
+High-Resolution-Blended Analyses for Sea Surface Temperature,''}
+November. \url{https://doi.org/10.1175/2007JCLI1824.1}.
+
+\bibitem[\citeproctext]{ref-rochet2003}
+Rochet, Marie-Joëlle, and Verena M Trenkel. 2003. {``Which Community
+Indicators Can Measure the Impact of Fishing? A Review and Proposals.''}
+\emph{Canadian Journal of Fisheries and Aquatic Sciences} 60 (1):
+86--99. \url{https://doi.org/10.1139/f02-164}.
+
+\bibitem[\citeproctext]{ref-seara2024}
+Seara, Tarsila, Stacey M. Williams, Kiara Acevedo, Graciela
+Garcia-Molliner, Orian Tzadik, Michelle Duval, and Juan J. Cruz-Motta.
+2024. {``Development and Analyses of Stakeholder Driven Conceptual
+Models to Support the Implementation of Ecosystem-Based Fisheries
+Management in the U.S. Caribbean.''} \emph{PLOS ONE} 19 (5): e0304101.
+\url{https://doi.org/10.1371/journal.pone.0304101}.
+
+\bibitem[\citeproctext]{ref-smith2011}
+Smith, Steven G., Jerald S. Ault, James A. Bohnsack, Douglas E. Harper,
+Jiangang Luo, and David B. McClellan. 2011. {``Multispecies Survey
+Design for Assessing Reef-Fish Stocks, Spatially Explicit Management
+Performance, and Ecosystem Condition.''} \emph{Fisheries Research} 109
+(1): 25--41. \url{https://doi.org/10.1016/j.fishres.2011.01.012}.
+
+\bibitem[\citeproctext]{ref-sumy2020}
+Sumy, Danielle F., Russ Welti, and Michael Hubenthal. 2020.
+{``Applications and Evaluation of the IRIS Earthquake Browser: A
+Web{-}Based Tool That Enables Multidimensional Earthquake
+Visualization.''} \emph{Seismological Research Letters} 91 (5):
+2922--35. \url{https://doi.org/10.1785/0220190386}.
+
+\bibitem[\citeproctext]{ref-wang2019}
+Wang, Menghua, Chuanmin Hu, Brian B. Barnes, Gary Mitchum, Brian
+Lapointe, and Joseph P. Montoya. 2019. {``The Great Atlantic
+{\emph{Sargassum}} Belt.''} \emph{Science} 365: 83--87.
+\url{https://www.science.org/doi/10.1126/science.aaw7912}.
+
+\bibitem[\citeproctext]{ref-wang2009}
+Wang, Menghua, SeungHyun Son, and Lawrence W. Harding Jr. 2009.
+{``Retrieval of Diffuse Attenuation Coefficient in the Chesapeake Bay
+and Turbid Ocean Regions for Satellite Ocean Color Applications.''}
+\emph{Journal of Geophysical Research: Oceans} 114 (C10).
+\url{https://doi.org/10.1029/2009JC005286}.
+
+\end{CSLReferences}
 
 
 \backmatter

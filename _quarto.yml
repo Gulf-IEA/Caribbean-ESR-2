@@ -4,6 +4,7 @@ project:
 book: 
   page-navigation: true
   title: "Caribbean Ecosystem Status Report" 
+  date: last-modified
   site-url: "https://gulf-iea.github.io/Caribbean-ESR-2" 
   repo-url: "https://github.com/Gulf-IEA/Caribbean-ESR-2"
   repo-actions: [edit, source, issue]
