@@ -19,37 +19,37 @@ Fishery-independent surveys are conducted to understand relative abundance trend
 
 Fishery-independent surveys can be used to look at changes in the overall fish community and understand processes affecting multiple suites of species. The Puerto Rico Long-Term Coral Reef Monitoring Program (PRCRMP) has conducted annual surveys of fish and benthic organisms since 1999 [@puertoricodepartmentofnaturalandenvironmentalresources2019]. Similarly, the Territorial Coral Reef Monitoring Program (TCRMP) conducts annual to semi-annual surveys of coral health, fish community structure and coral health (cite). Commercial fish density is calculated by taking the average number of commercial fish per transect over time. The slope of the size spectrum is calculated by binning all observed commercial fish lengths into size categories and then fitting a linear regression through the log-transformed histogram; a more negative slope represents relatively fewer large fish and potentially increased fishing impacts. In Puerto Rico, average commercial fish density was noisy but stable over time; insufficient data were available with which to estimate the slope of the size spectra. In the USVI, commercial fish density was stable over time with a large peak in 2011; the slope of the size spectrum was also relatively stable with a sudden decrease in 2011. Together these indicators convey the sudden appearance of many small species, suggestive of a large recruitment event across multiple species (@fig-fishdensity).
 
-![fish density](/indicator_plots/fish_density_plot_final.png){#fig-fishdensity fig-alt="a plot" fig-align="center"}
+![Commercial fish density as average number of commercial fish per transect from fisheries-independent surveys in Puerto Rico and USVI, and the slope of the size spectrum for USVI.](/indicator_plots/fish_density_plot_final.png){#fig-fishdensity fig-alt="a plot" fig-align="center"}
 
 ### Pelagic:demersal ratio
 
 The ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystems [@deleivamoreno2000]; in the context of small islands in the tropical seas, it conveys the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal catch were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in FishBase [@froese2024]. In St. Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be due to changes in reporting (logbook to e-reporting). In St. Thomas and St. John, the ratio has gradually increased over time; the large peak in 2018 could have been a result of hurricane-induced reef habitat loss (@fig-PD).
 
-![PD ratio](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="a plot" fig-align="center"}
+![Ratio of pelagic to demersal species based on commercial landings data for Puerto Rico and USVI.](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="a plot" fig-align="center"}
 
 ### Maximum length and size structure
 
 The average maximum length of a species in the landings has been proposed as an indicator of whether large-bodies species have been depleted and are no longer fished [@rochet2003]. The Lmax indicator is derived by assigning a maximum body length for each species (as reported in FishBase) and then calculating the average body length for the landings in each year, or the proportion of landings within different Lmax classes (based on the Caribbean Commercial Landings database). The average maximum length in the landings has been relatively stable across all islands in the U.S. Caribbean with an uptick across all islands in the last five years; this is partially due to a shift to more pelagic species in the landings (@fig-avgLmax).
 
-![Average Lmax](/indicator_plots/avgLmax_plot_final.png){#fig-avgLmax fig-alt="a plot" fig-align="center"}
+![Average maximum length (cm) of species in commercial catch data over time for Puerto Rico and USVI.](/indicator_plots/avgLmax_plot_final.png){#fig-avgLmax fig-alt="a plot" fig-align="center"}
 
 In Puerto Rico, there is an overall increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax group is driven by declining catches of mackerels, large rare parrotfishes, tunas, and some large groupers (@fig-PRLmax).
 
-![PR Lmax](/indicator_plots/PR_Lmax_classes_plot_final.png){#fig-PRLmax fig-alt="a plot" fig-align="center"}
+![Proportion of commercial landings in each of five size classes over time in Puerto Rico.](/indicator_plots/PR_Lmax_classes_plot_final.png){#fig-PRLmax fig-alt="a plot" fig-align="center"}
 
 In St. Thomas there is a notable decrease in the smallest size class (dominated by surgeonfishes and longspine squirrelfish landings) while there are increases in the larger size classes due to increasing catches of tunas and mackerels, as well as red grouper (@fig-STTLmax).
 
-![STT Lmax](/indicator_plots/STT_Lmax_classes_plot_final.png){#fig-STTLmax fig-alt="a plot" fig-align="center"}
+![Proportion of commercial landings in each of five size classes over time in St. Thomas and St. John.](/indicator_plots/STT_Lmax_classes_plot_final.png){#fig-STTLmax fig-alt="a plot" fig-align="center"}
 
 In St. Croix… Lmax_cat == "(0,40") driven by redband parrotfish and princess parrotfish. also herrings and surgeonfishes Lmax_cat == "(60,100") mainly stoplight and queen parrotfishes. Also blackfin and silk snapper and red hind Lmax_cat == "(100,200") tunas (little tunny) and king mackerel (@fig-STXLmax).
 
-![STX Lmax](/indicator_plots/STX_Lmax_classes_plot_final.png){#fig-STXLmax fig-alt="a plot" fig-align="center"}
+![Proportion of commercial landings in each of five size classes over time in St. Croix.](/indicator_plots/STX_Lmax_classes_plot_final.png){#fig-STXLmax fig-alt="a plot" fig-align="center"}
 
 ### Commercial landings
 
 Total landings of conch, lobster, and finfish indicate the ability of U.S. Caribbean fisheries to provide food and revenues, and may be driven by a combination of trends in underlying abundance, market demand, and fishing effort. Self-reported landings from the Caribbean Commercial Landings Data were compiled; data were originally compiled by paper logbooks, but starting in 2020 some trips in Puerto Rico were reported using electronic reporting (a telephone application). Since 2005, lobster landings have increased in Puerto Rico and decreased in the USVI, with particularly low values in 2017-18 for St. Thomas and 2018-19 for St. Croix. Conch landings have been more variable with little trend over time, though there was a sudden decrease in Puerto Rico conch landings in 2020. Landings of other species have decreased significantly over time, particularly starting in 2010 (@fig-totalland). This coincides with initial implementation of annual catch limits in U.S. Caribbean federal waters and may be caused by changes in reporting rather than true reductions in catch.
 
-![Total landings](/indicator_plots/total_landings_plot_final.png){#fig-totalland fig-alt="a plot" fig-align="center"}
+![Total landings of spiny lobster, conch, and all other commercial species from commercial landings data in Puerto Rico and USVI.](/indicator_plots/total_landings_plot_final.png){#fig-totalland fig-alt="a plot" fig-align="center"}
 
 ## Socioeconomic health
 
@@ -57,55 +57,55 @@ Total landings of conch, lobster, and finfish indicate the ability of U.S. Carib
 
 The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commercial Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (@fig-perlandPR). In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (@fig-perlandSTT). Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (@fig-perlandSTX).
 
-![PR](/indicator_plots/per_landings_PR.png){#fig-perlandPR fig-alt="a plot" fig-align="center"}
+![Relative revenue contribution of selected species groups to commercial fisheries in Puerto Rico.](/indicator_plots/per_landings_PR.png){#fig-perlandPR fig-alt="a plot" fig-align="center"}
 
-![STT](/indicator_plots/per_landings_STT.png){#fig-perlandSTT fig-alt="a plot" fig-align="center"}
+![Relative revenue contribution of selected species groups to commercial fisheries in St. Thomas and St. John.](/indicator_plots/per_landings_STT.png){#fig-perlandSTT fig-alt="a plot" fig-align="center"}
 
-![STX](/indicator_plots/per_landings_STX.png){#fig-perlandSTX fig-alt="a plot" fig-align="center"}
+![Relative revenue contribution of selected species groups to commercial fisheries in St. Croix.](/indicator_plots/per_landings_STX.png){#fig-perlandSTX fig-alt="a plot" fig-align="center"}
 
 ### Total, lobster and conch trips
 
 Commercial fishing trips are a useful socioeconomic indicator because they capture the amount and type of effort which may be driven by market factors, regulations, and costs of entering the fishery. The total number of trips, broken down by gear type, was extracted from the Caribbean Commercial Landings database by identifying unique trips based on date and vessel number and extracting the primary reported gear used for each trip. In Puerto Rico, trip numbers have generally decreased over time, with marked decreases in 2017 and 2020; sudden changes in the hook and line fishing in 2012 are due to changes in reporting forms (@fig-gearPR). Effort has similarly declined in St. Thomas and St. John; marked declines after 2010 are likely due to reduced reporting (@fig-gearSTT). Similarly, in St. Croix the number of trips has declined, with the 2018-19 fishing season reporting particularly low effort (@fig-gearSTX).
 
-![](/indicator_plots/gearTypes_PR.png){#fig-gearPR fig-alt="Plot showing a time series of an indicator"}
+![Total number of commercial fishing trips by gear type over time in Puerto Rico.](/indicator_plots/gearTypes_PR.png){#fig-gearPR fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/gearTypes_STT.png){#fig-gearSTT fig-alt="Plot showing a time series of an indicator"}
+![Total number of commercial fishing trips by gear type over time in St. Thomas and St. John.](/indicator_plots/gearTypes_STT.png){#fig-gearSTT fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/gearTypes_STX.png){#fig-gearSTX fig-alt="Plot showing a time series of an indicator"}
+![Total number of commercial fishing trips by gear type over time in St. Croix.](/indicator_plots/gearTypes_STX.png){#fig-gearSTX fig-alt="Plot showing a time series of an indicator"}
 
 Given the potential for changes in reporting to impact trip numbers, it is more informative to look at the composition of gear types. In particular, diving is often a way of entry for new or part-time fishermen as it generally requires lower up-front investments. Peaks in the proportion diving trips in 2017 and 2018 could be a result of lost traps and infrastructure due to hurricanes (@fig-dive).
 
-![Diving trips](/indicator_plots/prop_diving_trips_plot_final.png){#fig-dive fig-alt="a plot" fig-align="center"}
+![Proportion of commercial trips that are reported as diving trips over time for Puerto Rico and USVI.](/indicator_plots/prop_diving_trips_plot_final.png){#fig-dive fig-alt="a plot" fig-align="center"}
 
 Ordination of gear types based on reporting landing sites conveys how different regions across the U.S. Caribbean depend on different methods of fishing. Ordinations were conducting using NMDS based on matrices representing the proportion of gears used by landing site; the algorithm seeks to place different sites in an X-dimensional space, such that the physical distances between each pair of sites best represents the differences in gear types employed. Thus, sites that appear more closely together in the figures are more similar in their gear usage, and the position of the gear type labels denote the relative importance of those gears in those sites. In Puerto Rico for example, hook and line and bottom long line are closely related and are particularly prevalent in the northern landing sites (in red), whereas nets and traps are more prevalent in the South (blue) (@fig-NMDSPR). In St. Thomas and St. John, there is an association of traps and hook and line fishing (@fig-NMDSSTT), whereas in St. Croix, those gears are not associated with each other but nets and spearfishing are closely associated within landing sites (@fig-NMDSSTX).
 
-![](/indicator_plots/NMDSgear_PR.png){#fig-NMDSPR fig-alt="Plot showing a time series of an indicator"}
+![Ordination of gear type usage by landing site for Puerto Rico, color coded by region.](/indicator_plots/NMDSgear_PR.png){#fig-NMDSPR fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/NMDSgear_STT.png){#fig-NMDSSTT fig-alt="Plot showing a time series of an indicator"}
+![Ordination of gear type usage by landing site for St. Thomas and St. John.](/indicator_plots/NMDSgear_STT.png){#fig-NMDSSTT fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/NMDSgear_STX.png){#fig-NMDSSTX fig-alt="Plot showing a time series of an indicator"}
+![Ordination of gear type usage by landing site for St. Croix.](/indicator_plots/NMDSgear_STX.png){#fig-NMDSSTX fig-alt="Plot showing a time series of an indicator"}
 
 ### Economic activity
 
-Some high level indicators of economic activity come in the form of GDP and employment trends. Gross Domestic Product (GDP) data come from the Bureau of Economic Analysis (BEA), and indicate an overall general economic expansion in Puerto Rico. GDP in USVI declined substantially from 2007-2014, but has been increasing steadily since (@fig-GDP).
+Some high level indicators of economic activity come in the form of GDP and employment trends. Gross Domestic Product (GDP) data come from the World Bank, and indicate an overall general economic expansion in Puerto Rico [@worldbank2024b]. GDP in USVI [@worldbank2024a] declined substantially from 2007-2014, but has been increasing steadily since (@fig-GDP).
 
-![GDP](/indicator_plots/GDP_plot_final.png){#fig-GDP fig-alt="a plot" fig-align="center"}
+![Overall Gross Domestic Product (GDP) in Puerto Rico and USVI.](/indicator_plots/GDP_plot_final.png){#fig-GDP fig-alt="a plot" fig-align="center"}
 
-GDP can sometimes underestimate the ocean-dependency of the regions’ local island economies; another indicator that is useful is employment/unemployment rate data, which come from the USVI Bureau of Economic Research.
+GDP can sometimes underestimate the ocean-dependency of the regions’ local island economies; another indicator that is useful is employment/unemployment rate data, which come from the U.S. Bureau of Labor Statistics [@u.s.bureauoflaborstatistics2024] and the U.S Employment and Training Administration [@u.s.employmentandtrainingadministration2024]. Unemployment has shown a declining trend over time in Puerto Rico and USVI. In USVI, there were notable spikes in the unemployment rate in 2018 and 2020, following major hurricanes Irma and Maria and the covid-19 pandemic.
 
-![Unemployment](/indicator_plots/unemployment_plot_final.png){#fig-unemp fig-alt="a plot" fig-align="center"}
+![Monthly unemployment rate in Puerto Rico and USVI over time.](/indicator_plots/unemployment_plot_final.png){#fig-unemp fig-alt="a plot" fig-align="center"}
 
 ### Ocean economy establishments, employment, and wages
 
-Due to their unique geography, culture and setting, the islands of Puerto Rico and the U.S. Virgin Islands are more reliant on the surrounding ocean and marine environments than the continental United States. Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy, however must be taken in their raw form for the US territories because overall GDP is not calculated in the territories. We used the NAICS codes defined by the ENOW program as contributing to the ocean economy (citation: https://coast.noaa.gov/data/digitalcoast/pdf/enow-faq.pdf). The NAICS classification system has changed through time, with notable updates in 2007, 2011, and 2017 (citation: https://www.bls.gov/cew/classifications/industry/home.htm) – note the large increase in ocean economic activity in both areas associated with the 2011 update. Otherwise, employment and wages in both Puerto Rico and the USVI are relatively stable through time (@fig-NAICS).
+Due to their unique geography, culture and setting, the islands of Puerto Rico and the U.S. Virgin Islands are more reliant on the surrounding ocean and marine environments than the continental United States. Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy. There were significant changes to the way ocean economy metrics were calculated for the U.S. Territories in 2016 [@clements], and revised metric data are only available from 2019-2021 through ENOW. It is therefore difficult to assess trends over time until additional data are collected (@fig-NAICS).
 
-![Ocean economy](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
+![Ocean economy GDP, employment, establishments, and wages for Puerto Rico and USVI over time.](/indicator_plots/oceanNAICS_plot_final.png){#fig-NAICS fig-alt="a plot" fig-align="center"}
 
 ## Equity
 
 ### Gini coefficient for distribution of landings and revenue
 
-Equality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality (all revenues going to a single individual, Gini 1936). The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits (@fig-gini). Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St. Thomas/St. John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St. Croix. There are spikes in inequality in Puerto Rico in 2018 and in St. Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.
+Equality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality [all revenues going to a single individual, @gini1936]. The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits (@fig-gini). Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St. Thomas/St. John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St. Croix. There are spikes in inequality in Puerto Rico in 2018 and in St. Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.
 
 ![Gini coefficient](/indicator_plots/gini_plot_final.png){#fig-gini fig-alt="a plot" fig-align="center"}
 
