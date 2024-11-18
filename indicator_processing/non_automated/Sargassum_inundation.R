@@ -8,19 +8,26 @@ library(plotTimeSeries)
 
 # load data -------------------------------------
 
-d <- read.csv("indicator_data/inputsToBeUpdatedAnnually/sargassum_innundation_monthly_mean_hu.csv", skip = 2)
+d <- read.table("indicator_data/inputsToBeUpdatedAnnually/Sargassum_ts_cut.txt", header = T)
+dim(d)
 
-d$yr <- substr(d$X, 1, 4)
-d$vars <- (d$ulim - d$X.1)^2
+d$dat <- format(as.Date(d$Date, "%m/%d/%Y"), format = "%b%Y")
+cbind(d$Date, d$dat)
 
-tab <- tapply(d$X.1, d$yr, mean, na.rm = T)
-sds <- (tapply(d$vars, d$yr, mean))^0.5
+# old code
+#d1 <- read.csv("indicator_data/inputsToBeUpdatedAnnually/sargassum_innundation_monthly_mean_hu.csv", skip = 2)
+
+#d$yr <- substr(d$X, 1, 4)
+#d$vars <- (d$ulim - d$X.1)^2
+
+#tab <- tapply(d$X.1, d$yr, mean, na.rm = T)
+#sds <- (tapply(d$vars, d$yr, mean))^0.5
 
 # save as indicator object ----------------------
-datdata <- 2011:2021
-inddats <- data.frame(cbind(tab))
-ulidata <- data.frame(cbind(tab + sds))
-llidata <- data.frame(cbind(tab - sds))
+datdata <- d$dat
+inddats <- data.frame(d$area.km2.)
+ulidata <- data.frame(cbind(d$area.km2. + d$std))
+llidata <- data.frame(cbind(d$area.km2. - d$std))
 labs <- c("Annual mean sargassum innundation", "Area (km^2)", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 
@@ -34,7 +41,6 @@ plotIndicatorTimeSeries(inddata)
 ind <- inddata
 
 save(ind, file = "indicator_objects/Sargassum.RData")
-
 
 print("sargassum -- SUCCESSFULLY RUN")
 
