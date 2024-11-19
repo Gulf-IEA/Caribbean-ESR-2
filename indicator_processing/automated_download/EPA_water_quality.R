@@ -21,6 +21,7 @@ library(ggplot2)
 library(dplyr)
 library(naniar)  # Package for handling missing data in visualizations
 library(tidyr)
+library(ggplot2)
 
 EPATADA::TADA_GetTemplate()
 
@@ -143,7 +144,10 @@ table(ent$ResultMeasure.MeasureUnitCode)
 table(ent$TADA.ResultMeasure.MeasureUnitCode)
 
 
-# Problem: there are multiple units of measurement in the data. Need to convert them all to the same units
+# Problem: there are multiple units of measurement in the data. Keep only #/100ML and MPN/100ML
+
+ent = ent %>% 
+  filter(TADA.ResultMeasure.MeasureUnitCode == "#/100ML" | TADA.ResultMeasure.MeasureUnitCode == "MPN/100ML")
 
 table(ent$TADA.ComparableDataIdentifier, ent$TADA.ResultMeasure.MeasureUnitCode)
 
@@ -207,45 +211,86 @@ table(VI_ent2$MonitoringLocationName, VI_ent2$CountyCode)
 # QAQC of database
 table(ent$year)
 tapply(ent$ResultMeasureValue, ent$year, mean, na.rm=T)
-tapply(fl$Result.Value.as.Text, fl$yr, mean, na.rm=T)
-table(fl$Units, fl$Org.Name)
+tapply(PR_ent$ResultMeasureValue, PR_ent$year, mean, na.rm=T)
+tapply(VI_ent$ResultMeasureValue, VI_ent$year, mean, na.rm=T)
 
-fl <- fl[-which(is.na(fl$Result.Value.as.Text)), ]    # remove NAs from database
-tapply(fl$Result.Value.as.Text, fl$Units, mean)
-tapply(fl$Result.Value.as.Text, fl$yr, mean)
 
-tab <- table(fl$yr, fl$Station.ID)            # choose only stations with 12 years of monitoring data
-tab[which(tab>0)] <- 1
-sort(colSums(tab))
-lis <- names(which(colSums(tab)==12))         # list of those stations
-fl <- fl[which(fl$Station.ID %in% lis), ]
-dim(fl)
 
-fl$thresh <- 1
-fl$thresh[which(fl$Result.Value.as.Text<35)] <- 0          # group low, medium, high concentration categories
-fl$thresh[which(fl$Result.Value.as.Text>104)] <- 2
+ent$thresh <- 1
+ent$thresh[which(ent$ResultMeasureValue<35)] <- 0          # group low, medium, high concentration categories
+ent$thresh[which(ent$ResultMeasureValue>104)] <- 2
 
-fl$Station.ID <- as.vector(as.character(fl$Station.ID))    # reformatting columns
-fl$County <- as.vector(as.character(fl$County))
 
-res <- table(fl$yr, fl$thresh)                             # results of low, med, high Entero []s per year
+res <- table(ent$year, ent$thresh)                             # results of low, med, high Entero []s per year
 colnames(res) <- c("low", "med", "high")
-res <- res[1:12,]                                          # remove 2012
 res
 ################################    PLOTS    ###################################
 par(mfrow=c(2,1), mex=0.6, mar=c(6,3,1,1)+2, xpd=F)               # plot results
 barplot(res[,3]/rowSums(res), ylab="% of samples with high bacterial index")                               # number of hi concentrations
-barplot(tapply(fl$Result.Value.as.Text, fl$yr, mean), ylab="average bacterial count (CFU/100 ml)")       # average CPU/100ml
+barplot(tapply(ent$TADA.ResultMeasureValue, ent$year, mean), ylab="average bacterial count (#/100 ml)")       # average #/100ml
 
 # plot by county and month
 par(mfrow=c(2,1), mex=0.6, mar=c(5,4,2,0)+2, xpd=F)
-barplot(tapply(fl$Result.Value.as.Text, fl$County, mean, na.rm=T), cex.names=0.8, col=4, las=3)              # plot by county and month
-mtext(side=2, line=4, "Enterococcus count (CFU/100ml)"); abline(0,0)
-mtext(side=3, line=2, "Averages by county for Florida Gulf coast beach monitoring samples", font=2, las=1)
+barplot(tapply(ent$TADA.ResultMeasureValue, ent$CountyCode, mean, na.rm=T), cex.names=0.8, col=4, las=3)              # plot by county and month
+mtext(side=2, line=4, "Enterococcus count (#/100ml)"); abline(0,0)
+mtext(side=3, line=2, "Averages by county for PR and USVI beach monitoring samples", font=2, las=1)
 par(mar=c(2,4,5,0)+2, xpd=F)
-barplot(tapply(fl$Result.Value.as.Text, fl$mo, mean), names.arg=mnam, cex.names=0.8, col=4, las=1)
-mtext(side=2, line=4, "Enterococcus count (CFU/100ml)"); abline(0,0)
-mtext(side=3, line=2, "Averages by month for Florida Gulf coast beach monitoring samples", font=2, las=1)
+barplot(tapply(ent$TADA.ResultMeasureValue, ent$month, mean, na.rm=T), cex.names=0.8, col=4, las=1)
+mtext(side=2, line=4, "Enterococcus count (#/100ml)"); abline(0,0)
+mtext(side=3, line=2, "Averages by month for PR and USVI beach monitoring samples", font=2, las=1)
+
+
+
+
+
+
+# Calculate mean and standard error for each year and CountyCode
+summary_data <- ent %>%
+  group_by(year, CountyCode) %>%
+  summarize(
+    MeanValue = mean(TADA.ResultMeasureValue, na.rm = TRUE),
+    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(n()),
+    .groups = "drop"
+  )
+
+# Create the bar plot with error bars
+ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
+  geom_bar(stat = "identity", fill = "steelblue", alpha = 0.7) +
+  geom_errorbar(aes(ymin = MeanValue - SE, ymax = MeanValue + SE), width = 0.2) +
+  facet_wrap(~ CountyCode, scales = "free_y") +
+  labs(
+    x = "Year",
+    y = "Mean TADA.ResultMeasureValue",
+    title = "Mean TADA.ResultMeasureValue by Year and County"
+  ) +
+  theme_minimal() +
+  theme(strip.text = element_text(size = 12))
+
+
+
+
+# Calculate mean and standard error for each year and StateCode
+summary_data <- ent %>%
+  group_by(year, StateCode) %>%
+  summarize(
+    MeanValue = mean(TADA.ResultMeasureValue, na.rm = TRUE),
+    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(n()),
+    .groups = "drop"
+  )
+
+# Create the bar plot with error bars
+ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
+  geom_bar(stat = "identity", fill = "steelblue", alpha = 0.7) +
+  geom_errorbar(aes(ymin = MeanValue - SE, ymax = MeanValue + SE), width = 0.2) +
+  facet_wrap(~ StateCode) +
+  labs(
+    x = "Year",
+    y = "Enterococcus count (#/100ml)",
+    title = "Mean counts by Year and Area"
+  ) +
+  theme_minimal() +
+  theme(strip.text = element_text(size = 12))
+
 
 
 
