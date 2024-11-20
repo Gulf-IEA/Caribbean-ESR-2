@@ -179,11 +179,11 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 # plot trips and percent bycatch gears -------------------
 
 png(filename = "indicator_plots/gearTypes_STT.png", 
-    units="in", width = 6, height = 3, pointsize=12, res=72*2)
+    units="in", width = 14, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
 barplot(t(mat), col = cols25(7), args.legend = list(x = "topright", bty = "n", y.intersp = 0.8), legend.text = colnames(mat), las = 2, 
-        main = "Number of trips per year by gear type\nSt. Thomas and St. John", ylim = c(0, 8000))
+        main = "Number of trips per year by gear type\nSt. Thomas and St. John", ylim = c(0, 8000), border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
 #axis(1); axis(2, las = 2); box()
@@ -449,11 +449,11 @@ cols <- cols25(7)
 cols <- cols[c(2:5)]
 
 png(filename = "indicator_plots/gearTypes_STX.png", 
-    units="in", width = 4.75, height = 3, pointsize=12, res=72*2)
+    units="in", width = 5, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
 barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", y.intersp = 0.9), legend.text = colnames(mat), las = 2, 
-        main = "Number of trips per year by gear type\nSt. Croix")
+        main = "Number of trips per year by gear type\nSt. Croix", border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
 #axis(1); axis(2, las = 2); box()
@@ -765,11 +765,11 @@ cols <- cols25(7)
 cols <- cols[c(7, 2:5)]
 
 png(filename = "indicator_plots/gearTypes_PR.png", 
-    units="in", width = 5.5, height = 3, pointsize=12, res=72*2)
+    units="in", width = 10, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
 barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", x.intersp = 0.5, ncol = 2), legend.text = colnames(mat), las = 2, 
-        main = "Number of trips per year by gear type\nPuerto Rico", ylim = c(0, 44000))
+        main = "Number of trips per year by gear type\nPuerto Rico", ylim = c(0, 44000), border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
 #axis(1); axis(2, las = 2); box()
