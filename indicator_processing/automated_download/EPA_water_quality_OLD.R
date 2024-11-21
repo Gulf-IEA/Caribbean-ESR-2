@@ -28,32 +28,48 @@ EPATADA::TADA_GetTemplate()
 
 # see here for a list of arguments in the DataRetrieval function: https://usepa.github.io/EPATADA/reference/TADA_DataRetrieval.html
 
-# Start by pulling all the data. The function below takes about 10 min to run. 
+# Start by pulling all the data. The function below takes about 10 min to run
 
 dataset_0 = EPATADA::TADA_BigDataRetrieval(
-  startDate = "1980-01-01",
-  endDate = "2023-12-31",
-  countrycode = "US", 
-  huc = "null",
-  siteid = "null",
-  siteType = "Ocean",
-  characteristicName = "null",
-  characteristicType = c("Microbiological","Nutrient","Physical"),
-  sampleMedia = c("water","Water"),
-  statecode = c("PR","VI"), 
-  applyautoclean = TRUE
-)
+     startDate = "1980-01-01",
+     endDate = "2023-12-31",
+     countrycode = "US", 
+     huc = "null",
+     siteid = "null",
+     siteType = "Ocean",
+     characteristicName = "null",
+     characteristicType = c("Microbiological","Nutrient","Physical"),
+     sampleMedia = c("water","Water"),
+     statecode = c("PR","VI"), 
+     applyautoclean = TRUE
+   )
 
-#re-name the file
-dat = dataset_0
 
-#Save this file so we don't have to download it again if we need to make changes
+# Some data exploration
+
+dat = dataset_0 #rename to something shorter
+
+
+
+###### Missing values exploration
+
+# Count missing values in each column
+sapply(dat, function(x) sum(is.na(x)))
+
+gg_miss_var(dat)  # Shows missing values by variable
+
+# Remove columns with more than 300,000 missing values
+dat <- dat[, colSums(is.na(dat)) <= 300000]
+
+# Confirm the columns were removed
+dim(dat)
+
+
+# Save this file so we don't have to download it again
+
 saveRDS(dat, "indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
-
-
-####### Start here to work with the intermediate file currently on github
-#dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
+dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
 
 #### Filter to only include enterococcus measurements
@@ -74,30 +90,35 @@ head(enterococcus)
 
 
 
-###### Missing values exploration 
+###### Missing values exploration again for entero data
 
 # Count missing values in each column
 sapply(enterococcus, function(x) sum(is.na(x)))
 
 # Visualize missing values pattern
+
+
 gg_miss_var(enterococcus)  # Shows missing values by variable
 
 # Remove columns with more than 20000 missing values
 enterococcus <- enterococcus[, colSums(is.na(enterococcus)) <= 20000]
 
 
+## Do I need to remove non-coastal counties for PR??
 
 
-#Filter so we use only routine samples, samples from depths < 10m, and "actual" samples
+# filter so we use only routine samples, samples from depths < 10m, and "actual" samples
+
 ent = enterococcus %>% 
   filter(ActivityTypeCode == "Sample-Routine" & 
            TADA.ActivityDepthHeightMeasure.MeasureValue < 10 &
            ResultValueTypeName == "Actual" 
-  )
+           )
 
 
 
-#Format dates and add month, year columns
+# format dates and add month, year columns
+
 ent$date2 = ent$ActivityStartDate
 
 ent = ent %>% 
@@ -106,23 +127,50 @@ ent = ent %>%
 ent = ent %>% 
   mutate(ActivityStartDate = as.POSIXct(ActivityStartDate, format = "%Y-%m-%d"))
 
+head(ent)
+
+str(ent)
+
 ent$ResultMeasureValue = as.numeric(ent$ResultMeasureValue)
 
 
-#Get rid of NAs in the measured value
+#get rid of NAs in the measured value
+
 ent = ent %>% 
   filter(ResultMeasureValue != "NA")
 
 summary(ent)
 
+table(ent$ResultMeasure.MeasureUnitCode)
+table(ent$TADA.ResultMeasure.MeasureUnitCode)
+
 
 # Problem: there are multiple units of measurement in the data. Keep only #/100ML and MPN/100ML
+
 ent = ent %>% 
   filter(TADA.ResultMeasure.MeasureUnitCode == "#/100ML" | TADA.ResultMeasure.MeasureUnitCode == "MPN/100ML")
 
+table(ent$TADA.ComparableDataIdentifier, ent$TADA.ResultMeasure.MeasureUnitCode)
 
 
-#Remove 2001
+table(ent$MonitoringLocationName)
+
+
+test = subset(ent, ent$MonitoringLocationName == "Buccaneer Beach")
+
+
+table(test$ActivityStartDate)
+
+
+test2 = as.data.frame(table(ent$MonitoringLocationName, ent$ActivityStartDate))
+
+test3 = subset(ent, ent$MonitoringLocationName == "Condo Row (Princess)")
+
+
+as.data.frame(table(ent$year, ent$MonitoringLocationName))
+
+
+# First remove 2001
 
 ent = ent %>% 
   filter(year != 2001)
