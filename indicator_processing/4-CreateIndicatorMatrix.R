@@ -136,7 +136,19 @@ add_indicator_columns <- function(matrix_data, data, descriptive_names) {
     descriptive_name <- descriptive_names %>% 
       filter(file_name == data$file_name & ind_name == col_name) %>% 
       pull(desc_name)
-    if (length(descriptive_name) == 0) next
+    
+    # Handle cases where no match is found
+    if (length(descriptive_name) == 0) {
+      if (length(colnames(indicators)) == 1) {
+        # Use ind_name directly if only one column is present
+        descriptive_name <- descriptive_names %>%
+          filter(file_name == data$file_name) %>%
+          pull(desc_name)
+        if (length(descriptive_name) == 0) next
+      } else {
+        next
+      }
+    }
     
     indicator_values <- indicators[[col_name]]
     indicator_df <- data.frame(year = years, value = indicator_values)
