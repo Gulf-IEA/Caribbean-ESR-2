@@ -23,7 +23,7 @@ extract_data <- function(file_path) {
 }
 
 # Read the descriptive names from the CSV file
-descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv")
+descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED.csv")
 
 # Set the directory containing the .RData files
 indicator_dir <- "indicator_objects"
