@@ -11,11 +11,15 @@ library(plotTimeSeries)
 dat2 = conv2indicatordata("indicator_data/inputsToBeUpdatedAnnually/NEIS law enforcement incidents.csv", default = T)
 dat2
 
+dat2$datelist
+class(dat2$datelist)
+dat2$datelist <- str_replace(dat2$datelist, "-", "20")
+dat2$datelist
 
 # plot and save ----------------------------------
 
 ind <- dat2
-plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b-%y", sublabel = FALSE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1)
+plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = F, dateformat = "%b%Y", sublabel = FALSE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1)
 
 save(ind, file = "indicator_objects/enforcement.RData")
 

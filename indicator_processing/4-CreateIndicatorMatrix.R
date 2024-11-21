@@ -2,7 +2,6 @@
 
 # For the monthly indicators we need to just average those into annual time steps.
 
-
 rm(list = ls())
 
 # Load necessary libraries
@@ -24,7 +23,7 @@ extract_data <- function(file_path) {
 }
 
 # Read the descriptive names from the CSV file
-descriptive_names <- read.csv("indicator_data/extracted_ind_object_names_REVISED.csv")
+descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv")
 
 # Set the directory containing the .RData files
 indicator_dir <- "indicator_objects"
@@ -36,8 +35,6 @@ rdata_files <- list.files(indicator_dir, pattern = "\\.RData$", full.names = TRU
 all_data <- lapply(rdata_files, extract_data)
 all_data <- Filter(Negate(is.null), all_data)
 
-
-
 # Before we go any further, we need to pull out the indicators with monthly data and average them into annual indicators
 
 # the monthly indicators include Carib_Chl, Carib_SST, DegreeHeatingWeeks, OA, turbidity, and unemployment
@@ -48,7 +45,6 @@ convert_to_annual <- function(data_list, date_format) {
   name <- data_list$file_name
   dates <- data_list$datelist
   values <- data_list$indicators
-  
   
   # Parse the date according to the specified format
   if (date_format == "%m-%Y") {
@@ -74,25 +70,41 @@ convert_to_annual <- function(data_list, date_format) {
   return(data_list)
 }
 
-# Apply the function to each monthly dataset
-carib_Chl <- convert_to_annual(all_data[[3]], "%m-%Y")
-Carib_SST <- convert_to_annual(all_data[[4]], "%m-%Y")
-DegreeHeatingWeeks <- convert_to_annual(all_data[[7]], "%Y%m")
-OA <- convert_to_annual(all_data[[18]], "%b%Y")
-turbidity <- convert_to_annual(all_data[[38]], "%m-%Y")
-unemployment <- convert_to_annual(all_data[[39]], "%Y%m")
+# identify monthly datasets
+for (i in 1:length(all_data))  {
+  if(class(all_data[[i]]$datelist) != "integer") { print(all_data[[i]]$file_name)}
+}
 
+# Apply the function to each monthly dataset
+
+all_data[[grep("Chl", all_data)]]$file_name   # ensure grep function will index properly
+all_data[[grep("SST", all_data)]]$file_name
+all_data[[grep("Weeks", all_data)]]$file_name
+all_data[[grep("enforce", all_data)]]$file_name
+all_data[[grep("OA", all_data)]]$file_name
+all_data[[grep("Sarg", all_data)]]$file_name
+all_data[[grep("turbidity", all_data)]]$file_name
+all_data[[grep("unemp", all_data)]]$file_name
+
+carib_Chl <- convert_to_annual(all_data[[grep("Chl", all_data)]], "%m-%Y")
+Carib_SST <- convert_to_annual(all_data[[grep("SST", all_data)]], "%m-%Y")
+DegreeHeatingWeeks <- convert_to_annual(all_data[[grep("Weeks", all_data)]], "%Y%m")
+enforcement <- convert_to_annual(all_data[[grep("enforce", all_data)]], "%b%Y")
+OA <- convert_to_annual(all_data[[grep("OA", all_data)]], "%b%Y")
+Sargassum <- convert_to_annual(all_data[[grep("Sarg", all_data)]], "%b%Y")
+turbidity <- convert_to_annual(all_data[[grep("turbidity", all_data)]], "%m-%Y")
+unemployment <- convert_to_annual(all_data[[grep("unemp", all_data)]], "%Y%m")
 
 # Ok now we have all the monthly indicators as annual indicators. We need to replace these in the all_data list. 
 
-all_data[[3]] = carib_Chl
-all_data[[4]] = Carib_SST
-all_data[[7]] = DegreeHeatingWeeks
-all_data[[18]] = OA
-all_data[[38]] = turbidity
-all_data[[39]] = unemployment
-
-
+all_data[[grep("Chl", all_data)]] = carib_Chl
+all_data[[grep("SST", all_data)]] = Carib_SST
+all_data[[grep("Weeks", all_data)]] = DegreeHeatingWeeks
+all_data[[grep("enforce", all_data)]] = enforcement
+all_data[[grep("OA", all_data)]] = OA
+all_data[[grep("Sarg", all_data)]] = Sargassum
+all_data[[grep("turbidity", all_data)]] = turbidity
+all_data[[grep("unemp", all_data)]] = unemployment
 
 ########################################################
 
@@ -108,7 +120,6 @@ year_range <- seq(min(years, na.rm = TRUE), max(years, na.rm = TRUE))
 
 # Create an empty matrix with "year" column
 matrix_data <- data.frame(year = year_range)
-
 
 
 # Function to add indicator columns to the matrix
