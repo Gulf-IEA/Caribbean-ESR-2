@@ -1,13 +1,9 @@
 # Water quality indicator from the EPA water quality data portal: https://www.epa.gov/waterdata/TADA
 
-# STILL WORKING ON THIS, NOT COMPLETE
-
+# last updated by C. Gervasi on 11/21/24
 
 # Questions:
-# different units, how to deal with this? Subset or convert somehow?
-# filtering to only sites with long time series... split out USVI into STT, STJ, STX? Or leave as one? Split PR at all? Subset out the inland counties for PR?
-# sites where multiple measurements were taken on the same day, how to deal with those? Remove one? Just include both in the annual average?
-# Why does PR monitoring end in 2016?
+# Why does PR monitoring end in 2016? Still trying to figure this out
 
 rm(list = ls())
 
@@ -122,50 +118,10 @@ ent = ent %>%
 
 
 
-#Remove 2001
-
+#Remove 2001 since there is no data
 ent = ent %>% 
   filter(year != 2001)
-
 table(ent$year)
-
-
-
-## split PR and USVI 
-
-PR_ent = ent %>% 
-  filter(StateCode == "72")
-
-VI_ent = ent %>% 
-  filter(StateCode == "78")
-
-
-
-tab <- table(PR_ent$year, PR_ent$MonitoringLocationName)            # choose only stations with 7 years of monitoring data for PR
-tab[which(tab>0)] <- 1
-sort(colSums(tab))
-lis <- names(which(colSums(tab)==7))         # list of those stations
-PR_ent2 <- PR_ent[which(PR_ent$MonitoringLocationName %in% lis), ]
-dim(PR_ent2)
-table(PR_ent2$MonitoringLocationName, PR_ent2$year)
-
-
-tab <- table(VI_ent$year, VI_ent$MonitoringLocationName)            # choose only stations with 18 years of monitoring data for USVI
-tab[which(tab>0)] <- 1
-sort(colSums(tab))
-lis <- names(which(colSums(tab)==18))         # list of those stations
-VI_ent2 <- VI_ent[which(VI_ent$MonitoringLocationName %in% lis), ]
-dim(VI_ent2)
-table(VI_ent2$MonitoringLocationName, VI_ent2$year)
-table(VI_ent2$MonitoringLocationName, VI_ent2$CountyCode)
-
-
-
-# QAQC of database
-table(ent$year)
-tapply(ent$ResultMeasureValue, ent$year, mean, na.rm=T)
-tapply(PR_ent$ResultMeasureValue, PR_ent$year, mean, na.rm=T)
-tapply(VI_ent$ResultMeasureValue, VI_ent$year, mean, na.rm=T)
 
 
 
@@ -174,9 +130,12 @@ ent$thresh[which(ent$ResultMeasureValue<35)] <- 0          # group low, medium, 
 ent$thresh[which(ent$ResultMeasureValue>104)] <- 2
 
 
-res <- table(ent$year, ent$thresh)                             # results of low, med, high Entero []s per year
+res <- table(ent$year, ent$thresh)                         # results of low, med, high Entero []s per year
 colnames(res) <- c("low", "med", "high")
 res
+
+
+
 ################################    PLOTS    ###################################
 par(mfrow=c(2,1), mex=0.6, mar=c(6,3,1,1)+2, xpd=F)               # plot results
 barplot(res[,3]/rowSums(res), ylab="% of samples with high bacterial index")                               # number of hi concentrations
@@ -191,8 +150,6 @@ par(mar=c(2,4,5,0)+2, xpd=F)
 barplot(tapply(ent$TADA.ResultMeasureValue, ent$month, mean, na.rm=T), cex.names=0.8, col=4, las=1)
 mtext(side=2, line=4, "Enterococcus count (#/100ml)"); abline(0,0)
 mtext(side=3, line=2, "Averages by month for PR and USVI beach monitoring samples", font=2, las=1)
-
-
 
 
 
@@ -280,115 +237,4 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 1, plotcolnum = 2, tr
 
 save(ind, file = "indicator_objects/enterococcus.RData")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###### Basic stats for numeric variables
-
-# Load necessary library
-library(dplyr)
-library(tidyr)
-
-# Create a summary table for numeric columns with selected statistics
-numeric_summary <- enterococcus %>%
-  select(where(is.numeric)) %>%
-  summarise(across(everything(), list(
-    Min = ~ min(., na.rm = TRUE),
-    Mean = ~ mean(., na.rm = TRUE),
-    Median = ~ median(., na.rm = TRUE),
-    Max = ~ max(., na.rm = TRUE)
-  ))) %>%
-  pivot_longer(cols = everything(), 
-               names_to = c("Variable", "Statistic"), 
-               names_sep = "_") %>%
-  pivot_wider(names_from = "Statistic", values_from = "value")
-
-# View the summary table
-print(numeric_summary)
-
-
-# Look at the values for each column
-
-# Specify the columns of interest
-character_columns <- c("ActivityTypeCode", "ResultValueTypeName") 
-
-# Get unique values for the specified character columns
-unique_values_table <- enterococcus %>%
-  select(all_of(character_columns)) %>%
-  summarise(across(everything(), ~ list(unique(.))))
-
-# Print the table
-print(unique_values_table)
-
-
-
-# We want to subset to only the routine samples
-
-enterococcus = enterococcus %>% 
-  filter(ActivityTypeCode == "Sample-Routine")
-
-
-#check for duplicates in the date column
-
-enterococcus = enterococcus %>% 
-  mutate(ActivityStartDate = as.Date(ActivityStartDate, format = "%Y-%m-%d"))
-
-duplicate_dates = enterococcus %>% 
-  group_by(ActivityStartDate) %>% 
-  filter(n() > 1) %>%
-  ungroup()
-
-ggplot(enterococcus, aes(x = ActivityStartDate, y = ResultMeasureValue)) +
-  geom_line()
 
