@@ -12,6 +12,7 @@ setwd(directory)
 # load indicator matrix --------------------
 load("indicator_data/all_indicators_matrix.rda")
 matrix_data
+dim(matrix_data)
 
 class(matrix_data$year)
 matrix_data$year <- as.numeric(matrix_data$year)
@@ -35,23 +36,30 @@ tail(d)
 
 names(d)
 
-risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", 
-           "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", 
+risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", "OA", "HURR", "QUAKE", 
+           "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", "P_PROD", "SARG",
            "DSTRB_PR", "DSTRB_STT", "DSTRB_STX",
            "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI")
+risks == names(d)[2:27]
   
-  
-  
-  "DHW_PR", "DHW_VI", "OA", "HURR", "TURB_PR", "TURB_STT", "TURB_STX", "SST_MEAN", "SST_MIN", "SST_MAX", 
-           "POLL_PR", "POLL_VI", "CHL", "QUAKE", "DSTRB_PR", "DSTRB_STT", "DSTRB_STX", "SARG", "CRU_PR", "CRU_VI", "POP_PR", "POP_VI")
-food_fi <- c("VETU_PR", "GUTT_PR", "ANAL_PR", "CHRY_PR", "AURO_PR", "VIRI_PR", "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", 
-             "AURO_STT", "VIRI_STT", "VETU_STX", "GUTT_STX", "ANAL_STX", "CHRY_STX", "AURO_STX", "VIRI_STX", "DEN_PR", "DEN_VI", "SLPSIZ_VI")
-food_fd <- c("PDR_PR", "PDR_STT", "PDR_STX", "MLMAX_PR", "MLMAX_STT", "MLMAX_STX", 
-            "LOB_PR", "LOB_STT", "LOB_STX", "CONC_PR", "CONC_STT", "CONC_STX", "OTHR_PR", "OTHR_STT", "OTHR_STX")
-soc <- c("O_GDP_PR", "O_GDP_VI", "EST_PR", "EST_VI", "EMP_PR", "EMP_VI", "WAG_PR", "WAG_VI", "GDP_PR", "GDP_VI", 
-         "UNEM_PR", "UNEM_VI", "GINI_R_PR", "GINI_R_STT", "GINI_R_STX")
-oth <- c("REC_PR", "REC_VI", "DIV_PR", "DIV_STT", "DIV_STX", "BYCAT_PR", "BYCAT_STT", "BYCAT_STX", "REGS", "MGMT", 
-         "TR3_PR", "TR3_VI", "OUT_PR", "OUT_VI", "CRLRCH_PR", "CRLCVR_PR", "CRLRCH_VI", "CRLCVR_VI")
+food_fi <- c("VETU_PR",  "GUTT_PR",  "ANAL_PR",  "CHRY_PR",  "AURO_PR",  "VIRI_PR", 
+             "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", "AURO_STT", "VIRI_STT", 
+             "VETU_STX", "GUTT_STX", "ANAL_STX", "CHRY_STX", "AURO_STX", "VIRI_STX", 
+             "DEN_PR", "DEN_VI", "SLPSIZ_VI")
+food_fd <- c("PDR_PR",  "PDR_STT",  "PDR_STX", 
+             "LMAX_PR", "LMAX_STT", "LMAX_STX",
+             "LOB_PR",  "LOB_STT",  "LOB_STX", 
+             "CONC_PR", "CONC_STT", "CONC_STX", 
+             "OTHR_PR", "OTHR_STT", "OTHR_STX")
+soc <- c("DIV_PR", "DIV_STT", "DIV_STX", 
+         "GDP_PR", "GDP_VI", "UNEM_PR", "UNEM_VI",
+         "O_GDP_PR", "O_GDP_VI", "ECON_PR", "ECON_VI", 
+         "EMPL_PR", "EMPL_VI", "WAGE_PR", "WAGE_VI", 
+         "GINI_PR", "GINI_STT", "GINI_STX")
+oth <- c("REC_PR", "REC_VI", "BYCAT_PR", "BYCAT_STT", "BYCAT_STX", 
+         "MGMT", "ASSES_PR", "ASSES_VI", "EDUC_PR", "EDUC_VI", "ENFORCE", 
+         "CRLRCH_PR", "CRLCVR_PR", "CRLRCH_VI", "CRLCVR_VI")
+oth == names(d)[97:111]
 
 d_risk <- d[, c(1, which(names(d) %in% risks))]
 d_foodfi <- d[, c(1, which(names(d) %in% food_fi))]
@@ -75,17 +83,33 @@ trafficLightPlot(d_oth, noNAs = 1)
 
 # alternative categorization
 
-risks <- c("DHW_PR", "DHW_VI", "OA", "ACE", "TURB_PR", "TURB_STT", "TURB_STX", "SST_MEAN", "SST_MIN", "SST_MAX", 
-           "POLL_PR", "POLL_VI", "CHL", "ETQ", "DISTB_PR", "DISTB_STT", "DISTB_STX", "SARG", "CRU_PR", "CRU_VI", "POP_PR", "POP_VI")
-fi <- c("VETU_PR", "GUTT_PR", "ANAL_PR", "CHRY_PR", "AURO_PR", "VIRI_PR", "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", 
-            "AURO_STT", "VIRI_STT", "VETU_STX", "GUTT_STX", "ANAL_STX", "CHRY_STX", "AURO_STX", "VIRI_STX", 
+risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", "OA", "HURR", "QUAKE", 
+           "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", "P_PROD", "SARG", 
+           "DSTRB_PR", "DSTRB_STT", "DSTRB_STX",
+           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI")
+
+fi <- c("VETU_PR",  "GUTT_PR",  "ANAL_PR",  "CHRY_PR",  "AURO_PR",  "VIRI_PR", 
+        "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", "AURO_STT", "VIRI_STT", 
+        "VETU_STX", "GUTT_STX", "ANAL_STX", "CHRY_STX", "AURO_STX", "VIRI_STX", 
         "DEN_PR", "DEN_VI", "SLPSIZ_VI")
-ccl <- c("PDR_PR", "PDR_STT", "PDR_STX", "MLMAX_PR", "MLMAX_STT", "MLMAX_STX", 
-         "LOB_PR", "LOB_STT", "LOB_STX", "CONC_PR", "CONC_STT", "CONC_STX", "OTHR_PR", "OTHR_STT", "OTHR_STX", 
-         "GINI_R_PR", "GINI_R_STT", "GINI_R_STX", 
-         "DIV_PR", "DIV_STT", "DIV_STX", "BYCAT_PR", "BYCAT_STT", "BYCAT_STX")
-oth <- c("EST_PR", "EST_VI", "EMP_PR", "EMP_VI", "WAG_PR", "WAG_VI", "GDP_PR", "GDP_VI", "UNEM_PR", "UNEM_VI",
-         "REC_PR", "REC_VI", "REGS", "MGMT", "TR3_PR", "TR3_VI", "OUT_PR", "OUT_VI", "CRLRCH_PR", "CRLCVR_PR", "CRLRCH_VI", "CRLCVR_VI")
+
+ccl <- c("PDR_PR",   "PDR_STT",   "PDR_STX", 
+         "LMAX_PR", "LMAX_STT", "LMAX_STX", 
+         "LOB_PR",   "LOB_STT",   "LOB_STX", 
+         "CONC_PR",  "CONC_STT",  "CONC_STX", 
+         "OTHR_PR",  "OTHR_STT",  "OTHR_STX", 
+         "GINI_PR", "GINI_STT", "GINI_STX", 
+         "DIV_PR",   "DIV_STT",   "DIV_STX", 
+         "BYCAT_PR", "BYCAT_STT", "BYCAT_STX")
+
+oth <- c("ECON_PR", "ECON_VI", "EMPL_PR", "EMPL_VI", "WAGE_PR", "WAGE_VI", 
+         "GDP_PR", "GDP_VI", "UNEM_PR", "UNEM_VI", "O_GDP_PR","O_GDP_VI",
+         "REC_PR", "REC_VI", "MGMT", 
+         "ASSES_PR", "ASSES_VI", "EDUC_PR", "EDUC_VI", "ENFORCE",
+         "CRLRCH_PR", "CRLCVR_PR", "CRLRCH_VI", "CRLCVR_VI")
+
+length(risks) + length(fi) + length(ccl) + length(oth)
+ncol(d) - 1 - 15
 
 d_risk <- d[, c(1, which(names(d) %in% risks))]
 d_fi <- d[, c(1, which(names(d) %in% fi))]
@@ -94,7 +118,7 @@ d_oth <- d[, c(1, which(names(d) %in% oth))]
 
 # traffic light plots ----------------------------------
 
-png(filename = "traffic.png", units="in", width=3.8, height=11, pointsize=12, res=72*12)
+png(filename = "indicator_plots/traffic.png", units="in", width=3.8, height=11, pointsize=12, res=72*12)
 
 par(mar = c(1.9, 8, 0.1, 1), mfrow = c(4, 1))
 
@@ -114,7 +138,7 @@ dev.off()
 thresh <- 0.1
 minyr <- 2011
 
-png(filename = "pcas.png", units="in", width=8, height=11, pointsize=12, res=72*12)
+png(filename = "indicator_plots/pcas.png", units="in", width=8, height=11, pointsize=12, res=72*12)
 
 par(mar = c(4, 6, 1, 1), mfrow = c(3, 2))
 
@@ -139,4 +163,4 @@ abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 dev.off()
 
-
+#### end 
