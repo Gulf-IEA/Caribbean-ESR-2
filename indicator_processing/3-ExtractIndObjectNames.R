@@ -2,6 +2,11 @@
 
 rm(list = ls())
 
+#  find root directory for project ---------------
+
+directory <- rprojroot::find_rstudio_root_file()
+setwd(directory)
+
 # Load necessary libraries
 library(dplyr)
 
@@ -14,6 +19,7 @@ extract_column_names <- function(file_path) {
   if (exists("ind") && is.list(ind) && "indicators" %in% names(ind)) {
     # Extract column names from the 'indicators' data frame within 'ind' list
     col_names <- colnames(ind$indicators)
+    if(length(col_names) == 0)  { col_names <- NA  }  # MK added this to deal with error if missing name
     
     # Create a data frame with file name and column names
     data.frame(file_name = file_name, ind_name = col_names)
@@ -28,6 +34,7 @@ indicator_dir <- "indicator_objects"
 
 # Get a list of all .RData files in the directory
 rdata_files <- list.files(indicator_dir, pattern = "\\.RData$", full.names = TRUE)
+rdata_files
 
 # Initialize an empty data frame to store the results
 all_indicators <- data.frame(file_name = character(), ind_name = character())
@@ -42,5 +49,5 @@ for (file in rdata_files) {
 print(all_indicators)
 
 # Save the data frame to a CSV file for manual edits
-write.csv(all_indicators, "indicator_data/extracted_ind_object_names.csv", row.names = FALSE)
+write.csv(all_indicators, "indicator_data/extracted_ind_object_names1.csv", row.names = FALSE)
 
