@@ -75,7 +75,7 @@ head(d)
 dim(d)
 d <- d[order(d$order), 1:5]
 d
-apply(is.na(d), 2, summary)  # check - only 1 NA in col 3 - it's ok
+apply(is.na(d), 2, summary)  # check no NAs
 
 write.csv(d, "indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv", row.names = FALSE)
 
