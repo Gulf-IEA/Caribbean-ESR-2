@@ -51,6 +51,8 @@ Coastal pollution, runoff, and water quality issues are of major concern to fish
 
 WORKING ON THIS ONE
 
+![Water quality as measured by average enterococcus counts from beach water quality sampling.](/indicator_plots/enterococcus_plot_final.png){#fig-ent fig-alt="a plot" fig-align="center"}
+
 ## Coastal development
 
 Impervious surfaces such as pavement, sidewalks, roofs and roads, as well as other forms of development, reduce the infiltration of water into the ground. Impervious surfaces often contribute to higher storm water runoff, greater sediment yields into coastal areas, and increased pollutant loads, all of which can degrade water quality (NOAA Digital Coast). This indicator influences water quality and turbidity in nearshore coastal habitat areas. The highest amount of impervious surfaces is seen in the San Juan metropolitan area (@fig-landuse).
