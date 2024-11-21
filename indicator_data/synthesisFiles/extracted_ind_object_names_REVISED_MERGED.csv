@@ -1,4 +1,4 @@
-"nam","file_name.x","ind_name.x","desc_name","order"
+"nam","ind_name","ind_name.x","desc_name","order"
 "Carib_SST.RData_mean","Carib_SST.RData","mean","SST_MEAN",1
 "Carib_SST.RData_min","Carib_SST.RData","min","SST_MIN",2
 "Carib_SST.RData_max","Carib_SST.RData","max","SST_MAX",3

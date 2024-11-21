@@ -77,6 +77,10 @@ d <- d[order(d$order), 1:5]
 d
 apply(is.na(d), 2, summary)  # check no NAs
 
+names(d)
+names(d)[2] <- "file_name"
+names(d)[2] <- "ind_name"
+
 write.csv(d, "indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv", row.names = FALSE)
 
 ###########  end   ############
