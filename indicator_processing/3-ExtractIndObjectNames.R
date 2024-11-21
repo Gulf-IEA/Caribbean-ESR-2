@@ -52,17 +52,8 @@ print(all_indicators)
 write.csv(all_indicators, "indicator_data/synthesisFiles/extracted_ind_object_names.csv", row.names = FALSE)
 
 
-
-
-
-
-
-
-
-
-
-
 ### MANDY'S CODE - PUSHING IT ASIDE FOR THE MOMENT
+### IT WORKS NOW! YOU CAN USE IT!
 
 # merge in revised CSV with manual object names -------------
 
@@ -76,9 +67,9 @@ head(dm)
 dim(d1)
 dim(dm)
 
-lis <- names(which(table(d1$file_name) == 1))       # identify indicator files with only one column
-d1$ind_name[which(d1$file_name %in% lis)] <- ""     # replace ind_name with blank for those single column files 
-dm$ind_name[which(dm$file_name %in% lis)] <- ""
+#lis <- names(which(table(d1$file_name) == 1))       # identify indicator files with only one column
+#d1$ind_name[which(d1$file_name %in% lis)] <- ""     # replace ind_name with blank for those single column files 
+#dm$ind_name[which(dm$file_name %in% lis)] <- ""
 
 d1$nam <- paste0(d1$file_name, "_", d1$ind_name)    # make identifier with file name and col name for merging
 dm$nam <- paste0(dm$file_name, "_", dm$ind_name)
@@ -90,9 +81,11 @@ d <- d[order(d$order), 1:5]
 d
 apply(is.na(d), 2, summary)  # check no NAs
 
-names(d)
-names(d)[2] <- "file_name"
-names(d)[3] <- "ind_name"
+d$ind_name.x[which(is.na(d$ind_name.x))] <- "V1"
+
+d <- d[, -1]
+
+names(d)[1:2] <- names(d1)[1:2]
 
 head(d)
 

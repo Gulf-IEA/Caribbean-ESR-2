@@ -4,6 +4,10 @@
 
 rm(list = ls())
 
+# find root project directory 
+directory <- rprojroot::find_rstudio_root_file()
+setwd(directory)
+
 # Load necessary libraries
 library(dplyr)
 library(tidyr)
@@ -23,7 +27,9 @@ extract_data <- function(file_path) {
 }
 
 # Read the descriptive names from the CSV file
-descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED.csv")
+
+#descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED.csv")
+descriptive_names <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv")
 
 # Set the directory containing the .RData files
 indicator_dir <- "indicator_objects"
@@ -105,7 +111,6 @@ all_data[[grep("OA", all_data)]] = OA
 all_data[[grep("Sarg", all_data)]] = Sargassum
 all_data[[grep("turbidity", all_data)]] = turbidity
 all_data[[grep("unemp", all_data)]] = unemployment
-
 
 
 ########################################################
