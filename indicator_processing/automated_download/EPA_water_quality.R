@@ -9,6 +9,7 @@
 # sites where multiple measurements were taken on the same day, how to deal with those? Remove one? Just include both in the annual average?
 # Why does PR monitoring end in 2016?
 
+rm(list = ls())
 
 if(!"remotes"%in%installed.packages()){
   install.packages("remotes")
@@ -301,13 +302,22 @@ ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
   theme(strip.text = element_text(size = 12))
 
 
+vardata.PR <- data.frame(var = alldat$SE.y)
+vardata.VI <- data.frame(var = alldat$SE.x)
+ulidata.PR <- data.frame(uli = alldat$MeanValue.y + sqrt(vardata.PR$var))
+llidata.PR <- data.frame(lli = alldat$MeanValue.y - sqrt(vardata.PR$var))
+ulidata.VI <- data.frame(uli = alldat$MeanValue.x + sqrt(vardata.VI$var))
+llidata.VI <- data.frame(lli = alldat$MeanValue.x - sqrt(vardata.VI$var))
+
 # save as indicator object ----------------------
 datdata <- as.integer(alldat$year)
 inddata <- data.frame(cbind(as.numeric(alldat$MeanValue.y), as.numeric(alldat$MeanValue.x)))
+ulidata <- data.frame(cbind(as.numeric(ulidata.PR$uli), as.numeric(ulidata.VI$uli)))
+llidata <- data.frame(cbind(as.numeric(llidata.PR$lli), as.numeric(llidata.VI$lli)))
 labs <- c("Mean Enteroccocus count" , "Number per 100 mL", "Puerto Rico",
           "Mean Enterococcus count" , "Number per 100 mL", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
-inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
+inddata <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(inddata) <- "indicatordata"
 
 
