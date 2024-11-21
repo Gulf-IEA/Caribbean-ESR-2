@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -194,7 +197,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#stoplight-plot-and-other-synthesis-stuff" id="toc-stoplight-plot-and-other-synthesis-stuff" class="nav-link active" data-scroll-target="#stoplight-plot-and-other-synthesis-stuff"><span class="header-section-number">4.1</span> Stoplight plot and other synthesis stuff</a></li>
+  <li><a href="#traffic-plot" id="toc-traffic-plot" class="nav-link active" data-scroll-target="#traffic-plot"><span class="header-section-number">4.1</span> Traffic plot</a></li>
+  <li><a href="#principle-components-analysis" id="toc-principle-components-analysis" class="nav-link" data-scroll-target="#principle-components-analysis"><span class="header-section-number">4.2</span> Principle components analysis</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Gulf-IEA/Caribbean-ESR-2/edit/main/content/synthesis.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Gulf-IEA/Caribbean-ESR-2/blob/main/content/synthesis.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Gulf-IEA/Caribbean-ESR-2/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -220,8 +224,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="stoplight-plot-and-other-synthesis-stuff" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="stoplight-plot-and-other-synthesis-stuff"><span class="header-section-number">4.1</span> Stoplight plot and other synthesis stuff</h2>
+<section id="traffic-plot" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="traffic-plot"><span class="header-section-number">4.1</span> Traffic plot</h2>
+<p>Mandy will add some text here.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../indicator_plots/traffic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Traffic plot"><img src="../indicator_plots/traffic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A plot showing the changes in all indicators over time"></a></p>
+</figure>
+</div>
+<figcaption>Traffic plot</figcaption>
+</figure>
+</div>
+</section>
+<section id="principle-components-analysis" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="principle-components-analysis"><span class="header-section-number">4.2</span> Principle components analysis</h2>
+<p>Mandy will add some more text here.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../indicator_plots/pcas.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Principle components analysis plot"><img src="../indicator_plots/pcas.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A plot showing PCA loadings for all indicators"></a></p>
+</figure>
+</div>
+<figcaption>Principle components analysis plot</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -673,6 +702,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
