@@ -106,6 +106,8 @@ all_data[[grep("Sarg", all_data)]] = Sargassum
 all_data[[grep("turbidity", all_data)]] = turbidity
 all_data[[grep("unemp", all_data)]] = unemployment
 
+
+
 ########################################################
 
 #Now back to making the indicator matrix
@@ -155,6 +157,7 @@ for (data in all_data) {
 
 # Print the resulting matrix
 print(matrix_data)
+dim(matrix_data)
 
 # re-order the columns
 

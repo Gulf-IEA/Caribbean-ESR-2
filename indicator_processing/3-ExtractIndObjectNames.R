@@ -79,7 +79,9 @@ apply(is.na(d), 2, summary)  # check no NAs
 
 names(d)
 names(d)[2] <- "file_name"
-names(d)[2] <- "ind_name"
+names(d)[3] <- "ind_name"
+
+head(d)
 
 write.csv(d, "indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv", row.names = FALSE)
 

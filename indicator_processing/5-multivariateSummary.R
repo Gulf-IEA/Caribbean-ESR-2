@@ -1,14 +1,22 @@
 
-
+# code for producing multivariate plots -----------
 rm(list = ls())
+
+# load libraries ----------------------------
 library(plotTimeSeries)
 
-load("../Caribbean-ESR/indicator_data/all_indicators_matrix.rda")
+# find root project directory 
+directory <- rprojroot::find_rstudio_root_file()
+setwd(directory)
+
+# load indicator matrix --------------------
+load("indicator_data/all_indicators_matrix.rda")
 matrix_data
 
 class(matrix_data$year)
 matrix_data$year <- as.numeric(matrix_data$year)
 
+par(mar = c(2, 7, 1, 1))
 trafficLightPlot(matrix_data, noNAs = 0.99)
 # 2000+ has some data, 2010+ is data-rich period
 
@@ -18,13 +26,24 @@ for (i in 1:ncol(matrix_data))  { hist(matrix_data[, i], main = names(matrix_dat
 dev.off()
 
 d <- matrix_data[which(matrix_data$year >= 2000 & matrix_data$year <= 2023), ]
+
+par(mar = c(2, 7, 1, 1))
 trafficLightPlot(d, noNAs = 1)
 
 head(d)
 tail(d)
 
-risks <- c("DHW_PR", "DHW_VI", "OA", "ACE", "TURB_PR", "TURB_STT", "TURB_STX", "SST_MEAN", "SST_MIN", "SST_MAX", 
-           "POLL_PR", "POLL_VI", "CHL", "ETQ", "DISTB_PR", "DISTB_STT", "DISTB_STX", "SARG", "CRU_PR", "CRU_VI", "POP_PR", "POP_VI")
+names(d)
+
+risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", 
+           "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", 
+           "DSTRB_PR", "DSTRB_STT", "DSTRB_STX",
+           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI")
+  
+  
+  
+  "DHW_PR", "DHW_VI", "OA", "HURR", "TURB_PR", "TURB_STT", "TURB_STX", "SST_MEAN", "SST_MIN", "SST_MAX", 
+           "POLL_PR", "POLL_VI", "CHL", "QUAKE", "DSTRB_PR", "DSTRB_STT", "DSTRB_STX", "SARG", "CRU_PR", "CRU_VI", "POP_PR", "POP_VI")
 food_fi <- c("VETU_PR", "GUTT_PR", "ANAL_PR", "CHRY_PR", "AURO_PR", "VIRI_PR", "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", 
              "AURO_STT", "VIRI_STT", "VETU_STX", "GUTT_STX", "ANAL_STX", "CHRY_STX", "AURO_STX", "VIRI_STX", "DEN_PR", "DEN_VI", "SLPSIZ_VI")
 food_fd <- c("PDR_PR", "PDR_STT", "PDR_STX", "MLMAX_PR", "MLMAX_STT", "MLMAX_STX", 
