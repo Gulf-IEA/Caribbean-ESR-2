@@ -49,5 +49,35 @@ for (file in rdata_files) {
 print(all_indicators)
 
 # Save the data frame to a CSV file for manual edits
-write.csv(all_indicators, "indicator_data/extracted_ind_object_names1.csv", row.names = FALSE)
+write.csv(all_indicators, "indicator_data/synthesisFiles/extracted_ind_object_names.csv", row.names = FALSE)
+
+# merge in revised CSV with manual object names -------------
+
+rm(list = ls())
+
+d1 <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names.csv")
+dm <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED.csv")
+
+head(d1)
+head(dm)
+dim(d1)
+dim(dm)
+
+lis <- names(which(table(d1$file_name) == 1))       # identify indicator files with only one column
+d1$ind_name[which(d1$file_name %in% lis)] <- ""     # replace ind_name with blank for those single column files 
+dm$ind_name[which(dm$file_name %in% lis)] <- ""
+
+d1$nam <- paste0(d1$file_name, "_", d1$ind_name)    # make identifier with file name and col name for merging
+dm$nam <- paste0(dm$file_name, "_", dm$ind_name)
+
+d <- merge(dm, d1, by = "nam", all = TRUE)
+head(d)
+dim(d)
+d <- d[order(d$order), 1:5]
+d
+apply(is.na(d), 2, summary)  # check - only 1 NA in col 3 - it's ok
+
+write.csv(d, "indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv", row.names = FALSE)
+
+###########  end   ############
 

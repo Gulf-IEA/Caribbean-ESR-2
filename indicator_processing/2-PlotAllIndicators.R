@@ -79,8 +79,8 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, tr
 
 #png(filename = "indicator_plots/enterococcus_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("../indicator_objects/enterococcus.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
-                        sublabel = TRUE, widadj = 0.7, hgtadj = 0.75, anom = "none", yposadj = 0.8, cex.axis = 1, cex.lab = 1, cex.main = 1.1, 
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, 
+                        sublabel = TRUE, widadj = 1, hgtadj = 0.75, anom = "none", yposadj = 0.8, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "enterococcus_plot_final.png")
 #dev.off()
 
