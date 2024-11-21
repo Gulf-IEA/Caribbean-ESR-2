@@ -4,7 +4,7 @@ Carib_SST.RData,min,SST_MIN,2
 Carib_SST.RData,max,SST_MAX,3
 DegreeHeatingWeeks.RData,X1,DHW_PR,4
 DegreeHeatingWeeks.RData,X2,DHW_VI,5
-OA.RData,"annual_data[, -1]",OA,6
+OA.RData,dat.V3,OA,6
 ACEindex.RData,storm_index,HURR,7
 earthquakes.RData,as.numeric.tot_num.,QUAKE,8
 pollution.RData,PR_ind,POLL_PR,9
@@ -14,7 +14,7 @@ turbidity.RData,X2,TURB_STT,12
 turbidity.RData,X3,TURB_STX,13
 enterococcus.RData,X1,WATQUL_PR,14
 enterococcus.RData,X2,WATQUL_VI,15
-carib_Chl.RData,"annual_data[, -1]",P_PROD,16
+carib_Chl.RData,ind,P_PROD,16
 Sargassum.RData,d.area.km2.,SARG,17
 disturbance.RData,final_PR.ind,DSTRB_PR,18
 disturbance.RData,V2,DSTRB_STT,19
@@ -104,7 +104,7 @@ tier3.RData,PR,ASSES_PR,102
 tier3.RData,USVI,ASSES_VI,103
 outreach.RData,X1,EDUC_PR,104
 outreach.RData,X2,EDUC_VI,105
-enforcement.RData,"annual_data[, -1]",ENFORCE,106
+enforcement.RData,NA,ENFORCE,106
 coral_spprichness_cover.RData,X1,CRLRCH_PR,107
 coral_spprichness_cover.RData,X2,CRLCVR_PR,108
 coral_spprichness_cover.RData,X3,CRLRCH_VI,109
