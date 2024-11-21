@@ -1,5 +1,16 @@
 ---
 title: Integrated ecosystem perspectives
+lightbox: TRUE
 ---
 
-## Stoplight plot and other synthesis stuff
+## Traffic plot
+
+Mandy will add some text here.
+
+![Traffic plot](/indicator_plots/traffic.png){fig-alt="A plot showing the changes in all indicators over time" fig-align="center"}
+
+## Principle components analysis
+
+Mandy will add some more text here.
+
+![Principle components analysis plot](/indicator_plots/pcas.png){fig-alt="A plot showing PCA loadings for all indicators" fig-align="center"}
