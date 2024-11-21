@@ -51,6 +51,19 @@ print(all_indicators)
 # Save the data frame to a CSV file for manual edits
 write.csv(all_indicators, "indicator_data/synthesisFiles/extracted_ind_object_names.csv", row.names = FALSE)
 
+
+
+
+
+
+
+
+
+
+
+
+### MANDY'S CODE - PUSHING IT ASIDE FOR THE MOMENT
+
 # merge in revised CSV with manual object names -------------
 
 rm(list = ls())
