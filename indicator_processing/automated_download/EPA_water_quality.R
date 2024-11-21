@@ -278,6 +278,15 @@ summary_data <- ent %>%
     .groups = "drop"
   )
 
+
+summary_PR = summary_data %>% 
+  filter(StateCode == "72")
+
+summary_VI = summary_data %>% 
+  filter(StateCode == "78")
+
+alldat = left_join(summary_VI, summary_PR, by = "year")
+
 # Create the bar plot with error bars
 ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
   geom_bar(stat = "identity", fill = "steelblue", alpha = 0.7) +
@@ -292,10 +301,22 @@ ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
   theme(strip.text = element_text(size = 12))
 
 
+# save as indicator object ----------------------
+datdata <- as.integer(alldat$year)
+inddata <- data.frame(cbind(as.numeric(alldat$MeanValue.y), as.numeric(alldat$MeanValue.x)))
+labs <- c("Mean Enteroccocus count" , "Number per 100 mL", "Puerto Rico",
+          "Mean Enterococcus count" , "Number per 100 mL", "USVI")
+indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
+inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
+class(inddata) <- "indicatordata"
 
 
+# plot and save ----------------------------------
 
+ind <- inddata
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 1, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.7, anom = "none", yposadj = 1)
 
+save(ind, file = "indicator_objects/enterococcus.RData")
 
 
 
