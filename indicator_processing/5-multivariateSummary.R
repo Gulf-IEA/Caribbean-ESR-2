@@ -118,7 +118,7 @@ d_oth <- d[, c(1, which(names(d) %in% oth))]
 
 # traffic light plots ----------------------------------
 
-png(filename = "indicator_plots/traffic.png", units="in", width=3.8, height=11, pointsize=12, res=72*12)
+png(filename = "indicator_plots/traffic.png", units="in", width=3.8, height=10, pointsize=12, res=72*12)
 
 par(mar = c(1.9, 8, 0.1, 1), mfrow = c(4, 1))
 
@@ -138,7 +138,7 @@ dev.off()
 thresh <- 0.1
 minyr <- 2011
 
-png(filename = "indicator_plots/pcas.png", units="in", width=8, height=11, pointsize=12, res=72*12)
+png(filename = "indicator_plots/pcas.png", units="in", width=8, height=10, pointsize=12, res=72*12)
 
 par(mar = c(4, 6, 1, 1), mfrow = c(3, 2))
 
