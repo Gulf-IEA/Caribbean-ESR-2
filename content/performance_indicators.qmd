@@ -107,19 +107,21 @@ Due to their unique geography, culture and setting, the islands of Puerto Rico a
 
 Equality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality [all revenues going to a single individual, @gini1936]. The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits (@fig-gini). Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St. Thomas/St. John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St. Croix. There are spikes in inequality in Puerto Rico in 2018 and in St. Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.
 
-![Gini coefficient](/indicator_plots/gini_plot_final.png){#fig-gini fig-alt="a plot" fig-align="center"}
+![Equality in the distribution of revenues across the commercial fishery in Puerto Rico and USVI as represented by the Gini index.](/indicator_plots/gini_plot_final.png){#fig-gini fig-alt="a plot" fig-align="center"}
 
 ### Environmental justice, economic, and gentrification pressure
 
-Indicator 26
+NOAA Fisheries Community Social Vulnerability Indicators Toolbox [@noaafisheries2024] has several social, economic, and climate change indicators that characterize and evaluate a community’s vulnerability and resilience to disturbances (regulations, extreme weather, oil spills, sea level rise, etc.) based on Jepson and Colburn [-@jepson]. In the U.S. Caribbean, housing characteristics is a measure of infrastructure vulnerability to coastal hazards including median rent and mortgage, number of rooms, and presence of mobile homes. Labor force structure characterizes the availability of employment including females employed, population in the labor force, self-employment, and social security recipients. Personal disruption captures unemployment status, educational attainment, poverty, and marital status. Population composition corresponds to the demographic makeup of a community including race, marital status, age, and ability to speak English. Poverty is expressed as those receiving assistance, families below the poverty line, and individuals older than 65 and younger than 18 in poverty. All of these indicators were developed using census data for 2010 and 2020. Census data for 2020 only was used to develop a retiree migration indicator, which characterizes communities with a higher concentration of retirees and elderly people in the population including households with inhabitants over 65 years, population receiving social security or retirement income, and level of participation in the work force.
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20East.png){#fig-CSVIPRE fig-alt="Plot showing a time series of an indicator"}
+Add some text on trends... (@fig-CSVIPRE, @fig-CSVIPRW, @fig-CSVISTT, @fig-CSVISTX).
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20West.png){#fig-CSVIPRW fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots PR east](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20East.png){#fig-CSVIPRE fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Thomas%20&%20St.%20John.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots PR west](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_Puerto%20Rico%20West.png){#fig-CSVIPRW fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Croix.png){#fig-CSVISTX fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots St. Thomas and St. John](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Thomas%20&%20St.%20John.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"}
+
+![CSVI plots St. Croix](/indicator_plots/CSVI_plots/Faceted_Bar_Plot_St.%20Croix.png){#fig-CSVISTX fig-alt="Plot showing a time series of an indicator"}
 
 ## Engagement and participation
 
@@ -127,19 +129,19 @@ Indicator 26
 
 Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Intercept Program collected data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database esimtates reported catches based on imputations and assumptions [@pauly2015]. In Puerto Rico and USVI, landings were reconstructed by…(need to fill in). Estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico whereas catch has increased over the same period in the USVI (@fig-reccatch).
 
-![Rec catch](/indicator_plots/total_rec_catch_plot_final.png){#fig-reccatch fig-alt="a plot" fig-align="center"}
+![Total recreational catch in millions of pounds as estimated by the Sea Around Us database for Puerto Rico and USVI.](/indicator_plots/total_rec_catch_plot_final.png){#fig-reccatch fig-alt="a plot" fig-align="center"}
 
 ### Commercial fishing engagement and reliance
 
-Indicator 28
+Fishing engagement and reliance indices measure the importance or level of dependence on commercial or recreational fishing for coastal communities [@noaafisheries2024]. They are used in National Environmental Policy Act, Magnuson-Stevens Act, and climate change related assessments. Commercial fishing engagement measures the presence of commercial fishing through fishing activity as shown through permits, fish dealers, and vessel landings. A high rank indicates more engagement. Commercial fishing reliance measures the presence of commercial fishing in relation to the population size of a community through fishing activity. A high rank indicates more reliance. Coastal communities on the west and east coasts of Puerto Rico, the northside of St. Thomas, and the southwest of St. Croix had particularly high commercial engagement and reliance for 2016-2020 (@fig-PRengage, @fig-PRreliance, @fig-USVIengage, @fig-USVIreliance).
 
-![](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
+![Commercial fishing engagement in Puerto Rico based on NOAA Fisheries Databases: commercial landings 5-year average for 2016-2020 and permit numbers.](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
+![Reliance on commercial fishing in Puerto Rico based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016-2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
+![Commercial fishing engagement in USVI based on NOAA Fisheries Databases: commercial landings 5-year average for 2016-2020 and permit numbers.](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
 
-![](/indicator_plots/USVI_comm_fishing_reliance.png){#fig-USVIreliance fig-alt="Plot showing a time series of an indicator"}
+![Reliance on commercial fishing in USVI based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016-2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/USVI_comm_fishing_reliance.png){#fig-USVIreliance fig-alt="Plot showing a time series of an indicator"}
 
 ## Bycatch reduction
 
@@ -147,21 +149,21 @@ Indicator 28
 
 Data on bycatch in the U.S. Caribbean are lacking; there are no bycatch reporting requirements in the logbook and the region has no observer programs. The selectivity of gears can be considered as some gear types are highly selective (e.g. spearfishing and diving) while other gears capture a wide range of target and non-target species (cite?). We calculated the proportion of non-selective gears (traps and nets) from the Caribbean Commercial Landings database as a proxy for bycatch in the fisheries. Overall the use of these gear types is decreasing in Puerto Rico and St. Croix while it is increasing in St. Thomas and St. John (@fig-bycatch).
 
-![Bycatch](/indicator_plots/prop_trips_bycatch_plot_final.png){#fig-bycatch fig-alt="a plot" fig-align="center"}
+![Indicator of bycatch prevalence in the U.S. Caribbean as measured by the proportion of commercial trips using non-selective fishing gears. ](/indicator_plots/prop_trips_bycatch_plot_final.png){#fig-bycatch fig-alt="a plot" fig-align="center"}
 
 ## Governance
 
-### Number of new regulations
+### Efficacy of management
 
-Indicator 30
+The number of new management actions over time can be indicative of the efficacy of fisheries management. Federal register (FR) notices were used to sum the number of new regulations that were imposed in the U.S. Caribbean region on an annual basis. Specifically, the number of unique FR sections within each FR notice were summed. The FR section is the part, chapter, and section in which a specific regulation is contained within an FR notice. Management actions have occurred in waves over time, often increasing with changes to Fishery Management Plans, like the establishment of the first reef fish FMP in 1985, the establishment of the Queen Conch FMP in 1997, and a major amendment to the FMPs of the Caribbean region in 2005.
 
-![Regulations](/indicator_plots/FRsection_plot_final.png){#fig-FR fig-alt="a plot" fig-align="center"}
+![The number of new management actions implemented in the U.S. Caribbean region based on the annual count of unique Federal Register sections within all Federal Register notices. ](/indicator_plots/FRsection_plot_final.png){#fig-FR fig-alt="a plot" fig-align="center"}
 
 ### Percent of species with informative catch limits
 
 U.S. Caribbean fisheries are highly diverse; over 300 individual species have been recorded in the landings database and there are 54 stocks or complexes within the three Island-based Fishery Management Plans. At the same time, the region is extremely data-limited, with high uncertainty in landings data and lacking reliable indices of abundance, and most annual catch limits are derived using Tier 3 control rules (based on average landings). The percentage of stocks or complexes with annual catch limits informed by stock assessments is a useful indicator for tracking progress toward more robust management advice in the region. In recent years, progress has been made and several stock assessments have been accepted for management advice (@fig-tier3).
 
-![Tier 3 plot](/indicator_plots/tier3_plot_final.png){#fig-tier3 fig-alt="a plot" fig-align="center"}
+![Percent of stocks/complex with informative annual catch limits as measured by stock assessments in Puerto Rico and the USVI.](/indicator_plots/tier3_plot_final.png){#fig-tier3 fig-alt="a plot" fig-align="center"}
 
 ### Number of education and outreach events
 

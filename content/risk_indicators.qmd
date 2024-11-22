@@ -21,7 +21,7 @@ Accumulated heat stress, which can lead to coral bleaching and death, is measure
 
 Ocean and coastal acidification can impact organisms directly or indirectly; a decrease in aragonite saturation state can weaken the structure of coral reefs and other calcifying organisms. In-situ measurements of aragonite saturation states are scarce and a synoptic, long-term view is only available from modeled products. Aragonite saturation state was derived for the U.S. Caribbean region from the MOM-TOPAZ hindcast (cite). An overall negative trend occurs, with an acceleration of this trend apparent after 2008 (@fig-OA).
 
-![Ocean acidification plot](/indicator_plots/OA_plot_final.png){#fig-OA fig-alt="a plot" fig-align="center"}
+![Ocean acidification as measured by surface aragonite saturation state over time.](/indicator_plots/OA_plot_final.png){#fig-OA fig-alt="a plot" fig-align="center"}
 
 ## Hurricane activity
 
@@ -49,7 +49,7 @@ Coastal pollution, runoff, and water quality issues are of major concern to fish
 
 ## Water quality
 
-WORKING ON THIS ONE
+The presence of enterococci bacteria in water samples is used as a primary indicator of fecal contamination, which poses both environmental and human health risks [@unitedstatesenvironmentalprotectionagency2024]. Water quality, biological, and physical data collected by The United States Geological Survey (USGS), the Environmental Protection Agency (EPA), and over 400 state, federal, tribal, and local agencies are publicly available via the EPA Water Quality Portal (<https://www.waterqualitydata.us/>). Data on enterococci abundance in beach samples throughout Puerto Rico and the USVI were downloaded and daily counts were averaged annually. Throughout the Caribbean region, there has been a substantial increase in the enterococcus count over time, with particularly high measured levels since 2015 in Puerto Rico and since 2020 in USVI (\@fig-ent). The EPA's enterococci criteria for bathing (full body contact) in recreational waters is 33 per 100mL [@unitedstatesenvironmentalprotectionagency1986]. Average levels of enterococcus have been well above this criteria since at least 2008 in Puerto Rico and 2015 in USVI.
 
 ![Water quality as measured by average enterococcus counts from beach water quality sampling.](/indicator_plots/enterococcus_plot_final.png){#fig-ent fig-alt="a plot" fig-align="center"}
 
