@@ -3,11 +3,11 @@ title: Tracking performance toward fishery management objectives
 lightbox: TRUE
 ---
 
-In this section, we examine indicators related to broad, ecosystem-level fishery management objectives.
+In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems.  
 
 ## Food production
 
-### Fishery independent surveys of economically important species
+### Abundance of economically important species
 
 Fishery-independent surveys are conducted to understand relative abundance trends in economically important fish species. The Southeast Fisheries Science Center, in collaboration with many academic and private partners, has been conducting a visual survey of reef fish species in the Florida Keys since 1978, and the survey was expanded to the U.S. Caribbean in 2001 [@smith2011]. Six target fish species (mutton snapper, yellowtail snapper, red hind, queen triggerfish, redband parrotfish, and stoplight parrotfish) were selected as key indicators for the condition of living resources in the U.S. Caribbean, due to their status as targeted species by recreational and commercial fishers. Trends in fish density for these species of interest are highly variable, but density has been at or above the time series average in recent years for most species. A notable exception is stoplight parrotfish, which have gradually declined over time in all regions and density is currently below average in St. Croix (@fig-RVCPR, @fig-RVCSTSJ, @fig-RVCSTX).
 
@@ -17,23 +17,23 @@ Fishery-independent surveys are conducted to understand relative abundance trend
 
 ![Average density of queen triggerfish, red hind, mutton snapper, yellowtail snapper, redband parrotfish, and stoplight parrotfish over time in St. Croix from the National Coral Reef Monitoring Program Reef Visual Census data. A change in sampling methodology occured in 2019, and at the time of publication the mutton snapper time series had not been calibrated, so data are only available from 2019 onward.](/indicator_plots/RVC_STX_plot_final.png){#fig-RVCSTX fig-alt="A plot showing the indicator" fig-align="center"}
 
-Fishery-independent surveys can be used to look at changes in the overall fish community and understand processes affecting multiple suites of species. The Puerto Rico Long-Term Coral Reef Monitoring Program (PRCRMP) has conducted annual surveys of fish and benthic organisms since 1999 [@puertoricodepartmentofnaturalandenvironmentalresources2019]. Similarly, the Territorial Coral Reef Monitoring Program (TCRMP) conducts annual to semi-annual surveys of coral health, fish community structure and coral health (cite). Commercial fish density is calculated by taking the average number of commercial fish per transect over time. The slope of the size spectrum is calculated by binning all observed commercial fish lengths into size categories and then fitting a linear regression through the log-transformed histogram; a more negative slope represents relatively fewer large fish and potentially increased fishing impacts. In Puerto Rico, average commercial fish density was noisy but stable over time; insufficient data were available with which to estimate the slope of the size spectra. In the USVI, commercial fish density was stable over time with a large peak in 2011; the slope of the size spectrum was also relatively stable with a sudden decrease in 2011. Together these indicators convey the sudden appearance of many small species, suggestive of a large recruitment event across multiple species (@fig-fishdensity).
+Fishery-independent surveys can be used to look at changes in the overall fish community and understand processes affecting multiple suites of species. The Puerto Rico Long-Term Coral Reef Monitoring Program (PRCRMP) has conducted annual surveys of fish and benthic organisms since 1999 [@puertoricodepartmentofnaturalandenvironmentalresources2019]. Similarly, the USVI Territorial Coral Reef Monitoring Program (TCRMP) conducts annual to semi-annual surveys of coral health, fish community structure and coral health (cite). Commercial fish density is calculated by taking the average number of commercial fish per transect over time. The slope of the size spectrum is calculated by binning all observed commercial fish lengths into size categories and then fitting a linear regression through the log-transformed histogram; a more negative slope represents relatively fewer large fish and potentially increased fishing impacts. In Puerto Rico, average commercial fish density fluctuates but is stable over time; insufficient data were available with which to estimate the slope of the size spectra. In the USVI, commercial fish density was stable over time with a large peak in 2011; the slope of the size spectrum was also relatively stable with a sudden decrease in 2011. Together these indicators convey the sudden appearance of many small fish, suggestive of a large recruitment event across multiple species (@fig-fishdensity).
 
-![Commercial fish density as average number of commercial fish per transect from fisheries-independent surveys in Puerto Rico and USVI, and the slope of the size spectrum for USVI.](/indicator_plots/fish_density_plot_final.png){#fig-fishdensity fig-alt="a plot" fig-align="center"}
+![Commercial fish density from PRCRMP fishery-independent surveys in Puerto Rico (top), commercial fish density from TCRMP fishery-independent surveys in the USVI (middle), and the slope of the log-transformed size spectrum from TCRMP surveys in the USVI (bottom).](/indicator_plots/fish_density_plot_final.png){#fig-fishdensity fig-alt="a plot" fig-align="center"}
 
-### Pelagic:demersal ratio
+### Pelagic:demersal ratio of landings
 
-The ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystems [@deleivamoreno2000]; in the context of small islands in the tropical seas, it conveys the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal catch were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in FishBase [@froese2024]. In St. Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be due to changes in reporting (logbook to e-reporting). In St. Thomas and St. John, the ratio has gradually increased over time; the large peak in 2018 could have been a result of hurricane-induced reef habitat loss (@fig-PD).
+The ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystems [@deleivamoreno2000]; in the context of small islands in the tropical seas, it may convey the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal landings were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in FishBase [@froese2024]. In St. Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be partially due to changes in reporting that occurred in 2020 (logbook to e-reporting). In St. Thomas and St. John, the ratio has gradually increased over time; the large peak in 2018 could have been a result of hurricane-induced reef habitat loss and subsequent reduction in landings of demersal fish species (@fig-PD).
 
-![Ratio of pelagic to demersal species based on commercial landings data for Puerto Rico and USVI.](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="a plot" fig-align="center"}
+![Ratios of pelagic to demersal landings, based on reported commercial landings data for Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note differences in scale of the y-axes.](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="a plot" fig-align="center"}
 
-### Maximum length and size structure
+### Maximum length in the landings
 
-The average maximum length of a species in the landings has been proposed as an indicator of whether large-bodies species have been depleted and are no longer fished [@rochet2003]. The Lmax indicator is derived by assigning a maximum body length for each species (as reported in FishBase) and then calculating the average body length for the landings in each year, or the proportion of landings within different Lmax classes (based on the Caribbean Commercial Landings database). The average maximum length in the landings has been relatively stable across all islands in the U.S. Caribbean with an uptick across all islands in the last five years; this is partially due to a shift to more pelagic species in the landings (@fig-avgLmax).
+The average maximum length of a species in the landings has been proposed as an indicator of whether large-bodies species have been depleted and are no longer fished [@rochet2003]. The Lmax indicator is derived by assigning a maximum body length for each species (as reported in FishBase) and then calculating the average body length for the landings in each year (based on the Caribbean Commercial Landings database). This analysis was limited to demersal species only, as pelagic species tend to be larger-bodied and the index would otherwise be closely related to the pelagic-demersal ratio. The average maximum length in the demersal landings decreased over time in Puerto Rico from 2005 - 2012, but has been relatively stable since (@fig-avgLmax).  In the USVI, there has been no overall trend over time, though there was a sharp decline in St. Thomas and St. John in the 2017-18 fishing year and a sharp increase in St. Croix in the 2018-19 fishing year. These changes may reflect changes in fishing behavior tied to impacts from the 2017 hurricanes.  
 
-![Average maximum length (cm) of species in commercial catch data over time for Puerto Rico and USVI.](/indicator_plots/avgLmax_plot_final.png){#fig-avgLmax fig-alt="a plot" fig-align="center"}
+![Average maximum length of demersal species in the reported landings for Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note that the years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/avgLmax_plot_final.png){#fig-avgLmax fig-alt="a plot" fig-align="center"}
 
-In Puerto Rico, there is an overall increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax group is driven by declining catches of mackerels, large rare parrotfishes, tunas, and some large groupers (@fig-PRLmax).
+The proportion of landings within different Lmax classes can also be shown to better understand changes driving the average Lmax value.  In Puerto Rico, there is an overall increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, hogfish and red hind, while a decrease in the 100-200cm Lmax group is driven by declining catches of mackerels, large rare parrotfishes, tunas, and some large groupers (@fig-PRLmax).
 
 ![Proportion of commercial landings in each of five size classes over time in Puerto Rico.](/indicator_plots/PR_Lmax_classes_plot_final.png){#fig-PRLmax fig-alt="a plot" fig-align="center"}
 
@@ -53,7 +53,7 @@ Total landings of conch, lobster, and finfish indicate the ability of U.S. Carib
 
 ## Socioeconomic health
 
-### Total, lobster and conch revenues
+### Commercial revenues
 
 The relative revenue contribution to commercial fisheries by species conveys the changing reliance on different species across the U.S. Caribbean. Revenues were calculated from the Caribbean Commercial Landings data based on the weight of landings in each trip and the reported price; anomalously high prices and missing values were replaced by the overall average price for the given species group. In Puerto Rico, approximately a third of the revenues have consistently come from snapper species; snappers are followed by lobster and conch, which were both increasing in their revenue contribution up to 2017 (@fig-perlandPR). In St. Thomas and St. John, there has also been increasing dependence on lobster which supplies roughly a third of the revenues for those islands (@fig-perlandSTT). Revenues in St. Croix are less dominated by a single species group, but parrotfishes, tunas and mackerels, lobsters, snappers, and dolphinfish make up approximately 75% of the revenues (@fig-perlandSTX).
 
@@ -63,7 +63,7 @@ The relative revenue contribution to commercial fisheries by species conveys the
 
 ![Relative revenue contribution of selected species groups to commercial fisheries in St. Croix.](/indicator_plots/per_landings_STX.png){#fig-perlandSTX fig-alt="a plot" fig-align="center"}
 
-### Total, lobster and conch trips
+### Commercial fishing trips
 
 Commercial fishing trips are a useful socioeconomic indicator because they capture the amount and type of effort which may be driven by market factors, regulations, and costs of entering the fishery. The total number of trips, broken down by gear type, was extracted from the Caribbean Commercial Landings database by identifying unique trips based on date and vessel number and extracting the primary reported gear used for each trip. In Puerto Rico, trip numbers have generally decreased over time, with marked decreases in 2017 and 2020; sudden changes in the hook and line fishing in 2012 are due to changes in reporting forms (@fig-gearPR). Effort has similarly declined in St. Thomas and St. John; marked declines after 2010 are likely due to reduced reporting (@fig-gearSTT). Similarly, in St. Croix the number of trips has declined, with the 2018-19 fishing season reporting particularly low effort (@fig-gearSTX).
 
@@ -95,7 +95,7 @@ GDP can sometimes underestimate the ocean-dependency of the regions’ local isl
 
 ![Monthly unemployment rate in Puerto Rico and USVI over time.](/indicator_plots/unemployment_plot_final.png){#fig-unemp fig-alt="a plot" fig-align="center"}
 
-### Ocean economy establishments, employment, and wages
+### Ocean economy 
 
 Due to their unique geography, culture and setting, the islands of Puerto Rico and the U.S. Virgin Islands are more reliant on the surrounding ocean and marine environments than the continental United States. Data from the Bureau of Labor Statistics Quarterly Census of Employment and Wages (https://www.bls.gov/cew/downloadable-data-files.htm) provides data on the number of establishments, employees, and wages earned for each county by industry (as defined by NAICS code). These data underpin the Economics: National Ocean Watch (ENOW) methods created by NOAA OCM to track contributions of the ocean economy to the overall economy. There were significant changes to the way ocean economy metrics were calculated for the U.S. Territories in 2016 [@clements], and revised metric data are only available from 2019-2021 through ENOW. It is therefore difficult to assess trends over time until additional data are collected (@fig-NAICS).
 
@@ -103,7 +103,7 @@ Due to their unique geography, culture and setting, the islands of Puerto Rico a
 
 ## Equity
 
-### Gini coefficient for distribution of landings and revenue
+### Commercial revenue distribution
 
 Equality in the distribution of revenues across the fishery can be represented by the Gini index which is a value ranging from zero to one, with zero representing perfect equality (revenues distributed equally among all participants) and a value of one representing maximum inequality [all revenues going to a single individual, @gini1936]. The Gini index was calculated based on reported revenues from the Caribbean Commercial Landings database, as they are distributed across the individual vessel or fisher permits (@fig-gini). Overall, the Gini index values suggest that consolidation across U.S. Caribbean fisheries is high compared to other U.S. regions, though this may be an artifact of reporting if more experienced fishermen are more frequently reporting. In St. Thomas/St. John, the index shows a gradual increase throughout the time period, while there is no particular trend apparent in Puerto Rico and St. Croix. There are spikes in inequality in Puerto Rico in 2018 and in St. Croix in 2017-2018 which may be related to fishing industry impacts from hurricanes.
 
@@ -159,19 +159,19 @@ The number of new management actions over time can be indicative of the efficacy
 
 ![The number of new management actions implemented in the U.S. Caribbean region based on the annual count of unique Federal Register sections within all Federal Register notices. ](/indicator_plots/FRsection_plot_final.png){#fig-FR fig-alt="a plot" fig-align="center"}
 
-### Percent of species with informative catch limits
+### Species with informative catch limits
 
 U.S. Caribbean fisheries are highly diverse; over 300 individual species have been recorded in the landings database and there are 54 stocks or complexes within the three Island-based Fishery Management Plans. At the same time, the region is extremely data-limited, with high uncertainty in landings data and lacking reliable indices of abundance, and most annual catch limits are derived using Tier 3 control rules (based on average landings). The percentage of stocks or complexes with annual catch limits informed by stock assessments is a useful indicator for tracking progress toward more robust management advice in the region. In recent years, progress has been made and several stock assessments have been accepted for management advice (@fig-tier3).
 
 ![Percent of stocks/complex with informative annual catch limits as measured by stock assessments in Puerto Rico and the USVI.](/indicator_plots/tier3_plot_final.png){#fig-tier3 fig-alt="a plot" fig-align="center"}
 
-### Number of education and outreach events
+### Education and outreach events
 
 Programs such as MREP (Marine Resource Education Program) and NOAA SeaGrant have made substantial gains in outreach and education in the U.S. Caribbean region. MREP is a program developed for fishermen, by fishermen, and is widely recognized as a key venue for engaging industry members and building trust. Sea Grant is a federal-academic collaboration that supports research, education and extension to support coastal resource conservation, conducting outreach in the form of workshops and meetings. The number of participants benefitting from MREP and SeaGrant programs has increased rapidly in recent year. Cumulative numbers of graduates and attendees are reported because once knowledge is gained it remains in the fishing community and is also spread by word-of-mouth (@fig-outreach).
 
 ![Count of MREP participants industry participants (cumulative number of graduates) and cumulative number of SeaGrant workshop/meeting participants in the Caribbean region as a measure of industry engagement.](/indicator_plots/outreach_plot_final.png){#fig-outreach fig-alt="a plot" fig-align="center"}
 
-### Number of enforcement actions
+### Enforcement actions
 
 The number of recorded law enforcement incidents over time may be indicative of changes in the efficiency and efficacy of law enforcement effort. Data on law enforcement incidents where the investigating officer was from the St. Thomas, USVI or San Juan, PR field offices or the word "Caribbean" was mentioned in the brief synopsis were pulled from the NOAA Office of Law Enforcement NOAA Enforcement Information System (NEIS). Total incidents have been fairly stable over time, with some inter-annual variability. Specifically, incidents increased each year in the spring and summer months (@fig-law).
 
@@ -179,7 +179,7 @@ The number of recorded law enforcement incidents over time may be indicative of 
 
 ## Protection of ecosystems
 
-### Percent coral cover and coral species diversity
+### Coral cover and coral species diversity
 
 Coral reef ecosystem integrity is a major concern for stakeholders in the U.S. Caribbean region [@seara2024]. The PRCRMP and TRCMP have measured benthic cover at fixed transects for over two decades, allowing for a comparison over time. Coral species richness was calculated based on the average number of hard coral species per transect, and percent coral cover is reported by….(need to fill in). Trends in species richness for both Puerto Rico and the USVI fluctuate over time with no clear trend, although there has been a sudden decline in recent years. Percent coral cover has dropped significantly throughout the 25-year time period with large declines occurring in 2005 and 2019, coinciding with major bleaching events (@fig-coral).
 

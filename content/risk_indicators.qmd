@@ -17,7 +17,7 @@ Accumulated heat stress, which can lead to coral bleaching and death, is measure
 
 ![Average monthly degree heating week values as reported by NOAA Coral Reef Watch Virtual Stations for Puerto Rico (top) and USVI (bottom).](/indicator_plots/DegreeHeatingWeeks_plot_final.png){#fig-DHW fig-alt="A time series plot" fig-align="center"}
 
-## Ocean acidification via aragontite saturation state
+## Ocean acidification
 
 Ocean and coastal acidification can impact organisms directly or indirectly; a decrease in aragonite saturation state can weaken the structure of coral reefs and other calcifying organisms. In-situ measurements of aragonite saturation states are scarce, and a synoptic long-term view is only available from modeled products. Aragonite saturation state was derived for the U.S. Caribbean region from the MOM-TOPAZ hindcast (cite). An overall negative trend occurs, with an acceleration of this trend apparent after 2008 (@fig-OA).
 
@@ -29,13 +29,13 @@ Hurricane activity can be captured by the accumulated cyclone energy (ACE) index
 
 ![Annual accumulated cyclone energy index, calculated as the sum of squared 6-hourly reported wind speeds for storms tracking through the U.S. Caribbean region.](/indicator_plots/ACEindex_plot_final.png){#fig-ACE fig-alt="a plot" fig-align="center"}
 
-## Number of major earthquakes
+## Earthquake activity
 
 Earthquakes in Puerto Rico can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar2022]. Individual seismic events are reported by the USGS in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
 
 ![Annual number of seismic events of \>3.5 magnitude in the U.S. Caribbean, 1970-2023.](/indicator_plots/earthquakes_plot_final.png){#fig-quakes fig-alt="a plot" fig-align="center"}
 
-## Identified point source pollution sites
+## Identified point source pollution
 
 Impacts from terrestrial pollution can be captured from several databases maintained by the Environmental Protection Agency. These databases provide information on companies that have been issued permits to discharge wastewater into rivers, on the release of toxic chemicals and waste management activities at facilities, and on the declaration of Superfund sites. The number of pollution sites reported increased in the 2000s, but has decreased slightly in both Puerto Rico and USVI in recent years (@fig-pollution). Note that this indicator does not represent the timing of when pollution was impacting the ecosystem, but rather the timing of political action or attention on the environmental impacts of pollution.
 
@@ -51,7 +51,7 @@ Coastal pollution, runoff, and water quality issues are of major concern to fish
 
 The presence of enterococci bacteria in water samples is used as a primary indicator of fecal contamination, which poses both environmental and human health risks [@unitedstatesenvironmentalprotectionagency2024]. Water quality, biological, and physical data collected by the United States Geological Survey (USGS), the Environmental Protection Agency (EPA), and over 400 state, federal, tribal, and local agencies are publicly available via the EPA Water Quality Portal (<https://www.waterqualitydata.us/>). Data on enterococci abundance in beach samples throughout Puerto Rico and the USVI were downloaded and daily counts were averaged annually. Throughout the Caribbean region, there has been a substantial increase in the enterococcus count over time, with particularly high measured levels since 2015 in Puerto Rico and since 2020 in USVI [@fig-ent]. 
 
-![Water quality as measured by average enterococcus counts from beach water quality sampling at sites in Puerto Rico (top) and the USVI (bottom).](/indicator_plots/enterococcus_plot_final.png){#fig-ent fig-alt="a plot" fig-align="center"}
+![Water quality as measured by average enterococcus counts (+/- 1 S.E.) from beach water quality sampling at sites in Puerto Rico (top) and the USVI (bottom).](/indicator_plots/enterococcus_plot_final.png){#fig-ent fig-alt="a plot" fig-align="center"}
 
 ## Coastal development
 
@@ -59,7 +59,7 @@ Impervious surfaces such as pavement, sidewalks, roofs and roads, as well as oth
 
 ![Impervious surfaces from development in the U.S. Caribbean.](/indicator_plots/Land_Use_Land_Cover_2024.jpg){#fig-landuse fig-alt="Plot showing a time series of an indicator"}
 
-## Primary productivty via ocean color
+## Primary productivty
 
 Primary productivity is a measure of the total energy available in an ecosystem, and is closely correlated with chlorophyll a concentrations. Average chlorophyll a concentrations are derived from the European Space Agency Climate Change Initiative’s Ocean Colour product, which provides a bias-corrected composite of measurements merged from multiple satellite sensors [@hu2012]. Concentrations are plotted as standardized monthly anomalies as there is a seasonal signal that could mask long-term trends. Estimates show a decadal cyclical pattern, with no overall or recent trend apparent (@fig-chl).
 
@@ -75,7 +75,7 @@ Sargassum (brown macroalgae *S. Fluitains* and *S. natans*) is a designated esse
 
 Alterations to typical fishing patterns can be quantified by analyzing the seasonality of how fishing activity is distributed throughout the year and detecting deviations from average patterns. A market disturbance indicator was developed by calculating the proportion of landings in each month of the year, and summing the square of deviations between those monthly proportions from the mean proportions across all years. This calculation was carried out for the species with highest landings that have not been subject to seasonal closures; the mean and standard deviation are calculated for the disturbance indicator across those species. In Puerto Rico, there is little trend in the disturbance indicator; however there were disturbances in 2005 and 2020-2021. In St. Thomas, the indicator increases throughout time and detects a major disturbance in the 2017-18 fishing season. In St. Croix, disturbance levels were high in 2017-18 and also 2019-20 (@fig-dist).
 
-![Disturbance level, calculated as the departure from mean seasonal landings patterns for top species in Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note that the years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/disturbance_plot_final.png){#fig-dist fig-alt="a plot" fig-align="center"}
+![Disturbance level (+/- 1 S.D.), calculated as the departure from mean seasonal landings patterns for top species in Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note that the years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/disturbance_plot_final.png){#fig-dist fig-alt="a plot" fig-align="center"}
 
 ## Human activity
 
