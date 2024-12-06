@@ -177,8 +177,6 @@ ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
   theme(strip.text = element_text(size = 12))
 
 
-
-
 # Calculate mean and standard error for each year and StateCode
 summary_data <- ent %>%
   group_by(year, StateCode) %>%
@@ -213,10 +211,10 @@ ggplot(summary_data, aes(x = factor(year), y = MeanValue)) +
 
 vardata.PR <- data.frame(var = alldat$SE.y)
 vardata.VI <- data.frame(var = alldat$SE.x)
-ulidata.PR <- data.frame(uli = alldat$MeanValue.y + sqrt(vardata.PR$var))
-llidata.PR <- data.frame(lli = alldat$MeanValue.y - sqrt(vardata.PR$var))
-ulidata.VI <- data.frame(uli = alldat$MeanValue.x + sqrt(vardata.VI$var))
-llidata.VI <- data.frame(lli = alldat$MeanValue.x - sqrt(vardata.VI$var))
+ulidata.PR <- data.frame(uli = alldat$MeanValue.y + (vardata.PR$var))
+llidata.PR <- data.frame(lli = alldat$MeanValue.y - (vardata.PR$var))
+ulidata.VI <- data.frame(uli = alldat$MeanValue.x + (vardata.VI$var))
+llidata.VI <- data.frame(lli = alldat$MeanValue.x - (vardata.VI$var))
 
 # save as indicator object ----------------------
 datdata <- as.integer(alldat$year)
