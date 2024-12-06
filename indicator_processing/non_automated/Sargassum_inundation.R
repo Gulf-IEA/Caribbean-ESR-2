@@ -26,12 +26,12 @@ cbind(d$Date, d$dat)
 # save as indicator object ----------------------
 datdata <- d$dat
 inddats <- data.frame(d$area.km2.)
-ulidata <- data.frame(cbind(d$area.km2. + d$std))
-llidata <- data.frame(cbind(d$area.km2. - d$std))
+#ulidata <- data.frame(cbind(d$area.km2. + d$std))
+#llidata <- data.frame(cbind(d$area.km2. - d$std))
 labs <- c("Annual mean sargassum innundation", "Area (km^2)", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 
-inddata <- list(labels = indnames, indicators = inddats, datelist = datdata, ulim = ulidata, llim = llidata)
+inddata <- list(labels = indnames, indicators = inddats, datelist = datdata)   # , ulim = ulidata, llim = llidata)
 class(inddata) <- "indicatordata"
 
 # plot and save ----------------------------------
