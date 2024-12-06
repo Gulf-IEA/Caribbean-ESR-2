@@ -71,7 +71,7 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, tr
 #png(filename = "indicator_plots/turbidity_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("../indicator_objects/turbidity.RData")
 plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", 
-                        sublabel = TRUE, widadj = 1, hgtadj = 0.8, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
+                        sublabel = TRUE, widadj = 1, hgtadj = 0.8, anom = "stmon", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "turbidity_plot_final.png")
 #dev.off()
 
