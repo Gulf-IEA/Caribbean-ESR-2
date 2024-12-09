@@ -60,7 +60,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5a12447fb582f422ce27c7d790f23dd2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1755250838a2061f06ed532a7bc778d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -92,6 +92,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -227,7 +256,7 @@ div.csl-indent {
   <li><a href="#water-quality" id="toc-water-quality" class="nav-link" data-scroll-target="#water-quality"><span class="header-section-number">2.8</span> Water quality</a></li>
   <li><a href="#coastal-development" id="toc-coastal-development" class="nav-link" data-scroll-target="#coastal-development"><span class="header-section-number">2.9</span> Coastal development</a></li>
   <li><a href="#primary-productivty" id="toc-primary-productivty" class="nav-link" data-scroll-target="#primary-productivty"><span class="header-section-number">2.10</span> Primary productivty</a></li>
-  <li><a href="#sargassum-innundation" id="toc-sargassum-innundation" class="nav-link" data-scroll-target="#sargassum-innundation"><span class="header-section-number">2.11</span> Sargassum innundation</a></li>
+  <li><a href="#sargassum-inundation" id="toc-sargassum-inundation" class="nav-link" data-scroll-target="#sargassum-inundation"><span class="header-section-number">2.11</span> Sargassum inundation</a></li>
   <li><a href="#market-disturbances" id="toc-market-disturbances" class="nav-link" data-scroll-target="#market-disturbances"><span class="header-section-number">2.12</span> Market disturbances</a></li>
   <li><a href="#human-activity" id="toc-human-activity" class="nav-link" data-scroll-target="#human-activity"><span class="header-section-number">2.13</span> Human activity</a></li>
   </ul>
@@ -328,7 +357,7 @@ Figure&nbsp;2.5: Annual number of seismic events of &gt;3.5 magnitude in the U.S
 </section>
 <section id="identified-point-source-pollution" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="identified-point-source-pollution"><span class="header-section-number">2.6</span> Identified point source pollution</h2>
-<p>Impacts from terrestrial pollution can be captured from several databases maintained by the Environmental Protection Agency. These databases provide information on companies that have been issued permits to discharge wastewater into rivers, on the release of toxic chemicals and waste management activities at facilities, and on the declaration of Superfund sites. The number of pollution sites reported increased in the 2000s, but has decreased slightly in both Puerto Rico and USVI in recent years (<a href="#fig-pollution" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>). Note that this indicator does not represent the timing of when pollution was impacting the ecosystem, but rather the timing of political action or attention on the environmental impacts of pollution.</p>
+<p>Impacts from terrestrial pollution can be captured from several databases maintained by the Environmental Protection Agency. These databases provide information on companies that have been issued permits to discharge wastewater into rivers, on the release of toxic chemicals and waste management activities at facilities, and on the declaration of Superfund sites. The number of pollution sites reported increased in the 2000s, but has decreased slightly in both Puerto Rico and USVI in recent years (<a href="#fig-pollution" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>). Note that this indicator does not represent the timing of when pollution was impacting the ecosystem, but rather the timing of investigation and registration in EPA’s monitoring program or attention to the environmental impacts of pollution.</p>
 <div id="fig-pollution" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pollution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -396,8 +425,8 @@ Figure&nbsp;2.10: Changes in ocean color showing monthly maximum chlorophyll a l
 </figure>
 </div>
 </section>
-<section id="sargassum-innundation" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="sargassum-innundation"><span class="header-section-number">2.11</span> Sargassum innundation</h2>
+<section id="sargassum-inundation" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="sargassum-inundation"><span class="header-section-number">2.11</span> Sargassum inundation</h2>
 <p>Sargassum (brown macroalgae <em>S. Fluitains</em> and <em>S. natans</em>) is a designated essential fish habitat important for many pelagic fish and protected species; however, when large blooms collect in nearshore environments they can reduce oxygen, suffocate beaches and have detrimental impacts on marine species. Mean monthly Sargassum wet biomass is estimated from satellite measurements using the algorithm of Wang et al. <span class="citation" data-cites="wang2019">(<a href="references.html#ref-wang2019" role="doc-biblioref">2019</a>)</span>. Sargassum blooms were largely absent from the U.S. Caribbean prior to 2011, but bloom activity has been generally increasing since that year (<a href="#fig-sarg" class="quarto-xref">Figure&nbsp;<span>2.11</span></a>). Major inundation events occurred in 2018 and 2021.</p>
 <div id="fig-sarg" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -412,7 +441,9 @@ Figure&nbsp;2.11: Annual mean sargassum inundation in square km of cover in the 
 </section>
 <section id="market-disturbances" class="level2" data-number="2.12">
 <h2 data-number="2.12" class="anchored" data-anchor-id="market-disturbances"><span class="header-section-number">2.12</span> Market disturbances</h2>
-<p>Alterations to typical fishing patterns can be quantified by analyzing the seasonality of how fishing activity is distributed throughout the year and detecting deviations from average patterns. A market disturbance indicator was developed by calculating the proportion of landings in each month of the year, and summing the square of deviations between those monthly proportions from the mean proportions across all years. This calculation was carried out for the species with highest landings that have not been subject to seasonal closures; the mean and standard deviation are calculated for the disturbance indicator across those species. In Puerto Rico, there is little trend in the disturbance indicator; however there were disturbances in 2005 and 2020-2021. In St.&nbsp;Thomas, the indicator increases throughout time and detects a major disturbance in the 2017-18 fishing season. In St.&nbsp;Croix, disturbance levels were high in 2017-18 and also 2019-20 (<a href="#fig-dist" class="quarto-xref">Figure&nbsp;<span>2.12</span></a>).</p>
+<p>Alterations to typical fishing patterns can be quantified by analyzing the seasonality of how fishing activity is distributed throughout the year and detecting deviations from average patterns. A market disturbance indicator was developed by calculating the proportion of landings in each month of the year, and summing the square of deviations between those monthly proportions from the mean proportions across all years:</p>
+<p><span class="math inline">\(D_y = \sum_{m=1}^{12} (P_{m,y} - \overline{P}_m)^2\)</span></p>
+<p>This calculation was carried out for the species with highest landings that have not been subject to seasonal closures; the mean and standard deviation are calculated for the disturbance indicator across those species. In Puerto Rico, there is little trend in the disturbance indicator; however there were disturbances in 2005 and 2020-2021. In St.&nbsp;Thomas, the indicator increases throughout time and detects a major disturbance in the 2017-18 fishing season. In St.&nbsp;Croix, disturbance levels were high in 2017-18 and also 2019-20 (<a href="#fig-dist" class="quarto-xref">Figure&nbsp;<span>2.12</span></a>).</p>
 <div id="fig-dist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="a plot" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
