@@ -16,7 +16,7 @@ setwd("indicator_plots")
 
 #png(filename = "indicator_plots/Carib_SST_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("../indicator_objects/Carib_SST.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%m-%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%Y%m", 
                         sublabel = TRUE, widadj = 0.7, hgtadj = 0.75, anom = "stmon", yposadj = 0.9, cex.axis = 1.2, cex.lab = 1.1, cex.main = 1.2,
                         outtype = "png", outname = "Carib_SST_plot_final.png")
 #dev.off()
@@ -324,7 +324,7 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, tr
 
 #png(filename = "indicator_plots/enforcement_plot_final.png", width = 10, height = 4, units = "in", res = 300)
 load("../indicator_objects/enforcement.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = F, dateformat = "%b%y", 
+plotIndicatorTimeSeries(ind, trendAnalysis = F, dateformat = "%b%y", 
                         sublabel = F, widadj = 1.6, hgtadj = 1, anom = "none", yposadj = 0.8, cex.lab = 1, type = "allLines", 
                         outtype = "png", outname = "enforcement_plot_final.png")
 #dev.off()

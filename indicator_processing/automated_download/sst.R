@@ -21,10 +21,7 @@ enyear <- terminal_year
 sst <- info('ncdcOisst21Agg_LonPM180') # this may work better
 
 # empty data  -------------------------------------------------
-dat <- setNames(data.frame(matrix(NA,length(styear:enyear)*12,5)),
-                c("year", "mon", 'mean', 'min', 'max'))
-m <- 1
-n <- 0
+dat <- c()
 
 # download by year to avoid timeout errors --------------------
 for (yr in styear:enyear) { 
@@ -36,27 +33,50 @@ for (yr in styear:enyear) {
                       latitude = c(min_lat, max_lat))
   
   sst_agg <- aggregate(sst_grab$data$sst, 
-                       by = list(year(sst_grab$data$time), month(sst_grab$data$time)), 
-                       function(x) c(mean(x, na.rm = T), min(x, na.rm = T), max(x, na.rm = T)))
+                       by = list(sst_grab$data$time), 
+                       function(x) c(mean(x, na.rm = T), sd(x, na.rm = T)))
   
-  n <- n + 12
-  dat[m:n,] <- data.frame(sst_agg[,1:2], unlist(sst_agg[,3]))
-  m <- n + 1
-
+  if (yr == styear) { dat <- sst_agg  }  else {
+    dat <- rbind(dat, sst_agg)  }
 }
 
+dat <- data.frame(cbind(dat$Group.1, dat$x))
+
+dat$sst <- as.numeric(dat$sst)
+dat$sd <- as.numeric(dat$sd)
+
+names(dat) <- c("time", "sst", "sd")
+head(dat)
+
 # add yearmonth column --------------------------
-dat$yrmon <- paste0(dat$mon, "-", dat$year)
+dat$year <- year(dat$time)
+dat$mon <- month(dat$time)
+dat$yrmon <- paste0(dat$year, sprintf("%02.f", dat$mon))
 dat
 head(dat)
 tail(dat)
-
-# check outputs and look at correlations ---------------------
+barplot(table(dat$year))
+barplot(table(dat$mon))
 table(dat$year)
 table(dat$mon)
-matplot(dat[3:5], type = "l")
-cor(dat[3:5])
-plot(dat[3:5])
+
+# calculate min, mean, max and look at correlations ---------------------
+
+me <- tapply(dat$sst, dat$yrmon, mean, na.rm = T)
+mi <- tapply(dat$sst, dat$yrmon, min, na.rm = T)
+ma <- tapply(dat$sst, dat$yrmon, max, na.rm = T)
+
+me_sd <- tapply(dat$sd, dat$yrmon, mean, na.rm = T)
+
+inddata <- data.frame(cbind(me, mi, ma))
+datdata <- names(me)
+ulidata <- data.frame(me + me_sd)
+llidata <- data.frame(me - me_sd)
+
+cor(inddata)
+plot(inddata)
+matplot(inddata, type = "l")
+
 
 # format into indicator object ------------------
 
@@ -64,10 +84,8 @@ labs <- c(rep("U.S. Caribbean sea surface temperature", 3), rep("degrees Celsius
           "monthly mean", "monthly minimum", "monthly maximum")
 
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
-inddata <- data.frame(dat[c(3:5)])
-datdata <- dat$yrmon
 
-s <- list(labels = indnames, indicators = inddata, datelist = datdata)
+s <- list(labels = indnames, indicators = inddata, datelist = datdata) # , ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"
 s
 
@@ -77,9 +95,8 @@ ind <- s
 
 save(ind, file = "indicator_objects/Carib_SST.RData")
 
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, dateformat = "%m-%Y", sublabel = T, 
-                        trendAnalysis = T, widadj = 0.5, anom = "mon", type = "allLines") #  outtype = "png", hgtadj = 0.8)
-
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, dateformat = "%Y%m", sublabel = T, 
+                        trendAnalysis = T, widadj = 0.5, anom = "stmon", type = "allLines") #  outtype = "png", hgtadj = 0.8)
 
 
 print("SST -- SUCCESSFULLY RUN")
