@@ -79,7 +79,7 @@ full_dates <- data.frame(
 dat <- full_dates %>%
   left_join(dat, by = "year2")
 
-
+dat$amendments[is.na(dat$amendments)] <- 0   # MK added because NA years should be zero? 
 
 # save as indicator object ----------------------
 datdata <- styear:enyear

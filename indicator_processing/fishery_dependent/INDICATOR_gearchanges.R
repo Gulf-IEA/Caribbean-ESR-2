@@ -759,17 +759,19 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 # plot trips and percent bycatch gears -------------------
 
 mat
-lis <- c("BOTTOM LONG LINE", "HOOK AND LINE", "NETS", "DIVING", "TRAPS")
+lis <- c("DIVING", "BOTTOM LONG LINE", "HOOK AND LINE", "NETS", "TRAPS")
+head(mat)
 mat <- mat[, match(colnames(mat), lis)]
+head(mat)
 cols <- cols25(7)
-cols <- cols[c(7, 2:5)]
+cols <- cols[c(2, 7, 3:5)]
 
 png(filename = "indicator_plots/gearTypes_PR.png", 
     units="in", width = 8, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
-barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", x.intersp = 0.5, ncol = 2), legend.text = colnames(mat), las = 2, 
-        main = "Number of trips per year by gear type\nPuerto Rico", ylim = c(0, 44000), border = NA)
+barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", x.intersp = 0.5, ncol = 1), legend.text = colnames(mat), las = 2, 
+        main = "Number of trips per year by gear type\nPuerto Rico", ylim = c(0, 48000), border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
 #axis(1); axis(2, las = 2); box()
