@@ -324,17 +324,17 @@ sm <- splisref[which(splisref$Lmax_cat == "(0,40]"), ]
 head(sm[order(sm$recLand, decreasing = T), ], 15)
 #majorly dominated by surgeonfishes, also some longspine squirrelfish
 
-plate <- splisref[which(splisref$Lmax_cat == "(60,100]"), ]
+plate <- splisref[which(splisref$Lmax_cat == "(40,60]"), ]
 head(plate[order(plate$recLand, decreasing = T), ], 15)
-# mainly red hind, yellowtail, and blue runner.  
+# queen triggerfish, gray angelfish and white grunt
 
-big <- splisref[which(splisref$Lmax_cat == "(100,200]"), ]
+big <- splisref[which(splisref$Lmax_cat == "(60,100]"), ]
 head(big[order(big$recLand, decreasing = T), ], 15)
-# mainly tunas and mackerels, also red grouper
+# mainly red hind, yellowtail, and blue runner
 
 xl <- splisref[which(splisref$Lmax_cat == "(200,2e+03]"), ]
 head(xl[order(xl$recLand, decreasing = T), ], 15)
-# mainly tunas and mackerels, also red grouper
+# reef-associated sharks
 
 
 # calculate average Lmax indicator -----------------------------------------------

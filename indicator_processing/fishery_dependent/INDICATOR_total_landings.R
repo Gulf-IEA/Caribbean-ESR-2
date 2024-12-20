@@ -144,9 +144,11 @@ table(table(d$TRIP_YEAR, d$sppgrp) <= 3 & table(d$TRIP_YEAR, d$sppgrp) > 0)
 totland_st <- tapply(d$POUNDS_LANDED, list(d$TRIP_YEAR, d$sppgrp), sum, na.rm = T) / 10^3
 dim(totland_st)
 totland_st
+totland_st[is.na(totland_st)] <- 0
+totland_st
+totland_st[21, 1] 
 totland_st[21, 1] <- NA  # fix confidentiality issue
 totland_st
-#totland_st[is.na(totland_st)] <- 0
 matplot(totland_st, type = "l")
 
 #################     END STT    ########################

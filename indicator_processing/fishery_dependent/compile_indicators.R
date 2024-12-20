@@ -41,9 +41,9 @@ mat[match(sx$yrs, yrs), 3] <- sx$lmax
 
 datdata <- yrs
 inddata <- data.frame(mat)
-labs <- c("Average maximum length of species in catch", "length (cm)", "Puerto Rico", 
-          "Average maximum length of species in catch", "length (cm)", "St. Thomas and St. John",
-          "Average maximum length of species in catch", "length (cm)", "St. Croix")
+labs <- c("Average maximum length of species in demersal landings", "length (cm)", "Puerto Rico", 
+          "Average maximum length of species in demersal landings", "length (cm)", "St. Thomas and St. John",
+          "Average maximum length of species in demersal landings", "length (cm)", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 
@@ -86,9 +86,9 @@ mat[match(yrssx, yrs), 3] <- sx
 
 datdata <- yrs
 inddata <- data.frame(mat)
-labs <- c("Ratio of pelagic to demersal catch", "landings ratio", "Puerto Rico", 
-          "Ratio of pelagic to demersal catch", "landings ratio", "St. Thomas and St. John",
-          "Ratio of pelagic to demersal catch", "landings ratio", "St. Croix")
+labs <- c("Ratio of pelagic to demersal landings", "landings ratio", "Puerto Rico", 
+          "Ratio of pelagic to demersal landings", "landings ratio", "St. Thomas and St. John",
+          "Ratio of pelagic to demersal landings", "landings ratio", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 
@@ -109,7 +109,7 @@ cor.test(Lmax[, 2], mat[, 2], na.action=na.omit)
 plot(Lmax[, 3], mat[, 3])
 cor.test(Lmax[, 3], mat[, 3], na.action=na.omit)
 
-# indicators are very highly correlated 
-# use P:D ratio only as it is more direct indicator of what is going on
+# indicators are no longer highly correlated 
+# replaced Lmax with Lmax of demersal species only
 
 print("PD and LMax -- SUCCESSFULLY RUN")

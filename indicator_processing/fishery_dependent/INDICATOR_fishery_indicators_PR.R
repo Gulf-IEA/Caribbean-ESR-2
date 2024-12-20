@@ -12,6 +12,7 @@ library(maps)
 library(plotTimeSeries)
 library(pals)
 library(modi)
+library(stringr)
 
 load("indicator_processing/spec_file.RData")
 
@@ -440,7 +441,7 @@ plot(styear:enyear, tapply(dbf$Lmax, dbf$YEAR_LANDED, mean, na.rm = T))
 
 datdata <- styear:enyear
 inddata <- data.frame(lmax)
-labs <- c("Average maximum length of catch", "length (cm)" , "Puerto Rico")
+labs <- c("Average maximum length of landings", "length (cm)" , "Puerto Rico")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = inddata + lmax_sem, llim = inddata - lmax_sem)
 class(s) <- "indicatordata"

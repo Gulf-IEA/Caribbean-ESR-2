@@ -255,6 +255,7 @@ table(dbf$PD2, useNA = "always")
 dbf <- dbf[which(dbf$PD2 == "demersal"), ]
 dim(dbf)
 head(dbf)
+table(dbf$PD2, useNA = "always")
 
 tab <- tapply(dbf$POUNDS_LANDED, list(dbf$SPECIES_NM, dbf$TRIP_YEAR), sum, na.rm = T)
 tab[is.na(tab)] <- 0
@@ -326,11 +327,11 @@ head(small[order(small$recLand, decreasing = T), ], 15)
 
 plate <- splisref[which(splisref$Lmax_cat == "(40,60]"), ]
 head(plate[order(plate$recLand, decreasing = T), ], 15)
-# mainly stoplight and queen parrotfishes.  Also blackfin and silk snapper and red hind
+# mainly redfin and redtail parrotfish, also queen triggerfish
 
-big <- splisref[which(splisref$Lmax_cat == "(100,200]"), ]
+big <- splisref[which(splisref$Lmax_cat == "(60,100]"), ]
 head(big[order(big$recLand, decreasing = T), ], 15)
-# tunas (little tunny) and king mackerel
+# stoplight and queen parrotfish, also blackfin snapper
 
 dev.off()
 
