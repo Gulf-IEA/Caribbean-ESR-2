@@ -18,12 +18,13 @@ library(ggplot2)
 library(ggrepel)
 library(data.table)
 
-
 # When code needs to be updated, just need to update the end year here:
 
-styear <- 1990
-enyear <- 2024
+load("indicator_processing/spec_file.RData")
 
+# define years  --------------------------------
+styear <- 1990
+enyear <- terminal_year
 
 # Use the API to extract a list of indicators
 
@@ -49,7 +50,6 @@ while (!is.null(response$nextPage)){
   df1 <- rbind(df1, response$data)
   
 }
-
 
 
 # Code to pull all the locations

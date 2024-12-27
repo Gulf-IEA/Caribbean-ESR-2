@@ -11,7 +11,7 @@ if(!"remotes"%in%installed.packages()){
   install.packages("remotes")
 }
 
-remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)
+# remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)
 
 library(EPATADA)
 library(ggplot2)
@@ -26,30 +26,30 @@ EPATADA::TADA_GetTemplate()
 
 # Start by pulling all the data. The function below takes about 10 min to run. 
 
-dataset_0 = EPATADA::TADA_BigDataRetrieval(
-  startDate = "1980-01-01",
-  endDate = "2023-12-31",
-  countrycode = "US", 
-  huc = "null",
-  siteid = "null",
-  siteType = "Ocean",
-  characteristicName = "null",
-  characteristicType = c("Microbiological","Nutrient","Physical"),
-  sampleMedia = c("water","Water"),
-  statecode = c("PR","VI"), 
-  applyautoclean = TRUE
-)
+# dataset_0 = EPATADA::TADA_BigDataRetrieval(
+#   startDate = "1980-01-01",
+#   endDate = "2023-12-31",
+#   countrycode = "US", 
+#   huc = "null",
+#   siteid = "null",
+#   siteType = "Ocean",
+#   characteristicName = "null",
+#   characteristicType = c("Microbiological","Nutrient","Physical"),
+#   sampleMedia = c("water","Water"),
+#   statecode = c("PR","VI"), 
+#   applyautoclean = TRUE
+# )
 
 #re-name the file
-dat = dataset_0
+#dat = dataset_0
 
 #Save this file so we don't have to download it again if we need to make changes
-saveRDS(dat, "indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
+#saveRDS(dat, "indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
 
 
 ####### Start here to work with the intermediate file currently on github
-#dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
+dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
 
 #### Filter to only include enterococcus measurements
@@ -91,8 +91,6 @@ ent = enterococcus %>%
            ResultValueTypeName == "Actual" 
   )
 
-
-
 #Format dates and add month, year columns
 ent$date2 = ent$ActivityStartDate
 
@@ -117,12 +115,10 @@ ent = ent %>%
   filter(TADA.ResultMeasure.MeasureUnitCode == "#/100ML" | TADA.ResultMeasure.MeasureUnitCode == "MPN/100ML")
 
 
-
 #Remove 2001 since there is no data
 ent = ent %>% 
   filter(year != 2001)
 table(ent$year)
-
 
 
 ent$thresh <- 1
@@ -234,5 +230,7 @@ ind <- inddata
 plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.7, anom = "none", yposadj = 1)
 
 save(ind, file = "indicator_objects/enterococcus.RData")
+
+print("EPA WATER QUALITY -- SUCCESSFULLY RUN")
 
 

@@ -41,11 +41,11 @@ for (yr in styear:enyear) {
 }
 
 dat <- data.frame(cbind(dat$Group.1, dat$x))
+names(dat) <- c("time", "sst", "sd")
 
 dat$sst <- as.numeric(dat$sst)
 dat$sd <- as.numeric(dat$sd)
 
-names(dat) <- c("time", "sst", "sd")
 head(dat)
 
 # add yearmonth column --------------------------

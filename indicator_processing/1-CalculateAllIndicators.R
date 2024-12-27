@@ -7,7 +7,7 @@ rm(list = ls())
 
 packages = c("data.table", "dplyr", "ggplot2", "ggrepel", "httr", "jsonlite", "lubridate", 
              "maps", "pals", "pdftools", "plotTimeSeries", "readr", "readxl", "rerddap", "rvest", 
-              "stringr", "tidyr", "vegan", "xml2", "modi", "devtools")
+              "stringr", "tidyr", "vegan", "xml2", "modi", "devtools", "naniar")
 
 ## Now load or install & load all
 package.check <- lapply(
@@ -24,6 +24,9 @@ devtools::install_github('jeremiaheb/rvc')
 library(rvc)
 install_github("MandyKarnauskas-NOAA/plotTimeSeries")
 library(plotTimeSeries)
+
+#remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)  # this one takes forever
+library(EPATADA)
 
 search()
 
@@ -49,13 +52,17 @@ source("indicator_processing/automated_download/chl_caribbean.R")         # prim
 source("indicator_processing/automated_download/Unemployment.R")          # unemployment rate
 source("indicator_processing/automated_download/GDP.R")                   # Gross Domestic Product
 source("indicator_processing/automated_download/cruise_air_visitors.R")   # Cruise and air visitors
-source("indicator_processing/automated_download/population.R")            # Human population
+#source("indicator_processing/automated_download/population.R")            # Human population
+source("indicator_processing/automated_download/EPA_water_quality.R")     # EPA water quality enterococcus
+
+print("RAN ALL AUTOMADED DOWNLOADS")
+print("NOTE POPULATION INDICATOR NOT WORKING")
 
 # partially automated - pull from data in folder ----------------------
 
 dir("indicator_processing/non_automated")
 
-#  source("indicator_processing/non_automated/marine_debris.R")         # marine debris
+#  source("indicator_processing/non_automated/marine_debris.R")         # marine debris -- DISCONTINUED
 source("indicator_processing/non_automated/OA.R")                    # ocean acidification
 source("indicator_processing/non_automated/CRMP_compile.R")          # fishery-indepenedent fish density, slope of size spectrum, coral cover indicators
 source("indicator_processing/non_automated/Sargassum_inundation.R")  # sargassum indicator
@@ -68,6 +75,8 @@ source("indicator_processing/non_automated/regulations.R")     # number of new r
 source("indicator_processing/non_automated/enforcement.R")    # enforcement stats
 source("indicator_processing/non_automated/outreach.R")       # outreach stats
 source("indicator_processing/non_automated/social_vulnerability.R")   # Tarsila social indicators
+
+print("RAN ALL AUTOMADED DOWNLOADS")
 
 # fishery indicators - includes confidential data ----------------------
 
@@ -84,6 +93,7 @@ source("indicator_processing/fishery_dependent/INDICATOR_fishery_indicators_STT.
 source("indicator_processing/fishery_dependent/INDICATOR_fishery_indicators_STX.R")     # % revenue, pelagic:demersal ratio, and Lmax indicators for STX 
 source("indicator_processing/fishery_dependent/compile_indicators.R")         # compile Lmax and P:D indicators for all islands
 
+print("RAN ALL FISHERY INDEPENDENT")
 
 ###############################################################
 # 

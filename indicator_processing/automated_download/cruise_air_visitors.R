@@ -78,13 +78,13 @@ url2 <- "https://usviber.org/wp-content/uploads/2023/12/Tourism-indicator-2022-1
 destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2022-12-28-23-1.pdf"
 
 # Download the PDF
-download.file(url2, destfile, mode = "wb")
+#download.file(url2, destfile, mode = "wb")
 
 # Check if the file has been downloaded
 file.exists(destfile)
 
 # Load the PDF
-pdf_file <- "indicator_data/intermediateFiles/Tourism-indicator-2022-12-28-23-1.pdf"
+pdf_file <- "indicator_data/intermediateFiles/Cruise-indicator-2022-12-28-23-1.pdf"
 
 # Extract text from the PDF
 pdf_text <- pdf_text(pdf_file)
@@ -137,9 +137,6 @@ combined_df <- merge(combined_df, USVI_cruise, by = "Year", all.x = TRUE)
 combined_df <- merge(combined_df, PR_air, by = "Year", all.x = TRUE)
 combined_df <- merge(combined_df, USVI_air, by = "Year", all.x = TRUE)
 
-
-
-
 # save as indicator object ----------------------
 datdata <- all_years$Year
 inddata <- data.frame(cbind(combined_df$Cruise_passengers.x, combined_df$Cruise_passengers.y, combined_df$Air_passengers.x, combined_df$Air_passengers.y))
@@ -157,7 +154,6 @@ ind <- inddata
 plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", sublabel = TRUE, widadj = 1, hgtadj = 0.7, anom = "none", yposadj = 1)
 
 save(ind, file = "indicator_objects/cruise_air_visitors.RData")
-
 
 print("tourism -- SUCCESSFULLY RUN")
 

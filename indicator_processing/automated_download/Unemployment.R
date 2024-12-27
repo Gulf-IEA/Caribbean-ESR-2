@@ -30,6 +30,8 @@ class(vi$VIRINSUREDUR)
 class(pr$PRUR)
 
 pr$PRUR <- as.numeric(as.vector(pr$PRUR))
+names(vi)[1] <- "DATE"
+names(pr)[1] <- "DATE"
 
 vi$year <- substr(vi$DATE, 1, 4)
 pr$year <- substr(pr$DATE, 1, 4)
