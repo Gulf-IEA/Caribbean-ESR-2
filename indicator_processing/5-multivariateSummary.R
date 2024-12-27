@@ -118,18 +118,27 @@ d_oth <- d[, c(1, which(names(d) %in% oth))]
 
 # traffic light plots ----------------------------------
 
-png(filename = "indicator_plots/traffic.png", units="in", width=3.8, height=10, pointsize=12, res=72*12)
+png(filename = "indicator_plots/traffic.png", units="in", width=8, height=7, pointsize=12, res=72*12)
 
-par(mar = c(1.9, 8, 0.1, 1), mfrow = c(4, 1))
+nf <- layout(matrix(c(1:5, 5), 3, 2, byrow = TRUE), widths = c(5, 5), heights = c(4.5, 4.5, 0.8), respect = TRUE)
+#layout.show(nf)
 
-trafficLightPlot(d_risk, noNAs = 1, cexlabs = 0.8)
-mtext(side = 2, "risks to meeting objectives", line = 6.5, cex = 0.9)
+par(mar = c(2, 8, 0.5, 0.5))
+
+trafficLightPlot(d_risk, noNAs = 1, cexlabs = 0.8, splits = 5)
+mtext(side = 2, "risks to meeting objectives", line = 5.5, cex = 0.9)
 trafficLightPlot(d_fi, noNAs = 1, cexlabs = 0.8)
-mtext(side = 2, "fishery-independent indicators", line = 6.5, cex = 0.9)
-trafficLightPlot(d_ccl, noNAs = 1, cexlabs = 0.8)
-mtext(side = 2, "fishery-dependent indicators", line = 6.5, cex = 0.9)
+mtext(side = 2, "fishery-independent indicators", line = 5.5, cex = 0.9)
 trafficLightPlot(d_oth, noNAs = 1, cexlabs = 0.8)
-mtext(side = 2, "other management indicators", line = 6.5, cex = 0.9)
+mtext(side = 2, "other management indicators", line = 5.5, cex = 0.9)
+trafficLightPlot(d_ccl, noNAs = 1, cexlabs = 0.8)
+mtext(side = 2, "fishery-dependent indicators", line = 5.5, cex = 0.9)
+
+plot.new()
+par(mar = c(0, 0, 0, 0)+0.2)
+legend("bottom", c("0-20%    ", "20-40%    ", "40-60%    ", "60-80%    ", "80-100%    "), 
+       col = c("#FF000039", "#FF900049", "#CCFF0069", "#0090FF89", "#0000FF99"), 
+       ncol = 5, pch = 15, pt.cex = 3, x.intersp = 1, cex = 1.3, bty = "n")
 
 dev.off()
 
