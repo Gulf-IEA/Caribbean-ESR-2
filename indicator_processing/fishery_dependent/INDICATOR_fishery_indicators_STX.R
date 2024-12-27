@@ -107,8 +107,8 @@ head(ref)
 head(d)
 
 hist(ref$Lmax)
-table(cut(ref$Lmax, breaks = c(0, 40, 60, 100, 200, 2000)))
-ref$Lmax_cat <- cut(ref$Lmax, breaks = c(0, 40, 60, 100, 200, 2000))
+table(cut(ref$Lmax, breaks = c(0, 40, 60, 100, 2000)))
+ref$Lmax_cat <- cut(ref$Lmax, breaks = c(0, 40, 60, 100, 2000))
 
 db <- merge(d, ref, by.x = "SPECIES_NM", by.y = "COMname", all.x = TRUE)
 dim(d)
@@ -273,11 +273,11 @@ Lmax1 <- colSums(tab[which(splisref$Lmax_cat == llis[1]), ])
 Lmax2 <- colSums(tab[which(splisref$Lmax_cat == llis[2]), ])
 Lmax3 <- colSums(tab[which(splisref$Lmax_cat == llis[3]), ])
 Lmax4 <- colSums(tab[which(splisref$Lmax_cat == llis[4]), ])
-Lmax5 <- colSums(tab[which(splisref$Lmax_cat == llis[5]), ])
+#Lmax5 <- colSums(tab[which(splisref$Lmax_cat == llis[5]), ])
 #Lmax6 <- colSums(tab[which(splisref$Lmax_cat == llis[6]), ])
 
-#Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4, Lmax5) #, Lmax6)
-Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4 + Lmax5) 
+Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4) # , Lmax5) #, Lmax6)
+colnames(Lmaxcl)
 
 Lmaxcl2 <- Lmaxcl
 for (i in 1:nrow(Lmaxcl)) {  Lmaxcl2[i, ] <- Lmaxcl[i, ] / sum(Lmaxcl[i, ], na.rm = T)   }

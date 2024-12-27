@@ -86,32 +86,31 @@ source("indicator_processing/fishery_dependent/compile_indicators.R")         # 
 
 
 ###############################################################
-
-# Notes for standardizing scripts:  
-  
-#  Top: 
-  
-# specification file and libraries -----------------------------
-rm(list = ls())
-dev.off()
-
-library(maps)
-library(plotTimeSeries)
-
-load("../spec_file.RData")
-
-# define years  --------------------------------
-styear <- 1961
-enyear <- terminal_year
-
-
-#  Bottom: 
-#  save all indicators as "ind" object
-
-save(ind, file = "indicator_objects/INDICATOR_NAME.RData")
-
-##
-
-
-
+# 
+# # Notes for standardizing scripts:  
+#   
+# #  Top: 
+#   
+# # specification file and libraries -----------------------------
+# rm(list = ls())
+# dev.off()
+# 
+# library(maps)
+# library(plotTimeSeries)
+# 
+# load("../spec_file.RData")
+# 
+# # define years  --------------------------------
+# styear <- 1961
+# enyear <- terminal_year
+# 
+# 
+# #  Bottom: 
+# #  save all indicators as "ind" object
+# 
+# save(ind, file = "indicator_objects/INDICATOR_NAME.RData")
+# 
+# ##
+# 
+# 
 

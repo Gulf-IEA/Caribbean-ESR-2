@@ -69,6 +69,7 @@ ma <- tapply(dat$sst, dat$yrmon, max, na.rm = T)
 me_sd <- tapply(dat$sd, dat$yrmon, mean, na.rm = T)
 
 inddata <- data.frame(cbind(me, mi, ma))
+names(inddata) <- c("mean", "min", "max")
 datdata <- names(me)
 ulidata <- data.frame(me + me_sd)
 llidata <- data.frame(me - me_sd)

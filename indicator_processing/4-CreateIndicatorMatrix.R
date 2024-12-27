@@ -93,7 +93,7 @@ all_data[[grep("turbidity", all_data)]]$file_name
 all_data[[grep("unemp", all_data)]]$file_name
 
 carib_Chl <- convert_to_annual(all_data[[grep("Chl", all_data)]], "%m-%Y")
-Carib_SST <- convert_to_annual(all_data[[grep("SST", all_data)]], "%m-%Y")
+Carib_SST <- convert_to_annual(all_data[[grep("SST", all_data)]], "%Y%m")
 DegreeHeatingWeeks <- convert_to_annual(all_data[[grep("Weeks", all_data)]], "%Y%m")
 enforcement <- convert_to_annual(all_data[[grep("enforce", all_data)]], "%b%Y")
 OA <- convert_to_annual(all_data[[grep("OA", all_data)]], "%b%Y")
@@ -195,6 +195,10 @@ sorted_columns <- current_colnames[valid_columns][order(descriptive_names$order[
 
 # Reorganize the matrix, keeping the first column unchanged
 matrix_data <- matrix_data[, c(1, match(sorted_columns, colnames(matrix_data)))]
+matrix_data
+dim(matrix_data) # should be 108 columns
+
+cbind(names(matrix_data)[-1], descriptive_names[, 1])  # check that all indicators are included! 
 
 # Save the matrix_data to an .rda file
 save(matrix_data, file = "indicator_data/all_indicators_matrix.rda")

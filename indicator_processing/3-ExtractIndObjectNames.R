@@ -74,6 +74,18 @@ dim(dm)
 d1$nam <- paste0(d1$file_name, "_", d1$ind_name)    # make identifier with file name and col name for merging
 dm$nam <- paste0(dm$file_name, "_", dm$ind_name)
 
+dim(d1)
+dim(dm)
+
+match(dm$nam, d1$nam)  # check that these match!!!
+match(d1$nam, dm$nam)
+
+if (length(which(is.na(match(dm$nam, d1$nam)))) > 0) { cat("ERROR!!! NAMES NOT MATCHING") }
+if (length(which(is.na(match(d1$nam, dm$nam)))) > 0) { cat("ERROR!!! NAMES NOT MATCHING") }
+
+dm[which(is.na(match(dm$nam, d1$nam))), ]
+which(is.na(match(d1$nam, dm$nam)))
+
 d <- merge(dm, d1, by = "nam", all = TRUE)
 head(d)
 dim(d)

@@ -56,17 +56,14 @@ PR_Lmax_classes.RData,Lmax1,LMAX1_PR,54
 PR_Lmax_classes.RData,Lmax2,LMAX2_PR,55
 PR_Lmax_classes.RData,Lmax3,LMAX3_PR,56
 PR_Lmax_classes.RData,Lmax4,LMAX4_PR,57
-PR_Lmax_classes.RData,Lmax5,LMAX5_PR,58
 STT_Lmax_classes.RData,Lmax1,LMAX1_STT,59
 STT_Lmax_classes.RData,Lmax2,LMAX2_STT,60
 STT_Lmax_classes.RData,Lmax3,LMAX3_STT,61
 STT_Lmax_classes.RData,Lmax4,LMAX4_STT,62
-STT_Lmax_classes.RData,Lmax5,LMAX5_STT,63
 STX_Lmax_classes.RData,Lmax1,LMAX1_STX,64
 STX_Lmax_classes.RData,Lmax2,LMAX2_STX,65
 STX_Lmax_classes.RData,Lmax3,LMAX3_STX,66
 STX_Lmax_classes.RData,Lmax4,LMAX4_STX,67
-STX_Lmax_classes.RData,Lmax5,LMAX5_STX,68
 total_landings.RData,X1,LOB_PR,69
 total_landings.RData,X2,LOB_STT,70
 total_landings.RData,X3,LOB_STX,71

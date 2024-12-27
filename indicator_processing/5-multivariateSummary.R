@@ -109,7 +109,7 @@ oth <- c("ECON_PR", "ECON_VI", "EMPL_PR", "EMPL_VI", "WAGE_PR", "WAGE_VI",
          "CRLRCH_PR", "CRLCVR_PR", "CRLRCH_VI", "CRLCVR_VI")
 
 length(risks) + length(fi) + length(ccl) + length(oth)
-ncol(d) - 1 - 15
+ncol(d) - 1 - 12
 
 d_risk <- d[, c(1, which(names(d) %in% risks))]
 d_fi <- d[, c(1, which(names(d) %in% fi))]
