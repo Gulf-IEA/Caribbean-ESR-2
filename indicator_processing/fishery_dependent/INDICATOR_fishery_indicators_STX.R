@@ -276,7 +276,8 @@ Lmax4 <- colSums(tab[which(splisref$Lmax_cat == llis[4]), ])
 Lmax5 <- colSums(tab[which(splisref$Lmax_cat == llis[5]), ])
 #Lmax6 <- colSums(tab[which(splisref$Lmax_cat == llis[6]), ])
 
-Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4, Lmax5) #, Lmax6)
+#Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4, Lmax5) #, Lmax6)
+Lmaxcl <- cbind(Lmax1, Lmax2, Lmax3, Lmax4 + Lmax5) 
 
 Lmaxcl2 <- Lmaxcl
 for (i in 1:nrow(Lmaxcl)) {  Lmaxcl2[i, ] <- Lmaxcl[i, ] / sum(Lmaxcl[i, ], na.rm = T)   }
@@ -284,28 +285,28 @@ for (i in 1:nrow(Lmaxcl)) {  Lmaxcl2[i, ] <- Lmaxcl[i, ] / sum(Lmaxcl[i, ], na.r
 matplot(Lmaxcl)
 barplot(t(Lmaxcl2), col = 1:6, las = 2, main = "Distribution of catch in Lmax size classes                      ", 
         ylab = "proportion", xlim = c(1, 30), 
-        legend = c("<40 cm", "40-60 cm", "60-100 cm", "100-200 cm", ">200 cm"), args.legend = c(x = "right", bty = "n"))
+        legend = c("<40 cm", "40-60 cm", "60-100 cm", ">100 cm"), args.legend = c(x = "right", bty = "n"))
 
 # format indicator objects and plot by total catch ----------------------------
 datdata <- yrs
 inddata <- data.frame(Lmaxcl/10^6)
-labs <- c(rep("Total landings in Lmax class", 5), 
-          rep("millions of pounds", 5),
-          "<40 cm", "40-60 cm", "60-100 cm", "100-200 cm", ">200 cm")
+labs <- c(rep("Total landings in Lmax class", 4), 
+          rep("millions of pounds", 4),
+          "<40 cm", "40-60 cm", "60-100 cm", ">100 cm")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"
-plotIndicatorTimeSeries(s, coltoplot = 1:5, plotrownum = 5, sublabel = T, widadj = 1.5, trendAnalysis = F) #, outtype = "png")
+plotIndicatorTimeSeries(s, coltoplot = 1:4, plotrownum = 4, sublabel = T, widadj = 1.5, trendAnalysis = F) #, outtype = "png")
 
 # plot based on proportion of catch in each size class -------------------------
 inddata <- data.frame(Lmaxcl2)
-labs <- c(rep("Proportion of landings in Lmax class",5), 
-          rep("proportion", 5),
-          "<40 cm", "40-60 cm", "60-100 cm", "100-200 cm", ">200 cm")
+labs <- c(rep("Proportion of landings in Lmax class", 4), 
+          rep("proportion", 4),
+          "<40 cm", "40-60 cm", "60-100 cm", ">100 cm")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"
-plotIndicatorTimeSeries(s, coltoplot = 1:5, plotrownum = 5, sublabel = T, widadj = 1.5, hgtadj = 0.6, trendAnalysis = F) # outtype = "png", sameYscale = F)
+plotIndicatorTimeSeries(s, coltoplot = 1:4, plotrownum = 4, sublabel = T, widadj = 1.5, hgtadj = 0.6, trendAnalysis = F) # outtype = "png", sameYscale = F)
 
 ind <- s
 

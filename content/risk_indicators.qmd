@@ -21,7 +21,7 @@ Accumulated heat stress, which can lead to coral bleaching and death, is measure
 
 Ocean and coastal acidification can impact organisms directly or indirectly; a decrease in aragonite saturation state can weaken the structure of coral reefs and other calcifying organisms. In-situ measurements of aragonite saturation states are scarce, and a synoptic long-term view is only available from modeled products. Aragonite saturation state was derived for the U.S. Caribbean region from the MOM-TOPAZ hindcast (cite). An overall negative trend occurs, with an acceleration of this trend apparent after 2008 (@fig-OA).
 
-![Ocean acidification as measured by modeled surface aragonite saturation state. Standardized monthly anomalies for the U.S. Caribbean region are shown.](/indicator_plots/OA_plot_final.png){#fig-OA fig-alt="a plot" fig-align="center"}
+![Ocean acidification as measured by modeled surface aragonite saturation state, showh as standardized monthly anomalies for the U.S. Caribbean region.](/indicator_plots/OA_plot_final.png){#fig-OA fig-alt="a plot" fig-align="center"}
 
 ## Hurricane activity
 
@@ -33,9 +33,9 @@ Hurricane activity can be captured by the accumulated cyclone energy (ACE) index
 
 Earthquakes in Puerto Rico can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar2022]. Individual seismic events are reported by the USGS in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
 
-![Annual number of seismic events of \>3.5 magnitude in the U.S. Caribbean, 1970-2023.](/indicator_plots/earthquakes_plot_final.png){#fig-quakes fig-alt="a plot" fig-align="center"}
+![Number of seismic events of \>3.5 magnitude occurring annually in the U.S. Caribbean.](/indicator_plots/earthquakes_plot_final.png){#fig-quakes fig-alt="a plot" fig-align="center"}
 
-## Identified point source pollution
+## Point source pollution
 
 Impacts from terrestrial pollution can be captured from several databases maintained by the Environmental Protection Agency. These databases provide information on companies that have been issued permits to discharge wastewater into rivers, on the release of toxic chemicals and waste management activities at facilities, and on the declaration of Superfund sites. The number of pollution sites reported increased in the 2000s, but has decreased slightly in both Puerto Rico and USVI in recent years (@fig-pollution). Note that this indicator does not represent the timing of when pollution was impacting the ecosystem, but rather the timing of investigation and registration in EPA's monitoring program or attention to the environmental impacts of pollution.
 
@@ -63,7 +63,7 @@ Impervious surfaces such as pavement, sidewalks, roofs and roads, as well as oth
 
 Primary productivity is a measure of the total energy available in an ecosystem, and is closely correlated with chlorophyll a concentrations. Average chlorophyll a concentrations are derived from the European Space Agency Climate Change Initiative’s Ocean Colour product, which provides a bias-corrected composite of measurements merged from multiple satellite sensors [@hu2012]. Concentrations are plotted as standardized monthly anomalies as there is a seasonal signal that could mask long-term trends. Estimates show a decadal cyclical pattern, with no overall or recent trend apparent (@fig-chl).
 
-![Changes in ocean color showing monthly maximum chlorophyll a levels (standardized monthly anomalies) in the U.S. Caribbean region.](/indicator_plots/carib_Chl_plot_final.png){#fig-chl fig-alt="a plot" fig-align="center"}
+![Changes in ocean color showing mean chlorophyll a levels (standardized monthly anomalies) in the U.S. Caribbean region.](/indicator_plots/carib_Chl_plot_final.png){#fig-chl fig-alt="a plot" fig-align="center"}
 
 ## Sargassum inundation
 
@@ -87,4 +87,4 @@ Human activity has an impact on the marine ecosystem indirectly through its infl
 
 ![Population change in Puerto Rico (top) and USVI (bottom) according to census data.](/indicator_plots/population_plot_final.png){#fig-pop fig-alt="A plot" fig-align="center"}
 
-![Annual tourism activity in Puerto Rico and USVI as indicated by the number of cruise and air passengers visiting the islands.](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"}
+![Annual tourism activity in Puerto Rico (left) and USVI (right) as indicated by the number of cruise and air passengers visiting the islands.](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"}

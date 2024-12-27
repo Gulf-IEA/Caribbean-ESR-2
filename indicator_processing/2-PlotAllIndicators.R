@@ -137,21 +137,21 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, tr
 
 #png(filename = "indicator_plots/RVC_PR_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/RVC_PR.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE,
                         sublabel = TRUE, widadj = 0.9, hgtadj = 0.9, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "RVC_PR_plot_final.png")
 #dev.off()
 
 #png(filename = "indicator_plots/RVC_STSJ_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/RVC_STSJ.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", 
-                        sublabel = TRUE, widadj = 0.9, hgtadj = 0.9, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, 
+                        sublabel = TRUE, widadj = 0.67, hgtadj = 0.65, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "RVC_STSJ_plot_final.png")
 #dev.off()
 
 #png(filename = "indicator_plots/RVC_STX_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/RVC_STX.RData") 
-plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, trendAnalysis = TRUE, 
                         sublabel = TRUE, widadj = 0.9, hgtadj = 0.9, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "RVC_STX_plot_final.png")
 #dev.off()
@@ -185,21 +185,21 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, tr
 
 #png(filename = "indicator_plots/PR_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/PR_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 5, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
                         sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "PR_Lmax_classes_plot_final.png")
 #dev.off()
 
 #png(filename = "indicator_plots/STT_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/STT_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 5, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
                         sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "STT_Lmax_classes_plot_final.png")
 #dev.off()
 
 #png(filename = "indicator_plots/STX_Lmax_classes_plot_final.png", width = 9, height = 7, units = "in", res = 300)
 load("../indicator_objects/STX_Lmax_classes.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 5, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
                         sublabel = TRUE, widadj = 1, hgtadj = 0.6, anom = "none", yposadj = 1.2, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "STX_Lmax_classes_plot_final.png")
 #dev.off()
@@ -307,7 +307,7 @@ plotIndicatorTimeSeries(ind,coltoplot = 1, plotrownum = 1, plotcolnum = 1, trend
 #png(filename = "indicator_plots/tier3_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("../indicator_objects/tier3.RData")
 plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
-                        sublabel = TRUE, widadj = 0.8, hgtadj = 0.5, anom = "none", yposadj = 0.9, sameYscale = F, cex.axis = 1, cex.lab = 1, cex.main = 1, 
+                        sublabel = TRUE, widadj = 0.85, hgtadj = 0.5, anom = "none", yposadj = 0.9, sameYscale = F, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "tier3_plot_final.png")
 #dev.off()
 
@@ -324,8 +324,10 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, tr
 
 #png(filename = "indicator_plots/enforcement_plot_final.png", width = 10, height = 4, units = "in", res = 300)
 load("../indicator_objects/enforcement.RData") 
-plotIndicatorTimeSeries(ind, trendAnalysis = F, dateformat = "%b%y", 
-                        sublabel = F, widadj = 1.6, hgtadj = 1, anom = "none", yposadj = 0.8, cex.lab = 1, type = "allLines", 
+plotIndicatorTimeSeries(ind, trendAnalysis = F, dateformat = "%b%Y", sublabel = FALSE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1)
+
+plotIndicatorTimeSeries(ind, trendAnalysis = F, dateformat = "%b%Y", 
+                        sublabel = F, widadj = 1.6, hgtadj = 1, anom = "none", yposadj = 0.8, cex.lab = 1, 
                         outtype = "png", outname = "enforcement_plot_final.png")
 #dev.off()
 

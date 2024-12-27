@@ -35,6 +35,7 @@ dev.off()
 #install.packages('devtools')
 #devtools::install_github('jeremiaheb/rvc')
 library(rvc)
+library(dplyr)
 
 styear = 2001
 enyear = 2023 #to update the plots when new data are added to the online portal, just update this end year and the code will automatically update.
@@ -204,13 +205,14 @@ llidata <- data.frame(cbind(RUVdensity_PRICO_BAL_VETU$lli,
                             RUVdensity_PRICO_OCY_CHRY$lli,
                             RUVdensity_PRICO_SPA_AURO$lli,
                             RUVdensity_PRICO_SPA_VIRI$lli))
-labs <- c("Puerto Rico" , "Density", "queen triggerfish",
-          "Puerto Rico" , "Density", "red hind",
-          "Puerto Rico" , "Density", "mutton snapper*",
-          "Puerto Rico" , "Density", "yellowtail snapper",
-          "Puerto Rico" , "Density", "redband parrotfish",
-          "Puerto Rico" , "Density", "stoplight parrotfish")
+labs <- c("Puerto Rico" , "Density", "Queen triggerfish",
+          "Puerto Rico" , "Density", "Red hind",
+          "Puerto Rico" , "Density", "Mutton snapper*",
+          "Puerto Rico" , "Density", "Yellowtail snapper",
+          "Puerto Rico" , "Density", "Redband parrotfish",
+          "Puerto Rico" , "Density", "Stoplight parrotfish")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
+indnames <- indnames[c(3, 2, 1), ]
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(inddata) <- "indicatordata"
 ind <- inddata
@@ -236,13 +238,14 @@ llidata <- data.frame(cbind(RUVdensity_STTSTJ_BAL_VETU$lli,
                             RUVdensity_STTSTJ_OCY_CHRY$lli,
                             RUVdensity_STTSTJ_SPA_AURO$lli,
                             RUVdensity_STTSTJ_SPA_VIRI$lli))
-labs <- c("St. Thomas & St. John" , "Density", "queen triggerfish",
-          "St. Thomas & St. John" , "Density", "red hind",
-          "St. Thomas & St. John" , "Density", "mutton snapper*",
-          "St. Thomas & St. John" , "Density", "yellowtail snapper",
-          "St. Thomas & St. John" , "Density", "redband parrotfish",
-          "St. Thomas & St. John" , "Density", "stoplight parrotfish")
+labs <- c("St. Thomas and St. John", "Density", "Queen triggerfish",
+          "St. Thomas and St. John", "Density", "Red hind",
+          "St. Thomas and St. John", "Density", "Mutton snapper*",
+          "St. Thomas and St. John", "Density", "Yellowtail snapper",
+          "St. Thomas and St. John", "Density", "Redband parrotfish",
+          "St. Thomas and St. John", "Density", "Stoplight parrotfish")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
+indnames <- indnames[c(3, 2, 1), ]
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(inddata) <- "indicatordata"
 ind <- inddata
@@ -269,13 +272,14 @@ llidata <- data.frame(cbind(RUVdensity_STX_BAL_VETU$lli,
                             RUVdensity_STX_OCY_CHRY$lli,
                             RUVdensity_STX_SPA_AURO$lli,
                             RUVdensity_STX_SPA_VIRI$lli))
-labs <- c("St. Croix" , "Density", "queen triggerfish",
-          "St. Croix" , "Density", "red hind",
-          "St. Croix" , "Density", "mutton snapper*",
-          "St. Croix" , "Density", "yellowtail snapper",
-          "St. Croix" , "Density", "redband parrotfish",
-          "St. Croix" , "Density", "stoplight parrotfish")
+labs <- c("St. Croix", "Density", "Queen triggerfish",
+          "St. Croix", "Density", "Red hind",
+          "St. Croix", "Density", "Mutton snapper*",
+          "St. Croix", "Density", "Yellowtail snapper",
+          "St. Croix", "Density", "Redband parrotfish",
+          "St. Croix", "Density", "Stoplight parrotfish")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
+indnames <- indnames[c(3, 2, 1), ]
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(inddata) <- "indicatordata"
 ind <- inddata

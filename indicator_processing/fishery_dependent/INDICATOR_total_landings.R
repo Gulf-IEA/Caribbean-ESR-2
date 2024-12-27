@@ -138,6 +138,7 @@ table(d$SPECIES_NM, d$sppgrp)
 
 table(d$TRIP_YEAR, d$sppgrp)
 table(table(d$TRIP_YEAR, d$sppgrp) <= 3 & table(d$TRIP_YEAR, d$sppgrp) > 0)
+conf <- which(table(d$TRIP_YEAR, d$sppgrp) <= 3 & table(d$TRIP_YEAR, d$sppgrp) > 0)
 
 # sum landings by  year ----------------------
 
@@ -146,8 +147,9 @@ dim(totland_st)
 totland_st
 totland_st[is.na(totland_st)] <- 0
 totland_st
-totland_st[21, 1] 
-totland_st[21, 1] <- NA  # fix confidentiality issue
+totland_st[which(rowSums(totland_st) == 0), ] <- NA
+totland_st[conf] 
+totland_st[conf] <- NA  # fix confidentiality issue
 totland_st
 matplot(totland_st, type = "l")
 
