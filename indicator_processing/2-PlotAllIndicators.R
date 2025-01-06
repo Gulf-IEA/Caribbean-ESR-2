@@ -115,13 +115,20 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, tr
                         outtype = "png", outname = "disturbance_plot_final.png")
 #dev.off()
 
-### 13 - tourism (air travel and cruise passengers)
+### 13 - tourism (air travel and cruise passengers and hotel occupancy)
 
 #png(filename = "indicator_plots/cruise_plot_final.png", width = 10, height = 6, units = "in", res = 300)
 load("../indicator_objects/cruise_air_visitors.RData")
 plotIndicatorTimeSeries(ind, coltoplot = 1:4, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", 
                         sublabel = TRUE, widadj = 1, hgtadj = 1, anom = "none", yposadj = 1.2, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "cruise_plot_final.png")
+#dev.off()
+
+#png(filename = "indicator_plots/hotel_plot_final.png", width = 10, height = 6, units = "in", res = 300)
+load("../indicator_objects/hotel_occupancy.RData")
+plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
+                        sublabel = TRUE, widadj = 1.2, hgtadj = 0.9, anom = "none", yposadj = 1, sameYscale = FALSE, cex.axis = 1, cex.lab = 1, cex.main = 1, 
+                        outtype = "png", outname = "hotel_plot_final.png")
 #dev.off()
 
 ### 14 - population

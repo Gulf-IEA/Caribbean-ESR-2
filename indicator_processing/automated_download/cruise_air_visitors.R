@@ -7,7 +7,7 @@ rm(list = ls())
 plot.new()
 dev.off()
 
-# Puerto Rico - cruise passengers
+# Puerto Rico - cruise passengers (source: PR Ports Authority)
 
 url1<-'https://www.bde.pr.gov/BDE/PREDDOCS/I_CRUISE.XLS'
 
