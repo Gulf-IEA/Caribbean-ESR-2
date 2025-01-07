@@ -89,4 +89,4 @@ Human activity has an impact on the marine ecosystem indirectly through its infl
 
 ![Annual tourism activity in Puerto Rico (left) and USVI (right) as indicated by the number of cruise and air passengers visiting the islands.](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"}
 
-![Annual tourism activity in Puerto Rico and USVI as indicated by the number of hotel registrations (guests). Note that Puerto Rico data only include non-resident hotel registrations while for USVI data were only available for all hotel registrations. ](/indicator_plots/hotel_plot_final.png){#fig-hotel fig-alt="A plot" fig-align="center"}
+![Annual tourism activity in Puerto Rico and USVI as indicated by the number of hotel registrations (guests). Note that Puerto Rico data only include non-resident hotel registrations while for USVI data were only available for all hotel registrations.](/indicator_plots/hotel_plot_final.png){#fig-hotel fig-alt="A plot" fig-align="center"}
