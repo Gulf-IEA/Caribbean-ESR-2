@@ -72,6 +72,12 @@ while (!is.null(response$nextPage)){
 }
 
 
+while (!is.null(response$nextPage)) {
+  next_url <- gsub("http://10.208.38.29", base_url, response$nextPage)  # Replace local IP with public base URL
+  response <- fromJSON(next_url)
+  df2 <- rbind(df2, response$data)
+}
+
 ###########################
 
 # We want indicator number 49 (TPopulation) for areas 630 (Puerto Rico) and 850 (USVI)
