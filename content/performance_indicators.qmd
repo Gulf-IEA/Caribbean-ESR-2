@@ -115,11 +115,11 @@ NOAA Fisheries Community Social Vulnerability Indicators Toolbox [@noaafisheries
 
 All communities in Puerto Rico experienced a decrease in social vulnerability between 2010 and 2020, with scores changing from high vulnerability (scores of 3 or 4) to low vulnerability (scores of 0, 1, or 2). Personal disruption was somewhat of an exception (@fig-CSVIPR). In the USVI, indicators show stability in most areas, except population composition, where all communities analyzed show a decrease in vulnerability (@fig-CSVISTT, @fig-CSVISTX). Particularly dramatic are the decreases in Tutu and Charlotte Amalie.
 
-![CSVI plots PR](/indicator_plots/CSVI_plots/PR_vulnerability.png){#fig-CSVIPR fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots PR](/indicator_plots/CSVI_plots/PR_vulnerability3.png){#fig-CSVIPR fig-alt="Plot showing a time series of an indicator"}
 
-![CSVI plots St. Thomas and St. John](/indicator_plots/CSVI_plots/STSJ_vulnerability.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots St. Thomas and St. John](/indicator_plots/CSVI_plots/STSJ_vulnerability3.png){#fig-CSVISTT fig-alt="Plot showing a time series of an indicator"}
 
-![CSVI plots St. Croix](/indicator_plots/CSVI_plots/STX_vulnerability.png){#fig-CSVISTX fig-alt="Plot showing a time series of an indicator"}
+![CSVI plots St. Croix](/indicator_plots/CSVI_plots/STX_vulnerability3.png){#fig-CSVISTX fig-alt="Plot showing a time series of an indicator"}
 
 ## Engagement and participation
 
