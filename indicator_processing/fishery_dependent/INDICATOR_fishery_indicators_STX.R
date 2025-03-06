@@ -373,11 +373,11 @@ s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = in
 class(s) <- "indicatordata"
 
 plotIndicatorTimeSeries(s, coltoplot = 1, sublabel = T)
-plotIndicatorTimeSeries(s, coltoplot = 1, sublabel = T, outtype = "png", widadj = 1.65, hgtadj = 0.6)
+#plotIndicatorTimeSeries(s, coltoplot = 1, sublabel = T, outtype = "png", widadj = 1.65, hgtadj = 0.6)
 
 dev.off()
 
-findat <- data.frame(cbind(yrs, lmax))
+findat <- data.frame(cbind(yrs, lmax, lmax_sem))
 
 save(findat, file = "indicator_data/intermediateFiles/fish-dep-indicators/Lmax_STX.RData")
 

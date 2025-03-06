@@ -34,18 +34,25 @@ yrs <- (min(c(pr$V1, st$yrs, sx$yrs))) : (max(c(pr$V1, st$yrs, sx$yrs)))
 mat <- data.frame(matrix(data = NA, nrow = length(yrs), ncol = 3))
 rownames(mat) <- yrs
 mat
+mat2 <- mat
 
 mat[match(pr$V1, yrs), 1] <- pr$lmax
 mat[match(st$yrs, yrs), 2] <- st$lmax
 mat[match(sx$yrs, yrs), 3] <- sx$lmax
 
+mat2[match(pr$V1, yrs), 1] <- pr$lmax_sem
+mat2[match(st$yrs, yrs), 2] <- st$lmax_sem
+mat2[match(sx$yrs, yrs), 3] <- sx$lmax_sem
+
 datdata <- yrs
 inddata <- data.frame(mat)
+ulidata <- data.frame(mat + mat2)
+llidata <- data.frame(mat - mat2)
 labs <- c("Average maximum length of species in demersal landings", "length (cm)", "Puerto Rico", 
           "Average maximum length of species in demersal landings", "length (cm)", "St. Thomas and St. John",
           "Average maximum length of species in demersal landings", "length (cm)", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
-ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
+ind <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 
 class(ind) <- "indicatordata"
 plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F)

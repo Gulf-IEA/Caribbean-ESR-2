@@ -35,7 +35,7 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:2, plotrownum = 2, plotcolnum = 1, tr
 #png(filename = "indicator_plots/OA_plot_final.png", width = 10, height = 4, units = "in", res = 300)
 load("../indicator_objects/OA.RData")
 plotIndicatorTimeSeries(ind, coltoplot = 1, plotrownum = 1, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
-                        sublabel = F, widadj = 0.8, hgtadj = 1.2, anom = "stmon", yposadj = 0.8, cex.axis = 1, cex.lab = 1, cex.main = 1.1,
+                        sublabel = F, widadj = 0.8, hgtadj = 1.2, anom = "none", yposadj = 0.8, cex.axis = 1, cex.lab = 1, cex.main = 1.1,
                         outtype = "png", outname = "OA_plot_final.png")
 #dev.off()
 

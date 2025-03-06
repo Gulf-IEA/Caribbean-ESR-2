@@ -452,7 +452,7 @@ plotIndicatorTimeSeries(s, coltoplot = 1, sublabel = T) #, outtype = "png")
 
 dev.off()
 
-findat <- data.frame(cbind(styear:enyear, lmax))
+findat <- data.frame(cbind(styear:enyear, lmax, lmax_sem))
 
 save(findat, file = "indicator_data/intermediateFiles/fish-dep-indicators/Lmax_PR.RData")
 
