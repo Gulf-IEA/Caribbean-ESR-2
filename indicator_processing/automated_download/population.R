@@ -224,8 +224,8 @@ pop_USVI = df_USVI2$value/1000
 # save as indicator object ----------------------
 datdata <- styear:enyear
 inddata <- data.frame(cbind(pop_PR, pop_USVI))
-labs <- c("Total population" , "Persons (thousands)", "Puerto Rico",
-          "Total population" , "Persons (thousands)", "USVI")
+labs <- c("Total population" , "Thousands of people", "Puerto Rico",
+          "Total population" , "Thousands of people", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"
@@ -236,6 +236,6 @@ plotIndicatorTimeSeries(ind, plotrownum = 2, coltoplot = 1:2, sublabel = TRUE, t
 
 save(ind, file = "indicator_objects/population.RData")
 
-############  END  ################33
+############  END  ################
 
 print("population -- SUCCESSFULLY RUN")

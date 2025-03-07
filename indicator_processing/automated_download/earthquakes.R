@@ -65,7 +65,7 @@ plot(as.numeric(tot_num), as.numeric(tot_st))
 
 datdata <- min(dat$Year):max(dat$Year)
 inddata <- data.frame(as.numeric(tot_num))
-labs <- c("Earthquake activity", "number of events per year", "")
+labs <- c("Earthquake activity", "Number of events", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)

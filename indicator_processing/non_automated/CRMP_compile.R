@@ -62,10 +62,10 @@ datdata <- yrs
 inddata <- data.frame(mat)
 ulidata <- data.frame(mat + matse)
 llidata <- data.frame(mat - matse)
-labs <- c("Coral species richness" , "average number per transect", "Puerto Rico",
-          "Percent coral cover" , "percent cover", "Puerto Rico",
-          "Coral species richness" , "average number per transect", "USVI", 
-          "Percent coral cover" , "percent cover", "USVI")
+labs <- c("Coral species richness" , "Average number per transect", "Puerto Rico",
+          "Percent coral cover" , "Percent cover", "Puerto Rico",
+          "Coral species richness" , "Average number per transect", "USVI", 
+          "Percent coral cover" , "Percent cover", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"
@@ -122,9 +122,9 @@ datdata <- yrs
 inddata <- data.frame(mat)
 ulidata <- data.frame(mat + matse)
 llidata <- data.frame(mat - matse)
-labs <- c("Commercial fish density" , "average number per transect", "Puerto Rico",
-          "Commercial fish density" , "average number per transect", "USVI", 
-          "Slope of the size spectrum" , "slope of log distribution", "USVI")
+labs <- c("Commercial fish density" , "Average number per transect", "Puerto Rico",
+          "Commercial fish density" , "Average number per transect", "USVI", 
+          "Slope of the size spectrum" , "Slope of log distribution", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"

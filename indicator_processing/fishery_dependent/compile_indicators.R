@@ -48,9 +48,9 @@ datdata <- yrs
 inddata <- data.frame(mat)
 ulidata <- data.frame(mat + mat2)
 llidata <- data.frame(mat - mat2)
-labs <- c("Average maximum length of species in demersal landings", "length (cm)", "Puerto Rico", 
-          "Average maximum length of species in demersal landings", "length (cm)", "St. Thomas and St. John",
-          "Average maximum length of species in demersal landings", "length (cm)", "St. Croix")
+labs <- c("Average maximum length of species in demersal landings", "Length (cm)", "Puerto Rico", 
+          "Average maximum length of species in demersal landings", "Length (cm)", "St. Thomas and St. John",
+          "Average maximum length of species in demersal landings", "Length (cm)", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 
@@ -93,9 +93,9 @@ mat[match(yrssx, yrs), 3] <- sx
 
 datdata <- yrs
 inddata <- data.frame(mat)
-labs <- c("Ratio of pelagic to demersal landings", "landings ratio", "Puerto Rico", 
-          "Ratio of pelagic to demersal landings", "landings ratio", "St. Thomas and St. John",
-          "Ratio of pelagic to demersal landings", "landings ratio", "St. Croix")
+labs <- c("Ratio of pelagic to demersal landings", "Landings ratio", "Puerto Rico", 
+          "Ratio of pelagic to demersal landings", "Landings ratio", "St. Thomas and St. John",
+          "Ratio of pelagic to demersal landings", "Landings ratio", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 

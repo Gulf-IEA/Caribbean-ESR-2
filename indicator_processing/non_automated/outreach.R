@@ -75,8 +75,8 @@ df = merge(MREP, Seagrant, by = "year", all=T)
 # save as indicator object ----------------------
 datdata <- 2010:2024
 inddata <- data.frame(cbind(df$cumu_MREP, df$cumu_Seagrant2))
-labs <- c("MREP industry participants" , "cumulative graduates", "",
-          "SeaGrant workshop/meeting participants" , "cumulative attendees (thousands)", "")
+labs <- c("MREP industry participants" , "Cumulative graduates", "",
+          "SeaGrant workshop/meeting participants" , "Cumulative attendees (thousands)", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"

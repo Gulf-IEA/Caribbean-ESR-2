@@ -104,8 +104,8 @@ combined_df <- merge(combined_df, USVI_hotel, by = "Year", all.x = TRUE)
 # save as indicator object ----------------------
 datdata <- all_years$Year
 inddata <- data.frame(cbind(combined_df$Hotel_occupancy, combined_df$Hotel_guests))
-labs <- c("Total non-resident hotel registrations" , "numbers of people", "Puerto Rico",
-          "Total hotel guests" , "numbers of people", "USVI")
+labs <- c("Total non-resident hotel registrations" , "Numbers of people", "Puerto Rico",
+          "Total hotel guests" , "Numbers of people", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"

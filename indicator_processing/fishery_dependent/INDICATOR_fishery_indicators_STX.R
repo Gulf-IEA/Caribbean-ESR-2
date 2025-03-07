@@ -190,7 +190,7 @@ png(filename="indicator_plots/per_landings_STX.png",
 barplot(tabr, col = as.character(colgd$V2[match(rownames(tabr), colgd$V1)]), 
         xlim = c(0, ncol(tabr)*1.9), legend.text = rownames(tabr), 
         args.legend = c(x = "right", bty = "n", title = "St. Croix", border = NA), 
-        las = 2, border = NA, axes = F, xlab = "", ylab = "percent of total revenue")
+        las = 2, border = NA, axes = F, xlab = "", ylab = "Percent of total revenue")
 axis(2, at = seq(0, 1, 0.2), lab = paste0(seq(0, 100, 20), "%"), las = 2)
 abline(h = 0)
 
@@ -301,7 +301,7 @@ plotIndicatorTimeSeries(s, coltoplot = 1:4, plotrownum = 4, sublabel = T, widadj
 # plot based on proportion of catch in each size class -------------------------
 inddata <- data.frame(Lmaxcl2)
 labs <- c(rep("Proportion of landings in Lmax class", 4), 
-          rep("proportion", 4),
+          rep("Proportion", 4),
           "<40 cm", "40-60 cm", "60-100 cm", ">100 cm")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)

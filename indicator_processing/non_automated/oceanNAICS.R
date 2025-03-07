@@ -39,8 +39,8 @@ labs <- c("Gross domestic product" , "Billions of dollars", "Puerto Rico",
           "Gross domestic product" , "Billions of dollars", "USVI",
           "Ocean economy establishments" , "Number of places of work", "Puerto Rico",
           "Ocean economy establishments" , "Number of places of work", "USVI",
-          "Ocean economy employees" , "People (thousands)" , "Puerto Rico",
-          "Ocean economy employees" , "People (thousands)" , "USVI",
+          "Ocean economy employees" , "Thousands of people", "Puerto Rico",
+          "Ocean economy employees" , "Thousands of people" , "USVI",
           "Ocean economy wages" , "Billions of dollars", "Puerto Rico",
           "Ocean economy wages" , "Billions of dollars", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))

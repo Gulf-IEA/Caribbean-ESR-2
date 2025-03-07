@@ -227,15 +227,15 @@ datdata <- styear:enyear
 inddata <- data.frame(cbind(totland_pr[, 2], totland_st[, 2], totland_sx[, 2], 
                             totland_pr[, 1], totland_st[, 1], totland_sx[, 1],
                             totland_pr[, 3], totland_st[, 3], totland_sx[, 3]))
-labs <- c("Lobster landings", "thousands of pounds", "Puerto Rico", 
-          "Lobster landings", "thousands of pounds", "St. Thomas and St. John", 
-          "Lobster landings", "thousands of pounds", "St. Croix", 
-          "Conch landings", "thousands of pounds", "Puerto Rico",
-          "Conch landings", "thousands of pounds", "St. Thomas and St. John",
-          "Conch landings", "thousands of pounds", "St. Croix", 
-          "Landings of all other species", "thousands of pounds", "Puerto Rico", 
-          "Landings of all other species",  "thousands of pounds", "St. Thomas and St. John", 
-          "Landings of all other species",  "thousands of pounds", "St. Croix")
+labs <- c("Lobster landings", "Thousands of pounds", "Puerto Rico", 
+          "Lobster landings", "Thousands of pounds", "St. Thomas and St. John", 
+          "Lobster landings", "Thousands of pounds", "St. Croix", 
+          "Conch landings", "Thousands of pounds", "Puerto Rico",
+          "Conch landings", "Thousands of pounds", "St. Thomas and St. John",
+          "Conch landings", "Thousands of pounds", "St. Croix", 
+          "Landings of all other species", "Thousands of pounds", "Puerto Rico", 
+          "Landings of all other species",  "Thousands of pounds", "St. Thomas and St. John", 
+          "Landings of all other species",  "Thousands of pounds", "St. Croix")
 
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)

@@ -81,7 +81,7 @@ matplot(inddata, type = "l")
 
 # format into indicator object ------------------
 
-labs <- c(rep("U.S. Caribbean sea surface temperature", 3), rep("degrees Celsius", 3), 
+labs <- c(rep("U.S. Caribbean sea surface temperature", 3), rep("Degrees Celsius", 3), 
           "monthly mean", "monthly minimum", "monthly maximum")
 
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))

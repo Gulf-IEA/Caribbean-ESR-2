@@ -140,10 +140,10 @@ combined_df <- merge(combined_df, USVI_air, by = "Year", all.x = TRUE)
 # save as indicator object ----------------------
 datdata <- all_years$Year
 inddata <- data.frame(cbind(combined_df$Cruise_passengers.x, combined_df$Cruise_passengers.y, combined_df$Air_passengers.x, combined_df$Air_passengers.y))
-labs <- c("Cruise passengers" , "thousands of people", "Puerto Rico",
-          "Cruise passengers" , "thousands of people", "USVI",
-          "Air passengers" , "thousands of people", "Puerto Rico",
-          "Air passengers" , "thousands of people", "USVI")
+labs <- c("Cruise passengers" , "Thousands of people", "Puerto Rico",
+          "Cruise passengers" , "Thousands of people", "USVI",
+          "Air passengers" , "Thousands of people", "Puerto Rico",
+          "Air passengers" , "Thousands of people", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"

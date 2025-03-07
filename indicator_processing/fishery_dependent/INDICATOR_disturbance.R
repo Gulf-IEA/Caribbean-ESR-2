@@ -419,9 +419,9 @@ inddata[, 3] <- avdst
 llidata[, 3] <- avdst - sddst
 ulidata[, 3] <- avdst + sddst
 
-labs <- c("Disturbance indicator", "difference from mean landings", "Puerto Rico", 
-          "Disturbance indicator", "difference from mean landings", "St. Thomas and St. John", 
-          "Disturbance indicator", "difference from mean landings", "St. Croix")
+labs <- c("Disturbance indicator", "Difference from mean landings", "Puerto Rico", 
+          "Disturbance indicator", "Difference from mean landings", "St. Thomas and St. John", 
+          "Disturbance indicator", "Difference from mean landings", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 
 s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)

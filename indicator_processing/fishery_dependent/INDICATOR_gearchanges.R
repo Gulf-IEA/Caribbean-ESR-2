@@ -922,9 +922,9 @@ mat
 
 datdata <- mat$yrs
 inddata <- data.frame(mat[, 1:3])
-labs <- c("Proportion of diving trips", "proportion", "Puerto Rico",
-          "Proportion of diving trips", "proportion", "St. Thomas and St. John", 
-          "Proportion of diving trips", "proportion", "St. Croix")
+labs <- c("Proportion of diving trips", "Proportion", "Puerto Rico",
+          "Proportion of diving trips", "Proportion", "St. Thomas and St. John", 
+          "Proportion of diving trips", "Proportion", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(ind) <- "indicatordata"
@@ -973,9 +973,9 @@ mat
 
 datdata <- mat$yrs
 inddata <- data.frame(mat[, 1:3])
-labs <- c("Proportion of trips using non-selective gears", "proportion", "Puerto Rico",
-          "Proportion of trips using non-selective gears", "proportion", "St. Thomas and St. John", 
-          "Proportion of trips using non-selective gears", "proportion", "St. Croix")
+labs <- c("Proportion of trips using non-selective gears", "Proportion", "Puerto Rico",
+          "Proportion of trips using non-selective gears", "Proportion", "St. Thomas and St. John", 
+          "Proportion of trips using non-selective gears", "Proportion", "St. Croix")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(ind) <- "indicatordata"

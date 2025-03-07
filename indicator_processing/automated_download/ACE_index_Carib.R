@@ -152,7 +152,7 @@ storm_index
 
 datdata <- styear:enyear
 inddata <- data.frame(storm_index)
-labs <- c("Accumulated cyclone energy index", "annual tropical cyclone activity (10^4 kt^2)", "")
+labs <- c("Accumulated cyclone energy index", "Tropical cyclone activity (10^4 kt^2)", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"

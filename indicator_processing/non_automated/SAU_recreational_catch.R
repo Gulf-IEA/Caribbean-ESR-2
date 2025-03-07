@@ -57,8 +57,8 @@ tot <- tapply(drec$tonnes, list(drec$year, drec$area_name), sum, na.rm = T) * 22
 
 datdata <- as.integer(rownames(tot))
 inddats <- data.frame(tot/ 10^6)
-labs <- c("Total recreational catch", "millions of pounds", "Puerto Rico", 
-          "Total recreational catch", "millions of pounds", "USVI")
+labs <- c("Total recreational catch", "Millions of pounds", "Puerto Rico", 
+          "Total recreational catch", "Millions of pounds", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 
 inddata <- list(labels = indnames, indicators = inddats, datelist = datdata) #, ulim = ulidata, llim = llidata)
