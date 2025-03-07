@@ -23,7 +23,7 @@ rm(list = ls())
 directory <- rprojroot::find_rstudio_root_file()
 
 setwd(directory)
-setwd("indicator_data/TCRMP/")
+setwd("indicator_data/intermediateFiles/TCRMP/")
 dir()
 
 # get top landed species -----------------
@@ -32,6 +32,7 @@ dir()
 d <- read.csv("C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/Jun2022/PR_landings_83_20.csv")
 d <- d[which(d$YEAR_LANDED >= 2003 & d$YEAR_LANDED <= 2020), ]
 table(d$YEAR_LANDED, useNA = "always")
+d$ITIS_SCIENTIFIC_NAME <- as.factor(d$ITIS_SCIENTIFIC_NAME)
 d$ITIS_SCIENTIFIC_NAME <- droplevels(d$ITIS_SCIENTIFIC_NAME)
 
 sort(tapply(d$ADJUSTED_POUNDS, d$ITIS_SCIENTIFIC_NAME, sum, na.rm = T))
@@ -118,6 +119,18 @@ fish <- fish[which(fish$ScientificName %in% splis), ]; grp <- "com"  # fished
 
 apply(fish[1:10], 2, table)
 dim(fish)
+
+fish$site <- paste(fish$Year, fish$Transect+10, fish$Location)
+dim(fish)
+length(unique(fish$site))
+
+tab <- tapply(fish$Total, list(fish$site, fish$ScientificName), sum, na.rm = T)
+tab[is.na(tab)] <- 0
+dim(tab)
+
+out <- data.frame(colMeans(tab, na.rm = T))
+write.csv(out, file = "VIfishdens.csv")
+
 
 # look at frequency of sampling across years -----------------
 
@@ -212,48 +225,6 @@ boxplot(mat$slope ~ mat$yr, main = "slope of the size spectrum")
 # modular analysis - two variables -----------------------------------
 # slope and total density, using GLM to standardize for site random effect
 
-varint <- "dens"
-if (varint == "dens")   {  metric <- log(mat$total)  }
-
-hist(metric)
-
-ind <- tapply(mat$total, mat$yr, mean, na.rm = T)  # raw scale 
-indse <- tapply(mat$total, mat$yr, sd, na.rm = T)  # raw scale
-
-out <- lmer(metric ~ (1 | mat$site) + mat$yr + 0)  # log scale
-out1 <- lm(metric ~ mat$yr + mat$site + 0)
-summary(out)
-anova(out)
-summary(out1)
-anova(out1)
-
-stind   <- summary(out1)$coef[1:length(yrs), 1]
-stindse <- summary(out1)$coef[1:length(yrs), 2]
-
-cor(ind, stind)
-
-# functions for converting lognormal mean and SE to normal space -------------
-lnorm.mean <- function(x1, x1e) {  exp(x1 + 0.5 * x1e^2)   }
-lnorm.se   <- function(x1, x1e) {  ((exp(x1e^2)-1)*exp(2 * x1 + x1e^2))^0.5  } 
-
-ind_norm   <- lnorm.mean(stind, stindse)                # convert lognormal mean and SE to normal space
-indse_norm <- lnorm.se(stind, stindse)
-
-plot(as.numeric(names(ind)), ind, ylim = c(min(ind) - 100, max(ind) + 100))
-lines(as.numeric(names(ind)), ind + indse, lty = 2)
-lines(as.numeric(names(ind)), ind - indse, lty = 2)
-
-points(yrs, (ind_norm), col = 2)
-lines(yrs, (ind_norm + indse_norm), lty = 2, col = 2)
-lines(yrs, (ind_norm - indse_norm), lty = 2, col = 2)
-
-cor(ind, ind_norm)
-
-findens <- data.frame(cbind(yrs, ind_norm, indse_norm))
-findens
-
-save(findens, file = "fish_density_USVI.RData")  
-
 # now for slope of the size spectrum ------------------------
 
 varint <- "slope"
@@ -292,6 +263,69 @@ fin <- data.frame(cbind(yrs, stind, stindse))
 fin
 
 save(fin, file = "slopeSizeSpec_USVI.RData") 
+
+# now for density ----------------------------------------------
+
+# new in 2025 - discovered error with number of transects
+# re-create "mat" object from "tab" table above
+
+tab
+total1 <- rowSums(tab, na.rm = T)
+yr <- substr(rownames(tab), 1, 4)
+site <- substr(rownames(tab), 9, 50)
+tran <- as.numeric(substr(rownames(tab), 6, 7)) - 10
+table(site, yr)
+table(site, tran, yr)
+
+mat <- data.frame(cbind(total1, yr, site, tran))
+mat$total <- as.numeric(mat$total1)
+mat
+head(mat)
+mean(mat$total)
+
+varint <- "dens"
+if (varint == "dens")   {  metric <- log(mat$total+0.1)  }
+
+hist(metric)
+
+ind <- tapply(mat$total, mat$yr, mean, na.rm = T)  # raw scale 
+indse <- tapply(mat$total, mat$yr, sd, na.rm = T)  # raw scale
+
+out <- lmer(metric ~ (1 | mat$site) + mat$yr + 0)  # log scale
+out1 <- lm(metric ~ mat$yr + mat$site + 0)
+summary(out)
+anova(out)
+summary(out1)
+anova(out1)
+
+stind   <- summary(out1)$coef[1:length(yrs), 1]
+stindse <- summary(out1)$coef[1:length(yrs), 2]
+
+cor(ind, stind)
+
+# functions for converting lognormal mean and SE to normal space -------------
+lnorm.mean <- function(x1, x1e) {  exp(x1 + 0.5 * x1e^2)   }
+lnorm.se   <- function(x1, x1e) {  ((exp(x1e^2)-1)*exp(2 * x1 + x1e^2))^0.5  } 
+
+ind_norm   <- lnorm.mean(stind, stindse)                # convert lognormal mean and SE to normal space
+indse_norm <- lnorm.se(stind, stindse)
+
+plot(as.numeric(names(ind)), ind, ylim = c(min(ind) - 10, max(ind) + 10))
+lines(as.numeric(names(ind)), ind + indse, lty = 2)
+lines(as.numeric(names(ind)), ind - indse, lty = 2)
+
+points(yrs, (ind_norm), col = 2)
+lines(yrs, (ind_norm + indse_norm), lty = 2, col = 2)
+lines(yrs, (ind_norm - indse_norm), lty = 2, col = 2)
+
+cor(ind, ind_norm)
+plot(ind, ind_norm)
+
+findens <- data.frame(cbind(yrs, ind_norm, indse_norm))
+findens
+
+save(findens, file = "fish_density_USVI.RData")  
+
 
 #############################  END  ###############################
 

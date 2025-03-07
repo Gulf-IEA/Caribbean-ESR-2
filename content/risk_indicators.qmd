@@ -19,7 +19,7 @@ Accumulated heat stress, which can lead to coral bleaching and death, is measure
 
 ## Ocean acidification
 
-Ocean and coastal acidification can impact organisms directly or indirectly; a decrease in aragonite saturation state can make it difficult for corals and other calcifying organisms to form hard structures, contributing to lower reproduction or survival rates. In-situ measurements of aragonite saturation states are scarce, and a synoptic long-term view is only available from modeled products. Aragonite saturation state was derived for the U.S. Caribbean region from the MOM-TOPAZ hindcast (cite). An overall negative trend occurs, with an acceleration of this trend apparent after 2008 (@fig-OA).
+Ocean and coastal acidification can impact organisms directly or indirectly; a decrease in aragonite saturation state can make it difficult for corals and other calcifying organisms to form hard structures, contributing to lower reproduction or survival rates. When the aragonite saturation state falls below 3, corals begin to experience physiological stress, and their skeletons will begin to dissolve at aragonite saturation states below 1 [@Andersson2009]. In-situ measurements of aragonite saturation states are scarce, and a synoptic long-term view is only available from modeled products. Aragonite saturation state was derived for the U.S. Caribbean region from the MOM-TOPAZ hindcast (cite). An overall negative trend occurs, with an acceleration of this trend apparent after 2008 (@fig-OA).
 
 ![Ocean acidification as measured by modeled surface aragonite saturation state, shown as standardized monthly anomalies for the U.S. Caribbean region.](/indicator_plots/OA_plot_final.png){#fig-OA fig-alt="a plot" fig-align="center"}
 
@@ -31,7 +31,7 @@ Hurricane activity can be captured by the accumulated cyclone energy (ACE) index
 
 ## Earthquake activity
 
-Earthquakes in Puerto Rico can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar2022]. Individual seismic events are reported by the United States Geological Survey (USGS) in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
+Earthquakes can induce landslides and cause impacts to infrastructure including homes and the electrical grid, and can be a source of stress in the affected human population [@agar2022]. Individual seismic events are reported by the United States Geological Survey (USGS) in near real-time [@sumy2020]. A major earthquake swarm occurred in Southwest Puerto Rico in early 2020; in this year there were over 400 events of greater than 3.5 magnitude on the Richter scale (@fig-quakes).
 
 ![Number of seismic events of \>3.5 magnitude occurring annually in the U.S. Caribbean.](/indicator_plots/earthquakes_plot_final.png){#fig-quakes fig-alt="a plot" fig-align="center"}
 
@@ -67,7 +67,7 @@ Primary productivity is a measure of the total energy available in an ecosystem,
 
 ## Sargassum inundation
 
-Sargassum (brown macroalgae *S. fluitains* and *S. natans*) is a designated essential fish habitat important for many pelagic fish and protected species; however, when large blooms collect in nearshore environments they can reduce oxygen, suffocate beaches and have detrimental impacts on marine species. Mean monthly Sargassum wet biomass is estimated from satellite measurements using the algorithm of Wang et al. [-@wang2019]. Sargassum blooms were largely absent from the U.S. Caribbean prior to 2011, but bloom activity has been generally increasing since that year (@fig-sarg). Major inundation events occurred in 2018 and 2021.
+Sargassum (brown macroalgae *S. fluitains* and *S. natans*) is a designated essential fish habitat important for many pelagic fish and protected species; however, when large blooms collect in nearshore environments they can reduce oxygen, suffocate beaches and have detrimental impacts on marine species[@Hu2016]. Mean monthly Sargassum wet biomass is estimated from satellite measurements using the algorithm of Wang et al. [@wang2019]. Sargassum blooms were largely absent from the U.S. Caribbean prior to 2011, but bloom activity has been generally increasing since that year (@fig-sarg). Major inundation events occurred in 2018 and 2021.
 
 ![Annual mean sargassum inundation in square km of cover in the U.S. Caribbean.](/indicator_plots/Sargassum_plot_final.png){#fig-sarg fig-alt="a plot" fig-align="center"}
 
@@ -89,4 +89,4 @@ Human activity has an impact on the marine ecosystem indirectly through its infl
 
 ![Annual tourism activity in Puerto Rico (left) and USVI (right) as indicated by the number of cruise and air passengers visiting the islands.](/indicator_plots/cruise_plot_final.png){#fig-tourist fig-alt="A plot" fig-align="center"}
 
-![Annual tourism activity in Puerto Rico and USVI as indicated by the number of hotel registrations (guests). Note that Puerto Rico data only include non-resident hotel registrations while for USVI data were only available for all hotel registrations.](/indicator_plots/hotel_plot_final.png){#fig-hotel fig-alt="A plot" fig-align="center"}
+![Annual tourism activity in Puerto Rico and USVI as indicated by the number of hotel registrations (guests). Note that Puerto Rico data only include non-resident hotel registrations while for USVI data were available for all hotel  registrations.](/indicator_plots/hotel_plot_final.png){#fig-hotel fig-alt="A plot" fig-align="center"}

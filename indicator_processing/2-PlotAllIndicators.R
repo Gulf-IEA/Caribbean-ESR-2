@@ -167,7 +167,7 @@ plotIndicatorTimeSeries(ind, coltoplot = 1:6, plotrownum = 3, plotcolnum = 2, tr
 
 #png(filename = "indicator_plots/fish_density_plot_final.png", width = 8, height = 6, units = "in", res = 300)
 load("../indicator_objects/fish_density.RData")
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, plotcolnum = 1, trendAnalysis = TRUE, dateformat = "%b%Y", 
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 2, plotcolnum = 2, trendAnalysis = TRUE, dateformat = "%b%Y", 
                         sublabel = TRUE, widadj = 1.3, hgtadj = 1, anom = "none", yposadj = 1, cex.axis = 1, cex.lab = 1, cex.main = 1, 
                         outtype = "png", outname = "fish_density_plot_final.png")
 #dev.off()

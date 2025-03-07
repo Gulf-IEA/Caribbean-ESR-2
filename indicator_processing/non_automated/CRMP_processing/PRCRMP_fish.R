@@ -32,7 +32,7 @@ rm(list = ls())
 directory <- rprojroot::find_rstudio_root_file()
 
 setwd(directory)
-setwd("indicator_data/PRCRMP")
+setwd("indicator_data/intermediateFiles/PRCRMP")
 dir()
 
 
@@ -49,10 +49,10 @@ fish <- read.csv("PRCRMP_Fish-Invert_Abundance_data_1999-2023_(updated_11-30-202
 
 siz <- read.csv("PRCRMP_Fish-Invert_Size-Freq._data_2004-2023_(updated_11-30-2023).csv", stringsAsFactors = F)
 
-met <- read.csv("PRCRMP_Site_Classification_Database_(11-25-2023).csv", stringsAsFactors = F)
+#met <- read.csv("PRCRMP_Site_Classification_Database_(11-25-2023).csv", stringsAsFactors = F)
 
-sitelis <- met$Site.Name
-sitelis
+#sitelis <- met$Site.Name
+#sitelis
 
 # start analysis -----------------------------
 
@@ -62,7 +62,7 @@ tail(fish$YEAR, 20)
 table(fish$LOCATION, useNA = "always")
 table(fish$DEPTH.ZONE, useNA = "always")
 
-fish$LOCATION[which(fish$LOCATION == "Mayagüez")] <- "Mayaguez"
+fish$LOCATION[which(fish$LOCATION == "Mayag?ez")] <- "Mayaguez"
 fish$DEPTH.ZONE[grep("mediate", fish$DEPTH.ZONE)] <- "intermediate"
 fish$DEPTH.ZONE[grep("photic", tolower(fish$DEPTH.ZONE))] <- "mesophotic"
 fish$DEPTH.ZONE[grep("ery", fish$DEPTH.ZONE)] <- "very shal"
@@ -107,7 +107,7 @@ table(is.na(siz$YEAR))
 
 table(siz$LOCATION, useNA = "always")
 table(siz$DEPTH.ZONE, useNA = "always")
-siz$LOCATION[which(siz$LOCATION == "Mayagüez")] <- "Mayaguez"
+siz$LOCATION[which(siz$LOCATION == "Mayag?ez")] <- "Mayaguez"
 siz$DEPTH.ZONE[grep("mediate", siz$DEPTH.ZONE)] <- "intermediate"
 siz$DEPTH.ZONE[grep("photic", tolower(siz$DEPTH.ZONE))] <- "mesophotic"
 siz$DEPTH.ZONE[grep("ery", siz$DEPTH.ZONE)] <- "very shal"
@@ -122,6 +122,7 @@ apply(siz[1:10], 2, table, useNA = "always")
 d <- read.csv("C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/Jun2022/PR_landings_83_20.csv")
 d <- d[which(d$YEAR_LANDED >= 2003 & d$YEAR_LANDED <= 2020), ]
 table(d$YEAR_LANDED, useNA = "always")
+d$ITIS_SCIENTIFIC_NAME <- as.factor(d$ITIS_SCIENTIFIC_NAME)
 d$ITIS_SCIENTIFIC_NAME <- droplevels(d$ITIS_SCIENTIFIC_NAME)
 
 sort(tapply(d$ADJUSTED_POUNDS, d$ITIS_SCIENTIFIC_NAME, sum, na.rm = T))
@@ -165,10 +166,13 @@ names(fish2)
 
 # calculate total fish density by site ---------------------------------
 
-fish$dens <- NA
-for (i in 1:nrow(fish2)) {  fish$dens[i] <- sum(as.numeric(fish2[i, ]))   }
+fish$dens <- rowSums(fish2, na.rm = T)
 hist(fish$dens)
+mean(fish$dens, na.rm = T)
 table(fish$dens, useNA = "always")
+
+out <- data.frame(colMeans(fish2, na.rm = T))
+write.csv(out, file = "PRfishdens.csv")
 
 table(fish$SITE.NAME, fish$YEAR)
 image(table(fish$YEAR, fish$SITE.NAME))

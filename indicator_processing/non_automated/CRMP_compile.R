@@ -12,9 +12,9 @@ rm(list = ls())
 plot.new()
 dev.off()
 
-#directory <- rprojroot::find_rstudio_root_file()
-#setwd(directory)
-#dir()
+directory <- rprojroot::find_rstudio_root_file()
+setwd(directory)
+dir()
 
 library(plotTimeSeries)
 
@@ -106,14 +106,14 @@ yrs <- (min(c(PR$yrs, VI$yrs, sl$yrs))) : (max(c(PR$yrs, VI$yrs, sl$yrs)))
 
 mat <- data.frame(matrix(data = NA, nrow = length(yrs), ncol = 3))
 rownames(mat) <- yrs
-mat[match(PR$yrs, yrs), 1] <- PR$ind_norm
-mat[match(VI$yrs, yrs), 2] <- VI$ind_norm
+mat[match(VI$yrs, yrs), 1] <- VI$ind_norm
+mat[match(PR$yrs, yrs), 2] <- PR$ind_norm
 mat[match(sl$yrs, yrs), 3] <- sl$stind
 
 matse <- data.frame(matrix(data = NA, nrow = length(yrs), ncol = 3))
 rownames(matse) <- yrs
-matse[match(PR$yrs, yrs), 1] <- PR$indse_norm
-matse[match(VI$yrs, yrs), 2] <- VI$indse_norm
+matse[match(VI$yrs, yrs), 1] <- VI$indse_norm
+matse[match(PR$yrs, yrs), 2] <- PR$indse_norm
 matse[match(sl$yrs, yrs), 3] <- sl$stindse
 
 # format indicator object --------------------
@@ -122,14 +122,14 @@ datdata <- yrs
 inddata <- data.frame(mat)
 ulidata <- data.frame(mat + matse)
 llidata <- data.frame(mat - matse)
-labs <- c("Commercial fish density" , "Average number per transect", "Puerto Rico",
-          "Commercial fish density" , "Average number per transect", "USVI", 
+labs <- c("Commercial fish density" , "Average number per transect", "USVI", 
+          "Commercial fish density" , "Average number per transect", "Puerto Rico",
           "Slope of the size spectrum" , "Slope of log distribution", "USVI")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 s <- list(labels = indnames, indicators = inddata, datelist = datdata, ulim = ulidata, llim = llidata)
 class(s) <- "indicatordata"
 
-plotIndicatorTimeSeries(s, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
+plotIndicatorTimeSeries(s, coltoplot = 1:3, plotrownum = 2, sublabel = T, sameYscale = F, 
                         widadj = 1, hgtadj = 1, trendAnalysis = T, type = "allLines", CItype = "band")
 
 ind <- s
