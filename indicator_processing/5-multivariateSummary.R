@@ -39,8 +39,8 @@ names(d)
 risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", "OA", "HURR", "QUAKE", 
            "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", "P_PROD", "SARG",
            "DSTRB_PR", "DSTRB_STT", "DSTRB_STX",
-           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI")
-risks == names(d)[2:27]
+           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI", "HOTEL_PR", "HOTEL_VI")
+risks == names(d)[2:29]
   
 food_fi <- c("VETU_PR",  "GUTT_PR",  "ANAL_PR",  "CHRY_PR",  "AURO_PR",  "VIRI_PR", 
              "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", "AURO_STT", "VIRI_STT", 
@@ -86,7 +86,7 @@ trafficLightPlot(d_oth, noNAs = 1)
 risks <- c("SST_MEAN", "SST_MIN", "SST_MAX", "DHW_PR", "DHW_VI", "OA", "HURR", "QUAKE", 
            "POLL_PR", "POLL_VI", "TURB_PR", "TURB_STT", "TURB_STX", "WATQUL_PR", "WATQUL_VI", "P_PROD", "SARG", 
            "DSTRB_PR", "DSTRB_STT", "DSTRB_STX",
-           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI")
+           "POP_PR", "POP_VI", "CRU_PR", "CRU_VI", "AIR_PR", "AIR_VI", "HOTEL_PR", "HOTEL_VI")
 
 fi <- c("VETU_PR",  "GUTT_PR",  "ANAL_PR",  "CHRY_PR",  "AURO_PR",  "VIRI_PR", 
         "VETU_STT", "GUTT_STT", "ANAL_STT", "CHRY_STT", "AURO_STT", "VIRI_STT", 
@@ -153,7 +153,7 @@ par(mar = c(4, 6, 1, 1), mfrow = c(3, 2))
 
 pc <- plotOrdScores(d_risk, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "risks to meeting objectives", line = 4.5, cex = 0.8)
-barplot(pc$rotation[,1], las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 #pc <- plotOrdScores(d_fi, main = "fishery-independent indicators", mintime = 2011, noNAs = thresh) #, method = "nmds", nmdsk = 3)
@@ -162,12 +162,12 @@ abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 pc <- plotOrdScores(d_ccl, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "fishery-dependent indicators", line = 4.5, cex = 0.8)
-barplot(pc$rotation[,1], las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 pc <- plotOrdScores(d_oth, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "other management indicators", line = 4.5, cex = 0.8)
-barplot(pc$rotation[,1], las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 dev.off()

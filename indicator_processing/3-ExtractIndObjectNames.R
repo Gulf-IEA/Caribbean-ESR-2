@@ -86,6 +86,8 @@ if (length(which(is.na(match(d1$nam, dm$nam)))) > 0) { cat("ERROR!!! NAMES NOT M
 dm[which(is.na(match(dm$nam, d1$nam))), ]
 which(is.na(match(d1$nam, dm$nam)))
 
+cbind(sort(d1$nam), sort(dm$nam))
+
 d <- merge(dm, d1, by = "nam", all = TRUE)
 head(d)
 dim(d)

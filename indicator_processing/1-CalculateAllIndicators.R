@@ -52,8 +52,10 @@ source("indicator_processing/automated_download/chl_caribbean.R")         # prim
 source("indicator_processing/automated_download/Unemployment.R")          # unemployment rate
 source("indicator_processing/automated_download/GDP.R")                   # Gross Domestic Product
 source("indicator_processing/automated_download/cruise_air_visitors.R")   # Cruise and air visitors
-#source("indicator_processing/automated_download/population.R")            # Human population
-source("indicator_processing/automated_download/EPA_water_quality.R")     # EPA water quality enterococcus
+# source("indicator_processing/automated_download/population.R")            # Human population
+# source("indicator_processing/automated_download/EPA_water_quality.R")     # EPA water quality enterococcus
+
+## Mar 7 2025 update: all ran except population and EPA water quality
 
 print("RAN ALL AUTOMADED DOWNLOADS")
 print("NOTE POPULATION INDICATOR NOT WORKING")

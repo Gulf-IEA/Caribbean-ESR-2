@@ -7,7 +7,7 @@
 # Species of interest:
 
 # OCY CHRY --> yellowtail snapper
-# LUT ANAL  --> mutton snapper*
+# LUT ANAL  --> mutton snapper*  -- changed to lane snapper based on Jay's recommendation (MK - Mar 2025)
 # BAL VETU  --> queen triggerfish
 # EPI GUTT  --> red hind
 # SPA AURO  --> redband parrotfish
@@ -107,7 +107,7 @@ stx = readRDS("indicator_data/intermediateFiles/RVC/combined_stx_2001_2023.rds")
 ## You can use full scientific names, common names, or
 ## species codes (first 3 letters of genus, and first 4 of species)
 ## Only scientific names are case-sensitive
-spcs = c("OCY CHRY", "LUT ANAL", "BAL VETU", "EPI GUTT", "SPA AURO", "SPA VIRI")
+spcs = c("OCY CHRY", "LUT SYNA", "BAL VETU", "EPI GUTT", "SPA AURO", "SPA VIRI")
 
 
 #test = getDomainDensity(prico, species = "OCY CHRY")
@@ -189,25 +189,25 @@ for (file in files) {
 datdata <- as.integer(RUVdensity_PRICO_BAL_VETU$datdata)
 inddata <- data.frame(cbind(RUVdensity_PRICO_BAL_VETU$density,
                             RUVdensity_PRICO_EPI_GUTT$density,
-                            RUVdensity_PRICO_LUT_ANAL$density,
+                            RUVdensity_PRICO_LUT_SYNA$density,
                             RUVdensity_PRICO_OCY_CHRY$density,
                             RUVdensity_PRICO_SPA_AURO$density,
                             RUVdensity_PRICO_SPA_VIRI$density))
 ulidata <- data.frame(cbind(RUVdensity_PRICO_BAL_VETU$uli,
                             RUVdensity_PRICO_EPI_GUTT$uli,
-                            RUVdensity_PRICO_LUT_ANAL$uli,
+                            RUVdensity_PRICO_LUT_SYNA$uli,
                             RUVdensity_PRICO_OCY_CHRY$uli,
                             RUVdensity_PRICO_SPA_AURO$uli,
                             RUVdensity_PRICO_SPA_VIRI$uli))
 llidata <- data.frame(cbind(RUVdensity_PRICO_BAL_VETU$lli,
                             RUVdensity_PRICO_EPI_GUTT$lli,
-                            RUVdensity_PRICO_LUT_ANAL$lli,
+                            RUVdensity_PRICO_LUT_SYNA$lli,
                             RUVdensity_PRICO_OCY_CHRY$lli,
                             RUVdensity_PRICO_SPA_AURO$lli,
                             RUVdensity_PRICO_SPA_VIRI$lli))
 labs <- c("Puerto Rico" , "Density", "Queen triggerfish",
           "Puerto Rico" , "Density", "Red hind",
-          "Puerto Rico" , "Density", "Mutton snapper*",
+          "Puerto Rico" , "Density", "Lane snapper",
           "Puerto Rico" , "Density", "Yellowtail snapper",
           "Puerto Rico" , "Density", "Redband parrotfish",
           "Puerto Rico" , "Density", "Stoplight parrotfish")
@@ -222,25 +222,25 @@ save(ind, file = "indicator_objects/RVC_PR.RData")
 datdata <- as.integer(RUVdensity_PRICO_BAL_VETU$datdata)
 inddata <- data.frame(cbind(RUVdensity_STTSTJ_BAL_VETU$density,
                             RUVdensity_STTSTJ_EPI_GUTT$density,
-                            RUVdensity_STTSTJ_LUT_ANAL$density,
+                            RUVdensity_STTSTJ_LUT_SYNA$density,
                             RUVdensity_STTSTJ_OCY_CHRY$density,
                             RUVdensity_STTSTJ_SPA_AURO$density,
                             RUVdensity_STTSTJ_SPA_VIRI$density))
 ulidata <- data.frame(cbind(RUVdensity_STTSTJ_BAL_VETU$uli,
                             RUVdensity_STTSTJ_EPI_GUTT$uli,
-                            RUVdensity_STTSTJ_LUT_ANAL$uli,
+                            RUVdensity_STTSTJ_LUT_SYNA$uli,
                             RUVdensity_STTSTJ_OCY_CHRY$uli,
                             RUVdensity_STTSTJ_SPA_AURO$uli,
                             RUVdensity_STTSTJ_SPA_VIRI$uli))
 llidata <- data.frame(cbind(RUVdensity_STTSTJ_BAL_VETU$lli,
                             RUVdensity_STTSTJ_EPI_GUTT$lli,
-                            RUVdensity_STTSTJ_LUT_ANAL$lli,
+                            RUVdensity_STTSTJ_LUT_SYNA$lli,
                             RUVdensity_STTSTJ_OCY_CHRY$lli,
                             RUVdensity_STTSTJ_SPA_AURO$lli,
                             RUVdensity_STTSTJ_SPA_VIRI$lli))
 labs <- c("St. Thomas and St. John", "Density", "Queen triggerfish",
           "St. Thomas and St. John", "Density", "Red hind",
-          "St. Thomas and St. John", "Density", "Mutton snapper*",
+          "St. Thomas and St. John", "Density", "Lane snapper",
           "St. Thomas and St. John", "Density", "Yellowtail snapper",
           "St. Thomas and St. John", "Density", "Redband parrotfish",
           "St. Thomas and St. John", "Density", "Stoplight parrotfish")
@@ -256,25 +256,25 @@ save(ind, file = "indicator_objects/RVC_STSJ.RData")
 datdata <- as.integer(RUVdensity_PRICO_BAL_VETU$datdata)
 inddata <- data.frame(cbind(RUVdensity_STX_BAL_VETU$density,
                             RUVdensity_STX_EPI_GUTT$density,
-                            RUVdensity_STX_LUT_ANAL$density,
+                            RUVdensity_STX_LUT_SYNA$density,
                             RUVdensity_STX_OCY_CHRY$density,
                             RUVdensity_STX_SPA_AURO$density,
                             RUVdensity_STX_SPA_VIRI$density))
 ulidata <- data.frame(cbind(RUVdensity_STX_BAL_VETU$uli,
                             RUVdensity_STX_EPI_GUTT$uli,
-                            RUVdensity_STX_LUT_ANAL$uli,
+                            RUVdensity_STX_LUT_SYNA$uli,
                             RUVdensity_STX_OCY_CHRY$uli,
                             RUVdensity_STX_SPA_AURO$uli,
                             RUVdensity_STX_SPA_VIRI$uli))
 llidata <- data.frame(cbind(RUVdensity_STX_BAL_VETU$lli,
                             RUVdensity_STX_EPI_GUTT$lli,
-                            RUVdensity_STX_LUT_ANAL$lli,
+                            RUVdensity_STX_LUT_SYNA$lli,
                             RUVdensity_STX_OCY_CHRY$lli,
                             RUVdensity_STX_SPA_AURO$lli,
                             RUVdensity_STX_SPA_VIRI$lli))
 labs <- c("St. Croix", "Density", "Queen triggerfish",
           "St. Croix", "Density", "Red hind",
-          "St. Croix", "Density", "Mutton snapper*",
+          "St. Croix", "Density", "Lane snapper",
           "St. Croix", "Density", "Yellowtail snapper",
           "St. Croix", "Density", "Redband parrotfish",
           "St. Croix", "Density", "Stoplight parrotfish")

@@ -35,25 +35,24 @@ kd490 <- info('nesdisVHNSQkd490Monthly',
 
 
 # empty data  -------------------------------------------------
-pr_dat <- sc_dat <- st_dat <- setNames(data.frame(matrix(NA,length(styear:enyear)*12,3)),
-                                       c("year", "mon", 'mean'))
-m <- 1
-n <- 0
+pr_dat <- sc_dat <- st_dat <- data.frame(matrix(ncol = 3, nrow = 0))
+                                       
 
 # download by year to avoid timeout errors --------------------
+
 for (yr in styear:enyear) { 
  
   ### BDT rERDDAP fix
-  n <- n + 12
   ### Puerto Rico
   pr_kd490_grab <- griddap(kd490, fields = 'kd_490', 
                            time = c(paste0(yr,'-01-15'), paste0(yr,'-12-15')), 
                            longitude = pr_coord[ ,1], 
                            latitude = pr_coord[ ,2])
   
-  pr_dat[m:n,] <- aggregate(pr_kd490_grab$data$kd_490, 
+  pr_dat <- rbind(pr_dat, aggregate(pr_kd490_grab$data$kd_490, 
                             by = list(year(pr_kd490_grab$data$time), month(pr_kd490_grab$data$time)),
-                            mean, na.rm = T)
+                            mean, na.rm = T))
+
   
   ### St Croix
   sc_kd490_grab <- griddap(kd490, fields = 'kd_490', 
@@ -61,9 +60,9 @@ for (yr in styear:enyear) {
                            longitude = sc_coord[ ,1], 
                            latitude = sc_coord[ ,2])
   
-  sc_dat[m:n,] <- aggregate(sc_kd490_grab$data$kd_490, 
+  sc_dat <- rbind(sc_dat, aggregate(sc_kd490_grab$data$kd_490, 
                             by = list(year(sc_kd490_grab$data$time), month(sc_kd490_grab$data$time)),
-                            mean, na.rm = T)
+                            mean, na.rm = T))
   
   ### St Thomas
   st_kd490_grab <- griddap(kd490, fields = 'kd_490', 
@@ -71,12 +70,14 @@ for (yr in styear:enyear) {
                            longitude = st_coord[ ,1], 
                            latitude = st_coord[ ,2])
   
-  st_dat[m:n,] <- aggregate(st_kd490_grab$data$kd_490, 
+  st_dat <- rbind(st_dat, aggregate(st_kd490_grab$data$kd_490, 
                             by = list(year(st_kd490_grab$data$time), month(st_kd490_grab$data$time)),
-                            mean, na.rm = T)
-  
-  m <- n + 1
+                            mean, na.rm = T))
 }
+
+names(pr_dat) <- c("year", "mon", 'mean')
+names(sc_dat) <- c("year", "mon", 'mean')
+names(st_dat) <- c("year", "mon", 'mean')
 
 # create indicator object --------------
 
@@ -88,6 +89,7 @@ indnames <- data.frame(matrix(labs, nrow = 3, byrow = T))
 
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata) #, ulim = ulidata, llim = llidata)
 class(ind) <- "indicatordata"
+ind
 
 # save and plot ---------------------------------------
 
