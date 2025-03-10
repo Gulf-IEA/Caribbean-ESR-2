@@ -11,7 +11,7 @@ if(!"remotes"%in%installed.packages()){
   install.packages("remotes")
 }
 
-# remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)
+#remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)
 
 library(EPATADA)
 library(ggplot2)
@@ -24,21 +24,31 @@ EPATADA::TADA_GetTemplate()
 
 # see here for a list of arguments in the DataRetrieval function: https://usepa.github.io/EPATADA/reference/TADA_DataRetrieval.html
 
-# Start by pulling all the data. The function below takes about 10 min to run. 
+# Start by pulling all the data. The function below takes about 10 min to run.
 
-# dataset_0 = EPATADA::TADA_BigDataRetrieval(
-#   startDate = "1980-01-01",
+# test_data = EPATADA::TADA_BigDataRetrieval(
+#   startDate = "2023-01-01",
 #   endDate = "2023-12-31",
-#   countrycode = "US", 
-#   huc = "null",
-#   siteid = "null",
-#   siteType = "Ocean",
-#   characteristicName = "null",
-#   characteristicType = c("Microbiological","Nutrient","Physical"),
-#   sampleMedia = c("water","Water"),
-#   statecode = c("PR","VI"), 
-#   applyautoclean = TRUE
+#   countrycode = "US",
+#   statecode = c("PR"),
+#   characteristicType = c("Physical"),
+#   sampleMedia = c("Water")
 # )
+
+
+ # dataset_0 = EPATADA::TADA_BigDataRetrieval(
+ #   startDate = "1980-01-01",
+ #   endDate = "2023-12-31",
+ #   countrycode = "US", 
+ #   huc = "null",
+ #   siteid = "null",
+ #   siteType = "Ocean",
+ #   characteristicName = "null",
+ #   characteristicType = c("Microbiological","Nutrient","Physical"),
+ #   sampleMedia = c("water","Water"),
+ #   statecode = c("PR","VI"), 
+ #   applyautoclean = TRUE
+ # )
 
 #re-name the file
 #dat = dataset_0
@@ -155,7 +165,7 @@ summary_data <- ent %>%
   group_by(year, CountyCode) %>%
   summarize(
     MeanValue = mean(TADA.ResultMeasureValue, na.rm = TRUE),
-    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(n()),
+    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(sum(!is.na(TADA.ResultMeasureValue))),
     .groups = "drop"
   )
 
@@ -178,7 +188,7 @@ summary_data <- ent %>%
   group_by(year, StateCode) %>%
   summarize(
     MeanValue = mean(TADA.ResultMeasureValue, na.rm = TRUE),
-    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(n()),
+    SE = sd(TADA.ResultMeasureValue, na.rm = TRUE) / sqrt(sum(!is.na(TADA.ResultMeasureValue))),
     .groups = "drop"
   )
 
