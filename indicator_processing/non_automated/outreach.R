@@ -63,7 +63,7 @@ print(Seagrant)
 
 Seagrant$cumu_Seagrant = cumsum(Seagrant$attendees)
 Seagrant$cumu_Seagrant2 = Seagrant$cumu_Seagrant/1000
-
+Seagrant$attendees2 = Seagrant$attendees/1000
 
 
 
@@ -74,9 +74,9 @@ df = merge(MREP, Seagrant, by = "year", all=T)
 
 # save as indicator object ----------------------
 datdata <- 2010:2024
-inddata <- data.frame(cbind(df$cumu_MREP, df$cumu_Seagrant2))
-labs <- c("MREP industry participants" , "Cumulative graduates", "",
-          "SeaGrant workshop/meeting participants" , "Cumulative attendees (thousands)", "")
+inddata <- data.frame(cbind(df$part_MREP, df$attendees2))
+labs <- c("MREP industry participants" , "Number of graduates", "",
+          "SeaGrant workshop/meeting participants" , "Number of attendees (thousands)", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"
