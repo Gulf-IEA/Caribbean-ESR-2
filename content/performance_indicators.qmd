@@ -175,7 +175,7 @@ Programs such as the Marine Resource Education Program (MREP) and NOAA SeaGrant 
 
 The number of recorded law enforcement incidents and patrols may be indicative of changes in availability of law enforcement resources. Data on federal law enforcement incidents where the investigating officer was from the St. Thomas, USVI or San Juan, PR field offices or the word "Caribbean" was mentioned in the brief synopsis were pulled from the NOAA Office of Law Enforcement NOAA Enforcement Information System (NEIS). Similarly, data on federal patrols conducted from a field office in PR or USVI were available in NEIS. Incidents and enforcement have been fairly stable over the short available time series, with some inter-annual variability (@fig-law).
 
-![Monthly count of federal law enforcement incidents in the U.S. Caribbean region by date of incident creation (total n = 101) and monthly count of patrols (including land, sea, and international trade) conducted from a field office in Puerto Rico or USVI (total n = 363). ](/indicator_plots/enforcement_barplot.png){#fig-law fig-alt="a plot" fig-align="center"}
+![Monthly count of federal law enforcement incidents in the U.S. Caribbean region by date of incident creation (total n = 101) and monthly count of patrols (including land, sea, and international trade) conducted from a field office in Puerto Rico or USVI (total n = 363).](/indicator_plots/enforcement_barplot.png){#fig-law fig-alt="a plot" fig-align="center"}
 
 ## Protection of ecosystems
 
