@@ -155,7 +155,7 @@ apply(fin, 2, table, useNA = "always")  # check no NAs
 
 par(mfrow = c(2, 1))
 mat <- table(fin$year, fin$gear)
-barplot(t(mat), col = cols25(7), args.legend = c(x = "topright"), legend.text = colnames(mat))
+barplot(t(mat), col = , args.legend = c(x = "topright"), legend.text = colnames(mat))
 matplot(mat, type = "b", pch = 19, col = cols25(7))
 
 matp <- t(apply(mat, 1, function(x) x/sum(x)))
@@ -178,11 +178,16 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 
 # plot trips and percent bycatch gears -------------------
 
+mat2 <- t(mat)
+ord <- names(sort(rowSums(mat2, na.rm = T), decreasing = T))
+cols <- cols25(7)[match(ord, rownames(mat2))]
+mat3 <- mat2[match(ord, rownames(mat2)), ]
+
 png(filename = "indicator_plots/gearTypes_STT.png", 
     units="in", width = 8, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
-barplot(t(mat), col = cols25(7), args.legend = list(x = "topright", bty = "n", y.intersp = 0.8), legend.text = colnames(mat), las = 2, 
+barplot(mat3, col = cols, args.legend = list(x = "topright", bty = "n", y.intersp = 0.8), legend.text = rownames(mat3), las = 2, 
         main = "Number of trips per year by gear type\nSt. Thomas and St. John", ylim = c(0, 8000), border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
@@ -445,14 +450,16 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 
 # plot trips and percent bycatch gears -------------------
 
-cols <- cols25(7)
-cols <- cols[c(2:5)]
+mat2 <- t(mat)
+ord <- names(sort(rowSums(mat2, na.rm = T), decreasing = T))
+cols <- cols25(7)[c(2:5)][match(ord, rownames(mat2))]
+mat3 <- mat2[match(ord, rownames(mat2)), ]
 
 png(filename = "indicator_plots/gearTypes_STX.png", 
     units="in", width = 8, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
-barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", y.intersp = 0.9), legend.text = colnames(mat), las = 2, 
+barplot(mat3, col = cols, args.legend = list(x = "topright", bty = "n", y.intersp = 0.9), legend.text = rownames(mat3), las = 2, 
         main = "Number of trips per year by gear type\nSt. Croix", border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
@@ -759,18 +766,17 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 # plot trips and percent bycatch gears -------------------
 
 mat
-lis <- c("DIVING", "BOTTOM LONG LINE", "HOOK AND LINE", "NETS", "TRAPS")
-head(mat)
-mat <- mat[, match(colnames(mat), lis)]
-head(mat)
-cols <- cols25(7)
-cols <- cols[c(2, 7, 3:5)]
+mat2 <- t(mat)
+ord <- names(sort(rowSums(mat2, na.rm = T), decreasing = T))
+cols <- cols25(7)[match(ord, rownames(mat2))]
+mat3 <- mat2[match(ord, rownames(mat2)), ]
+cols[2] <- 7
 
 png(filename = "indicator_plots/gearTypes_PR.png", 
     units="in", width = 8, height = 4, pointsize=12, res=72*2)
 
 par(mar = c(3, 4, 2, 1))
-barplot(t(mat), col = cols, args.legend = list(x = "topright", bty = "n", x.intersp = 0.5, ncol = 1), legend.text = colnames(mat), las = 2, 
+barplot(mat3, col = cols, args.legend = list(x = "topright", bty = "n", x.intersp = 0.5, ncol = 1), legend.text = rownames(mat3), las = 2, 
         main = "Number of trips per year by gear type\nPuerto Rico", ylim = c(0, 48000), border = NA)
 abline(h=0)
 #plot(as.numeric(names(byc)), byc, type = "l", las = 2, xlab = "", ylab = "proportion", main = "Proportion of trips with nets and traps", axes = F)
@@ -929,8 +935,8 @@ indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(ind) <- "indicatordata"
 
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
-                        widadj = 1, hgtadj = 1, trendAnalysis = T)
+#plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
+#                        widadj = 1, hgtadj = 1, trendAnalysis = T)
 
 save(ind, file = "indicator_objects/prop_diving_trips.RData")
 
