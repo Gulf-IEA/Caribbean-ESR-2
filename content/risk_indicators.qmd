@@ -77,7 +77,7 @@ Alterations to typical fishing patterns can be quantified by analyzing the seaso
 
 $D_y = \sum_{m=1}^{12} (P_{m,y} - \overline{P}_m)^2$
 
-This calculation was carried out for the species with highest landings that have not been subject to seasonal closures; the mean and standard deviation are calculated for the disturbance indicator across those species. In Puerto Rico, there is little trend in the disturbance indicator; however there were higher disturbance indicator values in 2005 and 2020--2021. In St. Thomas, the indicator increases throughout time and detects a major disturbance in the 2017--2018 fishing season (i.e., July 1st 2017 to June 30th 2018). In St. Croix, disturbance levels were high in 2017--2018 and also 2019--2020 (@fig-dist).
+This calculation was carried out for the species with highest landings that have not been subject to seasonal closures; the mean and standard deviation are calculated for the disturbance indicator across those species. In Puerto Rico, there is little trend in the disturbance indicator; however there were higher disturbance indicator values in 2005 and 2017. In St. Thomas, the indicator increases throughout time and detects a major disturbance in the 2017--2018 fishing season (i.e., July 1st 2017 to June 30th 2018). In St. Croix, disturbance levels were high in 2017--2018 and also 2019--2020 (@fig-dist).
 
 ![Disturbance level (+/- 1 S.D.), calculated as the departure from mean seasonal landings patterns for top species in Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note that the years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/disturbance_plot_final.png){#fig-dist fig-alt="a plot" fig-align="center" width="75%"}
 
