@@ -131,7 +131,7 @@ dev.off()
 thresh <- 0.1
 minyr <- 2011
 
-png(filename = "indicator_plots/pcas.png", units="in", width=8, height=10, pointsize=12, res=72*12)
+png(filename = "indicator_plots/pcas.png", units="in", width=10, height=10, pointsize=12, res=72*12)
 
 par(mar = c(4, 9, 1, 2), mfrow = c(3, 2))
 
