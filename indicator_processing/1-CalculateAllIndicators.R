@@ -64,7 +64,6 @@ print("NOTE POPULATION INDICATOR NOT WORKING")
 
 dir("indicator_processing/non_automated")
 
-#  source("indicator_processing/non_automated/marine_debris.R")         # marine debris -- DISCONTINUED
 source("indicator_processing/non_automated/OA.R")                    # ocean acidification
 source("indicator_processing/non_automated/CRMP_compile.R")          # fishery-indepenedent fish density, slope of size spectrum, coral cover indicators
 source("indicator_processing/non_automated/Sargassum_inundation.R")  # sargassum indicator
