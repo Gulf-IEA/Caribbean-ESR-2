@@ -79,6 +79,10 @@ lis <- names(tab)[1:10]
 # recalculate index for individual spp --------------
 dstfin <- c()
 par(mfrow = c(2, 5), mex = 0.5)
+cols <- rep(1, length(styear:enyear))
+(styear:enyear)[c(18, 21)]
+cols[18] <- 2
+cols[21] <- 3
 
 for (j in 1:10) {
   d1 <- d[which(d$ITIS_COMMON_NAME == lis[j]), ]
@@ -86,14 +90,17 @@ for (j in 1:10) {
   an <- tapply(d1$ADJUSTED_POUNDS, list(d1$MONTH_LANDED, d1$YEAR_LANDED), sum, na.rm = T)
   an2 <- an
   for (i in 1:ncol(an)) { an2[, i] <- an[, i] / sum(an[, i]) }
-  matplot(an2, type = "b", pch = pc, main = lis[j])
+  matplot(an2, type = "l", pch = 1, main = lis[j], col = cols, lwd = 2, lty = 1)
 
   dst <- rep(NA, ncol(an2))
   for (i in 1:ncol(an2)) {  dst[i] <- sum((an2[, i] - apply(an2, 1, mean, na.rm = T))^2)   }
   dstfin <- cbind(dstfin, dst) 
+  colnames(dstfin)[j] <- lis[j]
 }
+dstfin
+colSums(dstfin)
 
-selec <- c(1, 3, 5, 7, 8, 9)   # snappers, groupers subject to seasonal closure
+selec <- c(1, 3, 5, 6, 7, 10) # , 8, 9)   # snappers, groupers subject to seasonal closure
 lis[selec]
 
 # look at correlations across spp --------------------
@@ -223,6 +230,10 @@ lis <- names(tab)[1:10]
 # recalculate index for individual spp --------------
 dstfin <- c()
 par(mfrow = c(2, 5), mex = 0.5)
+cols <- rep(1, length(styear:enyear))
+(styear:enyear)[c(18, 21)]
+cols[18] <- 2
+cols[21] <- 3
 
 for (j in 1:10) {
   d1 <- db[which(db$famcode == lis[j]), ]
@@ -230,12 +241,15 @@ for (j in 1:10) {
   an <- tapply(d1$POUNDS_LANDED, list(d1$MONTH_LANDED, d1$YEAR_LANDED), sum, na.rm = T)
   an2 <- an
   for (i in 1:ncol(an)) { an2[, i] <- an[, i] / sum(an[, i]) }
-  matplot(an2, type = "b", pch = pc, main = lis[j])
+  matplot(an2, type = "b", pch = 1, main = lis[j], col = cols, lwd = 2, lty = 1)
   
   dst <- rep(NA, ncol(an2))
   for (i in 1:ncol(an2)) {  dst[i] <- sum((an2[, i] - apply(an2, 1, mean, na.rm = T))^2)   }
   dstfin <- cbind(dstfin, dst) 
+  colnames(dstfin)[j] <- lis[j]
 }
+dstfin
+colSums(dstfin)
 
 selec <- c(1, 3, 5, 6)
 lis[selec]
@@ -326,6 +340,7 @@ anomlis <- c(2017, 2019)
 cols <- rep("#00000060", dim(an)[2])
 cols[which(colnames(an2) == 2017)] <- 3
 cols[which(colnames(an2) == 2019)] <- 4
+cols[which(colnames(an2) == 2018)] <- 5
 lwds <- rep(1, dim(an)[2])
 lwds[which(colnames(an2) == 2017)] <- 3
 lwds[which(colnames(an2) == 2019)] <- 3
@@ -367,6 +382,10 @@ lis <- names(tab)[1:10]
 # recalculate index for individual spp --------------
 dstfin <- c()
 par(mfrow = c(2, 5), mex = 0.5)
+cols <- rep(1, length(styear:enyear))
+(styear:enyear)[c(18, 21)]
+cols[18] <- 2
+cols[21] <- 3
 
 for (j in 1:10) {
   d1 <- db[which(db$famcode == lis[j]), ]
@@ -374,14 +393,17 @@ for (j in 1:10) {
   an <- tapply(d1$POUNDS_LANDED, list(d1$MONTH_LANDED, d1$YEAR_LANDED), sum, na.rm = T)
   an2 <- an
   for (i in 1:ncol(an)) { an2[, i] <- an[, i] / sum(an[, i]) }
-  matplot(an2, type = "b", pch = pc, main = lis[j])
+  matplot(an2, type = "b", pch = 1, main = lis[j], col = cols, lwd = 2, lty = 1)
   
   dst <- rep(NA, ncol(an2))
   for (i in 1:ncol(an2)) {  dst[i] <- sum((an2[, i] - apply(an2, 1, mean, na.rm = T))^2)   }
   dstfin <- cbind(dstfin, dst) 
+  colnames(dstfin)[j] <- lis[j]
 }
+dstfin
+colSums(dstfin)
 
-selec <- c(2, 4, 5, 8)
+selec <- c(3, 4, 5, 8)
 lis[selec]
 
 # look at correlations across spp --------------------

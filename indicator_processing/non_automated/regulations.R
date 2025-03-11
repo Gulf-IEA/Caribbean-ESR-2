@@ -84,7 +84,7 @@ dat$amendments[is.na(dat$amendments)] <- 0   # MK added because NA years should 
 # save as indicator object ----------------------
 datdata <- styear:enyear
 inddata <- data.frame(dat$amendments)
-labs <- c("Regulatory trends" , "Sum of Federal Register sections", "")
+labs <- c("Regulatory trends" , "New management actions", "")
 indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 inddata <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(inddata) <- "indicatordata"
