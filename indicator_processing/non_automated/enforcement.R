@@ -24,6 +24,10 @@ df <- df %>%
   mutate(Incidents = as.numeric(Incidents),
          Patrols = as.numeric(Patrols)) 
 
+# sum total incidents and patrols 
+incidents = sum(df$Incidents, na.rm=T)
+patrols = sum(df$Patrols, na.rm=T)
+
 # Convert Date column from "22-Jan" format to a proper Date type
 df <- df %>%
   mutate(Date = parse_date_time(Date, orders = "y-b")) %>%
