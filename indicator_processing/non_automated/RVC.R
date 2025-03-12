@@ -7,7 +7,7 @@
 # Species of interest:
 
 # OCY CHRY --> yellowtail snapper
-# LUT ANAL  --> mutton snapper*  -- changed to lane snapper based on Jay's recommendation (MK - Mar 2025)
+# LUT ANAL  --> mutton snapper*  -- changed to lane snapper (LUT SYNA) based on Jay's recommendation (MK - Mar 2025)
 # BAL VETU  --> queen triggerfish
 # EPI GUTT  --> red hind
 # SPA AURO  --> redband parrotfish
@@ -19,9 +19,9 @@
 # STTSTJ  --> St. Thomas & St. John
 # STX  --> St. Croix
 
-# NOTE: as of 3/1/2024 calibrations have not been completed for all species. This means the data on the portal only go back to 2016. To get the full time series (2001 onward) we needed to get the calibrated data from Jeremiah Blondeau (jeremiah.blondeau@noaa.gov). Species specific calibrations were done. The calibrated_species.csv file is a list of all the species that have thus far been calibrated. All species of interest have been calibrated except for mutton snapper. For mutton snapper we can only use data from 2017 onward.
+# NOTE: as of 3/1/2024 calibrations have not been completed for all species. This means the data on the portal only go back to 2016. To get the full time series (2001 onward) we needed to get the calibrated data from Jeremiah Blondeau (jeremiah.blondeau@noaa.gov). Species specific calibrations were done. The calibrated_species.csv file is a list of all the species that have thus far been calibrated. All species of interest have been calibrated except for mutton snapper. So instead we will use lane snapper.
 
-#This is the list of calibrated species as of 2024. 
+#This is the list of calibrated species as of 2025. 
 calibrated = read.csv("indicator_data/intermediateFiles/RVC/calibrated_species.csv")
 
 
@@ -32,8 +32,8 @@ plot.new()
 dev.off()
 
 
-#install.packages('devtools')
-#devtools::install_github('jeremiaheb/rvc')
+install.packages('devtools')
+devtools::install_github('jeremiaheb/rvc')
 library(rvc)
 library(dplyr)
 
@@ -49,9 +49,10 @@ regions <- c("prico", "sttstj", "stx")
 # Run this code if you need to pull more data from the server
 ##########
 
-data_2001_2021_paths <- c("indicator_data/intermediateFiles/RVC/prico_2001_2021_calibrated.rds", 
-                          "indicator_data/intermediateFiles/RVC/sttstj_2001_2021_calibrated.rds", 
-                          "indicator_data/intermediateFiles/RVC/stx_2001_2021_calibrated.rds")
+#First, load the files Jeremiah sent (last updated 3/11/25)
+data_2001_2021_paths <- c("indicator_data/intermediateFiles/RVC/prico_2001_2023_calibrated.rds", 
+                          "indicator_data/intermediateFiles/RVC/sttstj_2001_2023_calibrated.rds", 
+                          "indicator_data/intermediateFiles/RVC/stx_2001_2023_calibrated.rds")
 
 # Function to combine data for a given region
 combine_data <- function(region, data_2001_2021_path) {
@@ -102,6 +103,11 @@ for (i in seq_along(regions)) {
 prico = readRDS("indicator_data/intermediateFiles/RVC/combined_prico_2001_2023.rds")
 sttstj = readRDS("indicator_data/intermediateFiles/RVC/combined_sttstj_2001_2023.rds")
 stx = readRDS("indicator_data/intermediateFiles/RVC/combined_stx_2001_2023.rds")
+
+#Since I did not need to run the above code (already had data from Jeremiah through 2023) I can just use the files he emailed (3/12/25)
+prico = readRDS("indicator_data/intermediateFiles/RVC/prico_2001_2023_calibrated.rds")
+sttstj = readRDS("indicator_data/intermediateFiles/RVC/sttstj_2001_2023_calibrated.rds")
+stx = readRDS("indicator_data/intermediateFiles/RVC/stx_2001_2023_calibrated.rds")
 
 ## Make a list of species
 ## You can use full scientific names, common names, or

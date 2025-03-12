@@ -1,31 +1,81 @@
 SPECIES_CD,FAMILY,SCINAME,COMNAME,LC,LM,WLEN_A,WLEN_B
-ACA BAHI,Acanthuridae,Acanthurus bahianus,Ocean Surgeon,,,0.000025,2.9752
-ACA CHIR,Acanthuridae,Acanthurus chirurgus,Doctorfish,,,0.0000012,3.532790894
-ACA COER,Acanthuridae,Acanthurus coeruleus,Blue Tang,,,0.0000618,2.834578168
-AUL MACU,Aulostomidae,Aulostomus maculatus,Atlantic Trumpetfish,,,0.000000418,3.3334
-BAL VETU,Balistidae,Balistes vetula,Queen Triggerfish,,,0.0000273,2.990264014
-CAN ROST,Tetraodontidae,Canthigaster rostrata,Sharpnose Puffer,,,0.0000251,2.9219
-CAR RUBE,Carangidae,Caranx ruber,Bar Jack,25,,0.00000429,3.236983681
-CEP CRUE,Serranidae,Cephalopholis cruentata,Graysby,21,16.4991,0.00001,3.082
-CEP FULV,Serranidae,Cephalopholis fulva,Coney,22,18.5084,0.0000174,3
-CHA CAPI,Chaetodontidae,Chaetodon capistratus,Foureye Butterflyfish,2.5,,0.00000129,3.19
-EPI GUTT,Serranidae,Epinephelus guttatus,Red Hind,25,34.1343,0.00000857,3.1124
-HAE FLAV,Haemulidae,Haemulon flavolineatum,French Grunt,16,17.7,0.00000903,3.1581
-HAE PLUM,Haemulidae,Haemulon plumierii,White Grunt,20,18,0.00000835,3.1612
-HAL GARN,Labridae,Halichoeres garnoti,Yellowhead Wrasse,,,0.00000219,3.375
-HAL MACU,Labridae,Halichoeres maculipinna,Clown Wrasse,,,0.000000568,3.693
-HOL ADSC,Holocentridae,Holocentrus adscensionis,Squirrelfish,,,0.0000198,3
-HOL RUFU,Holocentridae,Holocentrus rufus,Longspine Squirrelfish,,,0.0000131,3.0594
-LAC MAXI,Labridae,Lachnolaimus maximus,Hogfish,30,16.6,0.0000209,2.988
-LUT APOD,Lutjanidae,Lutjanus apodus,Schoolmaster,25,24.6,0.0000204,2.9779
-LUT MAHO,Lutjanidae,Lutjanus mahogoni,Mahogany Snapper,30,,0.0000817,2.719
-OCY CHRY,Lutjanidae,Ocyurus chrysurus,Yellowtail Snapper,26,19.8768,0.0000775,2.718
-PSE MACU,Mullidae,Pseudupeneus maculatus,Spotted Goatfish,,,0.000015,3.0257
-SCA ISER,Scaridae,Scarus iseri,Striped Parrotfish,,,0.0000159,3.02
-SCA TAEN,Scaridae,Scarus taeniopterus,Princess Parrotfish,,,0.0000177,3
-SPA AURO,Scaridae,Sparisoma aurofrenatum,Redband Parrotfish,,,0.00000175,3.429
-SPA VIRI,Scaridae,Sparisoma viride,Stoplight Parrotfish,,,0.00003,2.9214
-STE PART,Pomacentridae,Stegastes partitus,Bicolor Damselfish,,,0.0000128,3.1519
-STE PLAN,Pomacentridae,Stegastes planifrons,Threespot Damselfish,,,0.0000527,2.8569
-STE VARI,Pomacentridae,Stegastes variabilis,Cocoa Damselfish,,,0.0000472,2.8365
-THA BIFA,Labridae,Thalassoma bifasciatum,Bluehead,,,0.000013,2.9162
+ABU SAXA,Pomacentridae,Abudefduf saxatilis,Sergeant Major,NA,NA,1.64e-5,3.142
+ACA BAHI,Acanthuridae,Acanthurus bahianus,Ocean Surgeon,NA,NA,2.5e-5,2.9752
+ACA CHIR,Acanthuridae,Acanthurus chirurgus,Doctorfish,NA,NA,1.2e-6,3.532790894
+ACA COER,Acanthuridae,Acanthurus coeruleus,Blue Tang,NA,NA,6.18e-5,2.834578168
+ANI VIRG,Haemulidae,Anisotremus virginicus,Porkfish,22,23.1,1.01e-5,3.167407164
+AUL MACU,Aulostomidae,Aulostomus maculatus,Atlantic Trumpetfish,NA,NA,4.18e-7,3.3334
+BAL VETU,Balistidae,Balistes vetula,Queen Triggerfish,NA,NA,2.73e-5,2.990264014
+BOD RUFU,Labridae,Bodianus rufus,Spanish Hogfish,5,NA,1.28e-5,3.053
+CAL CALA,Sparidae,Calamus calamus,Saucereye Porgy,20,NA,6.79e-5,2.8009
+CAN PULL,Monacanthidae,Cantherhines pullus,Orangespotted Filefish,NA,NA,1.86733e-4,2.5632
+CAN ROST,Tetraodontidae,Canthigaster rostrata,Sharpnose Puffer,NA,NA,2.51e-5,2.9219
+CAR RUBE,Carangidae,Caranx ruber,Bar Jack,25,NA,4.29e-6,3.236983681
+CEP CRUE,Serranidae,Cephalopholis cruentata,Graysby,21,16.4991,1e-5,3.082
+CEP FULV,Serranidae,Cephalopholis fulva,Coney,22,18.5084,1.74e-5,3
+CHA CAPI,Chaetodontidae,Chaetodon capistratus,Foureye Butterflyfish,2.5,NA,1.29e-6,3.19
+CHA STRI,Chaetodontidae,Chaetodon striatus,Banded Butterflyfish,2.5,NA,1.61e-5,3.14
+CHR CYAN,Pomacentridae,Chromis cyanea,Blue Chromis,NA,NA,2.14e-5,2.9653
+CHR MULT,Pomacentridae,Chromis multilineata,Brown Chromis,NA,NA,2.14e-5,2.9653
+CLE PARR,Labridae,Clepticus parrae,Creole Wrasse,NA,NA,1.32e-5,3.0173
+COR GLAU,Gobiidae,Coryphopterus glaucofraenum,Bridled Goby,NA,NA,1.42e-5,2.967372891
+COR PERS,Gobiidae,Coryphopterus personatus,Masked Goby,NA,NA,1.45e-5,2.987
+ELA EVEL,Gobiidae,Elacatinus evelynae,Sharknose Goby,NA,NA,5.84e-6,3.137
+EPI GUTT,Serranidae,Epinephelus guttatus,Red Hind,25,34.1343,8.57e-6,3.1124
+GNA THOM,Gobiidae,Gnatholepis thompsoni,Goldspot Goby,NA,NA,5.99e-7,3.766906753
+GRA LORE,Grammatidae,Gramma loreto,Fairy Basslet,NA,NA,2e-5,3
+HAE AURO,Haemulidae,Haemulon aurolineatum,Tomtate,15,13.1,6.2e-6,3.2077
+HAE FLAV,Haemulidae,Haemulon flavolineatum,French Grunt,16,17.7,9.03e-6,3.1581
+HAE PLUM,Haemulidae,Haemulon plumierii,White Grunt,20,18,8.35e-6,3.1612
+HAE SCIU,Haemulidae,Haemulon sciurus,Bluestriped Grunt,20,20.5,1.94e-5,2.9996
+HAL BIVI,Labridae,Halichoeres bivittatus,Slippery Dick,NA,NA,1.54e-5,2.9391
+HAL GARN,Labridae,Halichoeres garnoti,Yellowhead Wrasse,NA,NA,2.19e-6,3.375
+HAL MACU,Labridae,Halichoeres maculipinna,Clown Wrasse,NA,NA,5.68e-7,3.693
+HAL PICT,Labridae,Halichoeres pictus,Rainbow Wrasse,NA,NA,1.08e-5,3.0673
+HAL POEY,Labridae,Halichoeres poeyi,Blackear Wrasse,NA,NA,1.08e-5,3.0673
+HAL RADI,Labridae,Halichoeres radiatus,Puddingwife,30,NA,1.12e-5,3.0673
+HOL ADSC,Holocentridae,Holocentrus adscensionis,Squirrelfish,NA,NA,1.98e-5,3
+HOL CILI,Pomacanthidae,Holacanthus ciliaris,Queen Angelfish,4.5,NA,4.24e-5,2.9004
+HOL RUFU,Holocentridae,Holocentrus rufus,Longspine Squirrelfish,NA,NA,1.31e-5,3.0594
+HOL TRIC,Pomacanthidae,Holacanthus tricolor,Rock Beauty,5,NA,5.94e-5,2.8577
+HYP CHLO,Serranidae,Hypoplectrus chlorurus,Yellowtail Hamlet,NA,NA,7.67e-6,3.111
+HYP PUEL,Serranidae,Hypoplectrus puella,Barred Hamlet,NA,NA,7.67e-6,3.111
+HYP UNIC,Serranidae,Hypoplectrus unicolor,Butter Hamlet,NA,NA,7.67e-6,3.111
+LAC MAXI,Labridae,Lachnolaimus maximus,Hogfish,30,16.6,2.09e-5,2.988
+LAC TRIQ,Ostraciidae,Lactophrys triqueter,Smooth Trunkfish,NA,NA,0.001819527,2.23
+LUT APOD,Lutjanidae,Lutjanus apodus,Schoolmaster,25,24.6,2.04e-5,2.9779
+LUT MAHO,Lutjanidae,Lutjanus mahogoni,Mahogany Snapper,30,NA,8.17e-5,2.719
+LUT SYNA,Lutjanidae,Lutjanus synagris,Lane Snapper,20,20.5647,4.52e-5,2.8146
+MAL TRIA,Labrisomidae,Malacoctenus triangulatus,Saddled Blenny,NA,NA,4.39e-5,2.6477
+MEL NIGE,Balistidae,Melichthys niger,Black Durgon,NA,NA,1.62e-6,3.554
+MIC CHRY,Pomacentridae,Microspathodon chrysurus,Yellowtail Damselfish,NA,NA,1.98e-5,3.0825
+MUL MART,Mullidae,Mulloidichthys martinicus,Yellow Goatfish,NA,NA,4.57e-7,3.6627
+MYR JACO,Holocentridae,Myripristis jacobus,Blackbar Soldierfish,NA,NA,2.11506e-4,2.72
+NEO MARI,Holocentridae,Neoniphon marianus,Longjaw Squirrelfish,NA,NA,1.98e-5,2.9705
+OCY CHRY,Lutjanidae,Ocyurus chrysurus,Yellowtail Snapper,26,19.8768,7.75e-5,2.718
+OPH MACC,Blenniidae,Ophioblennius macclurei,Redlip Blenny,NA,NA,1.35377e-4,2.379
+OPI AURI,Opistognathidae,Opistognathus aurifrons,Yellowhead Jawfish,NA,NA,1.2e-5,2.995
+POM ARCU,Pomacanthidae,Pomacanthus arcuatus,Gray Angelfish,4,NA,3.71e-5,2.968
+POM PARU,Pomacanthidae,Pomacanthus paru,French Angelfish,4,NA,1.52e-5,3.1264
+PSE MACU,Mullidae,Pseudupeneus maculatus,Spotted Goatfish,NA,NA,1.5e-5,3.0257
+PTE VOLI,Scorpaenidae,Pterois volitans,Red Lionfish,NA,NA,2.89e-5,2.89
+SCA ISER,Scaridae,Scarus iseri,Striped Parrotfish,NA,NA,1.59e-5,3.02
+SCA TAEN,Scaridae,Scarus taeniopterus,Princess Parrotfish,NA,NA,1.77e-5,3
+SCA VETU,Scaridae,Scarus vetula,Queen Parrotfish,NA,NA,1.67e-5,3.0455
+SCO REGA,Scombridae,Scomberomorus regalis,Cero,41,NA,3.2e-5,2.8
+SER TABA,Serranidae,Serranus tabacarius,Tobaccofish,NA,NA,2.72e-5,2.8528
+SER TIGR,Serranidae,Serranus tigrinus,Harlequin Bass,NA,NA,1.3e-5,3.0475
+SPA ATOM,Scaridae,Sparisoma atomarium,Greenblotch Parrotfish,NA,NA,1.53e-5,3.0252
+SPA AURO,Scaridae,Sparisoma aurofrenatum,Redband Parrotfish,NA,NA,1.75e-6,3.429
+SPA CHRY,Scaridae,Sparisoma chrysopterum,Redtail Parrotfish,NA,NA,6.68e-6,3.1708
+SPA RUBR,Scaridae,Sparisoma rubripinne,Yellowtail Parrotfish,NA,NA,1.94e-5,3
+SPA VIRI,Scaridae,Sparisoma viride,Stoplight Parrotfish,NA,NA,3e-5,2.9214
+SPH BARR,Sphyraenidae,Sphyraena barracuda,Great Barracuda,35,NA,7.47e-6,2.972
+STE ADUS,Pomacentridae,Stegastes adustus,Dusky Damselfish,NA,NA,4.49e-5,2.8956
+STE DIEN,Pomacentridae,Stegastes diencaeus,Longfin Damselfish,NA,NA,3.95e-5,2.9236
+STE LEUC,Pomacentridae,Stegastes leucostictus,Beaugregory,NA,NA,3.93e-5,2.8868
+STE PART,Pomacentridae,Stegastes partitus,Bicolor Damselfish,NA,NA,1.28e-5,3.1519
+STE PLAN,Pomacentridae,Stegastes planifrons,Threespot Damselfish,NA,NA,5.27e-5,2.8569
+STE VARI,Pomacentridae,Stegastes variabilis,Cocoa Damselfish,NA,NA,4.72e-5,2.8365
+SYN INTE,Synodontidae,Synodus intermedius,Sand Diver,NA,NA,9.93e-6,2.9988
+THA BIFA,Labridae,Thalassoma bifasciatum,Bluehead,NA,NA,1.3e-5,2.9162
