@@ -18,7 +18,6 @@ book:
           department: Southeast Fisheries Science Center
   chapters:
     - index.qmd
-    - content/introduction.qmd
     - content/performance_indicators.qmd
     - content/risk_indicators.qmd
     - content/synthesis.qmd
