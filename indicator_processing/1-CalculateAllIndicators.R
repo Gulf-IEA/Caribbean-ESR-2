@@ -58,7 +58,6 @@ source("indicator_processing/automated_download/cruise_air_visitors.R")   # Crui
 ## Mar 7 2025 update: all ran except population and EPA water quality
 
 print("RAN ALL AUTOMADED DOWNLOADS")
-print("NOTE POPULATION INDICATOR NOT WORKING")
 
 # partially automated - pull from data in folder ----------------------
 
@@ -75,7 +74,7 @@ source("indicator_processing/non_automated/RVC.R")             # RVC
 source("indicator_processing/non_automated/regulations.R")     # number of new regulations   # might not be updates
 source("indicator_processing/non_automated/enforcement.R")    # enforcement stats
 source("indicator_processing/non_automated/outreach.R")       # outreach stats
-source("indicator_processing/non_automated/social_vulnerability.R")   # Tarsila social indicators
+#source("indicator_processing/non_automated/social_vulnerability.R")   # Tarsila social indicators
 
 print("RAN ALL AUTOMADED DOWNLOADS")
 

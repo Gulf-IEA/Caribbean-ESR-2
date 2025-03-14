@@ -122,13 +122,13 @@ Recreational catch and effort is a major data gap in the U.S. Caribbean. The Mar
 
 Fishing engagement and reliance indices measure the importance and level of dependence on commercial or recreational fishing for coastal communities [@noaafisheries2024]. Commercial fishing engagement measures the presence of commercial fishing through fishing activity as shown through permits, fish dealers, and vessel landings. A high rank indicates more engagement. Commercial fishing reliance measures the presence of commercial fishing in relation to the population size of a community through fishing activity. A high rank indicates more reliance. Coastal communities on the west and east coasts of Puerto Rico, the north side of St. Thomas, and the southwest of St. Croix had particularly high commercial engagement and reliance for 2016--2020 (@fig-PRengage, @fig-PRreliance, @fig-USVIengage, @fig-USVIreliance).
 
-![Commercial fishing engagement in Puerto Rico based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers.](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
+![Commercial fishing engagement in Puerto Rico.](/indicator_plots/PR_comm_fishing_engagement.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
 
-![Reliance on commercial fishing in Puerto Rico based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
+![Reliance on commercial fishing in Puerto Rico.](/indicator_plots/PR_comm_fishing_reliance.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
 
-![Commercial fishing engagement in USVI based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers.](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
+![Commercial fishing engagement in USVI.](/indicator_plots/USVI_comm_fishing_engagement.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
 
-![Reliance on commercial fishing in USVI based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/USVI_comm_fishing_reliance.png){#fig-USVIreliance fig-alt="Plot showing a time series of an indicator"}
+![Reliance on commercial fishing in USVI.](/indicator_plots/USVI_comm_fishing_reliance.png){#fig-USVIreliance fig-alt="Plot showing a time series of an indicator"}
 
 ## Bycatch reduction
 
@@ -162,7 +162,7 @@ Programs such as the Marine Resource Education Program (MREP) and NOAA SeaGrant 
 
 ### Enforcement actions
 
-The number of recorded law enforcement incidents and patrols may be indicative of changes in availability of law enforcement resources. Data on federal law enforcement incidents where the investigating officer was from the St. Thomas, USVI or San Juan, PR field offices or the word "Caribbean" was mentioned in the brief synopsis were pulled from the NOAA Office of Law Enforcement NOAA Enforcement Information System (NEIS). Similarly, data on federal patrols conducted from a field office in PR or USVI were available in NEIS. Incidents and enforcement have been fairly stable over the short available time series, with some inter-annual variability (@fig-law).
+The number of recorded law enforcement incidents and patrols may be indicative of changes in availability of law enforcement resources. The majority of incidents in the region are created by two NOAA personnel, in conjunction with multiple state and federal partner agencies. Law enforcement conducts patrols, investigations, outreach and education, and compliance assistance to stakeholders. These cumulative efforts aid in governance of fishery management objectives. Data on federal law enforcement incidents where the investigating officer was from the St. Thomas, USVI or San Juan, PR field offices or the word "Caribbean" was mentioned in the brief synopsis were pulled from the NOAA Office of Law Enforcement NOAA Enforcement Information System (NEIS). Similarly, data on federal patrols conducted from a field office in PR or USVI were available in NEIS. Incidents and enforcement have been fairly stable over the short available time series, with some inter-annual variability (@fig-law).
 
 ![Monthly count of federal law enforcement incidents in the U.S. Caribbean region by date of incident creation (total n = 101) and monthly count of patrols (including land, sea, and international trade) conducted from a field office in Puerto Rico or USVI (total n = 363).](/indicator_plots/enforcement_barplot.png){#fig-law fig-alt="a plot" fig-align="center"}
 
