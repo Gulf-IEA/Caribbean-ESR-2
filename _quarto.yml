@@ -12,13 +12,12 @@ book:
   downloads: [pdf, docx]
   search: true
   author:
-    - name: Gulf of Mexico Integrated Ecosystem Assessment Program
+    - name: Southeast Integrated Ecosystem Assessment Program
       affiliations:
         - name: NOAA Fisheres
           department: Southeast Fisheries Science Center
   chapters:
     - index.qmd
-    - content/introduction.qmd
     - content/performance_indicators.qmd
     - content/risk_indicators.qmd
     - content/synthesis.qmd
