@@ -81,11 +81,11 @@ PR$Community
 
 # Rename the indicator columns
 PR <- PR %>%
-  rename(Eng_score = ENGSCORE,
-         Rel_score = RELSCORE)
+  rename("Engagement score" = ENGSCORE,
+         "Reliance score" = RELSCORE)
 VI <- VI %>% 
-  rename(Eng_score = Engagement_T,
-         Rel_score = Reliance_T)
+  rename("Engagement score" = Engagement_T,
+         "Reliance score" = Reliance_T)
 
 #Create Region column
 PR$Region = rep("Puerto Rico", times = nrow(PR))
@@ -97,85 +97,29 @@ VI = VI %>%
 
 # Remove columns that are not needed, only keep community, Region, eng_score, rel_score
 
-
-
-### PICK BACK UP HERE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+PR = PR %>% 
+  select("Region", "Community", "Engagement score", "Reliance score")
+VI = VI %>% 
+  select("Region", "Community", "Engagement score", "Reliance score")
 
 
 ################## Data manipulation
 
-CSVI_2010$Year <- 2010
-CSVI_2020$Year <- 2020
-
 # Combine both dataframes
-df_combined <- bind_rows(CSVI_2010, CSVI_2020)
+df_combined <- bind_rows(PR,VI)
 
 
 # Convert to long format for ggplot
 df_long <- df_combined %>%
-  pivot_longer(cols = ends_with("ct"),
+  pivot_longer(cols = c("Engagement score","Reliance score"),
                names_to = "Indicator",
                values_to = "Score")
 
-# Remove rows with NA values
-df_long <- na.omit(df_long)
-
 df_long$Community = as.character(df_long$Community)
 df_long$Region = as.character(df_long$Region)
-df_long$Year = as.factor(df_long$Year)
 df_long$Indicator = as.character(df_long$Indicator)
 df_long$Score = as.integer(df_long$Score)
 
-# Rename and combine regions
-df_long <- df_long %>%
-  mutate(Region = recode(Region,
-                         'St. Thomas' = 'STSJ',
-                         'St. John' = 'STSJ',
-                         'St. Croix' = 'STX'))
-
-# Verify the changes
-unique(df_long$Region)
-
-# Rename indicators
-df_long <- df_long %>%
-  mutate(Indicator = recode(Indicator,
-                            'PerDis_ct' = 'Personal Disruption',
-                            'PopCom_ct' = 'Pop Composition',
-                            'Poverty_ct' = 'Poverty',
-                            'LabFrc_ct' = 'Labor Force',
-                            'HsChr_ct' = 'Housing Charac',
-                            'RetMig_ct' = 'Retiree Migration'))
-
-unique(df_long$Indicator)
-
-# There are two East Ends, one in STX and one in STT. Need to rename them
-df_long = df_long %>% 
-  mutate(Community = ifelse(Community == "East End" & Region == "STX", "East End STX",
-                            ifelse(Community == "East End" & Region == "STSJ", "East End STSJ",
-                                   Community)))
 
 
 ############### merge shapefiles with CSVI data
@@ -191,10 +135,8 @@ head(STX_map_dat)
 
 # Need to fill out rows for communities with no data and add NAs for the score variable
 
-# Define all possible values for Year and Indicator
-years <- as.factor(c(2010, 2020))
-indicators <- c("Personal Disruption", "Pop Composition", "Poverty", 
-                "Labor Force", "Housing Charac", "Retiree Migration")
+# Define all possible values for Indicator
+indicators <- c("Engagement score", "Reliance score")
 
 # Extract geometry column separately
 community_geometry_pr <- pr_map_dat %>%
@@ -211,35 +153,32 @@ community_geometry_STX <- STX_map_dat %>%
 
 # Create a grid of all combinations
 all_combinations_pr <- expand.grid(
-  Community = unique(pr_map_dat$Community), 
-  Year = years,
+  Community = unique(pr_map_dat$Community),
   Indicator = indicators
 )
 
 all_combinations_STSJ <- expand.grid(
-  Community = unique(STSJ_map_dat$Community), 
-  Year = years,
+  Community = unique(STSJ_map_dat$Community),
   Indicator = indicators
 )
 
 all_combinations_STX <- expand.grid(
-  Community = unique(STX_map_dat$Community), 
-  Year = years,
+  Community = unique(STX_map_dat$Community),
   Indicator = indicators
 )
 
 # Add rows for all combinations to pr_map_dat
 pr_map_dat_complete <- all_combinations_pr %>%
   left_join(community_geometry_pr, by = "Community") %>% # Add geometry
-  left_join(pr_map_dat, by = c("Community", "Year", "Indicator", "geometry")) # Merge with original data
+  left_join(pr_map_dat, by = c("Community", "Indicator", "geometry")) # Merge with original data
 
 STSJ_map_dat_complete <- all_combinations_STSJ %>%
   left_join(community_geometry_STSJ, by = "Community") %>% # Add geometry
-  left_join(STSJ_map_dat, by = c("Community", "Year", "Indicator", "geometry")) # Merge with original data
+  left_join(STSJ_map_dat, by = c("Community", "Indicator", "geometry")) # Merge with original data
 
 STX_map_dat_complete <- all_combinations_STX %>%
   left_join(community_geometry_STX, by = "Community") %>% # Add geometry
-  left_join(STX_map_dat, by = c("Community", "Year", "Indicator", "geometry")) # Merge with original data
+  left_join(STX_map_dat, by = c("Community", "Indicator", "geometry")) # Merge with original data
 
 # Replace missing `Score` with NA
 pr_map_dat_complete <- pr_map_dat_complete %>%
@@ -271,13 +210,9 @@ st_geometry_type(STX_map_dat_complete)
 
 # Prepare data for facet wrapping
 facet_data_pr <- pr_map_dat_complete %>%
-  filter(Year %in% c(2010, 2020)) %>%
   mutate(
-    Year = as.factor(Year),  # Ensure Year is treated as a factor for faceting
     Indicator = factor(Indicator, levels = c(
-      "Personal Disruption", "Pop Composition", "Poverty", "Labor Force", "Housing Charac", 
-      "Retiree Migration" 
-    ))
+      "Engagement score", "Reliance score"))
   )
 
 # Plot with facets
@@ -287,12 +222,12 @@ p1 = ggplot(facet_data_pr) +
                        limits = c(0, 4), 
                        breaks = 0:4,
                        na.value = "white",
-                       name = "Vulnerability Score\n(0=low, 4=high)") +
+                       name = "Score\n(0=mean, 4=high)") +
   theme_minimal() +
-  labs(title = "Social Vulnerability across Indicators and Years",
+  labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "Puerto Rico",
        caption = "White fill denotes no data") +
-  facet_grid(Indicator ~ Year, switch = "y") +
+  facet_grid(Indicator ~ ., switch = "y") +
   theme(
     strip.text.y = element_text(size = 10, angle = 0),
     strip.text.x = element_text(size = 10),
@@ -303,20 +238,16 @@ p1 = ggplot(facet_data_pr) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/PR_vulnerability3.png", plot = p1, width = 12, height = 10)
+ggsave("indicator_plots/CSVI_plots/PR_engrel_maps.png", plot = p1, width = 7, height = 7)
 
 
 
 
 # Prepare data for facet wrapping
 facet_data_STSJ <- STSJ_map_dat_complete %>%
-  filter(Year %in% c(2010, 2020)) %>%
   mutate(
-    Year = as.factor(Year),  # Ensure Year is treated as a factor for faceting
     Indicator = factor(Indicator, levels = c(
-      "Personal Disruption", "Pop Composition", "Poverty", "Labor Force", "Housing Charac", 
-      "Retiree Migration" 
-    ))
+      "Engagement score", "Reliance score"))
   )
 
 # Plot with facets
@@ -326,12 +257,12 @@ p2 = ggplot(facet_data_STSJ) +
                        limits = c(0, 4), 
                        breaks = 0:4,
                        na.value = "white",
-                       name = "Vulnerability Score\n(0=low, 4=high)") +
+                       name = "Score\n(0=mean, 4=high)") +
   theme_minimal() +
-  labs(title = "Social Vulnerability across Indicators and Years",
+  labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "St. Thomas and St. John",
        caption = "White fill denotes no data") +
-  facet_grid(Indicator ~ Year, switch = "y") +
+  facet_grid(Indicator ~ ., switch = "y") +
   theme(
     strip.text.y = element_text(size = 10, angle = 0),
     strip.text.x = element_text(size = 10),
@@ -342,20 +273,16 @@ p2 = ggplot(facet_data_STSJ) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/STSJ_vulnerability3.png", plot = p2, width = 12, height = 10)
+ggsave("indicator_plots/CSVI_plots/STSJ_engrel_maps.png", plot = p2, width = 7, height = 7)
 
 
 
 
 # Prepare data for facet wrapping
 facet_data_STX <- STX_map_dat_complete %>%
-  filter(Year %in% c(2010, 2020)) %>%
   mutate(
-    Year = as.factor(Year),  # Ensure Year is treated as a factor for faceting
     Indicator = factor(Indicator, levels = c(
-      "Personal Disruption", "Pop Composition", "Poverty", "Labor Force", "Housing Charac", 
-      "Retiree Migration" 
-    ))
+      "Engagement score", "Reliance score"))
   )
 
 # Plot with facets
@@ -365,12 +292,12 @@ p3 = ggplot(facet_data_STX) +
                        limits = c(0, 4), 
                        breaks = 0:4,
                        na.value = "white",
-                       name = "Vulnerability Score\n(0=low, 4=high)") +
+                       name = "Score\n(0=mean, 4=high)") +
   theme_minimal() +
-  labs(title = "Social Vulnerability across Indicators and Years",
+  labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "St. Croix",
        caption = "White fill denotes no data") +
-  facet_grid(Indicator ~ Year, switch = "y") +
+  facet_grid(Indicator ~ ., switch = "y") +
   theme(
     strip.text.y = element_text(size = 10, angle = 0),
     strip.text.x = element_text(size = 10),
@@ -381,6 +308,6 @@ p3 = ggplot(facet_data_STX) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/STX_vulnerability3.png", plot = p3, width = 12, height = 10)
+ggsave("indicator_plots/CSVI_plots/STX_engrel_maps.png", plot = p3, width = 7, height = 7)
 
 
