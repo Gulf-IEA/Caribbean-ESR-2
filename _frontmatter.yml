@@ -11,7 +11,7 @@ format:
     toc: true
     toc-depth: 2
     lof: true
-    lot: true
+    lot: false
     titlepage: true
     titlepage-bg-image: "images/corner-image.png"
     titlepage-geometry: ["top=3in", "bottom=1in", "right=1in", "left=1.75in"]
