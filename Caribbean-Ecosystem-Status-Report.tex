@@ -42,14 +42,28 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
+\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\makeatother
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -64,15 +78,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 % definitions for citeproc citations
@@ -185,9 +201,7 @@
 
 % Set the coverpage font families
 
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
+
 \usepackage{bookmark}
 
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -198,9 +212,10 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
+
 \title{Caribbean Ecosystem Status Report}
 \author{Southeast Integrated Ecosystem Assessment Program}
-\date{2025-03-14}
+\date{2025-03-19}
 
 \begin{document}
 %%%%% begin titlepage extension code
@@ -359,7 +374,7 @@ Program}{\textsuperscript{1}}}}}
 {}
 }
 \newcommand{\datestyled}{%
-{2025-03-14}
+{2025-03-19}
 }
 
 
@@ -458,7 +473,7 @@ Program}{\textsuperscript{1}}}}}
 \restoregeometry
 %%% TITLE PAGE END
 \end{titlepage}
-\setcounter{page}{1}
+\setcounter{page}{3}
 \end{frontmatter}
 
 %%%%% end titlepage extension code
@@ -469,7 +484,7 @@ Program}{\textsuperscript{1}}}}}
 \tableofcontents
 }
 \listoffigures
-\listoftables
+
 \mainmatter
 \bookmarksetup{startatroot}
 
@@ -539,7 +554,7 @@ matrix process for expert vetting (Figure~\ref{fig-flowchart}).
 
 \centering{
 
-\includegraphics[width=5.36458in,height=\textheight]{images/process_flow_chart.png}
+\includegraphics[width=5.36458in,height=\textheight,keepaspectratio]{images/process_flow_chart.png}
 
 }
 
@@ -586,7 +601,7 @@ than one standard deviation (left-right arrow).
 
 \centering{
 
-\includegraphics{images/indicator_selection_diagram.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/indicator_selection_diagram.png}}
 
 }
 
@@ -637,7 +652,7 @@ Figure~\ref{fig-RVCSTSJ}, Figure~\ref{fig-RVCSTX}).
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_PR_plot_final.png}
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{indicator_plots/RVC_PR_plot_final.png}
 
 }
 
@@ -652,7 +667,7 @@ Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_STSJ_plot_final.png}
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{indicator_plots/RVC_STSJ_plot_final.png}
 
 }
 
@@ -667,7 +682,7 @@ Reef Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_STX_plot_final.png}
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{indicator_plots/RVC_STX_plot_final.png}
 
 }
 
@@ -710,7 +725,7 @@ across multiple species in 2018 (Figure~\ref{fig-fishdensity}).
 
 \centering{
 
-\includegraphics{indicator_plots/fish_density_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/fish_density_plot_final.png}}
 
 }
 
@@ -749,7 +764,7 @@ in landings of demersal fish species (Figure~\ref{fig-PD}).
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/PD_ratio_plot_final.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{indicator_plots/PD_ratio_plot_final.png}
 
 }
 
@@ -785,7 +800,7 @@ behavior tied to impacts from the 2017 hurricanes.
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/avgLmax_plot_final.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{indicator_plots/avgLmax_plot_final.png}
 
 }
 
@@ -810,7 +825,7 @@ lane snapper and queen triggerfish.
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/PR_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{indicator_plots/PR_Lmax_classes_plot_final.png}
 
 }
 
@@ -831,7 +846,7 @@ landings of red hind, yellowtail snapper and blue runner
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STT_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{indicator_plots/STT_Lmax_classes_plot_final.png}
 
 }
 
@@ -855,7 +870,7 @@ time and is driven by landings of stoplight and queen parrotfish
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STX_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{indicator_plots/STX_Lmax_classes_plot_final.png}
 
 }
 
@@ -892,7 +907,7 @@ rather than true reductions in landings.
 
 \centering{
 
-\includegraphics{indicator_plots/total_landings_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/total_landings_plot_final.png}}
 
 }
 
@@ -929,7 +944,7 @@ approximately 75\% of the revenues (Figure~\ref{fig-perlandSTX}).
 
 \centering{
 
-\includegraphics{indicator_plots/per_landings_PR.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/per_landings_PR.png}}
 
 }
 
@@ -943,7 +958,7 @@ commercial fisheries in Puerto Rico.}
 
 \centering{
 
-\includegraphics{indicator_plots/per_landings_STT.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/per_landings_STT.png}}
 
 }
 
@@ -958,7 +973,7 @@ fishing years (July 1st to June 30th of the following year).}
 
 \centering{
 
-\includegraphics{indicator_plots/per_landings_STX.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/per_landings_STX.png}}
 
 }
 
@@ -992,7 +1007,7 @@ among the islands.
 
 \centering{
 
-\includegraphics{indicator_plots/gearTypes_PR.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/gearTypes_PR.png}}
 
 }
 
@@ -1005,7 +1020,7 @@ gear type in Puerto Rico, separated by primary gear used on the trip.}
 
 \centering{
 
-\includegraphics{indicator_plots/gearTypes_STT.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/gearTypes_STT.png}}
 
 }
 
@@ -1020,7 +1035,7 @@ of the following year).}
 
 \centering{
 
-\includegraphics{indicator_plots/gearTypes_STX.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/gearTypes_STX.png}}
 
 }
 
@@ -1042,7 +1057,7 @@ traps and infrastructure due to hurricanes (Figure~\ref{fig-dive}).
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/prop_diving_trips_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/prop_diving_trips_plot_final.png}
 
 }
 
@@ -1076,7 +1091,7 @@ associated within landing sites (Figure~\ref{fig-NMDSSTX}).
 
 \centering{
 
-\includegraphics{indicator_plots/NMDSgear_PR.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/NMDSgear_PR.png}}
 
 }
 
@@ -1089,7 +1104,7 @@ for Puerto Rico, color coded by region.}
 
 \centering{
 
-\includegraphics{indicator_plots/NMDSgear_STT.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/NMDSgear_STT.png}}
 
 }
 
@@ -1102,7 +1117,7 @@ site for St.~Thomas and St.~John.}
 
 \centering{
 
-\includegraphics{indicator_plots/NMDSgear_STX.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/NMDSgear_STX.png}}
 
 }
 
@@ -1136,7 +1151,7 @@ further limited growth in the region.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/GDP_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/GDP_plot_final.png}
 
 }
 
@@ -1159,7 +1174,7 @@ and Maria and the COVID-19 pandemic.
 
 \centering{
 
-\includegraphics{indicator_plots/unemployment_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/unemployment_plot_final.png}}
 
 }
 
@@ -1190,7 +1205,7 @@ difficult to assess trends over time until additional data are collected
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/oceanNAICS_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/oceanNAICS_plot_final.png}
 
 }
 
@@ -1228,7 +1243,7 @@ from hurricanes.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/gini_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/gini_plot_final.png}
 
 }
 
@@ -1264,7 +1279,7 @@ whereas catch has increased over the same period in the USVI
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/total_rec_catch_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/total_rec_catch_plot_final.png}
 
 }
 
@@ -1295,7 +1310,7 @@ Figure~\ref{fig-USVIengage}).
 
 \centering{
 
-\includegraphics{indicator_plots/CSVI_plots/PR_engrel_maps.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/CSVI_plots/PR_engrel_maps.png}}
 
 }
 
@@ -1310,7 +1325,7 @@ Population by municipality/sub-district}
 
 \centering{
 
-\includegraphics{indicator_plots/CSVI_plots/STSJ_engrel_maps.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/CSVI_plots/STSJ_engrel_maps.png}}
 
 }
 
@@ -1325,7 +1340,7 @@ and Census data: Population by municipality/sub-district.}
 
 \centering{
 
-\includegraphics{indicator_plots/CSVI_plots/STX_engrel_maps.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/CSVI_plots/STX_engrel_maps.png}}
 
 }
 
@@ -1356,7 +1371,7 @@ Rico and St.~Croix while it is increasing in St.~Thomas and St.~John
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/prop_trips_bycatch_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/prop_trips_bycatch_plot_final.png}
 
 }
 
@@ -1406,7 +1421,7 @@ report.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/FRsection_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/FRsection_plot_final.png}
 
 }
 
@@ -1436,7 +1451,7 @@ management advice (Figure~\ref{fig-tier3}).
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/tier3_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/tier3_plot_final.png}
 
 }
 
@@ -1466,7 +1481,7 @@ word-of-mouth (Figure~\ref{fig-outreach}).
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/outreach_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/outreach_plot_final.png}
 
 }
 
@@ -1498,7 +1513,7 @@ over the short available time series, with some inter-annual variability
 
 \centering{
 
-\includegraphics{indicator_plots/enforcement_barplot.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/enforcement_barplot.png}}
 
 }
 
@@ -1534,7 +1549,7 @@ occurring in 2005 and 2019, coinciding with major bleaching events
 
 \centering{
 
-\includegraphics{indicator_plots/coral_spprichness_cover_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/coral_spprichness_cover_plot_final.png}}
 
 }
 
@@ -1574,7 +1589,7 @@ years the temperature trend has been a significant increase
 
 \centering{
 
-\includegraphics{indicator_plots/Carib_SST_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/Carib_SST_plot_final.png}}
 
 }
 
@@ -1599,7 +1614,7 @@ of unprecedented severity occurred across the U.S. Caribbean and beyond
 
 \centering{
 
-\includegraphics{indicator_plots/DegreeHeatingWeeks_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/DegreeHeatingWeeks_plot_final.png}}
 
 }
 
@@ -1630,7 +1645,7 @@ apparent after 2008 (Figure~\ref{fig-OA}).
 
 \centering{
 
-\includegraphics{indicator_plots/OA_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/OA_plot_final.png}}
 
 }
 
@@ -1656,7 +1671,7 @@ major hurricanes that struck the islands: Irma and Maria.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/ACEindex_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/ACEindex_plot_final.png}
 
 }
 
@@ -1681,7 +1696,7 @@ scale (Figure~\ref{fig-quakes}).
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/earthquakes_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/earthquakes_plot_final.png}
 
 }
 
@@ -1710,7 +1725,7 @@ program or attention to the environmental impacts of pollution.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/pollution_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/pollution_plot_final.png}
 
 }
 
@@ -1741,7 +1756,7 @@ in Puerto Rico in the year 2017 are likely due to hurricane activity.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/turbidity_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/turbidity_plot_final.png}
 
 }
 
@@ -1771,7 +1786,7 @@ Rico and since 2020 in USVI Figure~\ref{fig-ent}.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/enterococcus_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/enterococcus_plot_final.png}
 
 }
 
@@ -1797,7 +1812,7 @@ impervious surfaces is seen in the San Juan metropolitan area
 
 \centering{
 
-\includegraphics{indicator_plots/Land_Use_Land_Cover_2024.jpg}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/Land_Use_Land_Cover_2024.jpg}}
 
 }
 
@@ -1822,7 +1837,7 @@ with no overall or recent trend apparent (Figure~\ref{fig-chl}).
 
 \centering{
 
-\includegraphics{indicator_plots/carib_Chl_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/carib_Chl_plot_final.png}}
 
 }
 
@@ -1848,7 +1863,7 @@ Major inundation events occurred in 2018 and 2021.
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/Sargassum_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/Sargassum_plot_final.png}
 
 }
 
@@ -1883,7 +1898,7 @@ high in 2017--2018 and also 2019--2020 (Figure~\ref{fig-dist}).
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/disturbance_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/disturbance_plot_final.png}
 
 }
 
@@ -1921,7 +1936,7 @@ likely driven in part by a rise in vacation property rentals
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/population_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/population_plot_final.png}
 
 }
 
@@ -1934,7 +1949,7 @@ likely driven in part by a rise in vacation property rentals
 
 \centering{
 
-\includegraphics{indicator_plots/cruise_plot_final.png}
+\pandocbounded{\includegraphics[keepaspectratio]{indicator_plots/cruise_plot_final.png}}
 
 }
 
@@ -1948,7 +1963,7 @@ passengers visiting the islands.}
 
 \centering{
 
-\includegraphics[width=0.75\textwidth,height=\textheight]{indicator_plots/hotel_plot_final.png}
+\includegraphics[width=0.75\linewidth,height=\textheight,keepaspectratio]{indicator_plots/hotel_plot_final.png}
 
 }
 
@@ -1996,7 +2011,7 @@ in those years.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/traffic.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{indicator_plots/traffic.png}
 
 }
 
@@ -2017,7 +2032,7 @@ closely together.}
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/pcas.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{indicator_plots/pcas.png}
 
 }
 
@@ -2189,7 +2204,8 @@ Erica K. Towle, Laura Jay Grove, Jeremiah Blondeau, Sarah Groves, Shay
 Viehman, Nicole Besemer, Juan Agar, Kevin McCarthy, Manoj Shivlani, Mike
 Jepson, Adyan Rios, Matt McPherson, Miguel Figuerola, Nicole Angeli,
 Sennai Habtes, Dione Swanson, Liajay Rivera, Leigh Fletcher, Tarsila
-Seara, Suzana Blake, Carolyn Sramek, Fabian Gomez, Silene Prentice
+Seara, Suzana Blake, Carolyn Sramek, Matthew Walia, Fabian Gomez, Silene
+Prentice
 
 \bookmarksetup{startatroot}
 
@@ -2435,5 +2451,6 @@ Research Agenda.''} \emph{Coastal Management} 48 (5): 481--504.
 
 
 \backmatter
+
 
 \end{document}
