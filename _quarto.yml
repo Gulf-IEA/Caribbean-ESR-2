@@ -53,6 +53,10 @@ execute:
 format:
   titlepage-pdf:
     documentclass: scrbook
+    include-in-header:
+      text: |
+        \usepackage{caption}
+        \captionsetup{font=small}
     classoption: ["oneside", "open=any"]
     titlepage: "plain"
     keep-tex: true
