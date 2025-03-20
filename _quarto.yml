@@ -53,12 +53,6 @@ execute:
 format:
   titlepage-pdf:
     documentclass: scrbook
-    include-in-header:
-      text: |
-        \usepackage{caption}
-        \AtBeginDocument{%
-        \captionsetup[figure]{font=footnotesize}
-        }
     classoption: ["oneside", "open=any"]
     titlepage: "plain"
     keep-tex: true

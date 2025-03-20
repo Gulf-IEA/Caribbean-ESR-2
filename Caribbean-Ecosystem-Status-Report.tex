@@ -109,10 +109,6 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage[default]{opensans}
-\fontseries{lc}\selectfont
-\usepackage{caption}
-\captionsetup[figure]{font=footnotesize, justification=justified, format=plain, singlelinecheck=false, labelformat=simple}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -163,10 +159,7 @@
 \usepackage{calc}
 \usepackage{calculator}
 
-\usepackage{graphicx}
-\usepackage{wallpaper}
 
-\usepackage{geometry}
 
 \usepackage{graphicx}
 \usepackage{geometry}
@@ -210,102 +203,7 @@
   \begin{frontmatter}
 
 \begin{titlepage}
-% This is a combination of Pandoc templating and LaTeX
-% Pandoc templating https://pandoc.org/MANUAL.html#templates
-% See the README for help
 
-\thispagestyle{empty}
-
-\newgeometry{top=-100in}
-
-% Page color
-
-\newcommand{\coverauthorstyle}[1]{{\fontsize{20}{24.0}\selectfont
-#1}}
-
-\begin{tikzpicture}[remember picture, overlay, inner sep=0pt, outer sep=0pt]
-
-\tikzfading[name=fadeout, inner color=transparent!0,outer color=transparent!100]
-\tikzfading[name=fadein, inner color=transparent!100,outer color=transparent!0]
-\node[anchor=south west, rotate=0.0, opacity=1.0] at ($(current page.south west)+(0pt, 8.75in)$) {
-\includegraphics[width=\paperwidth, keepaspectratio]{images/cover-header-2.png}};
-
-% Title
-\newcommand{\titlelocationleft}{2.3in}
-\newcommand{\titlelocationbottom}{7in}
-\newcommand{\titlealign}{left}
-
-\begin{scope}{%
-\fontsize{30}{36.0}\selectfont
-\node[anchor=north
-west, align=left, rotate=0] (Title1) at ($(current page.south west)+(\titlelocationleft,\titlelocationbottom)$)  [text width = 5in]  {\textcolor{black}{\bfseries{\nohyphens{Caribbean
-Ecosystem Status Report}}}};
-}
-\end{scope}
-
-% Author
-\newcommand{\authorlocationleft}{2.3in}
-\newcommand{\authorlocationbottom}{5in}
-\newcommand{\authoralign}{left}
-
-\begin{scope}
-{%
-\fontsize{20}{24.0}\selectfont
-\node[anchor=north
-west, align=left, rotate=0] (Author1) at ($(current page.south west)+(\authorlocationleft,\authorlocationbottom)$)  [text width = 5in]  {
-\coverauthorstyle{Southeast Integrated Ecosystem Assessment Program\\}};
-}
-\end{scope}
-
-% Header
-\newcommand{\headerlocationleft}{2.3in}
-\newcommand{\headerlocationbottom}{9.8in}
-\newcommand{\headerlocationalign}{left}
-
-\begin{scope}
-{%
-\fontsize{16}{19.2}\selectfont
- \node[anchor=north west, align=left, rotate=0] (Header1) at %
-($(current page.south west)+(\headerlocationleft,\headerlocationbottom)$)  [text width = 5in]  {\textcolor{white}{\nohyphens{NOAA
-Technical Memorandum NMFS-XXX-\#\#}}};
-}
-\end{scope}
-
-% Footer
-\newcommand{\footerlocationleft}{6in}
-\newcommand{\footerlocationbottom}{0.1\paperheight}
-\newcommand{\footerlocationalign}{left}
-
-\begin{scope}
-{%
-\fontsize{8}{9.6}\selectfont
- \node[anchor=north west, align=left, rotate=0] (Footer1) at %
-($(current page.south west)+(\footerlocationleft,\footerlocationbottom)$)  [text width = 2.5in]  {{\nohyphens{U.S.
-DEPARTMENT OF COMMERCE\\
-\strut \\
-National Oceanic and Atmospheric Administration\\
-National Marine Fisheries Service\\
-Northwest Fisheries Science Center}}};
-}
-\end{scope}
-
-% Date
-\newcommand{\datelocationleft}{6in}
-\newcommand{\datelocationbottom}{2in}
-\newcommand{\datelocationalign}{left}
-
-\begin{scope}
-{%
-\fontsize{20}{24.0}\selectfont
- \node[anchor=north west, align=left, rotate=0] (Date1) at %
-($(current page.south west)+(\datelocationleft,\datelocationbottom)$)  [text width = 2.5in]  {{\nohyphens{December
-2024}}};
-}
-\end{scope}
-
-\end{tikzpicture}
-\clearpage
-\restoregeometry
 %%% TITLE PAGE START
 
 % Set up alignment commands
@@ -315,28 +213,18 @@ Northwest Fisheries Science Center}}};
 \ifthenelse{\equal{left}{center}}{\centering}{}
 \ifthenelse{\equal{left}{left}}{\raggedright}{}
 }
-%% Titles
-\newcommand{\titlepagetitlealign}{
-\ifthenelse{\equal{left}{right}}{\raggedleft}{}
-\ifthenelse{\equal{left}{center}}{\centering}{}
-\ifthenelse{\equal{left}{left}}{\raggedright}{}
-\ifthenelse{\equal{left}{spread}}{\makebox[\linewidth][s]}{}
-}
 
 
 \newcommand{\titleandsubtitle}{
 % Title and subtitle
-{\fontsize{30}{36.0}\selectfont
-\textcolor{black}{\bfseries{\nohyphens{Caribbean Ecosystem Status
-Report}}}\par
+{{\Large{\nohyphens{Caribbean Ecosystem Status Report}}}\par
 }%
 }
 \newcommand{\titlepagetitleblock}{
 \titleandsubtitle
 }
 
-\newcommand{\authorstyle}[1]{{\fontsize{20}{24.0}\selectfont
-#1}}
+\newcommand{\authorstyle}[1]{{#1}}
 
 \newcommand{\affiliationstyle}[1]{{#1}}
 
@@ -376,7 +264,7 @@ Program}{\textsuperscript{1}}}}}
 }
 
 %set up blocks so user can specify order
-\newcommand{\titleblock}{{\titlepagetitlealign
+\newcommand{\titleblock}{{
 
 {\titlepagetitleblock}
 }
@@ -404,36 +292,13 @@ Program}{\textsuperscript{1}}}}}
 }
 
 \newcommand{\headerblock}{}
-\newgeometry{top=3in,bottom=1in,right=1in,left=1.75in}
-% background image
-\newlength{\bgimagesize}
-\setlength{\bgimagesize}{0.75\paperwidth}
-\LENGTHDIVIDE{\bgimagesize}{\paperwidth}{\theRatio} % from calculator pkg
-\ThisULCornerWallPaper{\theRatio}{images/corner-image.png}
 
 \thispagestyle{empty} % no page numbers on titlepages
 
 
-\newcommand{\vrulecode}{\rule{\vrulewidth}{\textheight}}
-\newlength{\vrulewidth}
-\setlength{\vrulewidth}{0pt}
-\newlength{\B}
-\setlength{\B}{\ifdim\vrulewidth > 0pt 0.05\textwidth\else 0pt\fi}
 \newlength{\minipagewidth}
-\ifthenelse{\equal{left}{left} \OR \equal{left}{right} }
-{% True case
-\setlength{\minipagewidth}{\textwidth - \vrulewidth - \B - 0.1\textwidth}
-}{
-\setlength{\minipagewidth}{\textwidth - 2\vrulewidth - 2\B - 0.1\textwidth}
-}
-\ifthenelse{\equal{left}{left} \OR \equal{left}{leftright}}
-{% True case
-\raggedleft % needed for the minipage to work
-\vrulecode
-\hspace{\B}
-}{%
-\raggedright % else it is right only and width is not 0
-}
+\setlength{\minipagewidth}{\textwidth}
+\raggedright % single minipage
 % [position of box][box height][inner position]{width}
 % [s] means stretch out vertically; assuming there is a vfill
 \begin{minipage}[b][\textheight][s]{\minipagewidth}
@@ -453,11 +318,10 @@ Program}{\textsuperscript{1}}}}}
 \footerblock
 \par
 
-\end{minipage}\ifthenelse{\equal{left}{right} \OR \equal{left}{leftright} }{
+\end{minipage}\ifthenelse{\equal{}{right} \OR \equal{}{leftright} }{
 \hspace{\B}
 \vrulecode}{}
 \clearpage
-\restoregeometry
 %%% TITLE PAGE END
 \end{titlepage}
 \setcounter{page}{3}
@@ -467,10 +331,9 @@ Program}{\textsuperscript{1}}}}}
 
 \renewcommand*\contentsname{Table of contents}
 {
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
-\listoffigures
 \mainmatter
 \bookmarksetup{startatroot}
 
@@ -638,7 +501,7 @@ Figure~\ref{fig-RVCSTSJ}, Figure~\ref{fig-RVCSTX}).
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_PR_plot_final.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{indicator_plots/RVC_PR_plot_final.png}
 
 }
 
@@ -653,7 +516,7 @@ Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_STSJ_plot_final.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{indicator_plots/RVC_STSJ_plot_final.png}
 
 }
 
@@ -668,7 +531,7 @@ Reef Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_STX_plot_final.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{indicator_plots/RVC_STX_plot_final.png}
 
 }
 
@@ -846,7 +709,7 @@ lane snapper and queen triggerfish.
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/PR_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/PR_Lmax_classes_plot_final.png}
 
 }
 
@@ -867,7 +730,7 @@ landings of red hind, yellowtail snapper and blue runner
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/STT_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STT_Lmax_classes_plot_final.png}
 
 }
 
@@ -891,7 +754,7 @@ time and is driven by landings of stoplight and queen parrotfish
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/STX_Lmax_classes_plot_final.png}
+\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STX_Lmax_classes_plot_final.png}
 
 }
 
