@@ -238,7 +238,7 @@ p1 = ggplot(facet_data_pr) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/PR_engrel_maps.png", plot = p1, width = 7, height = 7)
+ggsave("indicator_plots/CSVI_plots/PR_engrel_maps.png", plot = p1, width = 7, height = 4)
 
 
 
@@ -273,7 +273,7 @@ p2 = ggplot(facet_data_STSJ) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/STSJ_engrel_maps.png", plot = p2, width = 7, height = 7)
+ggsave("indicator_plots/CSVI_plots/STSJ_engrel_maps.png", plot = p2, width = 7, height = 4)
 
 
 
@@ -308,6 +308,6 @@ p3 = ggplot(facet_data_STX) +
     plot.background = element_rect(fill = "white", color = NA)    # White plot background
   )
 
-ggsave("indicator_plots/CSVI_plots/STX_engrel_maps.png", plot = p3, width = 7, height = 7)
+ggsave("indicator_plots/CSVI_plots/STX_engrel_maps.png", plot = p3, width = 7, height = 4)
 
 
