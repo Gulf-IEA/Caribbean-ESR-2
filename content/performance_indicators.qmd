@@ -117,16 +117,6 @@ Recreational catch and effort is a major data gap in the U.S. Caribbean. The Mar
 
 ![Total recreational catch in millions of pounds as estimated by the Sea Around Us database for Puerto Rico (top) and the USVI (bottom).](/indicator_plots/total_rec_catch_plot_final.png){#fig-reccatch fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="75%"}
 
-### Commercial fishing engagement and reliance
-
-Fishing engagement and reliance indices measure the importance and level of dependence on commercial or recreational fishing for coastal communities [@noaafisheries2024]. Commercial fishing engagement measures the presence of commercial fishing through fishing activity as shown through permits, fish dealers, and vessel landings. A high rank indicates more engagement. Commercial fishing reliance measures the presence of commercial fishing in relation to the population size of a community through fishing activity. A high rank indicates more reliance. Coastal communities on the west and east coasts of Puerto Rico, the north side of St. Thomas, and the southwest of St. Croix had particularly high commercial engagement and reliance for 2016--2020 (@fig-PRengage, @fig-PRreliance, @fig-USVIengage).
-
-![Commercial fishing engagement and reliance in Puerto Rico based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district](/indicator_plots/CSVI_plots/PR_engrel_maps.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
-
-![Commercial fishing engagement and reliance in St. Thomas and St. John based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/CSVI_plots/STSJ_engrel_maps.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
-
-![Commercial fishing engagement and reliance in St. Croix based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district](/indicator_plots/CSVI_plots/STX_engrel_maps.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
-
 ## Bycatch reduction
 
 ### Changes in gear type
