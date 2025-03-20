@@ -24,11 +24,11 @@ load("indicator_processing/spec_file.RData")
 
 # define start and end years ---------------------------
 styear <- 1990
-enyear <- 2022
+enyear <- 2023
 
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_RECENT/"
 
-dat <- read.csv(paste0(confpath, "STT_2024.csv"))
+dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
 
 table(dat$TRIP_YEAR)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
@@ -87,8 +87,8 @@ table(d$TRIP_MAY_BE_DUPLICATE, useNA = "always")
 # check that TRIP IDs are unique ------------
 
 dim(d)
-d <- d[-which(d$TRIP_MAY_BE_DUPLICATE == "Y"), ]
-dim(d)
+#d <- d[-which(d$TRIP_MAY_BE_DUPLICATE == "Y"), ]
+#dim(d)
 d <- d[-which(d$CHARTER_TRIP == "Y"), ]
 dim(d)
 
@@ -299,7 +299,7 @@ dev.off()
 
 rm(list = ls()[-match(c("styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "STX_2024.csv"))
+dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
 
 table(dat$TRIP_YEAR)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
@@ -378,7 +378,7 @@ id2 <- as.numeric(as.factor(d$id1))
 n_distinct(id2)
 
 mn <- tapply(id2, d$TRIP_ID, mean)
-table(mn - round(mn))
+#table(mn - round(mn))
 
 table(tapply(d$TRIP_YEAR, d$TRIP_ID, sd, na.rm = T))
 
@@ -452,7 +452,7 @@ save(byc, file ="indicator_data/intermediateFiles/trip_types/prop_trips_nonselec
 
 mat2 <- t(mat)
 ord <- names(sort(rowSums(mat2, na.rm = T), decreasing = T))
-cols <- cols25(7)[c(2:5)][match(ord, rownames(mat2))]
+cols <- cols25(7)[match(ord, rownames(mat2))]
 mat3 <- mat2[match(ord, rownames(mat2)), ]
 
 png(filename = "indicator_plots/gearTypes_STX.png", 
@@ -555,6 +555,7 @@ par(mar = c(2, 2, 3, 2))
 
 z$points[1, 2] <- z$points[1, 2] * 1.1
 z$points[9, 2] <- z$points[9, 2] * 0.95
+z$species[1, 2] <- z$species[1, 2] * 0.9
 plot(z$points[, 1], z$points[, 2], col = 0, axes = F, xlab = "", ylab = "", xlim = c(-1.35, 1.42), 
      main = "Ordination of gear type usage by landing sites\nSt. Croix")
 text(z$points[, 1], z$points[, 2], rownames(z$points), cex = 0.75, col = gray(0.8))
@@ -569,7 +570,7 @@ dev.off()
 ###########################  START PR  #################################
 rm(list = ls()[-match(c("styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "wrkeithly_pr_com_data_2000_2022_20240625_C.csv"))
+dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
 
 # subset years------------------------------------------
 
@@ -625,7 +626,7 @@ dim(d)
 table(d$YEAR_LANDED, is.na(d$TRIP_TICKET_NUMBER_ED))  # no NAs after 2000
 table(d$YEAR_LANDED, d$TRIP_TICKET_NUMBER_ED == "")   # no empties after 2002
 
-d <- dat[which(dat$YEAR_LANDED >= 2003), ]
+d <- dat[which(dat$YEAR_LANDED >= 2003 & dat$YEAR_LANDED <= enyear), ]
 table(d$YEAR_LANDED)
 table(is.na(d$TRIP_TICKET_NUMBER_ED))
 table(d$TRIP_TICKET_NUMBER_ED == "")
@@ -935,13 +936,13 @@ indnames <- data.frame(matrix(labs, nrow = 3, byrow = F))
 ind <- list(labels = indnames, indicators = inddata, datelist = datdata)
 class(ind) <- "indicatordata"
 
-#plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
-#                        widadj = 1, hgtadj = 1, trendAnalysis = T)
+plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
+                       widadj = 1, hgtadj = 1, trendAnalysis = T)
 
 save(ind, file = "indicator_objects/prop_diving_trips.RData")
 
-plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
-     widadj = 1, hgtadj = 0.6, trendAnalysis = T, outtype = "png")
+#plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = F, 
+#     widadj = 1, hgtadj = 0.6, trendAnalysis = T, outtype = "png")
                         
 
 # bycatch gears ----------------------------

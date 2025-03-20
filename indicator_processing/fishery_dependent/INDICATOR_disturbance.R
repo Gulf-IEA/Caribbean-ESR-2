@@ -18,11 +18,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2022
+enyear <- 2023
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "wrkeithly_pr_com_data_2000_2022_20240625_C.csv"))
+dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
 
 d <- dat[which(dat$YEAR_LANDED >= styear & dat$YEAR_LANDED <= enyear), ]
 
@@ -73,8 +73,9 @@ plot(styear:enyear, dst, type = "b")
 tab <- sort(tapply(d$ADJUSTED_POUNDS, d$ITIS_COMMON_NAME, sum, na.rm = T), decreasing = T)
 par(mar = c(15, 5, 2, 2))
 barplot(tab[1:20], las = 2)
-lis <- names(tab)[1:10]
-#lis <- lis[-which(lis == "FISHES,BONY,UNSPECIFIED")]
+lis <- names(tab)[1:11]
+lis <- lis[-which(lis == "FISHES,BONY,UNSPECIFIED")]
+lis
 
 # recalculate index for individual spp --------------
 dstfin <- c()
@@ -135,7 +136,7 @@ rm(list = ls()[-match(c("final_PR", "styear", "enyear", "confpath"), ls())])
 
 # calculate for STT  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STT_2024.csv"))
+dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -159,7 +160,6 @@ table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 d <- dat[which(dat$TRIP_YEAR >= styear & dat$TRIP_YEAR <= enyear), ]
 d$TRIP_YEAR <- factor(d$TRIP_YEAR, levels = c(styear: enyear))
 table(d$TRIP_YEAR)
-
 
 names(d)[which(names(d) == "TRIP_YEAR")] <- "YEAR_LANDED"
 names(d)[which(names(d) == "TRIP_MONTH")] <- "MONTH_LANDED"
@@ -267,7 +267,7 @@ rownames(dstfin) <- styear:enyear
 dstfin   # looks only reasonable starting in 2000
 
 dstfin[which(styear: enyear < 2000), ] <- NA
-dstfin[which(styear:enyear == 2022), ] <- NA
+#dstfin[which(styear:enyear == 2022), ] <- NA
 dstfin 
 
 avdst <- rowMeans(dstfin[, selec])   # snappers, groupers subject to seasonal closure
@@ -288,7 +288,7 @@ names(final_ST) <- c("ind", "lli", "uli")
 
 rm(list = ls()[-match(c("final_PR", "final_ST", "styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "STX_2024.csv"))
+dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
 head(dat)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -403,7 +403,7 @@ for (j in 1:10) {
 dstfin
 colSums(dstfin)
 
-selec <- c(3, 4, 5, 8)
+selec <- c(2, 3, 7, 8, 10)
 lis[selec]
 
 # look at correlations across spp --------------------
@@ -418,8 +418,7 @@ matplot(styear:enyear, dstfin, type = "b")
 rownames(dstfin) <- styear:enyear
 dstfin   # only have data starting in 2011
 
-dstfin[which(styear:enyear < 2011), ] <- NA
-dstfin[which(styear:enyear == 2022), ] <- NA
+dstfin[which(styear:enyear < 2000), ] <- NA
 
 avdst <- rowMeans(dstfin[, selec])   #
 sddst <- apply(dstfin[, selec], 1, sd)

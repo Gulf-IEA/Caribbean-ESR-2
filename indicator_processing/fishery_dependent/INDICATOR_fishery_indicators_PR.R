@@ -20,11 +20,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2022
+enyear <- 2023
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "wrkeithly_pr_com_data_2000_2022_20240625_C.csv"))
+dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
 
 dat[which(is.na(dat$ITIS_SCIENTIFIC_NAME)), ]
 summary(is.na(dat$ITIS_SCIENTIFIC_NAME))

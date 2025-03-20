@@ -1,7 +1,7 @@
 
 rm(list = ls())
 
-library(rfishbase)
+#library(rfishbase)
 library(dplyr)
 
 setwd("C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/")
@@ -17,7 +17,7 @@ dir()
 # compare data sets  ---------------------------
 # PR ----------------------------------
 newdat <- read.csv(paste0(confpath, "May2024/wrkeithly_pr_com_data_2000_2022_20240501_C.csv"))
-olddat <- read.csv(paste0(confpath, "Jun2022/PR_landings_83_20_wSC.csv"))
+olddat <- read.csv(paste0(confpath, "MOST_RECENT/Mandy_pr_com_data_1983_2024_20250319_C.csv"))
 
 table(newdat$YEAR_LANDED)
 table(olddat$YEAR_LANDED)
@@ -26,6 +26,49 @@ table(olddat$YEAR_LANDED)
 # updated pull has higher sample numbers in recent years. 
 # it appears that issue with 2005 expansion factor has been resolved?  - check
 # does this new data set include shell catch? 
+
+# March 2025 changes
+# 2023 and 2024 now have no correction factor - use reported landings
+
+dat <- olddat
+
+dat$xADJ <- dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR
+summary(dat$xADJ == dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR)
+hist(dat$xADJ - (dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR))
+max(abs(dat$xADJ - (dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR)), na.rm = T)
+
+table((dat$xADJ == dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR), dat$YEAR_LANDED)
+
+table(dat$COAST[which(dat$YEAR_LANDED == 2022)], dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED == 2022)])
+table(dat$COAST[which(dat$YEAR_LANDED == 2021)], dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED == 2021)])
+table(dat$COAST[which(dat$YEAR_LANDED == 2020)], dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED == 2020)])
+table(dat$COAST[which(dat$YEAR_LANDED == 2023)], dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED == 2023)])
+
+dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023 & dat$COAST == "EAST")]   <- 0.494864362033333
+dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023 & dat$COAST == "INLAND")] <- 0.736415989529865
+dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023 & dat$COAST == "NORTH")]  <- 0.599380619833333
+dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023 & dat$COAST == "SOUTH")]  <- 0.668394518716667
+dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023 & dat$COAST == "WEST")]   <- 0.809383062233333
+
+dat$xADJ <- dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR
+summary(dat$xADJ == dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR)
+hist(dat$xADJ - (dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR))
+max(abs(dat$xADJ - (dat$POUNDS_LANDED * 1/dat$CORRECTION_FACTOR)), na.rm = T)
+
+table(dat$xADJ == dat$ADJUSTED_POUNDS)
+hist(dat$xADJ - dat$ADJUSTED_POUNDS)
+max(abs(dat$xADJ - dat$ADJUSTED_POUNDS), na.rm = T)
+plot(dat$xADJ, dat$ADJUSTED_POUNDS)
+
+dat$ADJUSTED_POUNDS[which(dat$YEAR_LANDED >= 2023)]
+dat$ADJUSTED_POUNDS[which(dat$YEAR_LANDED >= 2023)] <- dat$POUNDS_LANDED[which(dat$YEAR_LANDED >= 2023)] * 1/dat$CORRECTION_FACTOR[which(dat$YEAR_LANDED >= 2023)]
+
+table(dat$xADJ == dat$ADJUSTED_POUNDS)
+hist(dat$xADJ - dat$ADJUSTED_POUNDS)
+max(abs(dat$xADJ - dat$ADJUSTED_POUNDS), na.rm = T)
+cor(dat$xADJ, dat$ADJUSTED_POUNDS)
+
+write.table(dat, file = paste0(confpath, "MOST_RECENT/PR_Mar2025.csv"), sep = ",", col.names = T, row.names = F)
 
 
 # STT ---------------------------------

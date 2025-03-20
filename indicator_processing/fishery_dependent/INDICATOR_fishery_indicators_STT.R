@@ -18,9 +18,9 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2022
+enyear <- 2023
 
-dat <- read.csv(paste0(confpath, "STT_2024.csv"))
+dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
 
 head(dat)
 
@@ -95,7 +95,7 @@ hist(d$PRICE)
 which(d$PRICE > 15)
 d$SPECIES_NM[which(d$PRICE > 15)]
 hist(d$PRICE[which(d$PRICE > 15)])
-#d$PRICE[which(d$PRICE > 15)] <- NA
+d$PRICE[which(d$PRICE > 15)] <- 15
 
 table(is.na(d$PRICE), d$SPECIES_NM)
 

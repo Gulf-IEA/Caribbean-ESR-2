@@ -17,11 +17,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2022
+enyear <- 2023
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "wrkeithly_pr_com_data_2000_2022_20240625_C.csv"))
+dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
 
 table(dat$YEAR_LANDED)
 
@@ -89,7 +89,7 @@ rm(list = ls()[-match(c("totland_pr", "styear", "enyear", "confpath"), ls())])
 
 # calculate for STT --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STT_2024.csv"))
+dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
 
 head(dat)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
@@ -159,7 +159,7 @@ matplot(totland_st, type = "l")
 
 rm(list = ls()[-match(c("totland_st", "totland_pr", "styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "STX_2024.csv"))
+dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
 head(dat)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -170,6 +170,7 @@ dat$TRIP_YEAR[aa] <- dat$TRIP_YEAR[aa] - 1
 dat$TRIP_MONTH[aa] <- dat$TRIP_MONTH[aa] + 12
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 tab <- table(dat$TRIP_YEAR, dat$TRIP_MONTH)
+table(dat$FISHING_YEAR, dat$TRIP_YEAR)
 
 # take out incomplete years -----------------------------
 

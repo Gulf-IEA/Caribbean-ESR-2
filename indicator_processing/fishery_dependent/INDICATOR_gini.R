@@ -26,11 +26,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2010
-enyear <- 2022
+enyear <- 2023
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "wrkeithly_pr_com_data_2000_2022_20240625_C.csv"))
+dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
 
 d <- dat[which(dat$YEAR_LANDED >= styear & dat$YEAR_LANDED <= enyear), ]
 
@@ -124,7 +124,7 @@ rm(list = ls()[-match(c("gini_land_pr", "gini_rev_pr", "styear", "enyear", "calc
 
 # calculate for STT  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STT_2024.csv"))
+dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -139,7 +139,6 @@ d <- dat[which(dat$TRIP_YEAR >= styear & dat$TRIP_YEAR <= enyear), ]
 d$TRIP_YEAR <- factor(d$TRIP_YEAR, levels = c(styear: enyear))
 table(d$TRIP_YEAR)
 
-
 # take a look at data fields ----------------------------
 
 table(d$TRIP_ID, useNA = "always")
@@ -152,7 +151,7 @@ table(d$CHARTER_TRIP, useNA = "always")
 table(d$TRIP_MAY_BE_DUPLICATE, useNA = "always")
 
 dim(d)
-d <- d[-which(d$TRIP_MAY_BE_DUPLICATE == "Y"), ]
+#d <- d[-which(d$TRIP_MAY_BE_DUPLICATE == "Y"), ]
 dim(d)
 d <- d[-which(d$CHARTER_TRIP == "Y"), ]
 dim(d)
@@ -228,7 +227,7 @@ rm(list = ls()[-match(c("gini_land_pr", "gini_rev_pr", "gini_land_stt", "gini_re
 
 # calculate for STX  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STX_2024.csv"))
+dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -343,7 +342,7 @@ class(s) <- "indicatordata"
 ind <- s 
 
 plotIndicatorTimeSeries(ind, coltoplot = 1:3, plotrownum = 3, sublabel = T, sameYscale = T, 
-                        widadj = 1.5, hgtadj = 0.8, trendAnalysis = T, outtype = "png")
+                        widadj = 1.5, hgtadj = 0.8, trendAnalysis = T)   # , outtype = "png")
 
 save(ind, file = "indicator_objects/gini_revenue.RData")
 
@@ -366,7 +365,7 @@ save(ind, file = "indicator_objects/gini_revenue.RData")
 #                         widadj = 1.3, hgtadj = 0.8, trendAnalysis = T)
 # 
 # save(ind, file = "indicator_objects/gini_landings.RData")
-# 
+# s
 
 # hurricane Maria - 2017 - STX and PR
 # hurricane Irma - 2017 - STT
