@@ -43,7 +43,7 @@ directory <- rprojroot::find_rstudio_root_file()
 setwd(directory)
 dir("indicator_processing/automated_download/")
 
-#source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
+source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
 source("indicator_processing/automated_download/DHW.R")                   # degree heating weeks
 source("indicator_processing/automated_download/ACE_index_Carib.R")       # hurricane energy index
 source("indicator_processing/automated_download/earthquakes.R")           # earthquakes
@@ -76,7 +76,7 @@ source("indicator_processing/non_automated/enforcement.R")    # enforcement stat
 source("indicator_processing/non_automated/outreach.R")       # outreach stats
 #source("indicator_processing/non_automated/social_vulnerability.R")   # Tarsila social indicators
 
-print("RAN ALL AUTOMADED DOWNLOADS")
+print("RAN ALL SEMI-AUTOMADED DOWNLOADS")
 
 # fishery indicators - includes confidential data ----------------------
 

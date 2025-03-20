@@ -13,6 +13,7 @@ source("indicator_processing/2-PlotAllIndicators.R")
 setwd(directory)
 source("indicator_processing/3-ExtractIndObjectNames.R")   
 source("indicator_processing/4-CreateIndicatorMatrix.R")
+dev.off()
 source("indicator_processing/5-multivariateSummary.R")
 
 # END 

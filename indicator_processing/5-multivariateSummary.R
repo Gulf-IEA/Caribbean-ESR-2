@@ -145,8 +145,8 @@ abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 #abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 tail(d_ccl)
-d_ccl[which(d_ccl$year <= 2022), ]
-d_ccl <- d_ccl[which(d_ccl$year <= 2022), ]
+d_ccl[which(d_ccl$year <= 2023), ]
+d_ccl <- d_ccl[which(d_ccl$year <= 2023), ]
 pc <- plotOrdScores(d_ccl, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "Fishery-dependent indicators", line = 4.5, cex = 0.8)
 barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
