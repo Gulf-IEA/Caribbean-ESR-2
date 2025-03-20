@@ -21,11 +21,17 @@ Fishery-independent surveys can be used to look at changes in the overall fish c
 
 ![Commercial fish density from PRCRMP fishery-independent surveys in Puerto Rico (top), commercial fish density from TCRMP fishery-independent surveys in the USVI (middle), and the slope of the log-transformed size spectrum from TCRMP surveys in the USVI (bottom).](/indicator_plots/fish_density_plot_final.png){#fig-fishdensity fig-alt="A plot showing temporal trends for the indicator" fig-align="center"}
 
+::: {layout="[0.5, 0.5]"}
+::: {#PDtext}
 ### Pelagic:demersal ratio of landings
 
 The ratio of pelagic to demersal species is thought to be responsive to nutrient inputs and the quality of benthic habitat in marine ecosystems [@deleivamoreno2000]; in the context of small islands in the tropical seas, it may convey the availability and productivity of pelagic habitats relative to the size of the shelf and productivity of coral reef habitats. Ratios of pelagic to demersal landings were calculated based on total pounds reported in the Caribbean Commercial Landings data, following a classification of all species based on their reported ecology in FishBase [@froese2024]. In St. Croix, the pelagic-demersal ratio is much higher than the other islands, due to the small shelf area and limited availability of reef habitat; interannual fluctuations for this island are largely influenced by landings of dolphinfish and tunas. In Puerto Rico, the pelagic-demersal ratio has increased in recent years; this may be partially due to changes in reporting that occurred in 2020 (addition of electronic reporting option). In St. Thomas and St. John, the ratio has gradually increased over time; the large peak in the 2018--2019 fishing year could have been a result of hurricane-induced reef habitat loss and subsequent reduction in landings of demersal fish species (@fig-PD).
+:::
 
-![Ratios of pelagic to demersal landings, based on reported commercial landings data for Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note differences in scale of the y-axes; years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="60%"}
+::: {PDfigure}
+![Ratios of pelagic to demersal landings, based on reported commercial landings data for Puerto Rico (top), St. Thomas and St. John (middle) and St. Croix (bottom). Note differences in scale of the y-axes; years in the USVI are fishing years (July 1st to June 30th of the following year).](/indicator_plots/PD_ratio_plot_final.png){#fig-PD fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="100%"}
+:::
+:::
 
 ### Maximum length in the landings
 
@@ -116,6 +122,16 @@ Equality in the distribution of revenues across the fishery can be represented b
 Recreational catch and effort is a major data gap in the U.S. Caribbean. The Marine Recreational Information Program collected complete years of data in Puerto Rico up until 2016, and in the USVI there are no regular monitoring programs. The Sea Around Us database estimates reported catches based on imputations and assumptions [@pauly2015]. In Puerto Rico, catch was reconstructed by supplementing the MRIP survey with a variety of other studies conducted at various points in time. In the USVI, catch was reconstructed based on a telephone survey conducted by the USVI Division of Fish and Wildlife to estimate resident participation and catch rates, and adding a conservative estimate of tourist catches. These reconstructed estimates suggest that recreational catch has been declining over the last several decades in Puerto Rico, whereas catch has increased over the same period in the USVI (@fig-reccatch).
 
 ![Total recreational catch in millions of pounds as estimated by the Sea Around Us database for Puerto Rico (top) and the USVI (bottom).](/indicator_plots/total_rec_catch_plot_final.png){#fig-reccatch fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="75%"}
+
+### Commercial fishing engagement and reliance
+
+Fishing engagement and reliance indices measure the importance and level of dependence on commercial or recreational fishing for coastal communities [@noaafisheries2024]. Commercial fishing engagement measures the presence of commercial fishing through fishing activity as shown through permits, fish dealers, and vessel landings. A high rank indicates more engagement. Commercial fishing reliance measures the presence of commercial fishing in relation to the population size of a community through fishing activity. A high rank indicates more reliance. Coastal communities on the west and east coasts of Puerto Rico, the north side of St. Thomas, and the southwest of St. Croix had particularly high commercial engagement and reliance for 2016--2020 (@fig-PRengage, @fig-PRreliance, @fig-USVIengage).
+
+![Commercial fishing engagement and reliance in Puerto Rico based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district](/indicator_plots/CSVI_plots/PR_engrel_maps.png){#fig-PRengage fig-alt="Plot showing a time series of an indicator"}
+
+![Commercial fishing engagement and reliance in St. Thomas and St. John based on NOAA Fisheries Databases: Commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district.](/indicator_plots/CSVI_plots/STSJ_engrel_maps.png){#fig-PRreliance fig-alt="Plot showing a time series of an indicator"}
+
+![Commercial fishing engagement and reliance in St. Croix based on NOAA Fisheries Databases: commercial landings 5-year average for 2016--2020 and permit numbers; and Census data: Population by municipality/sub-district](/indicator_plots/CSVI_plots/STX_engrel_maps.png){#fig-USVIengage fig-alt="Plot showing a time series of an indicator"}
 
 ## Bycatch reduction
 
