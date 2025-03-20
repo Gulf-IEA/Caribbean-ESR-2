@@ -18,9 +18,9 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2022
+enyear <- 2023
 
-dat <- read.csv(paste0(confpath, "STX_2024.csv"))
+dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
 
 head(dat)
 
@@ -67,9 +67,9 @@ par(mar = c(4, 4, 1, 1) + 1)
 matplot(styear:enyear, t(tab[1:10, ]), type = "l", col = 1:10, lty = c(1, 1, 1, 1, 1, 2, 2, 2, 2, 2), lwd = 2)
 legend("topright", rownames(tab)[1:10], col = 1:10, lty = c(1, 1, 1, 1, 1, 2, 2, 2, 2, 2), lwd = 2)
 
-#abline(v = 1999)   
-#styear <- 2010
-#d <- d[which(d$TRIP_YEAR >= styear), ]  # cut out because very little data beforehand
+abline(v = 2011)   
+styear <- 2011
+d <- d[which(d$TRIP_YEAR >= styear), ]  # cut out because very little data beforehand
 
 yrs <- styear:enyear
 
@@ -332,7 +332,7 @@ head(plate[order(plate$recLand, decreasing = T), ], 15)
 
 big <- splisref[which(splisref$Lmax_cat == "(60,100]"), ]
 head(big[order(big$recLand, decreasing = T), ], 15)
-# stoplight and queen parrotfish, also blackfin snapper
+# stoplight and queen parrotfish, also blackfin snapper and red hind
 
 dev.off()
 
