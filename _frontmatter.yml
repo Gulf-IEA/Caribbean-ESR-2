@@ -70,6 +70,8 @@ format:
       text: |
         \usepackage[default]{opensans}
         \fontseries{lc}\selectfont
+        \usepackage{caption}
+        \captionsetup[figure]{font=footnotesize, justification=justified, format=plain, singlelinecheck=false, labelformat=simple}
 #        \usepackage[default,oldstyle,scale=0.95]{opensans}
   html:
     theme: cosmo

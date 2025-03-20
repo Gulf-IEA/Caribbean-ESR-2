@@ -111,6 +111,8 @@
 
 \usepackage[default]{opensans}
 \fontseries{lc}\selectfont
+\usepackage{caption}
+\captionsetup[figure]{font=footnotesize, justification=justified, format=plain, singlelinecheck=false, labelformat=simple}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -636,7 +638,7 @@ Figure~\ref{fig-RVCSTSJ}, Figure~\ref{fig-RVCSTX}).
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_PR_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_PR_plot_final.png}
 
 }
 
@@ -651,7 +653,7 @@ Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_STSJ_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_STSJ_plot_final.png}
 
 }
 
@@ -666,7 +668,7 @@ Reef Monitoring Program's Reef Visual Census data.}
 
 \centering{
 
-\includegraphics[width=0.9\textwidth,height=\textheight]{indicator_plots/RVC_STX_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/RVC_STX_plot_final.png}
 
 }
 
@@ -723,7 +725,7 @@ USVI (bottom).}
 
 \begin{figure}
 
-\begin{minipage}{0.50\linewidth}
+\begin{minipage}{0.47\linewidth}
 
 \subsection{Pelagic:demersal ratio of
 landings}\label{pelagicdemersal-ratio-of-landings}
@@ -749,7 +751,13 @@ a result of hurricane-induced reef habitat loss and subsequent reduction
 in landings of demersal fish species
 (Figure~\ref{fig-PD}).\end{minipage}%
 %
-\begin{minipage}{0.50\linewidth}
+\begin{minipage}{0.05\linewidth}
+
+\hspace{1cm}
+
+\end{minipage}%
+%
+\begin{minipage}{0.48\linewidth}
 
 \begin{figure}[H]
 
@@ -771,6 +779,10 @@ of the following year).}
 
 \end{figure}%
 
+\begin{figure}
+
+\begin{minipage}{0.47\linewidth}
+
 \subsection{Maximum length in the
 landings}\label{maximum-length-in-the-landings}
 
@@ -789,13 +801,21 @@ Puerto Rico from 2005--2012, but has been relatively stable since
 over time, though there was a sharp decline in St.~Thomas and St.~John
 in the 2017--2018 fishing year and a sharp increase in St.~Croix in the
 2018--2019 fishing year. These changes may reflect changes in fishing
-behavior tied to impacts from the 2017 hurricanes.
+behavior tied to impacts from the 2017 hurricanes.\end{minipage}%
+%
+\begin{minipage}{0.05\linewidth}
 
-\begin{figure}
+\hspace{1cm}
+
+\end{minipage}%
+%
+\begin{minipage}{0.48\linewidth}
+
+\begin{figure}[H]
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/avgLmax_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/avgLmax_plot_final.png}
 
 }
 
@@ -805,6 +825,12 @@ in the reported landings for Puerto Rico (top), St.~Thomas and St.~John
 fishing years (July 1st to June 30th of the following year).}
 
 \end{figure}%
+
+\end{minipage}%
+
+\end{figure}%
+
+\newpage
 
 The proportion of landings within different Lmax classes can also be
 shown to better understand changes driving the average Lmax value. In
@@ -820,7 +846,7 @@ lane snapper and queen triggerfish.
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/PR_Lmax_classes_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/PR_Lmax_classes_plot_final.png}
 
 }
 
@@ -841,7 +867,7 @@ landings of red hind, yellowtail snapper and blue runner
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STT_Lmax_classes_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/STT_Lmax_classes_plot_final.png}
 
 }
 
@@ -865,7 +891,7 @@ time and is driven by landings of stoplight and queen parrotfish
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{indicator_plots/STX_Lmax_classes_plot_final.png}
+\includegraphics[width=1\textwidth,height=\textheight]{indicator_plots/STX_Lmax_classes_plot_final.png}
 
 }
 

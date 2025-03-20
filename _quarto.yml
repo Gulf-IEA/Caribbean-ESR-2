@@ -56,7 +56,9 @@ format:
     include-in-header:
       text: |
         \usepackage{caption}
-        \captionsetup{font=small}
+        \AtBeginDocument{%
+        \captionsetup[figure]{font=footnotesize}
+        }
     classoption: ["oneside", "open=any"]
     titlepage: "plain"
     keep-tex: true
