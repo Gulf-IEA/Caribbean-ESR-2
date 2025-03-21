@@ -3,7 +3,7 @@ title: Tracking performance toward fishery management objectives
 lightbox: TRUE
 ---
 
-In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems. (test)
+In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems.
 
 ## Food production
 
