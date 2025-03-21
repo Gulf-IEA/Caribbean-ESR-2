@@ -43,7 +43,7 @@ directory <- rprojroot::find_rstudio_root_file()
 setwd(directory)
 dir("indicator_processing/automated_download/")
 
-source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
+#source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
 source("indicator_processing/automated_download/DHW.R")                   # degree heating weeks
 source("indicator_processing/automated_download/ACE_index_Carib.R")       # hurricane energy index
 source("indicator_processing/automated_download/earthquakes.R")           # earthquakes
