@@ -13,11 +13,11 @@ This report was created in Quarto (<https://github.com/quarto-dev/quarto-cli/>) 
 
 ## Indicator selection
 
-The CFMC's Science and Statistical Committee, as well as the region's Ecosystem-Based Fishery Management Technical Advisory Panel (EBFM TAP), recently completed a series of conceptual models linking key components of the ecosystem and human activities related to fishing [@seara2024]. This report used these conceptual models as a starting list of proposed indicators and matched the indicators to answer FMP objectives when possible. For those objectives that did not have an immediate conceptual model-identified indicator, this report used a decision matrix process for expert vetting (@fig-flowchart).
+The CFMC's Science and Statistical Committee, as well as the region's Ecosystem-Based Fishery Management Technical Advisory Panel (EBFM TAP), recently completed a series of conceptual models linking key components of the ecosystem and human activities related to fishing [@seara2024]. This report used these conceptual models as a starting list of proposed indicators and matched the indicators to address progress toward FMP objectives when possible (@fig-flowchart). 
 
 ![Process for selecting indicators for the U.S. Caribbean Ecosystem Status Report.](/images/process_flow_chart.png){#fig-flowchart fig-alt="A figure of a flow chart diagram" fig-align="center" width="515"}
 
-This decision matrix was composed of a list of proposed indicators compiled from the conceptual models as well as proposed indicators provided via expert input. These potential indicators were vetted and edited by expert small working groups, who then scored a decision matrix of potential indicators [@MONTENERO2021104489] against the following decision criteria: long term data availability, measurability, sensitivity to environmental changes, specificity, spatial and temporal scalability, relevance to specific FMP objectives, and responsiveness to management actions.
+For those objectives that did not have an immediate conceptual model-identified indicator, a decision matrix process was used for expert vetting [@MONTENERO2021104489]. This decision matrix was composed of a list of proposed indicators compiled from the conceptual models as well as proposed indicators provided via expert input. These potential indicators were vetted and edited by expert small working groups, who then scored a decision matrix of potential indicators against the following decision criteria: long term data availability, measurability, sensitivity to environmental changes, specificity, spatial and temporal scalability, relevance to specific FMP objectives, and responsiveness to management actions.
 
 ## Notes on interpreting time series figures
 
