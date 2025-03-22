@@ -3,7 +3,7 @@ title: Tracking performance toward fishery management objectives
 lightbox: TRUE
 ---
 
-In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems.
+In this section, we report indicators that are intended to capture progress towards meeting Fishery Management Plan objectives related to food production, socioeconomic health, equity, engagement and participation, bycatch reduction, governance and protection of ecosystems. 
 
 ## Food production
 
@@ -55,7 +55,7 @@ The average maximum length (Lmax) of a species in the landings has been proposed
 
 \newpage
 
-The proportion of landings within different Lmax classes can also be shown to better understand changes driving the average Lmax value. In Puerto Rico, there is a generally increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species and yellowtail snapper, while a decrease in the 100-200cm Lmax group is driven by declining landings of large-bodies parrotfishes, snook, and some large groupers (@fig-PRLmax). Recent decreases in the 40-60cm Lmax group are driven by landings of lane snapper and queen triggerfish.
+The proportion of landings within different Lmax classes can also be shown to better understand changes driving the average Lmax value. In Puerto Rico, there is a generally increasing trend of “plate-sized” fish in the 60-100cm category which is driven by increased landings of deepwater snapper species, yellowtail snapper, and red hind, while a decrease in the 100-200cm Lmax group is driven by declining landings of large-bodies parrotfishes, snook, and some large groupers (@fig-PRLmax). Recent decreases in the 40-60cm Lmax group are driven by landings of lane snapper and queen triggerfish.
 
 ![Proportion of commercial demersal landings in each of four maximum body length size classes in Puerto Rico.](/indicator_plots/PR_Lmax_classes_plot_final.png){#fig-PRLmax fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="60%"}
 

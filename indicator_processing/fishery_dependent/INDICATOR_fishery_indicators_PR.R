@@ -109,8 +109,8 @@ missci <- as.character(lis$sci[match(d$ITIS_COMMON_NAME[mis], lis$com)])
 d$ITIS_SCIENTIFIC_NAME[which(is.na(d$ITIS_SCIENTIFIC_NAME))] <- missci
 dim(table(d$ITIS_SCIENTIFIC_NAME))
 
-mis <- which(is.na(d$ITIS_SCIENTIFIC_NAME))
-d[mis, ]   # still some missing but not going to fix until new data pull
+#mis <- which(is.na(d$ITIS_SCIENTIFIC_NAME))
+#d[mis, ]   # still some missing but not going to fix until new data pull
 unique(d$ERDMAN_COMMON_NAME[mis])
 
 # remove bad price values ------------------------------
@@ -146,17 +146,6 @@ table(cut(ref$Lmax, breaks = c(0, 40, 60, 100, 2000)))
 ref$Lmax_cat <- cut(ref$Lmax, breaks = c(0, 40, 60, 100, 2000))
 
 ref$SCIname <- toupper(ref$SCIname)
-
-ref$SCIname[30]
-d$ITIS_SCIENTIFIC_NAME[which(d$ITIS_SCIENTIFIC_NAME == "ACANTHOSTRACION QUADRICORNIS")] <- ref$SCIname[30]
-ref$SCIname[196]
-d$ITIS_SCIENTIFIC_NAME[which(d$ITIS_SCIENTIFIC_NAME == "SCARUS TAENIOPTERUS")] <- ref$SCIname[196]
-ref$SCIname[197]
-d$ITIS_SCIENTIFIC_NAME[which(d$ITIS_SCIENTIFIC_NAME == "SPARISOMA RUBRIPINNE")] <- ref$SCIname[197]
-ref$SCIname[257]
-d$ITIS_SCIENTIFIC_NAME[which(d$ITIS_SCIENTIFIC_NAME == "PRISTIPOMOIDES AQUILONARIS")] <- ref$SCIname[257]
-ref$SCIname[27]
-d$ITIS_SCIENTIFIC_NAME[which(d$ITIS_SCIENTIFIC_NAME == "LACTOPHRYS BICAUDALIS")] <- ref$SCIname[27]
 
 # merge trip ticket data with reference file to get spp info --------------------------
 
