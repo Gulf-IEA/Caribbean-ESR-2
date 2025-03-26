@@ -51,6 +51,9 @@ convert_rdata_to_csv <- function(input_dir, output_dir) {
     # Define output file name (same as input but with .csv extension)
     output_file <- file.path(output_dir, paste0(tools::file_path_sans_ext(basename(rdata_file)), ".csv"))
     
+    # Remove \n only if it exists in the text
+    labels_df <- as.data.frame(lapply(labels_df, function(x) gsub("\n", "", x)))
+    
     # Write labels first (3 rows, first column blank)
     write.table(labels_df, file = output_file, sep = ",", row.names = FALSE, col.names = FALSE, quote = FALSE, na = "")
     

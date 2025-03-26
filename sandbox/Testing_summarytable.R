@@ -16,7 +16,7 @@ library(gt)
 
 
 
-# 3 types of time series data: 
+# 6 types of time series data: 
 #    1. single indicator, annual time step
 #    2. single indicator, monthly time step
 #    3. single indicator, standardized monthly anomaly
@@ -25,8 +25,10 @@ library(gt)
 #    6. multiple indicator, standardized monthly anomaly
 
 
-# a test version of the data prep function. This now works with multiple indicators where the extent or unit is repeated
+# a test version of the data prep function. This now works with multiple indicators where the extent or unit is repeated and with monthly data
+df = DHW
 df = cruise
+df = OA
 i=2
 subind = "extent"
 trends = T
@@ -38,6 +40,60 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
   #Data used for everything
   df_dat<-df[4:nrow(df),c(1:ncol(df))]
   
+  # convert dates to standardized format --------------------
+  if (class(df_dat[[1]]) == "integer" & all(nchar(df_dat[[1]]) <= 4)) {  # is time column values of years?
+    monthly <- FALSE                                # if so, monthly F and set time to year
+    df_dat[1] <- df_dat[[1]]
+  }  else  {                                        # else need to find and extract month format
+    monthly <- TRUE
+    # Ensure the first column is character
+    df_dat[[1]] <- as.character(df_dat[[1]])
+    
+    # Detect format and standardize
+    if (all(grepl("^\\d{6}$", df_dat[[1]]))) {  
+      # Format: YYYYMM (Add '01' for day)
+      df_dat[[1]] <- paste0(df_dat[[1]], "01")
+      datelis <- as.Date(df_dat[[1]], format = "%Y%m%d")
+      
+    } else if (all(grepl("^\\d{8}$", df_dat[[1]]))) {  
+      # Format: YYYYMMDD (Use as is)
+      datelis <- as.Date(df_dat[[1]], format = "%Y%m%d")
+      
+    } else if (all(grepl("^\\d{4}-\\d{2}$", df_dat[[1]]))) {  
+      # Format: YYYY-MM (Add '-01' for day)
+      df_dat[[1]] <- paste0(df_dat[[1]], "-01")
+      datelis <- as.Date(df_dat[[1]], format = "%Y-%m-%d")
+      
+    } else if (all(grepl("^\\d{2}-\\d{4}$", df_dat[[1]]))) {  
+      # Format: MM-YYYY (Reorder to YYYY-MM and add '-01' for day)
+      df_dat[[1]] <- sub("^(\\d{2})-(\\d{4})$", "\\2-\\1-01", df_dat[[1]])  
+      datelis <- as.Date(df_dat[[1]], format = "%Y-%m-%d")
+      
+    } else if (all(grepl("^\\d{4}-\\d{2}-\\d{2}$", df_dat[[1]]))) {  
+      # Format: YYYY-MM-DD (Use as is)
+      datelis <- as.Date(df_dat[[1]], format = "%Y-%m-%d")
+      
+    } else if (all(grepl("^[A-Za-z]{3}\\d{4}$", df_dat[[1]]))) {  
+      # Format: JanYYYY (Add '01' for day)
+      datelis <- as.Date(paste0(df_dat[[1]], "01"), format = "%b%Y%d")
+      
+    } else if (all(grepl("^\\d{4}[A-Za-z]{3}$", df_dat[[1]]))) {  
+      # Format: YYYYJan (Add '01' for day)
+      datelis <- as.Date(paste0(df_dat[[1]], "01"), format = "%Y%b%d")
+      
+    } else {
+      datelis <- NA  # Unknown format
+    }
+  }
+  
+  ptsizadj <- 1
+  if (monthly==TRUE) {                                  # if monthly, convert to decimal date
+    df_dat[1] <- as.numeric(substr(datelis, 1, 4)) + ((as.numeric(strftime(datelis, format = "%j")) - 1) / 365)
+    ptsizadj <- 3
+  }
+  
+  
+  # Create data frames -------------------------------------------
   if (ncol(df_dat)<2.5) {
     colnames(df_dat)<-c("year","value")
     df_dat$value<- as.numeric(df_dat$value)
@@ -56,12 +112,11 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
       sub_list<-list()
       for (i in 2:ncol(df_dat)){
         sub_df<-df_dat[,c(1,i)]
-        df_lab<-df[1:3,] #For example sake cutting to only col I need
+        df_lab<-df[1:3,] 
         ind<-ifelse(subind=="extent", df_lab[3,i], ifelse(subind=="unit", df_lab[2,i], df_lab[1,i]))
         
         
         colnames(sub_df)<-c("year","value")
-        # sub_df$value<- as.numeric(sub_df$value)
         sub_df<-as.data.frame(lapply(sub_df, as.numeric))
         
         mean<-mean(as.numeric(sub_df$value), na.rm = T)
@@ -74,7 +129,6 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
         sub_df$year <- as.numeric(sub_df$year)
         sub_df$subnm<-paste0(ind)
         sub_df$id<-i-1
-        #sub_df$subnm<-paste0(ind,"_",i-1) #CG replaced this with above*************
         sub_df<-sub_df[!is.na(sub_df$value),]
         sub_list[[i]]<-sub_df
         
@@ -96,16 +150,15 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
     pos<-pos[!is.na(pos$value),]
     pos} else {
       sub_list<-list()
-      #subs<-unique(df_dat$subnm)
-      subs<-unique(df_dat$id) # added this replace above ***************************
-      subnm_un<-unique(select(df_dat, subnm, id)) #added this ********************
+      subs<-unique(df_dat$id) 
+      subnm_un<-unique(select(df_dat, subnm, id)) 
       for (i in 1:length(subs)){
         sub_df<-df_dat[df_dat$id==subs[i],]
         mean<-mean(as.numeric(sub_df$value), na.rm = T)
         sd<-sd(as.numeric(sub_df$value), na.rm = T)
         pos<-sub_df
         pos$value<-ifelse(pos$valence == "pos",pos$value, mean)
-        pos$subnm<-subnm_un[i,1] #changed this *****************************
+        pos$subnm<-subnm_un[i,1] 
         pos$mean<-mean
         pos$sd<-sd
         pos<-pos[!is.na(pos$value),]
@@ -127,11 +180,10 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
     neg<-neg[!is.na(neg$value),]
     neg} else {
       sub_list<-list()
-      #subs<-unique(df_dat$subnm)
-      subs<-unique(df_dat$id) # added this replace above ***************************
-      subnm_un<-unique(select(df_dat, subnm, id)) #added this ********************
+      subs<-unique(df_dat$id) 
+      subnm_un<-unique(select(df_dat, subnm, id)) 
       for (i in 1:length(subs)){
-        sub_df<-df_dat[df_dat$id==subs[i],] #changed to id ********************
+        sub_df<-df_dat[df_dat$id==subs[i],] 
         mean<-mean(as.numeric(sub_df$value), na.rm = T)
         sd<-sd(as.numeric(sub_df$value), na.rm = T)
         neg<-sub_df
@@ -147,8 +199,7 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
   df_list$neg<-neg
   
   df_list$labs<-df[1:3, c(1:ncol(df))]
-  #df_list$labs[3, 2:ncol(df)] <- paste0(df_list$labs[3, 2:ncol(df)], "_", 1:(ncol(df) - 1)) #Carissa added this ****************************************
-  
+
   #Independent values used throughout
   if (trends==T) {
     if(ncol(df_dat)<6){
@@ -182,9 +233,7 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
       vals} else {
         sub_list<-list()
         subnm_un<-unique(select(df_dat, subnm, id))
-        #subs<-unique(df_dat$subnm)
-        subs<-unique(df_dat$id) # added this *********************
-        print(subs) #CG added as test ************************************
+        subs<-unique(df_dat$id)
         for (i in 1:length(subs)){
           sub_df<-df_dat[df_dat$id==subs[i],]
           minyear<-min(na.omit(sub_df)$year)
@@ -239,6 +288,7 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
 ###########################################
 
 # First type, single indicators annual time step
+ACE = read.csv("indicator_objects/objects_as_csvs/ACEindex.csv", header=F)
 EQ = read.csv("indicator_objects/objects_as_csvs/earthquakes.csv", header = F)
 Reg = read.csv("indicator_objects/objects_as_csvs/FRsection.csv", header = F)
 head(EQ)
@@ -273,9 +323,10 @@ propbycatch = read.csv("indicator_objects/objects_as_csvs/prop_trips_bycatch.csv
 STTLmax = read.csv("indicator_objects/objects_as_csvs/STT_Lmax_classes.csv", header = F)
 STXLmax = read.csv("indicator_objects/objects_as_csvs/STX_Lmax_classes.csv", header = F)
 tier3 = read.csv("indicator_objects/objects_as_csvs/tier3.csv", header = F)
+totalrec = read.csv("indicator_objects/objects_as_csvs/total_rec_catch.csv", header=F)
 
 
-obj = IEAnalyzeR::data_prep(propdive)
+obj = IEAnalyzeR::data_prep(totalrec)
 str(obj)
 
 # These all seem to work fine too SUCCESS
@@ -319,8 +370,49 @@ IEAnalyzeR::plot_fn_obj(cruise_obj)
 plot_fn_obj_test(cruise_obj, manual_title = "Cruise and air passengers")
 
 
+#######################################################
 
-########### test plot
+#Monthly time step
+DHW = read.csv("indicator_objects/objects_as_csvs/DegreeHeatingWeeks.csv", header=F)
+OA = read.csv("indicator_objects/objects_as_csvs/OA.csv", header=F)
+Sarg = read.csv("indicator_objects/objects_as_csvs/Sargassum.csv", header=F)
+unemp = read.csv("indicator_objects/objects_as_csvs/unemployment.csv", header=F)
+head(unemp)
+
+OA_obj = data_prep_test(OA)
+str(OA_obj)
+
+DHW_obj = data_prep_test(DHW)
+str(DHW_obj)
+
+IEAnalyzeR::plot_fn_obj(OA_obj)
+IEAnalyzeR::plot_fn_obj(DHW_obj)
+
+unemp_obj = data_prep_test(unemp)
+str(unemp_obj)
+
+
+#######################################################
+
+#Monthly anomalies
+PP = read.csv("indicator_objects/objects_as_csvs/carib_Chl.csv", header=F)
+SST = read.csv("indicator_objects/objects_as_csvs/Carib_SST.csv", header=F)
+Turb = read.csv("indicator_objects/objects_as_csvs/turbidity.csv", header=F)
+head(Turb)
+
+turb_obj = data_prep_test(Turb)
+str(turb_obj)
+
+PP_obj = data_prep_test(PP)
+str(PP_obj)
+
+SST_obj = data_prep_test(SST)
+str(SST_obj)
+
+IEAnalyzeR::plot_fn_obj(OA_obj)
+IEAnalyzeR::plot_fn_obj(DHW_obj)
+
+####DHW_obj########### test plot
 
 
 plot_fn_obj_test<-function (df_obj, interactive = FALSE, sep_yaxis=F, manual_ylab=NULL, manual_xlab=NULL, manual_title=NULL) {
