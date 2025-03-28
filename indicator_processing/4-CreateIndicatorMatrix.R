@@ -198,7 +198,7 @@ matrix_data <- matrix_data[, c(1, match(sorted_columns, colnames(matrix_data)))]
 matrix_data
 dim(matrix_data) # should be 108 columns
 
-cbind(names(matrix_data)[-1], descriptive_names[, 1])  # check that all indicators are included! 
+cbind(names(matrix_data)[-1], descriptive_names[, 1])  # check that all indicators are included!
 
 # Save the matrix_data to an .rda file
 save(matrix_data, file = "indicator_data/all_indicators_matrix.rda")

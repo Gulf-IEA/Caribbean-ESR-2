@@ -91,7 +91,7 @@ cbind(sort(d1$nam), sort(dm$nam))
 d <- merge(dm, d1, by = "nam", all = TRUE)
 head(d)
 dim(d)
-d <- d[order(d$order), 1:5]
+d <- d[order(d$order), 1:6]
 d
 apply(is.na(d), 2, summary)  # check no NAs
 

@@ -22,6 +22,9 @@ dim(matrix_data)
 class(matrix_data$year)
 matrix_data$year <- as.numeric(matrix_data$year)
 
+# Label each indicator as risk or performance
+
+
 # cut time series to start at 2000 (most time series start in the 2000s) ---------
 matrix_data = matrix_data %>% 
   filter(year >= 2000)
@@ -100,42 +103,82 @@ slope_table <- as.data.frame(slope_table)
 # Print the resulting table
 print(slope_table)
 
+# Add a column to slope_table with the category of indicator (risk and performance) so we can plot each group separately -------------------------------------------------
+
+# Read in category assignments from CSV
+category_data <- read.csv("indicator_data/synthesisFiles/extracted_ind_object_names_REVISED_MERGED.csv", stringsAsFactors = FALSE)
+head(category_data)
+# Select only the "desc_name" and "Category" columns
+category_data <- category_data %>% select(desc_name, type)
+
+# Merge with slope_table based on the indicator name
+slope_table <- slope_table %>%
+  left_join(category_data, by = c("Indicator"="desc_name"))
+
+# Add a label based on geographic location --------------------------------
+slope_table <- slope_table %>%
+  mutate(Location = case_when(
+    grepl("_PR$", Indicator)  ~ "Puerto Rico",
+    grepl("_PR$", Indicator)  ~ "Puerto Rico",
+    grepl("_VI$", Indicator)  ~ "USVI",
+    grepl("_STT$", Indicator) ~ "St. Thomas and St. John",
+    grepl("_STX$", Indicator) ~ "St. Croix",
+    TRUE                      ~ "Caribbean"  # Default for all other cases
+  ))
+
 
 # Plot it ###############################################################
-
-# Convert the slopes to numeric (if they are not already)
+# Convert the slopes to numeric 
 slope_table$historic_slope <- as.numeric(slope_table$historic_slope)
 slope_table$recent_slope <- as.numeric(slope_table$recent_slope)
 
-x_min <- min(slope_table$historic_slope, na.rm = TRUE)
-x_max <- max(slope_table$historic_slope, na.rm = TRUE)
-y_min <- min(slope_table$recent_slope, na.rm = TRUE)
-y_max <- max(slope_table$recent_slope, na.rm = TRUE)
+# Define plot limits to be from -1 to 1 for both axes
+x_min <- -0.9
+x_max <- 0.9
+y_min <- -0.9
+y_max <- 0.9
 
-
-# Define the polygon to shade the area below the 1:1 line (lower triangle)
+# Define the polygon to shade below the 1:1 line (y = x)
 shade_polygon <- data.frame(
-  x = c(-Inf, Inf, Inf),
-  y = c(-Inf, y_max, -Inf)
+  x = c(x_min-1, x_max+1, x_max+1),  # Covers full x-range
+  y = c(x_min-1, x_max+1, y_min-1)   # Defines the lower triangle below y = x
+)
+
+# Re-label the categories 
+new_labels = c("ccl"="Fishery-dependent indicators",
+               "fi"="Fishery-independent indicators",
+               "oth"="Other management indicators",
+               "risk"="Risks to meeting objectives")
+
+# define colors
+location_colors <- c(
+  "Puerto Rico" = "#B2182B",
+  "USVI" = "#00589C",
+  "St. Thomas and St. John" = "#5A9BD4",
+  "St. Croix" = "#1FCDC0",
+  "Caribbean" = "#882E72"
 )
 
 # Create ggplot scatter plot
-ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator)) +
+ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location)) +
   geom_polygon(data = shade_polygon, aes(x = x, y = y), 
                fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
-  geom_point(color = "blue", size = 3) + 
+  geom_point(size = 3) + 
+  #geom_text(aes(label = Indicator), vjust = -0.5, hjust = 0.5, size = 2) +
   geom_text_repel(size = 2, box.padding = 0.5, max.overlaps = Inf) +
-  geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1) + 
+  #geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1) + 
   geom_hline(yintercept = 0, color = "gray50", linetype = "solid") +
   geom_vline(xintercept = 0, color = "gray50", linetype = "solid") +
   labs(title = "Historic vs Recent Trends by Indicator",
        x = "Historic trend (2000-2019)",
        y = "Recent trend (2019-2024)") +
-  coord_cartesian(xlim = c(-1, 1), ylim = c(-1, 1)) +
+  coord_cartesian(xlim = c(x_min, x_max), ylim = c(y_min, y_max)) +
+  facet_wrap(~type, labeller = labeller(type = new_labels)) +
+  scale_color_manual(values = location_colors) +
   theme_minimal() +
   theme(
     panel.grid = element_blank(),  
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1.2)) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  
 
 
