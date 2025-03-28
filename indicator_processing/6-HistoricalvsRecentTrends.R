@@ -159,8 +159,17 @@ location_colors <- c(
   "Caribbean" = "#882E72"
 )
 
+#define shapes
+location_shapes <- c(
+  "Puerto Rico" = 15,       # Square
+  "USVI" = 17,             # Triangle
+  "St. Thomas and St. John" = 17,  # Triangle
+  "St. Croix" = 17,        # Triangle
+  "Caribbean" = 16         # Circle
+)
+
 # Create ggplot scatter plot
-ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location)) +
+ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location, shape = Location)) +
   geom_polygon(data = shade_polygon, aes(x = x, y = y), 
                fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
   geom_point(size = 3) + 
@@ -175,6 +184,7 @@ ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator,
   coord_cartesian(xlim = c(x_min, x_max), ylim = c(y_min, y_max)) +
   facet_wrap(~type, labeller = labeller(type = new_labels)) +
   scale_color_manual(values = location_colors) +
+  scale_shape_manual(values = location_shapes) +
   theme_minimal() +
   theme(
     panel.grid = element_blank(),  
