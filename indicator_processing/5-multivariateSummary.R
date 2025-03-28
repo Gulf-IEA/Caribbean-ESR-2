@@ -137,7 +137,7 @@ par(mar = c(4, 9, 1, 2), mfrow = c(3, 2))
 
 pc <- plotOrdScores(d_risk, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "Risks to meeting objectives", line = 4.5, cex = 0.8)
-barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 1, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 #pc <- plotOrdScores(d_fi, main = "fishery-independent indicators", mintime = 2011, noNAs = thresh) #, method = "nmds", nmdsk = 3)
@@ -149,7 +149,7 @@ d_ccl[which(d_ccl$year <= 2023), ]
 d_ccl <- d_ccl[which(d_ccl$year <= 2023), ]
 pc <- plotOrdScores(d_ccl, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "Fishery-dependent indicators", line = 4.5, cex = 0.8)
-barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 1, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 tail(d_oth)
@@ -157,7 +157,7 @@ d_oth[which(d_oth$year <= 2023), ]
 d_oth <- d_oth[which(d_oth$year <= 2023), ]
 pc <- plotOrdScores(d_oth, main = "", mintime = 2011, noNAs = thresh, tim.cex = 1.2) #, method = "nmds", nmdsk = 3)
 mtext(side = 2, "Other management indicators", line = 4.5, cex = 0.8)
-barplot(sort(pc$rotation[,1]), las = 2, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
+barplot(sort(pc$rotation[,1]), las = 1, horiz = T, xlim = c(-0.45, 0.45), xlab = "PCA 1 loadings")
 abline(v = c(-0.2, 0.2), col = 8, lty = 2)
 
 dev.off()
