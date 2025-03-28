@@ -206,6 +206,12 @@ STX_map_dat_complete <- st_as_sf(STX_map_dat_complete)
 st_geometry_type(STX_map_dat_complete)
 
 
+# specify color palette
+color_palette <- c("1" = "#a6cee3",  # Light Blue (low)
+                   "2" = "#ffeb3b",  # Light Yellow (mid-low)
+                   "3" = "#ff9800",  # Orange (mid-high)
+                   "4" = "#d32f2f")  # Strong Red (high)
+
 
 
 # Prepare data for facet wrapping
@@ -217,12 +223,10 @@ facet_data_pr <- pr_map_dat_complete %>%
 
 # Plot with facets
 p1 = ggplot(facet_data_pr) +
-  geom_sf(aes(fill = Score), color = "black", size = 0.2) +
-  scale_fill_gradientn(colors = c("blue", "yellow", "red"), 
-                       limits = c(0, 4), 
-                       breaks = 0:4,
-                       na.value = "white",
-                       name = "Score\n(0=mean, 4=high)") +
+  geom_sf(aes(fill = factor(Score)), color = "black", size = 0.2) +
+  scale_fill_manual(values = color_palette,
+                    na.value = "white",  # White fill for missing data
+                    name = "Score") +
   theme_minimal() +
   labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "Puerto Rico",
@@ -252,12 +256,10 @@ facet_data_STSJ <- STSJ_map_dat_complete %>%
 
 # Plot with facets
 p2 = ggplot(facet_data_STSJ) +
-  geom_sf(aes(fill = Score), color = "black", size = 0.2) +
-  scale_fill_gradientn(colors = c("blue", "yellow", "red"), 
-                       limits = c(0, 4), 
-                       breaks = 0:4,
-                       na.value = "white",
-                       name = "Score\n(0=mean, 4=high)") +
+  geom_sf(aes(fill = factor(Score)), color = "black", size = 0.2) +
+  scale_fill_manual(values = color_palette,
+                    na.value = "white",  # White fill for missing data
+                    name = "Score") +
   theme_minimal() +
   labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "St. Thomas and St. John",
@@ -287,12 +289,10 @@ facet_data_STX <- STX_map_dat_complete %>%
 
 # Plot with facets
 p3 = ggplot(facet_data_STX) +
-  geom_sf(aes(fill = Score), color = "black", size = 0.2) +
-  scale_fill_gradientn(colors = c("blue", "yellow", "red"), 
-                       limits = c(0, 4), 
-                       breaks = 0:4,
-                       na.value = "white",
-                       name = "Score\n(0=mean, 4=high)") +
+  geom_sf(aes(fill = factor(Score)), color = "black", size = 0.2) +
+  scale_fill_manual(values = color_palette,
+                    na.value = "white",  # White fill for missing data
+                    name = "Score") +
   theme_minimal() +
   labs(title = "Commercial Fishing Engagement and Reliance",
        subtitle = "St. Croix",

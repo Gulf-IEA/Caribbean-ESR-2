@@ -67,7 +67,7 @@ Primary productivity is a measure of the total energy available in an ecosystem,
 
 ## Sargassum inundation
 
-Sargassum (brown macroalgae *S. fluitains* and *S. natans*) is a designated essential fish habitat important for many pelagic fish and protected species; however, when large blooms collect in nearshore environments they can reduce oxygen, suffocate beaches and have detrimental impacts on marine species [@Huarticle]. Mean monthly Sargassum wet biomass is estimated from satellite measurements using the algorithm of Wang et al. [@wang2019]. Sargassum blooms were largely absent from the U.S. Caribbean prior to 2011, but bloom activity has been generally increasing since that year (@fig-sarg). Major inundation events occurred in 2018 and 2021.
+Sargassum (brown macroalgae *S. fluitains* and *S. natans*) is a designated essential fish habitat important for many pelagic fish and protected species; however, when large blooms collect in nearshore environments they can reduce oxygen, suffocate beaches and have detrimental impacts on marine species [@Huarticle]. Mean monthly Sargassum wet biomass is estimated from satellite measurements using the algorithm of Wang et al. [-@wang2019]. Sargassum blooms were largely absent from the U.S. Caribbean prior to 2011, but bloom activity has been generally increasing since that year (@fig-sarg). Major inundation events occurred in 2018 and 2021.
 
 ![Annual mean sargassum inundation in square km of cover in the U.S. Caribbean.](/indicator_plots/Sargassum_plot_final.png){#fig-sarg fig-alt="A plot showing temporal trends for the indicator" fig-align="center" width="75%"}
 
