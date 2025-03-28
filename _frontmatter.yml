@@ -1,15 +1,16 @@
 format:
   docx:
     toc: true
-    toc-depth: 2
-    reference-doc: template.docx
+    toc-depth: 3
+    lof: true
+    reference-doc: custom-reference-doc.docx
     always_allow_html: true
   titlepage-pdf:
     documentclass: scrbook
     classoption: ["oneside", "open=any"]
     keep-tex: true
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     lof: true
     lot: false
     titlepage: true

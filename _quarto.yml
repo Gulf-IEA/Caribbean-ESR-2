@@ -58,8 +58,8 @@ format:
     keep-tex: true
   docx:
     toc: true
-    toc-depth: 2
-    reference-doc: template.docx
+    toc-depth: 3
+    reference-doc: custom-reference-doc.docx
     always_allow_html: true
   html:
     theme: [cosmo, assets/theme.scss] 
