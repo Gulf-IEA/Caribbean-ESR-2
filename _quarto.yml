@@ -59,6 +59,7 @@ format:
   docx:
     toc: true
     toc-depth: 3
+    lof: true
     reference-doc: custom-reference-doc.docx
     always_allow_html: true
   html:
