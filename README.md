@@ -2,6 +2,8 @@ This repository houses data, code, documentation, and report files for the Carib
 
 This report is being built as a quarto book using the NMFS Open Science NOAA quarto book [template](https://nmfs-opensci.github.io/NOAA-quarto-book/).
 
+The methods documentation for how this report was created can be found in this repository and is called METHODS_DOC.qmd.
+
 The list of indicators included in the 2025 ESR can be found in this [table](https://docs.google.com/spreadsheets/d/1WZtclTkyLzTAARKTIa69AiEVWsXMuG2K/edit?usp=sharing&ouid=103178636955659669576&rtpof=true&sd=true). This table also includes information about data sources, indicator status, and automation level. Eventually all of this information will be migrated to an indicator [catalog](https://github.com/Gulf-IEA/ESR-indicator-catalog.git). The catalog is still a work in progress.
 
 There are several folders in this repository.
