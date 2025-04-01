@@ -1,0 +1,76 @@
+---
+title: "Methods Documentation (Traditional Ecosystem Status Report)"
+author: "Carissa Gervasi"
+editor: visual
+self-contained: TRUE
+---
+
+## Methods documentation for ESRs (work in progress)
+
+This file outlines a step by step process for creating and publishing an ESR in the NOAA Southeast region using Quarto. The methods here are largely based off how the 2025 Caribbean ESR was created, but are broad enough to apply to any ESR or indicator-based report (like an ESP). This is meant to be a working document, to be updated as new methods standards are developed by the IEA team.
+
+### Step 1: Create the quarto book
+
+Navigate to the NMFS Open Science Quarto Book [Template](https://github.com/nmfs-opensci/NOAA-quarto-book) and click the button on the top right "Use this template". Follow the directions in the template's ReadMe to set everything up in your own repository. If you are working on a Gulf IEA product, create your repository within the Gulf-IEA Github organization. This template already has a built in Github action that will render and publish the report whenever you push to Github.
+
+### Step 2: Clone the repo to your device
+
+On the Github page of your new repo, hit the green Code button and copy the https link. In R Studio on your device navigate to File --\> New Project --\> Version Control --\> Git and paste the https under Repository url. Save it somewhere on your machine.
+
+### Step 3: Set up your indicator submission issue template
+
+Add a new folder to the .github folder called ISSUE_TEMPLATE. Put a YAML file in that folder that has all the entries for the issue template. Here is the [reference](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for creating a custom issue template. (*Need to add a link here for a standardized template for the region once it is created*).
+
+**IMPORTANT** Make sure that you create a tag on Github called "submission". This tag needs to be created ahead of time, but once it is there each new issue using the template should automatically be tagged as a submission.
+
+Once all your indicators have been selected, you can fill out an issue template for each indicator with all the information you need (data source, POC, brief description, etc.). As you work through creating the report, update the issues for each indicator as new information arises (e.g., there was a change in methodology).
+
+If possible, have your collaborators submit time series data in the standard indicator time series csv format (column 1 is time, columns 2:n are the sub-indicator values associated with each time point, rows 1-3 contain metadata). See an example [here](https://github.com/Gulf-IEA/Caribbean-ESR-2/blob/main/indicator_data/inputsToBeUpdatedAnnually/NEIS%20law%20enforcement%20incidents.csv). Row 1 lists the names of the sub-indicators, row 2 is the units, and row 3 is the extent. 
+
+*Note this was not done for the 2025 Caribbean ESR, a google sheets table was used to compile the indicator information instead.*
+
+### Step 4: Set up your references
+
+If you want to take advantage of Zotero for references, set up a Zotero group library and invite any collaborators. Dump all your references associated with each indicator into that library and use the instructions [here](https://quarto.org/docs/visual-editor/technical.html#citations-from-zotero) to link them to your report. If you don't want to use Zotero, you can always just add citations manually to the references.bib file that lives in the content folder.
+
+### Step 5: Set up your folder structure
+
+Keep most of the files that exist within the template as is. There must be an index.qmd file in the main folder. Do not delete this. You can edit it to either be an executive summary or your intro section, whatever you want. Also don't delete any of the .yml files. The existing content folder is where you are going to store all your .qmd files that will be part of your report.
+
+Other folders you may want to add:
+
+| Main folder | Sub-folder | Description |
+|-------------------|-----------------------|------------------------------|
+| indicator_data | inputsToBeUpdatedAnnually | A folder to house updated data from report contributors if the data cannot be directly pulled from an API or other online data source. |
+|  | intermediateFiles | A place to store any intermediate data files that are created when cleaning and processing data. |
+|  | synthesisFiles | A place to store any data files that are created when running code to synthesize indicators and create summaries. |
+| indicator_processing | automated_download | Houses R scripts for each indicator where raw data can be pulled from an online source directly into R and manipulated into an indicator. |
+|  | non_automated | Houses R scripts for each indicator where raw data needs to be pulled from the inputsToBeUpdatedAnnually folder and manipulated into an indicator. |
+|  | fishery_dependent | If applicable, houses R scripts for indicators that are created using confidential data that cannot be stored on Github (mainly fishery dependent data). Only certain people with access to the raw data will be able to run these scripts. |
+|  | other | Call this whatever you want! You may have other processing files related to synthesis plots, etc. You can either just put any additional scripts in the main indicator_processing folder or create another sub-folder. |
+| indicator_objects | N/A | Folder to store all the final cleaned, subsetted, data files that are in the indicator data format (see above). |
+| indicator_plots | N/A | Folder to store rendered plots for use in the report. |
+| sandbox | N/A | An optional folder to store test code or anything you want to play around with before incorporating it into the report. |
+| reference_files | N/A | An optional folder to store any reference material related to indicators, like instructions for using APIs. |
+
+### Indicator workflow example
+
+The workflow for creating, plotting, and incorporating indicators into an ESR may vary depending on the ESR or related product. Below is an example workflow you may want to follow.
+
+1.  Create an R script (or quarto file if you prefer) in the appropriate indicator_processing folder and name the file after your indicator (ex. unemployment.R).
+2.  Write code to pull the data for that indicator either from an online source or from the inputsToBeUpdatedAnnually folder, clean the data, subset to the area and time frame of interest, and manipulate the data however you need to. If the indicator is not a time series, like a spatial data set, you can use this script to map or plot the indicator in whichever way you would like and then save the plot to the indicator_plots folder. If the indicator is a time series, manipulate it into the standard indicator time series format and save the .csv (or .RData) file in the indicator_objects folder. If you are using the IEAnalyzeR package, you may want to run the data_prep function within this R script and also save that output to the indicator_objects folder.
+3.  OPTIONAL - Plot all the time series indicators. You may want to create a single R script that will plot all your indicators using the plotting functions in the IEAnalyzeR package. You could also plot them within each indicator R script, whatever works best for you. You can save all the plots in the indicator_plots folder.
+4.  Bring the indicator into your report. In the content folder, decide how you want to structure your report and create separate .qmd files for each chapter. When you're ready to include an indicator, create a code block within a chapter .qmd file and either write code to plot your indicator within the .qmd file (by calling the data in indicator_objects) or just load the image file from indicator_plots. If you are going to have a lot of figures in your report, you may want to consider just loading the static image files in the quarto doc. Rendering may be very slow if you decide to plot each indicator within the quarto doc. Below is an example of pulling a png plot from the indicator_plots folder into your quarto doc, giving it a caption, alt text, and a label, and adjusting the size and alignment.
+
+``` md
+![Overall Gross Domestic Product in Puerto Rico (top)  
+and the USVI (bottom).](/indicator_plots/GDP_plot_final.png)  
+{#fig-GDP fig-alt="A plot showing temporal trends for the indicator"  
+fig-align="center" width="75%"}
+```
+
+## Publishing!
+
+Publishing your quarto report is very easy! In your \_quarto.yml file, make sure all of the chapters of your report are listed under chapters in the order you want them to appear. Make sure you also edit the \_quarto.yml file to personalize your report. Commit the changes to your repository and push them to github. The Github action will automatically render and publish the report to Github Pages and the link on your repository home page will be updated. You can also render locally if you wish. Open any of the quarto files that are part of your report in R studio and click the big render button. This will only render locally. You have to push in order to render the online version.
+
+*Debugging note*: If you run into an issue with the pdf not rendering when pushing to Github, try adding tinytex to the list of install.packages on line 18 of the render-and-publish.yml (.github –\> workflows –\> render-and-publish.yml).

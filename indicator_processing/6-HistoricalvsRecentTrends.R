@@ -74,28 +74,33 @@ period_1 <- 2000:2019
 period_2 <- 2019:2024
 
 # Loop through each indicator column (skipping the 'year' column)
-for (i in 2:ncol(matrix_data_scaled)) {
+for (i in 2:ncol(matrix_data_filtered)) {
   
   # Extract data for the indicator for each period
-  indicator_data <- matrix_data_scaled[, c("year", names(matrix_data_scaled)[i])]
+  indicator_data_scaled <- matrix_data_scaled[, c("year", names(matrix_data_scaled)[i])]
+  indicator_data_unscaled <- matrix_data_filtered[, c("year", names(matrix_data_filtered)[i])]
   
   # Subset for period 1 (2000–2019)
-  period_1_data <- indicator_data[indicator_data$year %in% period_1, ]
-  period_1_model <- lm(period_1_data[[2]] ~ period_1_data$year)
+  period_1_data_scaled <- indicator_data_scaled[indicator_data_scaled$year %in% period_1, ]
+  period_1_data_unscaled <- indicator_data_unscaled[indicator_data_unscaled$year %in% period_1, ]
+  period_1_model <- lm(period_1_data_scaled[[2]] ~ period_1_data_scaled$year)
   period_1_slope <- coef(period_1_model)[2]  # Extract slope for period 1
+  period_1_var <- mean(abs(scale(diff(period_1_data_unscaled[[2]]))), na.rm = T)
   
   # Subset for period 2 (2019–2024)
-  period_2_data <- indicator_data[indicator_data$year %in% period_2, ]
-  period_2_model <- lm(period_2_data[[2]] ~ period_2_data$year)
-  period_2_slope <- coef(period_2_model)[2]  # Extract slope for period 2
+  period_2_data_scaled <- indicator_data_scaled[indicator_data_scaled$year %in% period_2, ]
+  period_2_data_unscaled <- indicator_data_unscaled[indicator_data_unscaled$year %in% period_2, ]
+  period_2_model <- lm(period_2_data_scaled[[2]] ~ period_2_data_scaled$year)
+  period_2_slope <- coef(period_2_model)[2]  # Extract slope for period 1
+  period_2_var <- mean(abs(scale(diff(period_2_data_unscaled[[2]]))), na.rm = T)
   
   # Store the slopes and indicator name
-  slopes_list[[i-1]] <- c(names(matrix_data_scaled)[i], period_1_slope, period_2_slope)
+  slopes_list[[i-1]] <- c(names(matrix_data_filtered)[i], period_1_slope, period_2_slope, period_1_var, period_2_var)
 }
 
 # Convert the list into a dataframe
 slope_table <- do.call(rbind, slopes_list)
-colnames(slope_table) <- c("Indicator", "historic_slope", "recent_slope")
+colnames(slope_table) <- c("Indicator", "historic_slope", "recent_slope", "historic_var", "recent_var")
 
 # Convert slope_table to a data frame
 slope_table <- as.data.frame(slope_table)
@@ -128,9 +133,11 @@ slope_table <- slope_table %>%
 
 
 # Plot it ###############################################################
-# Convert the slopes to numeric 
+# Convert the slopes and variability to numeric 
 slope_table$historic_slope <- as.numeric(slope_table$historic_slope)
 slope_table$recent_slope <- as.numeric(slope_table$recent_slope)
+slope_table$historic_var <- as.numeric(slope_table$historic_var)
+slope_table$recent_var <- as.numeric(slope_table$recent_var)
 
 # Define plot limits to be from -1 to 1 for both axes
 x_min <- -0.9
@@ -168,7 +175,7 @@ location_shapes <- c(
   "Caribbean" = 16         # Circle
 )
 
-# Create ggplot scatter plot
+# Create ggplot scatter plot of slopes
 ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location, shape = Location)) +
   geom_polygon(data = shade_polygon, aes(x = x, y = y), 
                fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
@@ -192,3 +199,40 @@ ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator,
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  
 
 
+
+# DON'T THINK THIS IS RIGHT
+
+# Define plot limits to be from -1 to 1 for both axes
+x_min <- -0.9
+x_max <- 0.9
+y_min <- -0.9
+y_max <- 0.9
+
+# Define the polygon to shade below the 1:1 line (y = x)
+shade_polygon <- data.frame(
+  x = c(x_min-1, x_max+1, x_max+1),  # Covers full x-range
+  y = c(x_min-1, x_max+1, y_min-1)   # Defines the lower triangle below y = x
+)
+
+# Create ggplot scatter plot of variability
+ggplot(slope_table, aes(x = historic_var, y = recent_var, label = Indicator, color = Location, shape = Location)) +
+  geom_polygon(data = shade_polygon, aes(x = x, y = y), 
+               fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
+  geom_point(size = 3) + 
+  #geom_text(aes(label = Indicator), vjust = -0.5, hjust = 0.5, size = 2) +
+  geom_text_repel(size = 2, box.padding = 0.5, max.overlaps = Inf) +
+  #geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1) + 
+  geom_hline(yintercept = 0, color = "gray50", linetype = "solid") +
+  geom_vline(xintercept = 0, color = "gray50", linetype = "solid") +
+  labs(title = "Historic vs Recent Trends by Indicator",
+       x = "Historic trend (2000-2019)",
+       y = "Recent trend (2019-2024)") +
+  coord_cartesian(xlim = c(x_min, x_max), ylim = c(y_min, y_max)) +
+  facet_wrap(~type, labeller = labeller(type = new_labels)) +
+  scale_color_manual(values = location_colors) +
+  scale_shape_manual(values = location_shapes) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),  
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1.2)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  
