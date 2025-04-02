@@ -1,6 +1,6 @@
-# Code to plot historical vs. recent trends and variability for each indicator
+# Code to plot historical vs. recent trends and variability for each time series indicator
 
-# last updated 3/27/25 by Carissa Gervasi
+# last updated 4/2/25 by Carissa Gervasi
 
 rm(list = ls())
 
@@ -21,8 +21,6 @@ dim(matrix_data)
 
 class(matrix_data$year)
 matrix_data$year <- as.numeric(matrix_data$year)
-
-# Label each indicator as risk or performance
 
 
 # cut time series to start at 2000 (most time series start in the 2000s) ---------
@@ -60,13 +58,13 @@ matrix_data_filtered <- matrix_data[, c(1, which(keep_cols) + 1)]
 # View the resulting dataframe
 head(matrix_data_filtered)
 
-# scale the indicator data
+# scale the indicator data for comparison among indicators
 matrix_data_scaled <- matrix_data_filtered
 matrix_data_scaled[, -1] <- scale(matrix_data_filtered[, -1])
 
 
-# run linear models and extract the slopes ---------------------------
-# Initialize an empty list to store the slopes
+# run linear models and extract the slopes & calculate variability ---------------------------
+# Initialize an empty list 
 slopes_list <- list()
 
 # Define the periods again
@@ -74,28 +72,25 @@ period_1 <- 2000:2019
 period_2 <- 2019:2024
 
 # Loop through each indicator column (skipping the 'year' column)
-for (i in 2:ncol(matrix_data_filtered)) {
+for (i in 2:ncol(matrix_data_scaled)) {
   
   # Extract data for the indicator for each period
   indicator_data_scaled <- matrix_data_scaled[, c("year", names(matrix_data_scaled)[i])]
-  indicator_data_unscaled <- matrix_data_filtered[, c("year", names(matrix_data_filtered)[i])]
-  
+
   # Subset for period 1 (2000–2019)
   period_1_data_scaled <- indicator_data_scaled[indicator_data_scaled$year %in% period_1, ]
-  period_1_data_unscaled <- indicator_data_unscaled[indicator_data_unscaled$year %in% period_1, ]
   period_1_model <- lm(period_1_data_scaled[[2]] ~ period_1_data_scaled$year)
   period_1_slope <- coef(period_1_model)[2]  # Extract slope for period 1
-  period_1_var <- mean(abs(scale(diff(period_1_data_unscaled[[2]]))), na.rm = T)
+  period_1_var <- mean(abs(scale(diff(period_1_data_scaled[[2]]))), na.rm = T)
   
   # Subset for period 2 (2019–2024)
   period_2_data_scaled <- indicator_data_scaled[indicator_data_scaled$year %in% period_2, ]
-  period_2_data_unscaled <- indicator_data_unscaled[indicator_data_unscaled$year %in% period_2, ]
   period_2_model <- lm(period_2_data_scaled[[2]] ~ period_2_data_scaled$year)
   period_2_slope <- coef(period_2_model)[2]  # Extract slope for period 1
-  period_2_var <- mean(abs(scale(diff(period_2_data_unscaled[[2]]))), na.rm = T)
+  period_2_var <- mean(abs(scale(diff(period_2_data_scaled[[2]]))), na.rm = T)
   
   # Store the slopes and indicator name
-  slopes_list[[i-1]] <- c(names(matrix_data_filtered)[i], period_1_slope, period_2_slope, period_1_var, period_2_var)
+  slopes_list[[i-1]] <- c(names(matrix_data_scaled)[i], period_1_slope, period_2_slope, period_1_var, period_2_var)
 }
 
 # Convert the list into a dataframe
@@ -107,6 +102,8 @@ slope_table <- as.data.frame(slope_table)
 
 # Print the resulting table
 print(slope_table)
+
+# Note: some indicators have NaN for current variability because the data points were not consecutive (can't diff without consecutive data points, this mostly applies to the RVC data which has been collected every other year in the recent time period).
 
 # Add a column to slope_table with the category of indicator (risk and performance) so we can plot each group separately -------------------------------------------------
 
@@ -139,7 +136,10 @@ slope_table$recent_slope <- as.numeric(slope_table$recent_slope)
 slope_table$historic_var <- as.numeric(slope_table$historic_var)
 slope_table$recent_var <- as.numeric(slope_table$recent_var)
 
-# Define plot limits to be from -1 to 1 for both axes
+
+# Trends
+
+# Define plot limits 
 x_min <- -0.9
 x_max <- 0.9
 y_min <- -0.9
@@ -176,15 +176,13 @@ location_shapes <- c(
 )
 
 # Create ggplot scatter plot of slopes
-ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location, shape = Location)) +
+P1 = ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator, color = Location, shape = Location)) +
   geom_polygon(data = shade_polygon, aes(x = x, y = y), 
                fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
   geom_point(size = 3) + 
-  #geom_text(aes(label = Indicator), vjust = -0.5, hjust = 0.5, size = 2) +
   geom_text_repel(size = 2, box.padding = 0.5, max.overlaps = Inf) +
-  #geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1) + 
-  geom_hline(yintercept = 0, color = "gray50", linetype = "solid") +
-  geom_vline(xintercept = 0, color = "gray50", linetype = "solid") +
+  annotate("text", x = x_min, y = y_max, label = "more positive", color = "black", size = 4, fontface = "bold", hjust = 0) +
+  annotate("text", x = x_max - 0.5, y = y_min, label = "more negative", color = "black", size = 4, fontface = "bold", hjust = 0) +
   labs(title = "Historic vs Recent Trends by Indicator",
        x = "Historic trend (2000-2019)",
        y = "Recent trend (2019-2024)") +
@@ -199,14 +197,13 @@ ggplot(slope_table, aes(x = historic_slope, y = recent_slope, label = Indicator,
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  
 
 
+# Variability
 
-# DON'T THINK THIS IS RIGHT
-
-# Define plot limits to be from -1 to 1 for both axes
-x_min <- -0.9
-x_max <- 0.9
-y_min <- -0.9
-y_max <- 0.9
+# Define plot limits
+x_min <- 0.5
+x_max <- 1
+y_min <- 0.5
+y_max <- 1
 
 # Define the polygon to shade below the 1:1 line (y = x)
 shade_polygon <- data.frame(
@@ -215,18 +212,16 @@ shade_polygon <- data.frame(
 )
 
 # Create ggplot scatter plot of variability
-ggplot(slope_table, aes(x = historic_var, y = recent_var, label = Indicator, color = Location, shape = Location)) +
+P2 = ggplot(slope_table, aes(x = historic_var, y = recent_var, label = Indicator, color = Location, shape = Location)) +
   geom_polygon(data = shade_polygon, aes(x = x, y = y), 
                fill = "lightgray", alpha = 0.5, inherit.aes = FALSE) +
   geom_point(size = 3) + 
-  #geom_text(aes(label = Indicator), vjust = -0.5, hjust = 0.5, size = 2) +
   geom_text_repel(size = 2, box.padding = 0.5, max.overlaps = Inf) +
-  #geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1) + 
-  geom_hline(yintercept = 0, color = "gray50", linetype = "solid") +
-  geom_vline(xintercept = 0, color = "gray50", linetype = "solid") +
-  labs(title = "Historic vs Recent Trends by Indicator",
-       x = "Historic trend (2000-2019)",
-       y = "Recent trend (2019-2024)") +
+  annotate("text", x = x_min, y = y_max, label = "less stable", color = "black", size = 4, fontface = "bold", hjust = 0) +
+  annotate("text", x = x_max - 0.1, y = y_min, label = "more stable", color = "black", size = 4, fontface = "bold", hjust = 0) +
+  labs(title = "Historic vs Recent Variability by Indicator",
+       x = "Historic variability (2000-2019)",
+       y = "Recent variability (2019-2024)") +
   coord_cartesian(xlim = c(x_min, x_max), ylim = c(y_min, y_max)) +
   facet_wrap(~type, labeller = labeller(type = new_labels)) +
   scale_color_manual(values = location_colors) +
@@ -236,3 +231,12 @@ ggplot(slope_table, aes(x = historic_var, y = recent_var, label = Indicator, col
     panel.grid = element_blank(),  
     panel.border = element_rect(color = "black", fill = NA, linewidth = 1.2)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  
+
+
+# Save the plots
+ggsave("indicator_plots/histvscurrent_trends.png", plot = P1, width = 11, height = 7, bg = "white")
+ggsave("indicator_plots/histvscurrent_var.png", plot = P2, width = 11, height = 7, bg = "white")
+
+
+
+### END SCRIPT ###
