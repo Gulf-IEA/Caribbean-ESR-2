@@ -26,10 +26,10 @@ library(gt)
 
 
 # a test version of the data prep function. This now works with multiple indicators where the extent or unit is repeated and with monthly data
-df = DHW
+df = ACE
 df = cruise
 df = OA
-i=2
+i=1
 subind = "extent"
 trends = T
 
@@ -188,7 +188,7 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
         sd<-sd(as.numeric(sub_df$value), na.rm = T)
         neg<-sub_df
         neg$value<-ifelse(neg$valence == "neg",neg$value, mean)
-        neg$subnm<-subnm_un[i,1] #changed this *****************************
+        neg$subnm<-subnm_un[i,1] 
         neg$mean<-mean
         neg$sd<-sd
         neg<-neg[!is.na(neg$value),]
@@ -205,6 +205,8 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
     if(ncol(df_dat)<6){
       mean<-mean(as.numeric(df_dat$value), na.rm = T)
       sd<-sd(as.numeric(df_dat$value), na.rm = T)
+      minyear<-min(na.omit(df_dat)$year)
+      maxyear<-max(na.omit(df_dat)$year)
       
       #Trend Analysis
       last5<-df_dat[df_dat$year > max(df_dat$year)-5,]
@@ -224,6 +226,8 @@ data_prep_test <-function (df, trends = T, subind = FALSE){
       #Dataframe
       vals<-data.frame(mean=mean,
                        sd=sd,
+                       minyear=minyear, 
+                       maxyear=maxyear, 
                        mean_tr=mean_tr,
                        slope_tr=slope_tr,
                        mean_sym=mean_sym,
@@ -294,9 +298,9 @@ Reg = read.csv("indicator_objects/objects_as_csvs/FRsection.csv", header = F)
 head(EQ)
 head(Reg)
 
-EQ_obj = IEAnalyzeR::data_prep(EQ)
+EQ_obj = data_prep_test(EQ)
 str(EQ_obj)
-Reg_obj = IEAnalyzeR::data_prep(Reg)
+Reg_obj = data_prep_test(Reg)
 str(Reg_obj)
 
 IEAnalyzeR::plot_fn_obj(EQ_obj)
@@ -326,7 +330,7 @@ tier3 = read.csv("indicator_objects/objects_as_csvs/tier3.csv", header = F)
 totalrec = read.csv("indicator_objects/objects_as_csvs/total_rec_catch.csv", header=F)
 
 
-obj = IEAnalyzeR::data_prep(totalrec)
+obj = data_prep_test(totalrec)
 str(obj)
 
 # These all seem to work fine too SUCCESS
