@@ -1,0 +1,247 @@
+name: Caribbean ESR - Tech Doc submission
+description: Use this issue template to submit technical documentation for each data set used in the Caribbean Ecosystem Status Report 
+title: "[Submission]: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to the Caribbean ESR report! Please reach out to carissa.gervasi@noaa.gov with any questions or concerns.
+        
+  - type: input
+    id: your_name
+    attributes:
+      label: Name and affiliation of person filling out this form
+      description: Enter your name, email, and affiliation.
+      placeholder: Ex. Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC
+    validations:
+      required: true
+        
+  - type: input
+    id: contact1
+    attributes:
+      label: Primary Contact
+      description: Who is the primary point of contact for this dataset? You may put yourself.
+      placeholder: ex. email@noaa.gov
+    validations:
+      required: true
+      
+  - type: input
+    id: contact2
+    attributes:
+      label: Secondary Contact
+      description: Who is the secondary point of contact for this dataset?
+      placeholder: ex. email@noaa.gov
+    validations:
+      required: false
+      
+  - type: input
+    id: data_name
+    attributes:
+      label: Data Name (This will be the displayed title in the Technical Documentation)
+      description: Enter the name of the data set.
+      placeholder: Ex. Annual Sea Surface Temperature
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: indicator_name
+    attributes:
+      label: Indicator Name (as listed in the ESR report)
+      description: Please check the indicator this dataset is associated with.
+      options:
+        - label: Abundance of economically important species
+        - label: Changes in gear type
+        - label: Coastal development
+        - label: Commercial fishing engagement and reliance
+        - label: Commercial fishing trips
+        - label: Commercial landings
+        - label: Commercial revenue distribution
+        - label: Commercial revenues
+        - label: Coral bleaching stress
+        - label: Coral cover and species diversity 
+        - label: Earthquake activity
+        - label: Economic activity
+        - label: Education and outreach events
+        - label: Enforcement actions
+        - label: Human activity
+        - label: Hurricane activity 
+        - label: Market disturbances 
+        - label: Maximum length in the landings
+        - label: Ocean acidification
+        - label: Ocean economy 
+        - label: Pelagic:demersal ratio of landings
+        - label: Point source pollution 
+        - label: Primary productivity 
+        - label: Recreational landings
+        - label: Regulatory trends
+        - label: Sargassum inundation
+        - label: Sea surface temperature
+        - label: Species with informative catch limits
+        - label: Turbidity
+        - label: Water quality 
+        - label: Not yet linked to an indicator
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: group_name
+    attributes:
+      label: Category (Which group is this indicator associated with?)
+      description: Please check the group that applies to your indicator.
+      options:
+        - label: Tracking performance toward fishery management objectives
+        - label: Risks to meeting fishery management objectives
+        - label: Not yet linked to an indicator
+    validations:
+      required: true
+        
+  - type: checkboxes
+    id: family_name
+    attributes:
+      label: Family (Which group is this indicator associated with?)
+      description: Please check the group(s) that could apply to your indicator.
+      options:
+        - label: Risks to objectives
+        - label: Food production
+        - label: Socioeconomic health
+        - label: Equality
+        - label: Engagement and participation
+        - label: Bycatch reduction
+        - label: Governance
+        - label: Protection of ecosystems
+        - label: Not yet linked to an indicator
+    validations:
+      required: true
+ 
+  - type: textarea
+    id: data_description
+    attributes:
+      label: Data Description
+      description: Briefly describe the data set.
+      value: "Ex: The data presented here are the degree heating weeks (DHW) for Puerto Rico and the US Virgin Islands Daily 5km Regional Virtual Stations."
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: data_type
+    attributes:
+      label: Data Type
+      description: Please check whether the data are accessed from an online source such as an API (automated download), whether the data are confidential and need permissions to access (fishery dependent), or if the data need to be accessed by an external collaborator and shared with the ESR report team (Non-automated).     
+      options:
+        - label: Automated download
+        - label: Fishery-dependent (confidential data)
+        - label: Non-automated data access
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: public_availability
+    attributes:
+      label: Public Availability
+      description: State public availability of source data for this indicator.
+      multiple: false
+      options:
+        - Source data are publicly available.
+        - Source data are NOT publicly available.
+    validations:
+      required: true
+      
+  - type: input
+    id: accessibility
+    attributes:
+      label: Accessibility and Constraints
+      description: If source data are NOT publicly available, what are the procedures for accessing the data?
+      placeholder: Ex. Please email your.email@noaa.gov for further information and queries of X indicator source data.
+    validations:
+      required: false
+      
+  - type: textarea
+    id: methods
+    attributes:
+      label: Methods for accessing and preparing data
+      description: Please describe the methods used to access the data, subset if necessary, and manipulate into the final format that will be used in the ESR.
+      value: "Please be as detailed as possible. If the data are available in an online repository, please include the website link."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: methods_script
+    attributes:
+      label: Name of R script used to access and manipulate dataset
+      description: Please add here the name of the R script in Github that is used to access/load and manipulate the dataset into an indicator for the Caribbean ESR. Put TBD if a script does not yet exist.
+      value: "Ex. marine_debris.R"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: figures
+    attributes:
+      label: Key figures
+      description: Please describe the best way to visualize the data.
+      value: "If not a typical time series plot, please be as detailed as possible when describing the best way to visualize the data."
+    validations:
+      required: false
+      
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Interpretation
+      description: Please provide a summary on how to interpret this indicator and any key findings.
+      value: "Proceed as though this were a short summary of a typical discussion section in a paper."
+    validations:
+      required: false
+      
+  - type: input
+    id: spatial_scale
+    attributes:
+      label: Spatial Scale
+      description: Please briefly describe the spatial scale of the indicator.
+      placeholder: ex. island-level, community-level, etc.
+    validations:
+      required: false
+      
+  - type: input
+    id: temporal_scale
+    attributes:
+      label: Temporal Scale
+      description: Please briefly describe the temporal scale of the indicator.
+      placeholder: ex. Spring (January-June), Fall (July-December), Annual.
+    validations:
+      required: false  
+      
+  - type: input
+    id: data_limitations
+    attributes:
+      label: Data Limitations
+      description: Please briefly describe any important limitations of the data.
+      placeholder: "Provide a short summary of the key limitations and how they impact the indicator"    
+    validations:
+      required: false   
+      
+  - type: textarea
+    id: define_variables
+    attributes:
+      label: Define Variables
+      description: Provide definitions for all variable names with units.
+      value: "Ex: 1) Name: piscivore_biomass; Definition: Biomass of piscivores; Units: kg tow^-1. 2) Name: forage_biomass; Definition: Biomass of forage fish; Units: kg tow^-1."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: references
+    attributes:
+      label: Key references
+      description: Please provide full citations for any publications, white papers, or websites related to this dataset. Provide links where available.  
+      value: "Ex. Surface North Atlantic MOM5-TOPAZ outputs derived from a regular hindcast and a robust diagnostic simulation experiment from 1980-01-01 to 2017-12-31 (NCEI Accession 0283628). NOAA National Centers for Environmental Information. Dataset. https://www.ncei.noaa.gov/archive/accession/0283628. Accessed 2023-02-19."
+    validations:
+      required: false
+      
+  - type: textarea
+    id: data_contributors
+    attributes:
+      label: Data Contributors
+      description: Enter the names of all contributing persons (i.e., anyone who should be listed as a contributor in the ESR report).
+      value: "Ex: Carissa Gervasi, Mandy Karnauskas."
+    validations:
+      required: true
