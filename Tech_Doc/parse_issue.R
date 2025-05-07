@@ -1,41 +1,45 @@
-#' Parse a single Catalog submission issue from Github
-#' 
-#' @param issueData list. output from GitHub API pull of ALL issues
-#' @param issueNum numeric. The number of the issue as assigned by GitHub
-#' 
-#' @return list of containing issue heading names with associated content
-#' 
-
-parse_issue <- function(issueData,issueNum){
+#' Parse sections of a GitHub issue body into a named list
+#'
+#' This function parses a GitHub issue body (typically written using a Markdown template)
+#' into a named list where each element corresponds to the content under a `###` header.
+#' The headers are used as list names, and the text between each header and the next
+#' header is stored as the value.
+#'
+#' @param issue_body A character string representing the full Markdown-formatted body of a GitHub issue.
+#'
+#' @return A named list, where each name is a header (without the `### ` prefix), and each
+#' value is a character string containing the text below that header (until the next `###`).
+#'
+#' @examples
+#' body_text <- "### Section One\nSome content here.\n\n### Section Two\n- [x] Option A\n- [ ] Option B"
+#' parse_issue(body_text)
+#' # Returns: list("Section One" = "Some content here.", "Section Two" = "- [x] Option A\n- [ ] Option B")
+#'
+#' @export
+parse_issue <- function(issue_body) {
+  lines <- unlist(strsplit(issue_body, "\n"))
   
-  objectList <- list()
-  if (length(issueData$issues$number)==1) {
-    # single issue
-    body <- issueData$issues$body
-  } else {
-    # multiple issues. pick the right one
-    id <- which(issueData$issues$number==issueNum)
-    body <- issueData$issues[id,]$body
+  # Identify the lines that are headers
+  header_lines <- grep("^### ", lines)
+  
+  # Extract header names (remove the ### and leading/trailing whitespace)
+  headers <- trimws(gsub("^###\\s*", "", lines[header_lines]))
+  
+  # Initialize result list
+  result <- list()
+  
+  # Loop through headers and extract the section content
+  for (i in seq_along(header_lines)) {
+    start <- header_lines[i] + 1
+    end <- if (i < length(header_lines)) header_lines[i + 1] - 1 else length(lines)
+    
+    section <- lines[start:end]
+    # Remove trailing empty lines
+    section <- sub("\\s+$", "", section)
+    section_text <- paste(section, collapse = "\n")
+    
+    result[[headers[i]]] <- section_text
   }
   
-  headings <- unlist(stringr::str_extract_all(body,"\n###\\s+[a-zA-Z (.)\"\\?,]+"))
-
-  for (ahead in headings) {
-    modifiedHead <- gsub("\\","",ahead,fixed=T)
-    modifiedHead <- gsub("(","\\(",modifiedHead,fixed=T)
-    modifiedHead <- gsub(")","\\)",modifiedHead,fixed=T)
-    modifiedHead <- gsub("?","\\?",modifiedHead,fixed=T)
-    byhead <- unlist(strsplit(body,modifiedHead))[2]
-    res <- unlist(strsplit(byhead,"\n### "))[1]
-    # remove beginning and trailing \n (line feed) and \r (carriage return)
-    modifiedRes <- trimws(res)
-    # modifiedRes <- sub("\\n+$","",modifiedRes)
-    # modifiedRes <- sub("^\\r\\n+","",modifiedRes)
-    # modifiedRes <- sub("\\r\\n+$","",modifiedRes)
-    ahead <- trimws(ahead)
-    objectList[ahead] <- modifiedRes
-  }
-
-  return(objectList)
-  
+  return(result)
 }
