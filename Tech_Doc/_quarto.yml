@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "Technical Documentation"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Data Issues"
+        menu:
+          - href: data-issues/Test_data.qmd
+            text: "Test Data 1"
+          - href: data-issues/Test_data_2.qmd
+            text: "Test Data 2"
+
+format:
+  html:
+    theme: cosmo

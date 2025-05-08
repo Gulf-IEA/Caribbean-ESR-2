@@ -1,0 +1,8 @@
+---
+title: "Technical Documentation"
+format: html
+---
+
+# Welcome to the Technical Documentation
+
+This site compiles all technical documentation collected via GitHub issue templates. Use the navigation bar above to explore individual submissions.
