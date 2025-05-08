@@ -7,7 +7,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: "Data Issues"
+      - text: "Datasets"
         menu:
           - href: data-issues/Test_data.qmd
             text: "Test Data 1"
