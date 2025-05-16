@@ -5,5 +5,299 @@
     "title": "Technical Documentation",
     "section": "",
     "text": "Welcome to the Technical Documentation\nThis site compiles all technical documentation collected via GitHub issue templates. Use the navigation bar above to explore individual submissions."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html",
+    "href": "issues/Submission_test_submission.html",
+    "title": "Test data",
+    "section": "",
+    "text": "Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#name-and-affiliation-of-person-filling-out-this-form",
+    "href": "issues/Submission_test_submission.html#name-and-affiliation-of-person-filling-out-this-form",
+    "title": "Test data",
+    "section": "",
+    "text": "Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#primary-contact",
+    "href": "issues/Submission_test_submission.html#primary-contact",
+    "title": "Test data",
+    "section": "Primary Contact",
+    "text": "Primary Contact\nCarissa Gervasi"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#secondary-contact",
+    "href": "issues/Submission_test_submission.html#secondary-contact",
+    "title": "Test data",
+    "section": "Secondary Contact",
+    "text": "Secondary Contact\nNo response"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#indicator-name-as-listed-in-the-esr-report",
+    "href": "issues/Submission_test_submission.html#indicator-name-as-listed-in-the-esr-report",
+    "title": "Test data",
+    "section": "Indicator Name (as listed in the ESR report)",
+    "text": "Indicator Name (as listed in the ESR report)\nNot yet linked to an indicator"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#category-which-group-is-this-indicator-associated-with",
+    "href": "issues/Submission_test_submission.html#category-which-group-is-this-indicator-associated-with",
+    "title": "Test data",
+    "section": "Category (Which group is this indicator associated with?)",
+    "text": "Category (Which group is this indicator associated with?)\nNot yet linked to an indicator"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#family-which-group-is-this-indicator-associated-with",
+    "href": "issues/Submission_test_submission.html#family-which-group-is-this-indicator-associated-with",
+    "title": "Test data",
+    "section": "Family (Which group is this indicator associated with?)",
+    "text": "Family (Which group is this indicator associated with?)\nNot yet linked to an indicator"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#data-description",
+    "href": "issues/Submission_test_submission.html#data-description",
+    "title": "Test data",
+    "section": "Data Description",
+    "text": "Data Description\nEx: The data presented here are the degree heating weeks (DHW) for Puerto Rico and the US Virgin Islands Daily 5km Regional Virtual Stations."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#data-type",
+    "href": "issues/Submission_test_submission.html#data-type",
+    "title": "Test data",
+    "section": "Data Type",
+    "text": "Data Type\nNon-automated data access"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#public-availability",
+    "href": "issues/Submission_test_submission.html#public-availability",
+    "title": "Test data",
+    "section": "Public Availability",
+    "text": "Public Availability\nSource data are NOT publicly available."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#accessibility-and-constraints",
+    "href": "issues/Submission_test_submission.html#accessibility-and-constraints",
+    "title": "Test data",
+    "section": "Accessibility and Constraints",
+    "text": "Accessibility and Constraints\nCall 867-5309"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#methods-for-accessing-and-preparing-data",
+    "href": "issues/Submission_test_submission.html#methods-for-accessing-and-preparing-data",
+    "title": "Test data",
+    "section": "Methods for accessing and preparing data",
+    "text": "Methods for accessing and preparing data\nCall the phone number, get an email with the data."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#name-of-r-script-used-to-access-and-manipulate-dataset",
+    "href": "issues/Submission_test_submission.html#name-of-r-script-used-to-access-and-manipulate-dataset",
+    "title": "Test data",
+    "section": "Name of R script used to access and manipulate dataset",
+    "text": "Name of R script used to access and manipulate dataset\nTest_data.R"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#key-figures",
+    "href": "issues/Submission_test_submission.html#key-figures",
+    "title": "Test data",
+    "section": "Key figures",
+    "text": "Key figures\nTime series (standardized monthly anomaly)"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#interpretation",
+    "href": "issues/Submission_test_submission.html#interpretation",
+    "title": "Test data",
+    "section": "Interpretation",
+    "text": "Interpretation\nIt’s hard to interpret data that isn’t real."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#spatial-scale",
+    "href": "issues/Submission_test_submission.html#spatial-scale",
+    "title": "Test data",
+    "section": "Spatial Scale",
+    "text": "Spatial Scale\nCounty level"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#temporal-scale",
+    "href": "issues/Submission_test_submission.html#temporal-scale",
+    "title": "Test data",
+    "section": "Temporal Scale",
+    "text": "Temporal Scale\nAnnual"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#data-limitations",
+    "href": "issues/Submission_test_submission.html#data-limitations",
+    "title": "Test data",
+    "section": "Data Limitations",
+    "text": "Data Limitations\nThe data does not exist"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#define-variables",
+    "href": "issues/Submission_test_submission.html#define-variables",
+    "title": "Test data",
+    "section": "Define Variables",
+    "text": "Define Variables\n\n\n\nName\nDefinition\nUnits\n\n\n\n\ncolumn1\na measure of something\nmeters\n\n\ncolumn 2\na measure of something else\nnumbers (thousands)"
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#key-references",
+    "href": "issues/Submission_test_submission.html#key-references",
+    "title": "Test data",
+    "section": "Key references",
+    "text": "Key references\nEx. Surface North Atlantic MOM5-TOPAZ outputs derived from a regular hindcast and a robust diagnostic simulation experiment from 1980-01-01 to 2017-12-31 (NCEI Accession 0283628). NOAA National Centers for Environmental Information. Dataset. https://www.ncei.noaa.gov/archive/accession/0283628. Accessed 2023-02-19."
+  },
+  {
+    "objectID": "issues/Submission_test_submission.html#data-contributors",
+    "href": "issues/Submission_test_submission.html#data-contributors",
+    "title": "Test data",
+    "section": "Data Contributors",
+    "text": "Data Contributors\nCarissa Gervasi, Mandy Karnauskas."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html",
+    "href": "issues/Submission_Test_data_2.html",
+    "title": "Unicorns in Florida",
+    "section": "",
+    "text": "Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#name-and-affiliation-of-person-filling-out-this-form",
+    "href": "issues/Submission_Test_data_2.html#name-and-affiliation-of-person-filling-out-this-form",
+    "title": "Unicorns in Florida",
+    "section": "",
+    "text": "Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#primary-contact",
+    "href": "issues/Submission_Test_data_2.html#primary-contact",
+    "title": "Unicorns in Florida",
+    "section": "Primary Contact",
+    "text": "Primary Contact\nsomeone@someone.com"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#secondary-contact",
+    "href": "issues/Submission_Test_data_2.html#secondary-contact",
+    "title": "Unicorns in Florida",
+    "section": "Secondary Contact",
+    "text": "Secondary Contact\nsomeoneelse@someone.com"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#indicator-name-as-listed-in-the-esr-report",
+    "href": "issues/Submission_Test_data_2.html#indicator-name-as-listed-in-the-esr-report",
+    "title": "Unicorns in Florida",
+    "section": "Indicator Name (as listed in the ESR report)",
+    "text": "Indicator Name (as listed in the ESR report)\nMarket disturbances"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#category-which-group-is-this-indicator-associated-with",
+    "href": "issues/Submission_Test_data_2.html#category-which-group-is-this-indicator-associated-with",
+    "title": "Unicorns in Florida",
+    "section": "Category (Which group is this indicator associated with?)",
+    "text": "Category (Which group is this indicator associated with?)\nRisks to meeting fishery management objectives"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#family-which-group-is-this-indicator-associated-with",
+    "href": "issues/Submission_Test_data_2.html#family-which-group-is-this-indicator-associated-with",
+    "title": "Unicorns in Florida",
+    "section": "Family (Which group is this indicator associated with?)",
+    "text": "Family (Which group is this indicator associated with?)\nEngagement and participation"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#data-description",
+    "href": "issues/Submission_Test_data_2.html#data-description",
+    "title": "Unicorns in Florida",
+    "section": "Data Description",
+    "text": "Data Description\nThis dataset tallies the number of unicorn sightings in Florida over a 10 year study."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#data-type",
+    "href": "issues/Submission_Test_data_2.html#data-type",
+    "title": "Unicorns in Florida",
+    "section": "Data Type",
+    "text": "Data Type\nAutomated download"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#public-availability",
+    "href": "issues/Submission_Test_data_2.html#public-availability",
+    "title": "Unicorns in Florida",
+    "section": "Public Availability",
+    "text": "Public Availability\nSource data are publicly available."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#accessibility-and-constraints",
+    "href": "issues/Submission_Test_data_2.html#accessibility-and-constraints",
+    "title": "Unicorns in Florida",
+    "section": "Accessibility and Constraints",
+    "text": "Accessibility and Constraints\nData are publicly available"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#methods-for-accessing-and-preparing-data",
+    "href": "issues/Submission_Test_data_2.html#methods-for-accessing-and-preparing-data",
+    "title": "Unicorns in Florida",
+    "section": "Methods for accessing and preparing data",
+    "text": "Methods for accessing and preparing data\nGo to www.unicornsarereal.com to access the data portal. There is an API you can use to pull the data into R. The instructions for using the API can be found here."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#name-of-r-script-used-to-access-and-manipulate-dataset",
+    "href": "issues/Submission_Test_data_2.html#name-of-r-script-used-to-access-and-manipulate-dataset",
+    "title": "Unicorns in Florida",
+    "section": "Name of R script used to access and manipulate dataset",
+    "text": "Name of R script used to access and manipulate dataset\nunicorns.R"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#key-figures",
+    "href": "issues/Submission_Test_data_2.html#key-figures",
+    "title": "Unicorns in Florida",
+    "section": "Key figures",
+    "text": "Key figures\nThis is a typical annual time series plot"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#interpretation",
+    "href": "issues/Submission_Test_data_2.html#interpretation",
+    "title": "Unicorns in Florida",
+    "section": "Interpretation",
+    "text": "Interpretation\nThe number of unicorns sighted over time is an indicator of how crazy people are which can cause increased uncertainty in management."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#spatial-scale",
+    "href": "issues/Submission_Test_data_2.html#spatial-scale",
+    "title": "Unicorns in Florida",
+    "section": "Spatial Scale",
+    "text": "Spatial Scale\nFlorida"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#temporal-scale",
+    "href": "issues/Submission_Test_data_2.html#temporal-scale",
+    "title": "Unicorns in Florida",
+    "section": "Temporal Scale",
+    "text": "Temporal Scale\nAnnual"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#data-limitations",
+    "href": "issues/Submission_Test_data_2.html#data-limitations",
+    "title": "Unicorns in Florida",
+    "section": "Data Limitations",
+    "text": "Data Limitations\nData are collected via a random survey. Survey participants may not be representative of the larger population of Florida."
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#define-variables",
+    "href": "issues/Submission_Test_data_2.html#define-variables",
+    "title": "Unicorns in Florida",
+    "section": "Define Variables",
+    "text": "Define Variables\n\n\n\n\n\n\n\n\nName\nDefinition\nUnits\n\n\n\n\n1)\nNA\nNA\n\n\nunicorn number; Definition: number of unicorns sighted; Units: numbers\nNA\nNA"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#key-references",
+    "href": "issues/Submission_Test_data_2.html#key-references",
+    "title": "Unicorns in Florida",
+    "section": "Key references",
+    "text": "Key references\nN/A"
+  },
+  {
+    "objectID": "issues/Submission_Test_data_2.html#data-contributors",
+    "href": "issues/Submission_Test_data_2.html#data-contributors",
+    "title": "Unicorns in Florida",
+    "section": "Data Contributors",
+    "text": "Data Contributors\nthe unicorn collective"
   }
 ]

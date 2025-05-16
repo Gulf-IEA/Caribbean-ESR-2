@@ -1,0 +1,88 @@
+---
+title: "Unicorns in Florida"
+format: html
+---
+
+## Name and affiliation of person filling out this form
+
+Carissa Gervasi, carissa.gervasi@noaa.gov, SEFSC
+
+## Primary Contact
+
+someone@someone.com
+
+## Secondary Contact
+
+someoneelse@someone.com
+
+## Indicator Name (as listed in the ESR report)
+
+Market disturbances
+
+## Category (Which group is this indicator associated with?)
+
+Risks to meeting fishery management objectives
+
+## Family (Which group is this indicator associated with?)
+
+Engagement and participation
+
+## Data Description
+
+This dataset tallies the number of unicorn sightings in Florida over a 10 year study.
+
+## Data Type
+
+Automated download
+
+## Public Availability
+
+Source data are publicly available.
+
+## Accessibility and Constraints
+
+Data are publicly available
+
+## Methods for accessing and preparing data
+
+Go to www.unicornsarereal.com to access the data portal. There is an API you can use to pull the data into R. The instructions for using the API can be found here.
+
+## Name of R script used to access and manipulate dataset
+
+unicorns.R
+
+## Key figures
+
+This is a typical annual time series plot
+
+## Interpretation
+
+The number of unicorns sighted over time is an indicator of how crazy people are which can cause increased uncertainty in management.
+
+## Spatial Scale
+
+Florida
+
+## Temporal Scale
+
+Annual
+
+## Data Limitations
+
+Data are collected via a random survey. Survey participants may not be representative of the larger population of Florida.
+
+## Define Variables
+
+| Name | Definition | Units |
+|------|------------|-------|
+| 1) | NA | NA |
+| unicorn number; Definition: number of unicorns sighted; Units: numbers | NA | NA |
+
+## Key references
+
+N/A
+
+## Data Contributors
+
+the unicorn collective
+

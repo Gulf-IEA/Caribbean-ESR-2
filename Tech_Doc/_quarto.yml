@@ -9,9 +9,9 @@ website:
         text: Home
       - text: "Datasets"
         menu:
-          - href: data-issues/Test_data.qmd
+          - href: issues/Submission_test_submission.qmd
             text: "Test Data 1"
-          - href: data-issues/Test_data_2.qmd
+          - href: issues/Submission_Test_data_2.qmd
             text: "Test Data 2"
 
 format:
