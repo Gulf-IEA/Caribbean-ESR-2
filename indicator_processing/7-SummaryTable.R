@@ -1,6 +1,7 @@
 # Code to pull all the time series indicator trend analysis results and create a table.
 
 # Install IEAnalyzeR package
+library(devtools)
 #devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
 
 library(IEAnalyzeR)
@@ -20,11 +21,12 @@ for (file in csv_files) {
   file_name <- tools::file_path_sans_ext(basename(file))  # Remove .csv extension
   
   # Load CSV without headers
-  data <- read.csv(file, header = FALSE)
+  data <- read.csv(file)
   
   # Process with IEAnalyzeR::data_prep()
   processed_data <- tryCatch({
-    IEAnalyzeR::data_prep(data)
+    #IEAnalyzeR::data_prep(data)
+    data_prep_test(data)
   }, warning = function(w) {
     message("Warning in file: ", file_name, " - ", conditionMessage(w))  
     return(NULL)  # Return NULL for debugging
