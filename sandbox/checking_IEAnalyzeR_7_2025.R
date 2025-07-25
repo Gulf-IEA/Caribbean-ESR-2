@@ -2,10 +2,10 @@
 
 data <- read.csv(csv_files[2])
 
-data_prep_test(data, trends = T)
+data_prep_test(data, trends = T, anomaly = "stmon")
 
 df = data
-anomaly = NULL
+anomaly = "stdmonthly"
 i=2
 
 data_prep_test<-function (df, trends = T, subind = FALSE, anomaly=NULL)
