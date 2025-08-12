@@ -1,7 +1,8 @@
 # Code to pull all the time series indicator trend analysis results and create a table.
 
 # Install IEAnalyzeR package
-devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
+library(devtools)
+#devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
 
 library(IEAnalyzeR)
 library(readxl)
@@ -16,6 +17,10 @@ library(gt)
 folder_path <- "indicator_objects/objects_as_csvs/"
 csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
 
+# Identify which indicators will be calculated as standardized monthly anomalies
+
+stmon_inds = c("Carib_SST", "turbidity", "carib_Chl")
+
 # Loop through files: load, process, and save output
 for (file in csv_files) {
   file_name <- tools::file_path_sans_ext(basename(file))  # Remove .csv extension
@@ -23,16 +28,33 @@ for (file in csv_files) {
   # Load CSV 
   data <- read.csv(file, check.names = FALSE)
   
-  # Process with IEAnalyzeR::data_prep()
-  processed_data <- tryCatch({
-    IEAnalyzeR::data_prep(data)
-  }, warning = function(w) {
-    message("Warning in file: ", file_name, " - ", conditionMessage(w))  
-    return(NULL)  # Return NULL for debugging
-  }, error = function(e) {
-    message("Error in file: ", file_name, " - ", conditionMessage(e))
-    return(NULL)
-  })
+  processed_data = NULL
+  
+  if(file_name %in% stmon_inds) {
+    # Process with IEAnalyzeR::data_prep()
+    processed_data <- tryCatch({
+      #IEAnalyzeR::data_prep(data)
+      data_prep_test(data, anomaly = "stdmonthly")
+    }, warning = function(w) {
+      message("Warning in file: ", file_name, " - ", conditionMessage(w))  
+      return(NULL)  # Return NULL for debugging
+    }, error = function(e) {
+      message("Error in file: ", file_name, " - ", conditionMessage(e))
+      return(NULL)
+    })
+    
+  } else{
+    processed_data <- tryCatch({
+      #IEAnalyzeR::data_prep(data)
+      data_prep_test(data)
+    }, warning = function(w) {
+      message("Warning in file: ", file_name, " - ", conditionMessage(w))  
+      return(NULL)  # Return NULL for debugging
+    }, error = function(e) {
+      message("Error in file: ", file_name, " - ", conditionMessage(e))
+      return(NULL)
+    })
+  } 
   
   # Save processed data only if successful
   if (!is.null(processed_data)) {
@@ -62,12 +84,37 @@ for (i in 1:length(ind_list)) {
     indic_title <- df$labs[1, 2:ncol(df$labs)]
     sub_titles1 <- df$labs[2, 2:ncol(df$labs)]  # Sub-indicator titles
     sub_titles2 <- df$labs[3, 2:ncol(df$labs)]  # Sub-indicator titles
+    
+    # Apply the replacement for indicator titles
+    indic_title <- gsub("\\.", " ", indic_title)
+    # You might also want to do this for sub_titles if they follow the same naming convention
+    sub_titles1 <- gsub("\\.", " ", sub_titles1)
+    sub_titles2 <- gsub("\\.", " ", sub_titles2)
+    
   } else {
     indic_title <- df$labs[1, 2]  # Overall indicator title
-    sub_titles1 <- df$labs[2, 2:ncol(df$labs)]  # No sub-indicators
+    sub_titles1 <- df$labs[2, 2:ncol(df$labs)]  # No sub-indicators (or potentially a single title)
     sub_titles2 <- NA
+    
+    # Apply the replacement for the overall indicator title
+    indic_title <- gsub("\\.", " ", indic_title)
+    # If sub_titles1 could contain a period-separated title in this case, apply it here too
+    if (!is.na(sub_titles1[1])) { # Check if sub_titles1 is not entirely NA
+      sub_titles1 <- gsub("\\.", " ", sub_titles1)
+    }
   }
   
+  # # Check if there are sub-indicators
+  # if (ncol(df$labs) > 2) {
+  #   indic_title <- df$labs[1, 2:ncol(df$labs)]
+  #   sub_titles1 <- df$labs[2, 2:ncol(df$labs)]  # Sub-indicator titles
+  #   sub_titles2 <- df$labs[3, 2:ncol(df$labs)]  # Sub-indicator titles
+  # } else {
+  #   indic_title <- df$labs[1, 2]  # Overall indicator title
+  #   sub_titles1 <- df$labs[2, 2:ncol(df$labs)]  # No sub-indicators
+  #   sub_titles2 <- NA
+  # }
+  # 
   trend_sym <- df$vals$mean_sym
   slope_sym <- df$vals$slope_sym
   mean_vals <- round(df$vals$mean, 2)
@@ -95,7 +142,8 @@ colnames(sum_table)<-c("Indicator", "Units", "Extent/sub-indicator", "Trend symb
 
 #Remove sub-indicators from the table if the max year is less than 2022 (to focus on recent trends only)
 sum_table = sum_table %>% 
-  filter("Max year" > 2021)
+  filter("Max year" > 2021) %>% 
+  drop_na("Trend symbol")
 
 gt(sum_table)
 
@@ -130,5 +178,6 @@ sum_table %>%
     locations = cells_body(
       columns = c(Indicator)
     )
-  )
+  ) %>% 
+  tab_options(row_group.background.color = "lightgrey")
 
