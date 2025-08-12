@@ -303,7 +303,7 @@ EQ_obj = IEAnalyzeR::data_prep(EQ)
 str(EQ_obj)
 EQ_obj = data_prep_test(EQ)
 str(EQ_obj)
-Reg_obj = data_prep_test(Reg)
+Reg_obj = data_prep(Reg)
 str(Reg_obj)
 
 IEAnalyzeR::plot_fn_obj(EQ_obj)
@@ -367,7 +367,7 @@ head(cruise)
 AvgL_obj = IEAnalyzeR::data_prep(AvgL)
 str(AvgL_obj)
 
-Coral_obj = data_prep_test(Coral)
+Coral_obj = data_prep(Coral)
 str(Coral_obj) #this one is messed up
 
 cruise_obj = data_prep_test(cruise)
@@ -406,6 +406,7 @@ PP = read.csv("indicator_objects/objects_as_csvs/carib_Chl.csv", header=F)
 SST = read.csv("indicator_objects/objects_as_csvs/Carib_SST.csv", header=F)
 Turb = read.csv("indicator_objects/objects_as_csvs/turbidity.csv", header=F)
 head(Turb)
+head(SST)
 
 turb_obj = data_prep_test(Turb)
 str(turb_obj)
@@ -413,7 +414,7 @@ str(turb_obj)
 PP_obj = data_prep_test(PP)
 str(PP_obj)
 
-SST_obj = data_prep_test(SST)
+SST_obj = data_prep(SST, subind = "extent")
 str(SST_obj)
 
 IEAnalyzeR::plot_fn_obj(OA_obj)

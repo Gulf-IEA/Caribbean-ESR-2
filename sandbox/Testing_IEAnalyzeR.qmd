@@ -7,6 +7,8 @@ Install Package
 ```{r}
 devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
 
+devtools::install_git(url = "https://github.com/Gulf-IEA/IEAnalyzeR", ref = "Brit_NewFeats")
+
 
 library(IEAnalyzeR)
 library(readxl)

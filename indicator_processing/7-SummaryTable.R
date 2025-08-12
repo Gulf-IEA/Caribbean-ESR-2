@@ -1,7 +1,7 @@
 # Code to pull all the time series indicator trend analysis results and create a table.
 
 # Install IEAnalyzeR package
-#devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
+devtools::install_github("https://github.com/Gulf-IEA/IEAnalyzeR")
 
 library(IEAnalyzeR)
 library(readxl)
@@ -12,6 +12,7 @@ library(gt)
 # First load all the .csv files from the indicator_objects/objects_as_csvs folder
 
 # Set the path to your folder
+#folder_path <- "../../../My Documents/Wind-ESR-Site-main/data/humandimensions/"
 folder_path <- "indicator_objects/objects_as_csvs/"
 csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
 
@@ -19,8 +20,8 @@ csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TR
 for (file in csv_files) {
   file_name <- tools::file_path_sans_ext(basename(file))  # Remove .csv extension
   
-  # Load CSV without headers
-  data <- read.csv(file, header = FALSE)
+  # Load CSV 
+  data <- read.csv(file, check.names = FALSE)
   
   # Process with IEAnalyzeR::data_prep()
   processed_data <- tryCatch({
