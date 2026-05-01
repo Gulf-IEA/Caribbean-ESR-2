@@ -22,13 +22,13 @@ library(plotTimeSeries)
 
 load("indicator_processing/spec_file.RData")
 
-# define start and end years ---------------------------
-styear <- 1990
-enyear <- 2024
-
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_RECENT/"
 
 dat <- read.csv(paste0(confpath, "STT_update.csv"))
+
+# define start and end years ---------------------------
+styear <- 1990
+enyear <- max(dat$TRIP_YEAR)
 
 table(dat$TRIP_YEAR)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)

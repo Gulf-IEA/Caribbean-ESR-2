@@ -17,10 +17,11 @@ load("indicator_processing/spec_file.RData")
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_RECENT/"
 
 # define start and end years ---------------------------
-styear <- 2000
-enyear <- 2024
 
 dat <- read.csv(paste0(confpath, "STT_update.csv"))
+
+styear <- 2000
+enyear <- max(dat$TRIP_YEAR)
 
 head(dat)
 

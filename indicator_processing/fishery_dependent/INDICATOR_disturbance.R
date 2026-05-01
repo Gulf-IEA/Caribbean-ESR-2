@@ -16,13 +16,13 @@ load("indicator_processing/spec_file.RData")
 
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_RECENT/"
 
-# define start and end years ---------------------------
-styear <- 2000
-enyear <- 2024
-
 # input data for Puerto Rico ---------------------------
 
 dat <- read.csv(paste0(confpath, "PR_update.csv"))
+
+# define start and end years ---------------------------
+styear <- 2000
+enyear <- max(dat$YEAR_LANDED)
 
 d <- dat[which(dat$YEAR_LANDED >= styear & dat$YEAR_LANDED <= enyear), ]
 
