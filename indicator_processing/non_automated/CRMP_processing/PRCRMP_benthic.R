@@ -30,19 +30,19 @@ library(lme4)
 directory <- rprojroot::find_rstudio_root_file()
 
 setwd(directory)
-setwd("indicator_data/PRCRMP")
+setwd("indicator_data/intermediateFiles/PRCRMP")
 dir()
 
 # download data -------------------------------
 
-url <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/5.5/data/0-data/PRCRMP_Site_Classification_Database_(1-24-2022).csv"
+url <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/6.6/data/0-data/PRCRMP_Site_Classification_Database_(Sept-2025).csv"
 met <- read.csv(url, stringsAsFactors = F)
 
-urlb <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/4.4/data/0-data/PRCRMP_Benthic-sessile_data_1999-2021_(updated_12-6-2021).csv"
+urlb <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/6.6/data/0-data/Benthic_Full-Database_1999-2025_(Sept-2025).csv"
 ben <- read.csv(urlb, stringsAsFactors = F)
 
-met <- read.csv("PRCRMP_Site_Classification_Database_(11-25-2023).csv", stringsAsFactors = F)
-ben <- read.csv("PRCRMP_Benthic-sessile_data_1999-2023_(updated_11-30-2023).csv", stringsAsFactors = F)
+#met <- read.csv("PRCRMP_Site_Classification_Database_(Sept-2025).csv", stringsAsFactors = F)
+#ben <- read.csv("Benthic_Full-Database_1999-2025_(Sept-2025).csv", stringsAsFactors = F)
 
 head(met)
 head(ben)
@@ -59,7 +59,7 @@ apply(met, 2, table, useNA = "always")
 table(ben$LOCATION, useNA = "always")
 table(ben$DEPTH.ZONE, useNA = "always")
 
-ben$LOCATION[which(ben$LOCATION == "Mayagüez")] <- "Mayaguez"
+ben$LOCATION[which(ben$LOCATION == "MayagÃ¼ez")] <- "Mayaguez"
 ben$DEPTH.ZONE[grep("mediate", ben$DEPTH.ZONE)] <- "intermediate"
 ben$DEPTH.ZONE[grep("photic", tolower(ben$DEPTH.ZONE))] <- "mesophotic"
 ben$DEPTH.ZONE[grep("ery", ben$DEPTH.ZONE)] <- "very shal"
@@ -76,8 +76,8 @@ summary(met$X..Surveyed.Years >= 12)
 met[44, ]  # Lat is 18.07169; 18.34732  Lon is -67.93698;-67.26997
 met$Longitude <- as.numeric((met$Longitude))  # should get one NA coerced
 met$Latitude <- as.numeric((met$Latitude))
-met$Longitude[44] <- -67.93698
-met$Latitude[44] <- 18.07169
+#met$Longitude[44] <- -67.93698
+#met$Latitude[44] <- 18.07169
 
 maps::map("world", xlim = c(-69, -64), ylim = c(17, 19))
 points(met$Longitude, met$Latitude, col = (as.numeric(as.factor(met$Location))), pch = 19)
@@ -112,8 +112,12 @@ sort(unique(met$Site.Name)) == sort(unique(ben$SITE.NAME))
 cbind(sort(unique(met$Site.Name)), sort(unique(ben$SITE.NAME)))
 ben$SITE.NAME[which(ben$SITE.NAME == "Maria Langa 5m ")] <- "Maria Langa 5m"
 ben$SITE.NAME[which(ben$SITE.NAME == "Windward Reef ")] <- "Windward Reef"
-ben$SITE.NAME[which(ben$SITE.NAME == "Berbería")] <- "Berberia"
-ben$SITE.NAME[which(ben$SITE.NAME == "Cana Gorda")] <- "Caña Gorda"
+ben$SITE.NAME[which(ben$SITE.NAME == "BerberÃ­a")] <- "Berberia"
+ben$SITE.NAME[which(ben$SITE.NAME == "Ca\x96a Gorda")] <- "Cana Gorda"
+ben$SITE.NAME[which(ben$SITE.NAME == "Ca?a Gorda")] <- "Cana Gorda"
+ben$SITE.NAME[which(ben$SITE.NAME == "Canal Luis PeÃ±a")] <- "Canal Luis Pena"
+met$Site.Name[which(met$Site.Name == "Ca\x96a Gorda")] <- "Cana Gorda"
+met$Site.Name[which(met$Site.Name == "Canal Luis Pe\x96a")] <- "Canal Luis Pena"
 sort(unique(met$Site.Name)) == sort(unique(ben$SITE.NAME))
 table(sort(unique(met$Site.Name)) == sort(unique(ben$SITE.NAME)))
 
@@ -169,6 +173,7 @@ table(ben2$SITE.NAME, ben2$YEAR)
 table(ben2$loc, ben2$YEAR)
 
 yrs <- sort(unique(ben2$YEAR))
+yrs
 
 # modular analysis - two variables -----------------------------------
 # calculate spp richness and % cover, using GLM to standardize for site random effect
@@ -215,7 +220,7 @@ mod <- summary(out1)$coef[1:length(yrs), 1]
 modse <- summary(out1)$coef[1:length(yrs), 2]
 
 par(mar = c(4, 4, 3, 1))
-plot(yrs, ind, ylim = c(min(ind) * 0.6, max(ind) * 1.1), main = varint)
+plot(yrs, ind, ylim = c(min(ind) * 0.4, max(ind) * 1.1), main = varint)
 lines(yrs, ind + indse, lty = 2, col = 1)
 lines(yrs, ind - indse, lty = 2, col = 1)
 

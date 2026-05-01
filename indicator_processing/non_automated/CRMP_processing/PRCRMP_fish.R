@@ -38,16 +38,14 @@ dir()
 
 # download data -------------------------------
 
-urlf <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/5.5/data/0-data/PRCRMP_Fish-Invert_Abundance_data_1999-2023_(updated_11-30-2023).csv"
-fish <- read.csv(urlf, stringsAsFactors = F)
+urlf <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/6.6/data/0-data/Fish-Inverts_Abundance_Full-Database_1999-2025_(Sept-2025).csv"
+#fish <- read.csv(urlf, stringsAsFactors = T)
 
-urlfi <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/5.5/data/0-data/PRCRMP_Fish-Invert_Size-Freq._data_2004-2023_(updated_11-30-2023).csv"
+urlfi <- "https://www.nodc.noaa.gov/archive/arc0147/0204647/6.6/data/0-data/Fish-Inverts_Size-Freq_Full-Database_2004-2025_(Sept-2025).csv"
 siz <- read.csv(urlfi, stringsAsFactors = F)
 
-
-fish <- read.csv("PRCRMP_Fish-Invert_Abundance_data_1999-2023_(updated_11-30-2023).csv", stringsAsFactors = F)
-
-siz <- read.csv("PRCRMP_Fish-Invert_Size-Freq._data_2004-2023_(updated_11-30-2023).csv", stringsAsFactors = F)
+fish <- read.csv("Fish-Inverts_Abundance_Full-Database_1999-2025_(Sept-2025)_TRANSPOSED.csv", stringsAsFactors = F)
+#siz <- read.csv("PRCRMP_Fish-Invert_Size-Freq._data_2004-2023_(updated_11-30-2023).csv", stringsAsFactors = F)
 
 #met <- read.csv("PRCRMP_Site_Classification_Database_(11-25-2023).csv", stringsAsFactors = F)
 
@@ -62,7 +60,7 @@ tail(fish$YEAR, 20)
 table(fish$LOCATION, useNA = "always")
 table(fish$DEPTH.ZONE, useNA = "always")
 
-fish$LOCATION[which(fish$LOCATION == "Mayag?ez")] <- "Mayaguez"
+fish$LOCATION[which(fish$LOCATION == "Mayagüez")] <- "Mayaguez"
 fish$DEPTH.ZONE[grep("mediate", fish$DEPTH.ZONE)] <- "intermediate"
 fish$DEPTH.ZONE[grep("photic", tolower(fish$DEPTH.ZONE))] <- "mesophotic"
 fish$DEPTH.ZONE[grep("ery", fish$DEPTH.ZONE)] <- "very shal"
@@ -107,7 +105,7 @@ table(is.na(siz$YEAR))
 
 table(siz$LOCATION, useNA = "always")
 table(siz$DEPTH.ZONE, useNA = "always")
-siz$LOCATION[which(siz$LOCATION == "Mayag?ez")] <- "Mayaguez"
+siz$LOCATION[which(siz$LOCATION == "Mayagüez")] <- "Mayaguez"
 siz$DEPTH.ZONE[grep("mediate", siz$DEPTH.ZONE)] <- "intermediate"
 siz$DEPTH.ZONE[grep("photic", tolower(siz$DEPTH.ZONE))] <- "mesophotic"
 siz$DEPTH.ZONE[grep("ery", siz$DEPTH.ZONE)] <- "very shal"
