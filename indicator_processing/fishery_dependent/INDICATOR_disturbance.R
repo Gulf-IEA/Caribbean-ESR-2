@@ -18,11 +18,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2023
+enyear <- 2024
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "PR_update.csv"))
 
 d <- dat[which(dat$YEAR_LANDED >= styear & dat$YEAR_LANDED <= enyear), ]
 
@@ -136,7 +136,7 @@ rm(list = ls()[-match(c("final_PR", "styear", "enyear", "confpath"), ls())])
 
 # calculate for STT  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STT_update.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -288,7 +288,7 @@ names(final_ST) <- c("ind", "lli", "uli")
 
 rm(list = ls()[-match(c("final_PR", "final_ST", "styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STX_update.csv"))
 head(dat)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 

@@ -4,10 +4,118 @@ rm(list = ls())
 #library(rfishbase)
 library(dplyr)
 
-setwd("C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/")
+#setwd("C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/")
+
 
 ##################################################################################################
 # most recent 
+# May 1 2026 - new data pull for 2023-2024 sent by S. Martinez Mar 2 2026 -----------------------------------
+
+confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/"
+setwd(confpath)
+dir()
+
+# compare data sets  ---------------------------
+# PR ----------------------------------
+newdat <- read.csv(paste0(confpath, "Mar2026/pr_mandy_com_data_2023_2024_20260302_C.csv"))
+olddat <- read.csv(paste0(confpath, "Mar2025/PR_Mar2025.csv"))
+
+table(newdat$YEAR_LANDED)
+table(olddat$YEAR_LANDED)
+
+# updated pull has slightly higher sample numbers in 2023 
+# replace 2023 with newer file
+# it appears that issue with 2005 expansion factor has been resolved?  - check
+
+# March 2025 changes
+# 2023 and 2024 now have no correction factor - use reported landings
+
+olddat <- olddat[olddat$YEAR_LANDED != 2023, ]
+names(newdat)
+names(olddat)
+
+names(newdat) %in% names(olddat)
+
+common_cols <- intersect(names(olddat), names(newdat))
+combined <- rbind(olddat[, common_cols], newdat[, common_cols])   # Stack only the shared columns
+
+head(combined)
+table(combined$YEAR_LANDED)
+
+write.table(combined, file = paste0(confpath, "MOST_RECENT/PR_update.csv"), sep = ",", col.names = T, row.names = F)
+
+
+# STT ---------------------------------
+
+rm(list = ls())
+confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/"
+
+newdat <- read.csv(paste0(confpath, "Mar2026/STTJ_mandy_com_data_2023_2024_20260302_C.csv"))
+olddat <- read.csv(paste0(confpath, "Mar2025/STT_Mar2025.csv"))
+
+table(newdat$TRIP_YEAR)
+table(olddat$TRIP_YEAR)
+
+olddat <- olddat[olddat$TRIP_YEAR <= 2022, ]
+names(newdat)
+names(olddat)
+
+head(newdat)
+head(olddat)
+
+names(newdat)[which(names(newdat) == "ITIS_COMMON_NAME")] <- "ITIS_COMMONNAME"
+names(newdat)[which(names(newdat) == "ITIS_SCIENTIFIC_NAME")] <- "ITIS_SCIENTIFICNAME"
+
+names(newdat) %in% names(olddat)
+table(names(newdat) %in% names(olddat))
+
+common_cols <- intersect(names(olddat), names(newdat))
+dat <- rbind(olddat[, common_cols], newdat[, common_cols])   # Stack only the shared columns
+
+table(olddat$TRIP_YEAR)
+table(newdat$TRIP_YEAR)
+table(dat$TRIP_YEAR)
+
+write.table(dat, file = paste0(confpath, "MOST_RECENT/STT_update.csv"), sep = ",", col.names = T, row.names = F)
+
+
+# STX -----------------------------------------
+rm(list = ls())
+confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/"
+
+newdat <- read.csv(paste0(confpath, "Mar2026/STX_mandy_com_data_2023_2024_20260302_C.csv"))
+olddat <- read.csv(paste0(confpath, "Mar2025/STX_Mar2025.csv"))
+
+table(newdat$TRIP_YEAR)
+table(olddat$TRIP_YEAR)
+
+olddat <- olddat[olddat$TRIP_YEAR <= 2022, ]
+names(newdat)
+names(olddat)
+
+head(newdat)
+head(olddat)
+
+names(newdat)[which(names(newdat) == "ITIS_COMMON_NAME")] <- "ITIS_COMMONNAME"
+names(newdat)[which(names(newdat) == "ITIS_SCIENTIFIC_NAME")] <- "ITIS_SCIENTIFICNAME"
+
+names(newdat) %in% names(olddat)
+table(names(newdat) %in% names(olddat))
+
+common_cols <- intersect(names(olddat), names(newdat))
+dat <- rbind(olddat[, common_cols], newdat[, common_cols])   # Stack only the shared columns
+
+table(olddat$TRIP_YEAR)
+table(newdat$TRIP_YEAR)
+table(dat$TRIP_YEAR)
+
+write.table(dat, file = paste0(confpath, "MOST_RECENT/STX_update.csv"), sep = ",", col.names = T, row.names = F)
+
+########################  END MAY 2026  ####################################################
+
+
+#######################   May 20 2024   ####################################################
+
 # May 20 2024 - new data pull for 2000+ sent by Kevin McCarthy -----------------------------------
 
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/"

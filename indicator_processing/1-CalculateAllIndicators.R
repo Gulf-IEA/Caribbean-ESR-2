@@ -6,7 +6,7 @@
 rm(list = ls())
 
 packages = c("data.table", "dplyr", "ggplot2", "ggrepel", "httr", "jsonlite", "lubridate", 
-             "maps", "pals", "pdftools", "plotTimeSeries", "readr", "readxl", "rerddap", "rvest", 
+             "maps", "pals", "pdftools", "readr", "readxl", "rerddap", "rvest", 
               "stringr", "tidyr", "vegan", "xml2", "modi", "devtools", "naniar")
 
 ## Now load or install & load all
