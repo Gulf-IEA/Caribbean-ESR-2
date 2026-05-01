@@ -18,9 +18,9 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2023
+enyear <- 2024
 
-dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STT_update.csv"))
 
 head(dat)
 

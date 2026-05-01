@@ -24,11 +24,11 @@ load("indicator_processing/spec_file.RData")
 
 # define start and end years ---------------------------
 styear <- 1990
-enyear <- 2023
+enyear <- 2024
 
 confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_RECENT/"
 
-dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STT_update.csv"))
 
 table(dat$TRIP_YEAR)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
@@ -81,7 +81,7 @@ table(d$GEAR1_NAME, useNA = "always")
 table(d$SPECIES_CD, useNA = "always")
 table(d$SPECIES_NM, useNA = "always")
 table(d$FORM_TYPE, useNA = "always")
-table(d$TRIP_YEAR, d$FORM_TYPE, useNA = "always")
+#table(d$TRIP_YEAR, d$FORM_TYPE, useNA = "always")
 table(d$TRIP_MAY_BE_DUPLICATE, useNA = "always")
 
 # check that TRIP IDs are unique ------------
@@ -203,7 +203,7 @@ barplot(table(fin$gear), las = 2)
 barplot(table(fin$area), las = 2)
 
 spp <- tapply(d$POUNDS_LANDED, list(d$SPECIES_NM, d$GEAR_TYPE_NM), sum, na.rm = T)
-par(mfrow = c(3, 2), mar = c(15, 4, 1, 0))
+par(mfrow = c(2, 2), mar = c(15, 4, 1, 0))
 for (i in 1:4)  { 
   barplot(sort(spp[, i], decreasing = T)[1:10], las = 2, 
   main = colnames(spp)[i])
@@ -299,7 +299,7 @@ dev.off()
 
 rm(list = ls()[-match(c("styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STX_update.csv"))
 
 table(dat$TRIP_YEAR)
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
@@ -353,7 +353,7 @@ table(d$GEAR1_NAME, useNA = "always")
 table(d$SPECIES_CD, useNA = "always")
 table(d$SPECIES_NM, useNA = "always")
 table(d$FORM_TYPE, useNA = "always")
-table(d$TRIP_YEAR, d$FORM_TYPE, useNA = "always")
+#table(d$TRIP_YEAR, d$FORM_TYPE, useNA = "always")
 table(d$TRIP_MAY_BE_DUPLICATE, useNA = "always")
 
 # check that TRIP IDs are unique ------------
@@ -570,7 +570,7 @@ dev.off()
 ###########################  START PR  #################################
 rm(list = ls()[-match(c("styear", "enyear", "confpath"), ls())])
 
-dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "PR_update.csv"))
 
 # subset years------------------------------------------
 
@@ -786,7 +786,7 @@ abline(h=0)
 
 dev.off()
 
-par(mfrow = c(2,2), mar = c(20, 3, 1, 0))
+par(mfrow = c(2,2), mar = c(10, 3, 1, 0))
 barplot(table(fin$year), las = 2)
 barplot(table(fin$gear), las = 2)
 barplot(table(fin$area), las = 2)

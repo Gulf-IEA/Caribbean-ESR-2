@@ -20,11 +20,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2000
-enyear <- 2023
+enyear <- 2024
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "PR_update.csv"))
 
 dat[which(is.na(dat$ITIS_SCIENTIFIC_NAME)), ]
 summary(is.na(dat$ITIS_SCIENTIFIC_NAME))
@@ -244,7 +244,7 @@ dev.off()
 
 table(as.character(db$ITIS_COMMON_NAME) == as.character(db$COMname))
 which(as.character(db$ITIS_COMMON_NAME) != as.character(db$COMname))
-db[which(as.character(db$ITIS_COMMON_NAME) != as.character(db$COMname)), c(31, 42)]
+#db[which(as.character(db$ITIS_COMMON_NAME) != as.character(db$COMname)), c(31, 42)]
 
 length(which(db$ITIS_COMMON_NAME == "FISHES,BONY,UNSPECIFIED"))
 table(db$PD, useNA = "always")
@@ -391,12 +391,12 @@ plate <- splisref[which(splisref$Lmax_cat == "(60,100]"), ]
 head(plate[order(plate$recLand, decreasing = T), ], 15)
 # the 60-100cm category is mostly driven by deepwater snapper species, also yellowtail, hogfish and red hind
 
-big <- splisref[which(splisref$Lmax_cat == "(100,200]"), ]
+big <- splisref[which(splisref$Lmax_cat == "(100,2e+03]"), ]
 head(big[order(big$recLand, decreasing = T), ], 15)
 # the 100-200 group is driven by mackerels, large rare parrotfishes, tunas and snook.  Also some large groupers
 
-xtra <- splisref[which(splisref$Lmax_cat == "(200,2e+03]"), ]
-head(xtra[order(xtra$recLand, decreasing = T), ], 15)
+#xtra <- splisref[which(splisref$Lmax_cat == "(200,2e+03]"), ]
+#head(xtra[order(xtra$recLand, decreasing = T), ], 15)
 # 200+ group is very heavily driven by dolphinfish.  also some sharks
 
 

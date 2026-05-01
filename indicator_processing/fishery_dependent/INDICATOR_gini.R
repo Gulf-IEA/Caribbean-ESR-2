@@ -26,11 +26,11 @@ confpath <- "C:/Users/mandy.karnauskas/Desktop/CONFIDENTIAL/CaribbeanData/MOST_R
 
 # define start and end years ---------------------------
 styear <- 2010
-enyear <- 2023
+enyear <- 2024
 
 # input data for Puerto Rico ---------------------------
 
-dat <- read.csv(paste0(confpath, "PR_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "PR_update.csv"))
 
 d <- dat[which(dat$YEAR_LANDED >= styear & dat$YEAR_LANDED <= enyear), ]
 
@@ -47,7 +47,7 @@ sort(table(d$ERDMAN_GEAR_NAME[grep("CRAB,BLUE", d$ITIS_COMMON_NAME)]))
 sort(table(d$FAMILY[grep("CRAB,BLUE", d$ITIS_COMMON_NAME)]))
 sort(table(d$ERDMAN_GEAR_NAME[which(d$FAMILY == "LAND CRABS")]))
 par(mar = c(12, 4, 1, 1))
-barplot(sort(table(d$ERDMAN_GEAR_NAME[which(d$FAMILY == "LAND CRABS")])), las = 2)
+#barplot(sort(table(d$ERDMAN_GEAR_NAME[which(d$FAMILY == "LAND CRABS")])), las = 2)
 sort(table(d$ITIS_COMMON_NAME[which(d$ERDMAN_GEAR_NAME == "BY HAND")]))  # don't remove, contains conch as well
 # filtering by LAND CRAB TRAP gear takes out vast majority (96%) of land crab trips
 
@@ -124,7 +124,7 @@ rm(list = ls()[-match(c("gini_land_pr", "gini_rev_pr", "styear", "enyear", "calc
 
 # calculate for STT  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STT_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STT_update.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
@@ -227,7 +227,7 @@ rm(list = ls()[-match(c("gini_land_pr", "gini_rev_pr", "gini_land_stt", "gini_re
 
 # calculate for STX  --------------------------------------
 
-dat <- read.csv(paste0(confpath, "STX_Mar2025.csv"))
+dat <- read.csv(paste0(confpath, "STX_update.csv"))
 
 table(dat$TRIP_YEAR, dat$TRIP_MONTH)
 
