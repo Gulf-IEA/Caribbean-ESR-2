@@ -96,6 +96,7 @@ sitelis
 fish <- read.csv("FishData.csv", stringsAsFactors = F)
 head(fish)
 dim(fish)
+table(fish$SampleYear)
 
 yrs <- sort(unique(fish$SampleYear))
 

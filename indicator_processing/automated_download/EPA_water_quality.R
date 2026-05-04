@@ -7,6 +7,11 @@
 
 rm(list = ls())
 
+load("indicator_processing/spec_file.RData")
+
+endate <- paste0(terminal_year, "-12-31")
+endate
+
 if(!"remotes"%in%installed.packages()){
   install.packages("remotes")
 }
@@ -26,9 +31,9 @@ EPATADA::TADA_GetTemplate()
 
 # Start by pulling all the data. The function below takes about 10 min to run.
 
-# test_data = EPATADA::TADA_BigDataRetrieval(
+# test_data = EPATADA::TADA_DataRetrieval(
 #   startDate = "2023-01-01",
-#   endDate = "2023-12-31",
+#   endDate = endate,
 #   countrycode = "US",
 #   statecode = c("PR"),
 #   characteristicType = c("Physical"),
@@ -36,31 +41,38 @@ EPATADA::TADA_GetTemplate()
 # )
 
 
- # dataset_0 = EPATADA::TADA_BigDataRetrieval(
- #   startDate = "1980-01-01",
- #   endDate = "2023-12-31",
- #   countrycode = "US", 
- #   huc = "null",
- #   siteid = "null",
- #   siteType = "Ocean",
- #   characteristicName = "null",
- #   characteristicType = c("Microbiological","Nutrient","Physical"),
- #   sampleMedia = c("water","Water"),
- #   statecode = c("PR","VI"), 
- #   applyautoclean = TRUE
- # )
+ dataset_0 = EPATADA::TADA_DataRetrieval(
+   startDate = "2023-01-01",
+   endDate = endate,
+   countrycode = "US", 
+   huc = "null",
+   siteid = "null",
+   siteType = "Ocean",
+   characteristicName = "null",
+   characteristicType = c("Microbiological","Nutrient","Physical"),
+   sampleMedia = c("water","Water"),
+   statecode = c("PR","VI"), 
+   applyautoclean = TRUE
+ )
 
 #re-name the file
-#dat = dataset_0
+dat = dataset_0
+
+nam <- paste0("indicator_data/intermediateFiles/EPA_water_quality_raw_", endate, ".rds")
 
 #Save this file so we don't have to download it again if we need to make changes
-#saveRDS(dat, "indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
-
+saveRDS(dat, nam)
 
 
 ####### Start here to work with the intermediate file currently on github
-dat = readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
+datn = readRDS(nam)
+dat1 <- readRDS("indicator_data/intermediateFiles/EPA_water_quality_raw_11_5_24.rds")
 
+head(datn)
+head(dat1)
+#table(names(datn) == names(dat1))
+
+dat <- bind_rows(datn, dat1)
 
 #### Filter to only include enterococcus measurements
 
@@ -70,15 +82,11 @@ enterococcus <- dat %>%
 
 head(enterococcus)
 
-
-
 # Remove rows with NAs in specified columns
 enterococcus <- enterococcus %>%
   filter(!is.na(ResultMeasureValue) & !is.na(ActivityStartDate))
 
 head(enterococcus)
-
-
 
 ###### Missing values exploration 
 
@@ -90,9 +98,6 @@ gg_miss_var(enterococcus)  # Shows missing values by variable
 
 # Remove columns with more than 20000 missing values
 enterococcus <- enterococcus[, colSums(is.na(enterococcus)) <= 20000]
-
-
-
 
 #Filter so we use only routine samples, samples from depths < 10m, and "actual" samples
 ent = enterococcus %>% 
@@ -112,13 +117,11 @@ ent = ent %>%
 
 ent$ResultMeasureValue = as.numeric(ent$ResultMeasureValue)
 
-
 #Get rid of NAs in the measured value
 ent = ent %>% 
   filter(ResultMeasureValue != "NA")
 
 summary(ent)
-
 
 # Problem: there are multiple units of measurement in the data. Keep only #/100ML and MPN/100ML
 ent = ent %>% 
@@ -156,8 +159,6 @@ par(mar=c(2,4,5,0)+2, xpd=F)
 barplot(tapply(ent$TADA.ResultMeasureValue, ent$month, mean, na.rm=T), cex.names=0.8, col=4, las=1)
 mtext(side=2, line=4, "Enterococcus count (#/100ml)"); abline(0,0)
 mtext(side=3, line=2, "Averages by month for PR and USVI beach monitoring samples", font=2, las=1)
-
-
 
 
 # Calculate mean and standard error for each year and CountyCode

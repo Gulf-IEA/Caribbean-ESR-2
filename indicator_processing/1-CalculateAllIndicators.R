@@ -7,7 +7,7 @@ rm(list = ls())
 
 packages = c("data.table", "dplyr", "ggplot2", "ggrepel", "httr", "jsonlite", "lubridate", 
              "maps", "pals", "pdftools", "readr", "readxl", "rerddap", "rvest", 
-              "stringr", "tidyr", "vegan", "xml2", "modi", "devtools", "naniar")
+              "stringr", "tidyr", "vegan", "xml2", "modi", "devtools", "naniar", "lme4")
 
 ## Now load or install & load all
 package.check <- lapply(
@@ -26,7 +26,7 @@ install_github("MandyKarnauskas-NOAA/plotTimeSeries")
 library(plotTimeSeries)
 
 #remotes::install_github("USEPA/EPATADA", ref = "develop", dependencies = TRUE, force = TRUE)  # this one takes forever
-#library(EPATADA)
+library(EPATADA)
 
 search()
 
@@ -43,7 +43,7 @@ directory <- rprojroot::find_rstudio_root_file()
 setwd(directory)
 dir("indicator_processing/automated_download/")
 
-#source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
+source("indicator_processing/automated_download/sst.R")                   # sea surface temperature
 source("indicator_processing/automated_download/DHW.R")                   # degree heating weeks
 source("indicator_processing/automated_download/ACE_index_Carib.R")       # hurricane energy index
 source("indicator_processing/automated_download/earthquakes.R")           # earthquakes
@@ -51,9 +51,7 @@ source("indicator_processing/automated_download/kd490.R")                 # turb
 source("indicator_processing/automated_download/chl_caribbean.R")         # primary productivity
 source("indicator_processing/automated_download/Unemployment.R")          # unemployment rate
 source("indicator_processing/automated_download/GDP.R")                   # Gross Domestic Product
-source("indicator_processing/automated_download/cruise_air_visitors.R")   # Cruise and air visitors
-# source("indicator_processing/automated_download/population.R")            # Human population
-# source("indicator_processing/automated_download/EPA_water_quality.R")     # EPA water quality enterococcus
+source("indicator_processing/automated_download/EPA_water_quality.R")     # EPA water quality enterococcus
 
 ## Mar 7 2025 update: all ran except population and EPA water quality
 
@@ -63,17 +61,30 @@ print("RAN ALL AUTOMADED DOWNLOADS")
 
 dir("indicator_processing/non_automated")
 
-source("indicator_processing/non_automated/OA.R")                    # ocean acidification
-source("indicator_processing/non_automated/CRMP_compile.R")          # fishery-indepenedent fish density, slope of size spectrum, coral cover indicators
-source("indicator_processing/non_automated/Sargassum_inundation.R")  # sargassum indicator
+# updated May 2026 - DONE
+source("indicator_processing/automated_download/population.R")            # Human population
 source("indicator_processing/non_automated/SAU_recreational_catch.R") # recreational catch based on Sea Around Us database
-source("indicator_processing/non_automated/pollution.R")              # reported superfund sites etc. 
-source("indicator_processing/non_automated/tier_designation.R")      # ABC control rule Tier designation
-source("indicator_processing/non_automated/oceanNAICS.R")      # Ocean economy
+
+# needs to be updated 
+source("indicator_processing/non_automated/OA.R")                    # ocean acidification - Fabian
+source("indicator_processing/non_automated/Sargassum_inundation.R")  # sargassum indicator - Chuanmin 
+
+# manual - Mandy 
+source("indicator_processing/non_automated/CRMP_compile.R")          # fishery-indepenedent fish density, slope of size spectrum, coral cover indicators
 source("indicator_processing/non_automated/RVC.R")             # RVC
+
+# Amy Frietag
+source("indicator_processing/non_automated/pollution.R")              # reported superfund sites etc. 
+source("indicator_processing/non_automated/oceanNAICS.R")      # Ocean economy
+
+# Carissa 
+source("indicator_processing/automated_download/cruise_air_visitors.R")   # Cruise and air visitors
+source("indicator_processing/non_automated/tier_designation.R")  # ABC control rule Tier designation
 source("indicator_processing/non_automated/regulations.R")     # number of new regulations   # might not be updates
 source("indicator_processing/non_automated/enforcement.R")    # enforcement stats
 source("indicator_processing/non_automated/outreach.R")       # outreach stats
+
+# Suzana
 #source("indicator_processing/non_automated/social_vulnerability.R")   # Tarsila social indicators
 
 print("RAN ALL SEMI-AUTOMADED DOWNLOADS")

@@ -24,7 +24,7 @@ library(lme4)
 directory <- rprojroot::find_rstudio_root_file()
 
 setwd(directory)
-setwd("indicator_data/TCRMP")
+setwd("indicator_data/intermediateFiles/TCRMP/")
 dir()
 
 # read in site data -------------------------------------
@@ -60,6 +60,7 @@ length(coralspplis)        # should be 53
 
 ben <- read.csv("BenthicData.csv", stringsAsFactors = F)
 head(ben)
+table(ben$SampleYear)
 
 which(names(ben) %in% coralspplis)
 corals <- ben[which(names(ben) %in% coralspplis)]
