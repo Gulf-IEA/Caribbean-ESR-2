@@ -66,25 +66,27 @@ PR_air <- data.frame(Year = yrs_PR, Air_passengers = air_PR)
 
 #USVI
 
+# I had to dig around on the website a bit to find the tourism indicator for 2023. I found it here: https://usviber.org/studies/. Under "Tourism Studies". The pdf was called "USVI Tourism Indicator 2024".
+
 # Load necessary libraries
 library(pdftools)
 library(dplyr)
 library(tidyr)
 
 # Specify the URL of the PDF
-url2 <- "https://usviber.org/wp-content/uploads/2023/12/Tourism-indicator-2022-12-28-23-1.pdf"
+url2 <- "https://usviber.org/wp-content/uploads/2025/09/TOUR242.pdf"
 
 # Specify the destination file path
-destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2022-12-28-23-1.pdf"
+destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2023.pdf"
 
 # Download the PDF
-#download.file(url2, destfile, mode = "wb")
+download.file(url2, destfile, mode = "wb")
 
 # Check if the file has been downloaded
 file.exists(destfile)
 
 # Load the PDF
-pdf_file <- "indicator_data/intermediateFiles/Cruise-indicator-2022-12-28-23-1.pdf"
+pdf_file <- "indicator_data/intermediateFiles/Tourism-indicator-2023.pdf"
 
 # Extract text from the PDF
 pdf_text <- pdf_text(pdf_file)
@@ -106,15 +108,15 @@ table_text <- paste(table_lines, collapse = " ")
 table_data <- strsplit(table_text, " +")[[1]]
 
 # Create years column
-years <- c(2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022)
+years <- c(2000,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024)
 
 # Extract and clean the total visitors data by removing commas
-cruise_passengers <- gsub(",", "", table_data[87:101])
+cruise_passengers <- gsub(",", "", table_data[82:97])
 cruise_passengers <- as.numeric(cruise_passengers)
 
 # Extract and clean the total visitors data by removing commas
 air_passengers <- gsub(",", "", table_data[66:80])
-air_passengers <- as.numeric(air_passengers)
+air_passengers <- as.numeric(air_passengers)    #### PICK UP HERE
 
 # Create a data frame
 USVI_cruise <- data.frame(Year = years, Cruise_passengers = cruise_passengers)
