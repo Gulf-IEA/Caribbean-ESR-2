@@ -1,4 +1,4 @@
-# Code to manipulate reef visual census data from https://github.com/jeremiaheb/rvc. Last updated 3/1/2024 by Carissa Gervasi
+# Code to manipulate reef visual census data from https://github.com/jeremiaheb/rvc. Last updated 5/21/2026 by Carissa Gervasi
 # The indicator of interest is the abundance of economically important fish.
 # Identified target species for the Caribbean region: yellowtail snapper, queen triggerfish, red hind, redband parrotfish, stoplight parrotfish, mutton snapper.
 
@@ -19,7 +19,7 @@
 # STTSTJ  --> St. Thomas & St. John
 # STX  --> St. Croix
 
-# NOTE: as of 3/1/2024 calibrations have not been completed for all species. This means the data on the portal only go back to 2016. To get the full time series (2001 onward) we needed to get the calibrated data from Jeremiah Blondeau (jeremiah.blondeau@noaa.gov). Species specific calibrations were done. The calibrated_species.csv file is a list of all the species that have thus far been calibrated. All species of interest have been calibrated except for mutton snapper. So instead we will use lane snapper.
+# NOTE: as of 5/21/2026 calibrations have not been completed for all species. This means the data on the portal only go back to 2016. To get the full time series (2001 onward) we needed to get the calibrated data from Jeremiah Blondeau (jeremiah.blondeau@noaa.gov). Species specific calibrations were done. The calibrated_species.csv file is a list of all the species that have thus far been calibrated. All species of interest have been calibrated except for mutton snapper. So instead we will use lane snapper.
 
 #This is the list of calibrated species as of 2025. 
 calibrated = read.csv("indicator_data/intermediateFiles/RVC/calibrated_species.csv")
@@ -32,13 +32,13 @@ plot.new()
 dev.off()
 
 
-install.packages('devtools')
-devtools::install_github('jeremiaheb/rvc')
+#install.packages('devtools')
+#devtools::install_github('jeremiaheb/rvc')
 library(rvc)
 library(dplyr)
 
 styear = 2001
-enyear = 2023 #to update the plots when new data are added to the online portal, just update this end year and the code will automatically update.
+enyear = 2025 #to update the plots when new data are added to the online portal, just update this end year and the code will automatically update.
 
 
 
@@ -50,36 +50,36 @@ regions <- c("prico", "sttstj", "stx")
 ##########
 
 #First, load the files Jeremiah sent (last updated 3/11/25)
-data_2001_2021_paths <- c("indicator_data/intermediateFiles/RVC/prico_2001_2023_calibrated.rds", 
+data_2001_2023_paths <- c("indicator_data/intermediateFiles/RVC/prico_2001_2023_calibrated.rds", 
                           "indicator_data/intermediateFiles/RVC/sttstj_2001_2023_calibrated.rds", 
                           "indicator_data/intermediateFiles/RVC/stx_2001_2023_calibrated.rds")
 
 # Function to combine data for a given region
-combine_data <- function(region, data_2001_2021_path) {
-  # Load the 2001-2021 data
-  data_2001_2021 <- readRDS(data_2001_2021_path)
+combine_data <- function(region, data_2001_2023_path) {
+  # Load the 2001-2023 data
+  data_2001_2023 <- readRDS(data_2001_2023_path)
   
   # Load the new data using the getRvcData function
-  data_2023 <- getRvcData(years = 2023:enyear, regions = toupper(region))
+  data_new <- rvc::getRvcData(years = 2025:enyear, regions = toupper(region))
   
   # Initialize an empty list to store combined data
   combined_data <- list()
   
   # Iterate over the list elements and combine them
-  for (element in names(data_2001_2021)) {
-    if (element %in% names(data_2023)) {
+  for (element in names(data_2001_2023)) {
+    if (element %in% names(data_new)) {
       # Combine data frames from both lists
-      combined_data[[element]] <- bind_rows(data_2001_2021[[element]], data_2023[[element]])
+      combined_data[[element]] <- bind_rows(data_2001_2023[[element]], data_new[[element]])
     } else {
-      # If the element is not in the 2023 data, just use the 2001-2021 data
-      combined_data[[element]] <- data_2001_2021[[element]]
+      # If the element is not in the new data, just use the 2001-2023 data
+      combined_data[[element]] <- data_2001_2023[[element]]
     }
   }
   
-  # Add any elements that are only in the 2023 data
-  for (element in names(data_2023)) {
-    if (!element %in% names(data_2001_2021)) {
-      combined_data[[element]] <- data_2023[[element]]
+  # Add any elements that are only in the new data
+  for (element in names(data_new)) {
+    if (!element %in% names(data_2001_2023)) {
+      combined_data[[element]] <- data_new[[element]]
     }
   }
   
@@ -89,25 +89,20 @@ combine_data <- function(region, data_2001_2021_path) {
 # Loop over regions to combine data and save the results
 for (i in seq_along(regions)) {
   region <- regions[i]
-  data_2001_2021_path <- data_2001_2021_paths[i]
+  data_2001_2023_path <- data_2001_2023_paths[i]
   
-  combined_data <- combine_data(region, data_2001_2021_path)
+  combined_data <- combine_data(region, data_2001_2023_path)
   
   # Save the combined dataset
-  saveRDS(combined_data, paste0("indicator_data/intermediateFiles/RVC/combined_", region, "_2001_2023.rds"))
+  saveRDS(combined_data, paste0("indicator_data/intermediateFiles/RVC/combined_", region, "_2001_", enyear, ".rds"))
 }
 
 #########
 # Start here if you don't need to pull new data from the server
 
-prico = readRDS("indicator_data/intermediateFiles/RVC/combined_prico_2001_2023.rds")
-sttstj = readRDS("indicator_data/intermediateFiles/RVC/combined_sttstj_2001_2023.rds")
-stx = readRDS("indicator_data/intermediateFiles/RVC/combined_stx_2001_2023.rds")
-
-#Since I did not need to run the above code (already had data from Jeremiah through 2023) I can just use the files he emailed (3/12/25)
-prico = readRDS("indicator_data/intermediateFiles/RVC/prico_2001_2023_calibrated.rds")
-sttstj = readRDS("indicator_data/intermediateFiles/RVC/sttstj_2001_2023_calibrated.rds")
-stx = readRDS("indicator_data/intermediateFiles/RVC/stx_2001_2023_calibrated.rds")
+prico = readRDS("indicator_data/intermediateFiles/RVC/combined_prico_2001_2025.rds")
+sttstj = readRDS("indicator_data/intermediateFiles/RVC/combined_sttstj_2001_2025.rds")
+stx = readRDS("indicator_data/intermediateFiles/RVC/combined_stx_2001_2025.rds")
 
 ## Make a list of species
 ## You can use full scientific names, common names, or
@@ -115,8 +110,6 @@ stx = readRDS("indicator_data/intermediateFiles/RVC/stx_2001_2023_calibrated.rds
 ## Only scientific names are case-sensitive
 spcs = c("OCY CHRY", "LUT SYNA", "BAL VETU", "EPI GUTT", "SPA AURO", "SPA VIRI")
 
-
-#test = getDomainDensity(prico, species = "OCY CHRY")
 
 
 # Extract the time series for each species and each area
