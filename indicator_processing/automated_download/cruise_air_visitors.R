@@ -7,67 +7,114 @@ rm(list = ls())
 plot.new()
 dev.off()
 
-# This website has economic indicators https://www.jp.pr.gov/. When you click the link it downloads and excel file. In the excel file 
+
+### PUERTO RICO ###
+
+#Originally, PR data came from bde.pr.gov. But as of 2026 those data are no longer on the website. So, I found it at the Puerto Rico Tourism Company website. https://tourism.pr.gov/statistics/. 
+
+# Air passenger movement (CY) is from the Aerostar & Ports Authority
+# Cruise ships & visitors (CY) is from the San Juan Cruise Port & City of Ponce
+
+# will need to add up the summary tables on each page... might be a pain to do with pdf scraper
 
 
-# Puerto Rico - cruise passengers (source: PR Ports Authority)
+# Puerto Rico - cruise passengers 
 
-url1<-'https://www.bde.pr.gov/BDE/PREDDOCS/I_CRUISE.XLS'
+#url1<-'https://tourism.pr.gov/wp-content/uploads/2025/09/CY-Cruise-Info.pdf'
 
-library(readxl)
-library(httr)
-packageVersion("readxl")
+# Load necessary libraries
+library(pdftools)
+library(dplyr)
+library(tidyr)
 
-GET(url1, write_disk(tf <- tempfile(fileext = ".xls")))
-df <- read_excel(tf, 2L)
-str(df)
+# Specify the URL of the PDF
+url <- "https://tourism.pr.gov/wp-content/uploads/2025/09/CY-Cruise-Info.pdf"
 
+# Specify the destination file path
+destfile <- "indicator_data/intermediateFiles/CY-Cruise-Info-2025.pdf"
 
-df2 = df[c(52,63),]
+# Download the PDF
+download.file(url, destfile, mode = "wb")
 
-df2t = as.data.frame(t(df2))
+# Check if the file has been downloaded
+file.exists(destfile)
 
-df2t = df2t[-c(1,2,12),]
+# Load the PDF
+pdf_file <- "indicator_data/intermediateFiles/CY-Cruise-Info-2025.pdf"
 
+# Extract text from the PDF
+pdf_text <- pdf_text(pdf_file)
 
-yrs_PR = as.integer(df2t$V1)
-cruise_PR = as.numeric(df2t$V2)
+# Extract the relevant page (assuming the table is on the first page)
+page_text <- pdf_text[1]
+
+# Split the text into lines
+lines <- strsplit(page_text, "\n")[[1]]
+
+# Identify the lines containing the Visitor Arrivals table
+# (assuming the table starts with "VISITOR ARRIVALS" and ends before "VISITOR EXPENDITURES")
+start_line <- grep("2025", lines)
+end_line <- grep("MARKET ", lines)
+table_lines <- lines[(start_line + 1):(end_line - 1)]
+
+# Combine lines into a single text block and split by spaces
+table_text <- paste(table_lines, collapse = " ")
+table_data <- strsplit(table_text, " +")[[1]]
+
+# Create years column
+years <- c(2000,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024)
+
+# Extract and clean the total visitors data by removing commas
+cruise_passengers <- gsub(",", "", table_data[82:97])
+cruise_passengers <- as.numeric(cruise_passengers)
+
+# Extract and clean the total visitors data by removing commas
+air_passengers <- gsub(",", "", table_data[62:77])
+air_passengers <- as.numeric(air_passengers)    
 
 # Create a data frame
-PR_cruise <- data.frame(Year = yrs_PR, Cruise_passengers = cruise_PR)
+USVI_cruise <- data.frame(Year = years, Cruise_passengers = cruise_passengers)
+USVI_air <- data.frame(Year = years, Air_passengers = air_passengers)
+
+# Print the data frame
+print(USVI_cruise)
+print(USVI_air)
 
 
 
-# Puerto Rico - air passengers (source = PR ports authority)
 
-url1<-'https://www.bde.pr.gov/BDE/PREDDOCS/I_CARGO.XLS'
+# Puerto Rico - air passengers 
 
-library(readxl)
-library(httr)
-packageVersion("readxl")
+# Load necessary libraries
+library(pdftools)
+library(dplyr)
+library(tidyr)
 
-GET(url1, write_disk(tf <- tempfile(fileext = ".xls")))
-df <- read_excel(tf, 2L)
-str(df)
+# Specify the URL of the PDF
+url1 <- "https://tourism.pr.gov/wp-content/uploads/2025/09/Passenger-Movement-CY.pdf"
 
+# Specify the destination file path
+destfile <- "indicator_data/intermediateFiles/CY-Passenger-Movement-2025.pdf"
 
-df2 = df[c(52,63),]
+# Download the PDF
+download.file(url1, destfile, mode = "wb")
 
-df2t = as.data.frame(t(df2))
+# Check if the file has been downloaded
+file.exists(destfile)
 
-df2t = df2t[-c(1,2,12),]
+# Load the PDF
+pdf_file <- "indicator_data/intermediateFiles/CY-Passenger-Movement-2025.pdf"
 
+# Extract text from the PDF
+pdf_text <- pdf_text(pdf_file)
 
-yrs_PR = as.integer(df2t$V1)
-air_PR = as.numeric(df2t$V2)
-
-# Create a data frame
-PR_air <- data.frame(Year = yrs_PR, Air_passengers = air_PR)
+# Extract the relevant page (assuming the table is on the first page)
+page_text <- pdf_text[1]
 
 
 ############################
 
-#USVI
+### USVI ###
 
 # I had to dig around on the website a bit to find the tourism indicator for 2024. I found it here: https://usviber.org/studies/. Under "Tourism Studies". The pdf was called "USVI Tourism Indicator 2024".
 
