@@ -7,6 +7,9 @@ rm(list = ls())
 plot.new()
 dev.off()
 
+# This website has economic indicators https://www.jp.pr.gov/. When you click the link it downloads and excel file. In the excel file 
+
+
 # Puerto Rico - cruise passengers (source: PR Ports Authority)
 
 url1<-'https://www.bde.pr.gov/BDE/PREDDOCS/I_CRUISE.XLS'
@@ -66,7 +69,7 @@ PR_air <- data.frame(Year = yrs_PR, Air_passengers = air_PR)
 
 #USVI
 
-# I had to dig around on the website a bit to find the tourism indicator for 2023. I found it here: https://usviber.org/studies/. Under "Tourism Studies". The pdf was called "USVI Tourism Indicator 2024".
+# I had to dig around on the website a bit to find the tourism indicator for 2024. I found it here: https://usviber.org/studies/. Under "Tourism Studies". The pdf was called "USVI Tourism Indicator 2024".
 
 # Load necessary libraries
 library(pdftools)
@@ -77,7 +80,7 @@ library(tidyr)
 url2 <- "https://usviber.org/wp-content/uploads/2025/09/TOUR242.pdf"
 
 # Specify the destination file path
-destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2023.pdf"
+destfile <- "indicator_data/intermediateFiles/Tourism-indicator-2024.pdf"
 
 # Download the PDF
 download.file(url2, destfile, mode = "wb")
@@ -86,7 +89,7 @@ download.file(url2, destfile, mode = "wb")
 file.exists(destfile)
 
 # Load the PDF
-pdf_file <- "indicator_data/intermediateFiles/Tourism-indicator-2023.pdf"
+pdf_file <- "indicator_data/intermediateFiles/Tourism-indicator-2024.pdf"
 
 # Extract text from the PDF
 pdf_text <- pdf_text(pdf_file)
@@ -115,8 +118,8 @@ cruise_passengers <- gsub(",", "", table_data[82:97])
 cruise_passengers <- as.numeric(cruise_passengers)
 
 # Extract and clean the total visitors data by removing commas
-air_passengers <- gsub(",", "", table_data[66:80])
-air_passengers <- as.numeric(air_passengers)    #### PICK UP HERE
+air_passengers <- gsub(",", "", table_data[62:77])
+air_passengers <- as.numeric(air_passengers)    
 
 # Create a data frame
 USVI_cruise <- data.frame(Year = years, Cruise_passengers = cruise_passengers)
